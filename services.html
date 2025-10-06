@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos services | LPA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
 
+/* ======================================================= */
+/* CONFIGURATION GÉNÉRALE */
+/* ======================================================= */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
@@ -18,7 +22,7 @@ body {
 }
 .container {
     max-width: 1200px;
-    margin: 30px auto; /* Augmentation de la marge pour l'espacement */
+    margin: 30px auto;
     padding: 0 25px;
 }
 section {
@@ -45,10 +49,10 @@ p {
 }
 
 /* ======================================================= */
-/* EN-TÊTE (HEADER) ET NAVIGATION (Styles Harmonisé)      */
+/* EN-TÊTE (HEADER) ET NAVIGATION */
 /* ======================================================= */
 header {
-    background-color: #0378A6; /* Couleur de la page d'accueil */
+    background-color: #0378A6; /* Bleu Teal */
     color: #fff;
     padding: 1rem 2rem;
     display: flex;
@@ -124,34 +128,37 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
 }
+
 /* ======================================================= */
-/* GRILLE DE SERVICES                                    */
+/* GRILLE DE SERVICES */
 /* ======================================================= */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cartes légèrement plus grandes */
-    gap: 30px; /* Plus d'espace entre les cartes */
+    /* Adapte automatiquement le nombre de colonnes, min 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
     margin-top: 30px;
 }
 .service-card {
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px; /* Arrondi légèrement plus grand */
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     color: #333;
+    border: 3px solid transparent; /* Bordure transparente pour éviter le saut au survol */
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     text-align: left;
-    display: block; /* S'assurer que le lien couvre toute la carte */
+    display: block; 
 }
 .service-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border: 3px solid #F22EBE; /* Bordure Fuchsia au survol */
+    border-color: #F22EBE; /* Bordure Fuchsia au survol */
 }
 .service-card img {
     width: 100%;
-    height: 200px; /* Image plus haute */
+    height: 200px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
@@ -187,6 +194,70 @@ nav a:hover {
 #myBtn:hover {
     background-color: #F22EBE; 
 }
+
+/* ======================================================= */
+/* MEDIA QUERIES POUR LA RÉACTIVITÉ (MOBILE) */
+/* ======================================================= */
+@media (max-width: 992px) {
+    /* Sur tablettes et petits écrans, on réduit l'espacement et la taille de police */
+    .container {
+        max-width: 90%;
+        margin: 20px auto;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .services-grid {
+        /* Passe à une grille de 2 colonnes minimum pour mieux utiliser l'espace */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Sur mobiles */
+    header {
+        flex-direction: column; /* Empile les éléments du header */
+        align-items: center;
+        padding: 15px 10px;
+        min-height: auto;
+    }
+    header .logo {
+        margin-bottom: 10px;
+    }
+    nav {
+        order: 3; /* Déplace la navigation en bas si nécessaire */
+        width: 100%;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+    nav ul li {
+        margin: 0;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 5px;
+        margin-left: 0;
+        margin-top: 10px;
+        align-items: flex-start; /* Alignement à gauche pour les liens de contact */
+    }
+    .contact-info .contact-link {
+        font-size: 0.9rem;
+    }
+    body {
+        padding-top: 150px; /* Augmentation de l'espace pour le header empilé */
+    }
+    .services-grid {
+        /* Une seule colonne sur les très petits écrans pour maximiser la lisibilité */
+        grid-template-columns: 1fr;
+    }
+    .service-card {
+        padding: 15px;
+    }
+}
     </style>
 </head>
 <body>
@@ -201,12 +272,12 @@ nav a:hover {
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="services.html" class="active">Nos services</a></li>
-             <li><a href="contact.html">Demande de devis</a></li>
+                <li><a href="contact.html">Demande de devis</a></li>
             </ul>
         </nav>
         <div class="contact-info">
             <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3gmail.com" class="contact-link">✉️ ccommerciallpa3gmail.com</a>
+            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
         </div>
     </header>
     
@@ -231,7 +302,7 @@ nav a:hover {
                 </a>
 
                 <a href="analyse-eau.html" class="service-card">
-                    <img src="télécharger.webp" alt="Services Analyse de l'eau">
+                    <img src="eau.webp" alt="Services Analyse de l'eau">
                     <h3>Analyse de l'eau</h3>
                     <p>Tests de potabilité (eaux de boisson), surveillance des rejets industriels, qualité des eaux souterraines et de surface.</p>
                 </a>
@@ -243,12 +314,17 @@ nav a:hover {
                 </a>
                 
                 <a href="laboratoire.html" class="service-card">
-                    <img src="lab.webp" alt="Services Laboratoire">
+                    <img src="lab.webp" alt="Services Laboratoire Général">
                     <h3>Services Laboratoire Général</h3>
                     <p>Tests personnalisés, développement de méthodes analytiques spécifiques et assistance technique en laboratoire.</p>
                 </a>
                 
+                <a href="contact.html" class="service-card" style="border-color: #F22EBE; background-color: #fcecfc;">
+                    <img src="devis.webp" alt="Demande de devis">
+                    <h3 style="color: #F22EBE;">Besoin d'un Devis ?</h3>
+                    <p>Contactez-nous directement pour discuter de vos besoins spécifiques et obtenir une proposition personnalisée.</p>
                 </a>
+                
             </div>
         </section>
     </div>
