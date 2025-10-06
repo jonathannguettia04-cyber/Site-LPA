@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact & Devis | LPA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
 /* ======================================================= */
 /* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Styles Harmonisé)*/
@@ -40,10 +41,10 @@ h2 {
     margin-bottom: 40px;
 }
 /* ======================================================= */
-/* EN-TÊTE (HEADER) ET NAVIGATION (Styles Harmonisé)      */
+/* EN-TÊTE (HEADER) ET NAVIGATION (Styles Harmonisé)      */
 /* ======================================================= */
 header {
-    background-color: #0378A6; /* Couleur de la page d'accueil */
+    background-color: #0378A6; 
     color: #fff;
     padding: 1rem 2rem;
     display: flex;
@@ -120,7 +121,7 @@ nav a:hover {
     color: #fff;
 }
 /* ======================================================= */
-/* STYLE DU FORMULAIRE DE DEVIS                          */
+/* STYLE DU FORMULAIRE DE DEVIS                            */
 /* ======================================================= */
 .form-grid {
     display: grid;
@@ -165,21 +166,31 @@ nav a:hover {
     font-size: 1.1rem;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%; /* S'assure que le bouton est pleine largeur */
 }
 .contact-form button:hover {
     background-color: #F22EBE;
     transform: translateY(-2px);
 }
+.radio-group {
+    padding: 10px 0; /* Ajouté pour un meilleur espacement autour des radios */
+}
 .radio-group label {
     font-weight: normal;
     color: #555;
+    /* Rendre les labels cliquables plus facilement */
+    display: inline-flex; 
+    align-items: center;
+    cursor: pointer;
 }
 .radio-group input[type="radio"] {
-    margin-right: 5px;
+    margin-right: 8px;
+    width: auto; /* Annule le style de width: 100% pour les radios */
+    padding: 0;
 }
 
 /* ======================================================= */
-/* FOOTER ET BOUTON RETOUR EN HAUT                       */
+/* FOOTER ET BOUTON RETOUR EN HAUT                         */
 /* ======================================================= */
 footer {
     background-color: #9B44F2; 
@@ -208,8 +219,57 @@ footer {
 #myBtn:hover {
     background-color: #F22EBE; 
 }
-/* Media Query pour mobile */
+
+/* ======================================================= */
+/* MEDIA QUERY POUR MOBILE (Optimisation)                  */
+/* ======================================================= */
 @media (max-width: 768px) {
+    /* Mise à jour du header pour qu'il soit statique et empilé */
+    body {
+        padding-top: 20px; /* On retire le padding du body car le header n'est plus fixé */
+    }
+    header {
+        flex-direction: column;
+        align-items: center;
+        position: static; /* Le header défile sur mobile */
+        padding-top: 20px;
+        padding-bottom: 15px;
+        min-height: auto;
+    }
+    nav { 
+        width: 100%;
+        margin-top: 10px; 
+        margin-bottom: 10px;
+    }
+    nav ul {
+        display: block; /* La liste prend toute la largeur */
+        text-align: center;
+    }
+    nav ul li { 
+        display: block; 
+        margin: 5px 0; 
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+    nav a::after {
+        display: none; /* Cache l'effet de survol souligné sur mobile */
+    }
+    .contact-info {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .contact-info .contact-link {
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    /* Optimisation du Formulaire */
     .form-grid {
         grid-template-columns: 1fr; /* Une seule colonne sur mobile */
         gap: 15px;
@@ -217,18 +277,12 @@ footer {
     .full-width {
         grid-column: 1 / 2;
     }
-    header {
-        flex-direction: column;
-        align-items: center;
-        position: static;
-        padding-top: 20px;
+    .radio-group {
+        flex-direction: column; /* Empile les options radio */
+        gap: 10px !important;
     }
-    nav { margin-top: 10px; margin-bottom: 10px; }
-    nav ul li { display: block; margin: 5px 0; }
-    .contact-info {
-        margin-left: 0;
-        flex-direction: column;
-        gap: 8px;
+    .contact-form button {
+        padding: 15px 10px;
     }
 }
     </style>
@@ -250,7 +304,7 @@ footer {
         </nav>
         <div class="contact-info">
             <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3gmail.com" class="contact-link">✉️ commerciallpa3gmail.com</a>
+            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
         </div>
     </header>
     

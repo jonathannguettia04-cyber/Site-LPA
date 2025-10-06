@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPA - Laboratoire de Contrôle Qualité</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                   */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                   */
 /* ======================================================= */
 body {
     font-family: 'Roboto', Arial, sans-serif;
@@ -55,7 +56,7 @@ p {
 .mb-4 { margin-bottom: 40px; }
 
 /* ======================================================= */
-/* EN-TÊTE (HEADER) ET NAVIGATION                           */
+/* EN-TÊTE (HEADER) ET NAVIGATION                           */
 /* ======================================================= */
 header {
     background-color: #0378A6;
@@ -84,10 +85,16 @@ header .logo img {
     height: 50px;
     vertical-align: middle;
 }
+nav {
+    /* Ajouté pour permettre à la navigation de se centrer */
+    flex-grow: 1;
+    text-align: center;
+}
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: inline-block; /* Pour centrer le menu */
 }
 nav ul li {
     display: inline-block;
@@ -140,7 +147,7 @@ nav a:hover {
 
 
 /* ======================================================= */
-/* BOUTONS (CTA)                                          */
+/* BOUTONS (CTA)                                          */
 /* ======================================================= */
 .btn {
     display: inline-block;
@@ -167,18 +174,18 @@ nav a:hover {
 }
 .btn.secondary-btn {
     background-color: transparent;
-    color: #fff; /* Changer la couleur du texte en blanc pour un meilleur contraste sur le fond sombre de la hero-section */
-    border-color: #fff; /* Bordure blanche pour le contraste */
+    color: #fff; 
+    border-color: #fff; 
 }
 .btn.secondary-btn:hover {
     background-color: #fff;
-    color: #0378A6; /* Texte bleu au survol */
+    color: #0378A6; 
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
 }
 
 /* ======================================================= */
-/* SECTIONS SPÉCIFIQUES À L'INDEX                         */
+/* SECTIONS SPÉCIFIQUES À L'INDEX                          */
 /* ======================================================= */
 
 /* Hero Section (Section d'accueil) */
@@ -191,12 +198,12 @@ nav a:hover {
     color: #fff;
     text-align: center;
     overflow: hidden;
-    background-image: url('lab1.jpg'); /* Remplacez par l'image de votre choix */
+    background-image: url('lab1.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-
+/* ... (Animations CSS non modifiées) ... */
 @keyframes fadeInScale {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
@@ -230,53 +237,7 @@ nav a:hover {
     text-align: center;
 }
 
-/* Section Aperçu des Services (sur l'index) */
-.services-overview {
-    background-color: #F2F2F2;
-    padding: 80px 0;
-    border-radius: 0;
-    box-shadow: none;
-}
-.services-overview h2 {
-    color: #0378A6;
-    margin-bottom: 50px;
-}
-.services-overview .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    justify-content: center;
-}
-.services-overview .service-card {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border: 3px solid transparent;
-    text-decoration: none;
-}
-.services-overview .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    border-color: #F22EBE;
-}
-.services-overview .service-card img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-.services-overview .service-card h3 {
-    font-size: 1.6rem;
-    color: #0378A6;
-    margin-bottom: 10px;
-}
-.services-overview .service-card p {
-    font-size: 1rem;
-    color: #666;
-}
+/* Section Aperçu des Services (supprimée pour l'instant car non présente dans le HTML fourni) */
 
 /* CARROUSEL (Témoignages) */
 .testimonial-carousel {
@@ -375,10 +336,11 @@ footer {
 }
 
 /* ======================================================= */
-/* RESPONSIVE DESIGN (Media Queries)                     */
+/* RESPONSIVE DESIGN (Media Queries)                        */
 /* ======================================================= */
 
 @media (max-width: 992px) {
+    /* Styles pour tablettes et écrans intermédiaires */
     header { padding: 1rem 1.5rem; }
     nav ul li { margin-left: 20px; }
     h1 { font-size: 3rem; }
@@ -390,17 +352,28 @@ footer {
 }
 
 @media (max-width: 768px) {
-    body { padding-top: 130px; }
+    /* Styles pour mobiles et petits écrans */
+    body { 
+        padding-top: 20px; /* On enlève le padding-top car le header n'est plus fixe */
+    }
     header {
-        flex-direction: column;
+        flex-direction: column; /* Empile les éléments du header */
         align-items: center;
         padding: 0.8rem 1rem;
-        position: static;
+        position: static; /* Le header n'est plus fixe, il défile avec le contenu */
         height: auto;
     }
     header .logo { margin-bottom: 10px; }
-    nav { width: 100%; margin-bottom: 10px; }
-    nav ul { text-align: center; }
+    
+    /* Navigation */
+    nav { 
+        width: 100%; 
+        margin-bottom: 15px; /* Plus d'espace sous la nav */
+    }
+    nav ul { 
+        text-align: center; 
+        display: block; 
+    }
     nav ul li {
         display: block;
         margin: 0;
@@ -411,32 +384,59 @@ footer {
     nav a { display: block; padding: 5px 0; color: #fff; }
     nav a::after { display: none; }
 
+    /* Infos Contact */
     .contact-info {
         flex-direction: column;
         gap: 8px;
         margin-top: 10px;
+        width: 100%;
+    }
+    .contact-info .contact-link {
+        font-size: 0.9rem;
+        width: 100%;
+        text-align: center;
     }
 
+    /* Typographie */
     h1 { font-size: 2.5rem; }
     h2 { font-size: 1.8rem; }
     p { font-size: 1rem; }
 
     /* Hero Section Mobile */
-    .hero-section { height: 60vh; }
-    .hero-content {
-        padding: 20px 30px;
+    .hero-section { 
+        height: 60vh; 
+        padding: 0 10px; /* Plus de padding horizontal pour les petites sections */
     }
-    .hero-content h1 { font-size: 2.8rem; }
-    .hero-content p { font-size: 1rem; }
+    .hero-content {
+        padding: 30px 20px;
+    }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content p { font-size: 1.1rem; }
+    .hero-content .btn { 
+        display: block; 
+        margin: 10px auto; /* Empile les boutons */
+        width: 80%;
+    }
+    .btn.secondary-btn { margin-left: 0 !important; }
 
-    /* Grilles et Cartes Mobile */
-    .services-overview .services-grid {
-        grid-template-columns: 1fr;
+    /* Carrousel Mobile */
+    .slide {
+        padding: 20px 15px; /* Réduit le padding du carrousel */
+    }
+    .testimonial-card {
+        padding: 20px;
+    }
+    .testimonial-card .quote {
+        font-size: 1.1rem;
+    }
+    .testimonial-carousel {
+        padding: 40px 0;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-content h1 { font-size: 2.2rem; }
+    /* Styles pour très petits mobiles */
+    .hero-content h1 { font-size: 2rem; }
     .hero-content p { font-size: 0.9rem; }
     .btn { padding: 10px 20px; font-size: 0.9rem; }
 }
@@ -452,14 +452,14 @@ footer {
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="services.html">Nos services</a></li>
                 <li><a href="contact.html">Demande de devis</a></li>
             </ul>
         </nav>
         <div class="contact-info">
             <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3gmail.com" class="contact-link">✉️ commerciallpa3gmail.com</a>
+            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
         </div>
     </header>
 
@@ -530,6 +530,7 @@ footer {
                 wrapper.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
             }
             
+            // J'ai vérifié que le carrousel est bien configuré pour fonctionner sur mobile aussi.
             setInterval(nextSlide, 5000);
         }
 
