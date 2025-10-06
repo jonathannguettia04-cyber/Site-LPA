@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos services | LPA</title>
+    <style>
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 90px; /* Espace pour le header fixé */
+    background-color: #EBEBEB;
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+.container {
+    max-width: 1200px;
+    margin: 30px auto; /* Augmentation de la marge pour l'espacement */
+    padding: 0 25px;
+}
+section {
+    background-color: #fff;
+    padding: 50px 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #0378A6;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+}
+
+/* ======================================================= */
+/* EN-TÊTE (HEADER) ET NAVIGATION (Styles Harmonisé)      */
+/* ======================================================= */
+header {
+    background-color: #0378A6; /* Couleur de la page d'accueil */
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-height: 70px;
+}
+header .logo img {
+    height: 50px;
+    vertical-align: middle;
+}
+nav {
+    flex-grow: 1; 
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+nav ul li {
+    display: inline-block;
+    margin-left: 30px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: #F22EBE;
+    transition: width 0.3s ease-in-out;
+}
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+nav a:hover {
+    color: #F22EBE;
+}
+.contact-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: 40px; 
+}
+.contact-info .contact-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.contact-info .contact-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+/* ======================================================= */
+/* GRILLE DE SERVICES                                    */
+/* ======================================================= */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cartes légèrement plus grandes */
+    gap: 30px; /* Plus d'espace entre les cartes */
+    margin-top: 30px;
+}
+.service-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px; /* Arrondi légèrement plus grand */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    text-align: left;
+    display: block; /* S'assurer que le lien couvre toute la carte */
+}
+.service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 3px solid #F22EBE; /* Bordure Fuchsia au survol */
+}
+.service-card img {
+    width: 100%;
+    height: 200px; /* Image plus haute */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.service-card h3 {
+    color: #0378A6;
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+.service-card p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+#myBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none;
+    background-color: #0378A6; 
+    color: white; 
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+#myBtn:hover {
+    background-color: #F22EBE; 
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="LOGO LPA.jpg" alt="Logo de LPA">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html" class="active">Nos services</a></li>
+             <li><a href="contact.html">Demande de devis</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
+            <a href="mailto:commerciallpa3gmail.com" class="contact-link">✉️ ccommerciallpa3gmail.com</a>
+        </div>
+    </header>
+    
+    <main>
+    <div class="container">
+        <section id="services-list">
+            <h2>Notre Excellence Analytique : Des Services Spécialisés</h2>
+            <p>Découvrez notre gamme complète d'analyses et de solutions. Chaque service est conçu pour garantir la conformité, la sécurité et la performance dans votre domaine d'activité.</p>
+
+            <div class="services-grid">
+                
+                <a href="agro-alimentaire.html" class="service-card">
+                    <img src="agroalimentaire.webp" alt="Services Agro-alimentaire">
+                    <h3>Agro-alimentaire</h3>
+                    <p>Sécurité alimentaire, contrôle des contaminants, vérification des informations nutritionnelles et tests de stabilité.</p>
+                </a>
+                
+                <a href="chimie.html" class="service-card">
+                    <img src="chimie.webp" alt="Services Chimie">
+                    <h3>Chimie Industrielle</h3>
+                    <p>Analyses de pureté, caractérisation de matières premières, contrôle de conformité des produits finis (peintures, plastiques, etc.).</p>
+                </a>
+
+                <a href="analyse-eau.html" class="service-card">
+                    <img src="télécharger.webp" alt="Services Analyse de l'eau">
+                    <h3>Analyse de l'eau</h3>
+                    <p>Tests de potabilité (eaux de boisson), surveillance des rejets industriels, qualité des eaux souterraines et de surface.</p>
+                </a>
+
+                <a href="prelevement.html" class="service-card">
+                    <img src="prelement.webp" alt="Services Prélèvement">
+                    <h3>Prélèvement et Échantillonnage</h3>
+                    <p>Service sur site de prélèvement d'échantillons (air, eau, sol, produits) par nos techniciens certifiés pour une fiabilité maximale.</p>
+                </a>
+                
+                <a href="laboratoire.html" class="service-card">
+                    <img src="lab.webp" alt="Services Laboratoire">
+                    <h3>Services Laboratoire Général</h3>
+                    <p>Tests personnalisés, développement de méthodes analytiques spécifiques et assistance technique en laboratoire.</p>
+                </a>
+                
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+    <footer>
+        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+    </footer>
+
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+
+    <script>
+    // Script du bouton de retour en haut (fonctionnel)
+    let mybutton = document.getElementById("myBtn");
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    </script>
+</body>
+</html>

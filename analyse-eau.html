@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse de l'Eau | LPA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+/* ======================================================= */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Styles Harmonisé)*/
+/* ======================================================= */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0; /* Suppression du padding-top */
+    background-color: #EBEBEB; 
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    background-image: url('');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.container {
+    max-width: 1000px;
+    margin: 50px auto; /* Marge supérieure pour commencer après le haut de la page */
+    padding: 0 25px;
+}
+section {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanc semi-transparent */
+    padding: 50px 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #0378A6; /* Bleu Teal */
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #F22EBE; /* Fuchsia */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Style pour les blocs d'analyse (grille 3 colonnes) */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes pour les trois types d'analyse */
+    gap: 30px;
+    margin-top: 30px;
+}
+.service-block {
+    background: #f7f7f7;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 4px solid #0378A6; /* Bordure Bleu Teal */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.service-block h4 {
+    color: #F22EBE; /* Fuchsia pour les titres de bloc */
+    font-size: 1.4rem;
+    margin-top: 0;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+}
+.service-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+.service-block ul li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+    font-size: 1rem;
+}
+.service-block ul li::before {
+    content: "💧"; /* Puce visuelle pour l'eau */
+    color: #0378A6; 
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* ======================================================= */
+/* LIEN DE RETOUR À L'ACCUEIL */
+/* ======================================================= */
+.return-home {
+    display: block;
+    margin: 30px auto 50px auto;
+    width: fit-content;
+    padding: 12px 25px;
+    background-color: #0378A6;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.return-home:hover {
+    background-color: #F22EBE;
+    transform: translateY(-2px);
+}
+/* ======================================================= */
+/* BOUTON D'ACTION (CALL TO ACTION) */
+/* ======================================================= */
+.cta-button {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 10px auto;
+    padding: 15px 30px;
+    background-color: #F22EBE; /* Fuchsia */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cta-button:hover {
+    background-color: #9B44F2; /* Violet */
+    transform: translateY(-3px);
+}
+/* ======================================================= */
+/* FOOTER ET BOUTON RETOUR EN HAUT */
+/* ======================================================= */
+footer {
+    background-color: #9B44F2; /* Violet */
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 30px;
+}
+#myBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none;
+    background-color: #0378A6; 
+    color: white; 
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+#myBtn:hover {
+    background-color: #F22EBE; 
+}
+
+/* Media Query pour mobile */
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <a href="index.html" class="return-home">← Retour à l'Accueil</a>
+
+            <section id="analyse-eau">
+                <h2>Eau : Un Enjeu de Qualité, Une Responsabilité Partagée</h2>
+                <p style="text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                    La qualité de l'eau est essentielle pour la santé publique et l'industrie. **LPA** est votre partenaire expert pour garantir la **pureté et la conformité** de cette ressource vitale.
+                </p>
+                
+                <hr>
+
+                <h3>Nos domaines d'expertise en analyse de l'eau</h3>
+                
+                <div class="service-grid">
+                    
+                    <div class="service-block">
+                        <h4>Qualité Microbiologique (Santé)</h4>
+                        <p>Évaluation des risques sanitaires pour la consommation humaine et les processus sensibles :</p>
+                        <ul>
+                            <li>Recherche de **Coliformes Totaux** et **Escherichia coli**</li>
+                            <li>Dénombrement de la Flore Totale (Germes Aérobies)</li>
+                            <li>Détection des indicateurs de contamination fécale</li>
+                            <li>Tests de conformité pour les **eaux potables**</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4>Paramètres Physico-Chimiques</h4>
+                        <p>Contrôle de la composition et des propriétés physiques pour la protection des infrastructures et des organismes :</p>
+                        <ul>
+                            <li>Mesure du **pH**, de la Turbidité et de la Conductivité</li>
+                            <li>Recherche et Quantification des **Métaux Lourds** (Fer, Cuivre, Manganèse, Zinc)</li>
+                            <li>Détermination de la Dureté (Titre Hydrotimétrique)</li>
+                            <li>Analyse des Nitrates, Phosphates et autres sels dissous</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-block">
+                        <h4>Eaux Industrielles et Environnementales</h4>
+                        <p>Garantir que les eaux de rejet ou d'usage industriel respectent les réglementations :</p>
+                        <ul>
+                            <li>Analyse des **Eaux de Rejet** avant déversement</li>
+                            <li>Contrôle de la Qualité des **Eaux de Processus** industriels</li>
+                            <li>Évaluation des Eaux Souterraines et de Forage</li>
+                            <li>Conformité aux directives de l'**OMS 2017**</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                <p style="margin-top: 30px; text-align: center; font-style: italic;">
+                    Avec LPA, vous avez l'assurance que votre eau est saine et conforme aux standards de qualité les plus élevés, qu'il s'agisse d'eau de boisson ou d'usage industriel.
+                </p>
+
+                <a href="contact.html" class="cta-button">Demander une Analyse de la Qualité de l'Eau</a>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <script>
+    // Récupère le bouton
+    let mybutton = document.getElementById("myBtn");
+
+    // Quand l'utilisateur défile vers le bas de 200px, on montre le bouton
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        // J'ai mis 200px pour une meilleure expérience
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // Quand l'utilisateur clique sur le bouton, on remonte en haut de la page
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+</body>
+</html>
