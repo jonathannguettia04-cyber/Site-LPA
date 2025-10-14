@@ -9,97 +9,148 @@
 /* ======================================================= */
 /* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Styles Harmonisé)*/
 /* ======================================================= */
+/* Couleurs de l'index: #4F9BCC (Bleu Ciel), #0378A6 (Bleu Teal/Primaire) */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
-    padding: 0; /* Suppression du padding-top car il n'y a pas de header fixé */
+    padding: 0; 
     background-color: #EBEBEB; /* Fond clair cohérent */
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
-    background-image: url('');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
 }
 .container {
-    max-width: 1000px;
-    margin: 50px auto; /* Marge supérieure pour commencer après le haut de la page */
+    max-width: 1100px; /* Espace plus grand pour le texte */
+    margin: 50px auto; 
     padding: 0 25px;
 }
 section {
-    background-color: rgba(255, 255, 255, 0.95); /* Blanc semi-transparent */
-    padding: 50px 40px;
+    background-color: #fff; /* Blanc solide */
+    padding: 60px 50px; /* Plus d'espace intérieur */
     margin-bottom: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
-    color: #0378A6;
+    font-size: 2.8rem; /* Titre principal plus grand */
+    color: #0378A6; /* Bleu Teal */
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 15px;
-    margin-bottom: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 50px; /* Plus d'espacement après le titre principal */
+    line-height: 1.2;
 }
 h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    color: #F22EBE; /* Fuchsia pour les sous-titres de section */
-    margin-top: 30px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #4F9BCC; /* Bleu Ciel pour les sous-titres */
+    margin-top: 40px; /* Espacement accru au-dessus */
+    margin-bottom: 25px; /* Espacement accru en dessous */
     text-align: center;
 }
+
 /* Style pour les blocs d'analyse (grille 2 colonnes) */
 .service-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 30px;
+    gap: 40px; /* Espacement accru entre les blocs */
+    margin-top: 40px;
 }
 .service-block {
     background: #f7f7f7;
-    padding: 25px;
+    padding: 30px; /* Plus de padding */
     border-radius: 8px;
-    border-top: 4px solid #0378A6;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #4F9BCC; /* Utilisation du Bleu Ciel pour la bordure */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.service-block:hover {
+    transform: translateY(-5px);
+    border-color: #0378A6; /* Bordure plus foncée au survol */
 }
 .service-block h4 {
     color: #0378A6;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-top: 0;
     border-bottom: 1px dotted #ccc;
     padding-bottom: 10px;
 }
 .service-block ul {
-    list-style: none;
-    padding-left: 0;
+    list-style-type: disc; /* Retour à des puces standard (points) */
+    padding-left: 20px; /* Ajout d'un padding pour la liste */
 }
 .service-block ul li {
-    padding: 5px 0;
-    position: relative;
-    padding-left: 20px;
-    font-size: 1rem;
-}
-.service-block ul li::before {
-    content: "✔️"; /* Puce visuelle */
-    color: #F22EBE;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    padding: 7px 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #555;
 }
 
 /* ======================================================= */
-/* LIEN DE RETOUR À L'ACCUEIL (Remplacement du Header)    */
+/* BANNIERE D'IMAGE (HERO) AVEC ANIMATION KEN BURNS       */
+/* ======================================================= */
+.hero-banner {
+    position: relative;
+    height: 300px; /* Hauteur fixe pour la bannière */
+    overflow: hidden; /* Cache le débordement de l'animation */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+.hero-banner img { /* Style de l'image à animer */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: kenBurns 20s ease-in-out infinite alternate; /* Animation Ken Burns */
+}
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 120, 166, 0.4); /* Overlay Bleu Teal sombre */
+    z-index: 1; /* Assure que l'overlay est au-dessus de l'image */
+}
+.banner-title {
+    position: relative;
+    z-index: 2; /* Assure que le titre est au-dessus de l'overlay */
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Keyframes pour l'animation Ken Burns */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.2) translate(-5%, -5%);
+    }
+}
+
+
+/* ======================================================= */
+/* LIEN DE RETOUR À L'ACCUEIL */
 /* ======================================================= */
 .return-home {
     display: block;
-    margin: 30px auto 50px auto;
+    margin: 0 auto 50px auto;
     width: fit-content;
     padding: 12px 25px;
-    background-color: #0378A6;
+    background-color: #0378A6; /* Bleu Teal */
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -107,35 +158,35 @@ h3 {
     transition: background-color 0.3s, transform 0.3s;
 }
 .return-home:hover {
-    background-color: #F22EBE;
+    background-color: #4F9BCC; /* Bleu Ciel au survol */
     transform: translateY(-2px);
 }
 /* ======================================================= */
-/* BOUTON D'ACTION (CALL TO ACTION)                       */
+/* BOUTON D'ACTION (CALL TO ACTION) */
 /* ======================================================= */
 .cta-button {
     display: block;
     width: fit-content;
-    margin: 40px auto 10px auto;
-    padding: 15px 30px;
-    background-color: #F22EBE; 
+    margin: 50px auto 20px auto; /* Marge accrue */
+    padding: 18px 40px; /* Bouton plus grand */
+    background-color: #4F9BCC; /* Bleu Ciel */
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     border-radius: 50px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 .cta-button:hover {
-    background-color: #9B44F2; 
+    background-color: #0378A6; /* Bleu Teal au survol */
     transform: translateY(-3px);
 }
 /* ======================================================= */
-/* FOOTER ET BOUTON RETOUR EN HAUT                       */
+/* FOOTER ET BOUTON RETOUR EN HAUT */
 /* ======================================================= */
 footer {
-    background-color: #9B44F2; 
+    background-color: #0378A6; /* Bleu Teal pour le footer */
     color: #fff;
     text-align: center;
     padding: 1.5rem 0;
@@ -159,7 +210,7 @@ footer {
     transition: background-color 0.3s;
 }
 #myBtn:hover {
-    background-color: #F22EBE; 
+    background-color: #4F9BCC; /* Bleu Ciel au survol */
 }
 
 /* Media Query pour mobile */
@@ -167,24 +218,45 @@ footer {
     .service-grid {
         grid-template-columns: 1fr; /* Une seule colonne sur mobile */
     }
+    .hero-banner {
+        height: 200px;
+    }
+    .banner-title {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
 }
     </style>
 </head>
 <body>
+    <div class="hero-banner"> 
+        <img src="agroalimentaire.webp" alt="Laboratoire Agro-alimentaire">
+        <h1 class="banner-title">LPA : L'Exigence Qualité en Agro-alimentaire</h1>
+    </div>
 
     <main>
         <div class="container">
-            <a href="index.html" class="return-home">← Retour à l'Accueil</a>
+            <a href="services.html" class="return-home">← Retour à Nos Services</a>
 
             <section id="agro-alimentaire">
                 <h2>Sécurité et Qualité : Notre Engagement pour l'Agro-alimentaire</h2>
-                <p style="text-align: center; font-size: 1.1rem; color: #555;">
-                    L'industrie agro-alimentaire fait face à des exigences strictes en matière de sécurité et de qualité. Chez **LPA**, nous sommes votre partenaire de confiance pour garantir la **conformité** de vos produits aux normes nationales et internationales, de la matière première au produit fini.
+                <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333;">
+                    L'industrie agro-alimentaire fait face à des exigences **strictes** en matière de sécurité et de qualité. Chez **LPA**, nous sommes votre partenaire de confiance pour garantir la **conformité** de vos produits aux normes nationales et internationales, de la matière première au produit fini, assurant ainsi la **confiance** des consommateurs.
                 </p>
                 
-                <hr>
+                <hr style="margin: 40px auto; border-color: #eee;">
 
-                <h3>Un Partenariat Essentiel pour la Confiance Consommateur</h3>
+                <h3>Nos domaines d'expertise analytique</h3>
                 
                 <div class="service-grid">
                     

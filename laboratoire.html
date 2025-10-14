@@ -9,49 +9,51 @@
 /* ======================================================= */
 /* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Styles Harmonisé)*/
 /* ======================================================= */
+/* Couleurs de l'index: #4F9BCC (Bleu Ciel), #0378A6 (Bleu Teal/Primaire) */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
-    padding: 0; /* Suppression du padding-top pour l'absence de header */
-    background-color: #EBEBEB; /* Couleur de fond cohérente */
+    padding: 0; 
+    background-color: #EBEBEB; 
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
 .container {
-    max-width: 1000px;
-    margin: 50px auto; /* Augmentation de la marge supérieure */
+    max-width: 1100px; /* Espace plus grand pour le texte */
+    margin: 50px auto; 
     padding: 0 25px;
 }
 section {
-    background-color: #fff;
-    padding: 50px 40px;
+    background-color: #fff; /* Blanc solide */
+    padding: 60px 50px; /* Plus d'espace intérieur */
     margin-bottom: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 h2 {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
-    color: #0378A6;
+    font-size: 2.8rem; 
+    color: #0378A6; /* Bleu Teal */
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 15px;
-    margin-bottom: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 50px; /* Plus d'espacement après le titre principal */
+    line-height: 1.2;
 }
 h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    color: #0378A6;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    color: #4F9BCC; /* Remplacé par le Bleu Ciel */
+    margin-top: 40px; 
+    margin-bottom: 25px; 
     text-align: center;
 }
 h4 {
-    color: #F22EBE; /* Couleur d'accentuation (Fuchsia) */
-    font-size: 1.3rem;
-    border-bottom: 1px dashed #ddd;
-    padding-bottom: 5px;
+    color: #0378A6; /* Remplacé par le Bleu Teal */
+    font-size: 1.5rem;
+    border-bottom: 1px dotted #ccc; /* Ligne plus discrète */
+    padding-bottom: 10px;
     margin-bottom: 15px;
 }
 p {
@@ -62,35 +64,100 @@ p {
     margin-bottom: 20px;
 }
 ul {
-    list-style: none;
-    padding-left: 0;
+    list-style-type: disc; /* Retour aux puces standard (points) */
+    padding-left: 20px; 
 }
 ul li {
-    font-size: 1rem;
-    padding: 5px 0;
-    border-bottom: 1px dotted #eee;
+    font-size: 1.1rem; /* Taille de police harmonisée */
+    padding: 7px 0;
+    border-bottom: none; /* Suppression des lignes en dessous des li */
     color: #555;
-    position: relative;
-    padding-left: 20px;
+    position: static; 
+    padding-left: 0;
 }
 ul li:before {
-    content: "•"; /* Puce personnalisée */
-    color: #0378A6;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    content: none; /* Suppression de la puce personnalisée */
+}
+
+/* Flexbox pour les analyses sur les grands écrans */
+.analysis-flex-container {
+    display: flex; 
+    gap: 40px; /* Espacement accru */
+    margin-top: 20px;
+}
+/* Style pour les sous-sections dans le flex container */
+.analysis-flex-container > div {
+    background: #f7f7f7;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid #4F9BCC; /* Bordure latérale subtile */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* ======================================================= */
-/* LIEN DE RETOUR À L'ACCUEIL (Remplacement du Header)    */
+/* BANNIERE D'IMAGE (HERO) AVEC ANIMATION KEN BURNS       */
+/* ======================================================= */
+.hero-banner {
+    position: relative;
+    height: 300px; 
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+.hero-banner img { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: kenBurns 20s ease-in-out infinite alternate; 
+}
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 120, 166, 0.4); /* Overlay Bleu Teal sombre */
+    z-index: 1; 
+}
+.banner-title {
+    position: relative;
+    z-index: 2; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Keyframes pour l'animation Ken Burns */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.2) translate(-5%, -5%);
+    }
+}
+
+
+/* ======================================================= */
+/* LIEN DE RETOUR AUX SERVICES (Modifié depuis l'Accueil) */
 /* ======================================================= */
 .return-home {
     display: block;
-    margin: 30px auto 50px auto;
+    margin: 0 auto 50px auto;
     width: fit-content;
     padding: 12px 25px;
-    background-color: #0378A6;
+    background-color: #0378A6; /* Bleu Teal */
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -98,15 +165,15 @@ ul li:before {
     transition: background-color 0.3s, transform 0.3s;
 }
 .return-home:hover {
-    background-color: #F22EBE;
+    background-color: #4F9BCC; /* Bleu Ciel au survol */
     transform: translateY(-2px);
 }
 
 /* ======================================================= */
-/* FOOTER ET BOUTON RETOUR EN HAUT                       */
+/* FOOTER ET BOUTON RETOUR EN HAUT */
 /* ======================================================= */
 footer {
-    background-color: #9B44F2; 
+    background-color: #0378A6; /* Remplacé par le Bleu Teal pour le footer */
     color: #fff;
     text-align: center;
     padding: 1.5rem 0;
@@ -130,37 +197,54 @@ footer {
     transition: background-color 0.3s;
 }
 #myBtn:hover {
-    background-color: #F22EBE; 
+    background-color: #4F9BCC; /* Bleu Ciel au survol */
 }
-/* Flexbox pour les analyses sur les grands écrans */
-.analysis-flex-container {
-    display: flex; 
-    gap: 30px;
-}
-/* Adaptation pour les petits écrans */
+
+/* Media Query pour mobile */
 @media (max-width: 768px) {
     .analysis-flex-container {
-        flex-direction: column;
+        flex-direction: column; /* Une seule colonne sur mobile */
+        gap: 20px;
+    }
+    .hero-banner {
+        height: 200px;
+    }
+    .banner-title {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    h3 {
+        font-size: 1.5rem;
     }
 }
     </style>
 </head>
 <body>
 
+    <div class="hero-banner"> 
+        <img src="laboratoire.webp" alt="Laboratoire d'analyse moderne et équipements de pointe">
+        <h1 class="banner-title">L'Excellence Scientifique : Notre Laboratoire au Service de Votre Qualité</h1>
+    </div>
+
     <main>
         <div class="container">
-            <a href="index.html" class="return-home">← Retour à l'Accueil</a>
+            <a href="services.html" class="return-home">← Retour à Nos Services</a>
 
             <section id="laboratoire">
                 <h2>L'Excellence au Cœur de Notre Laboratoire</h2>
-                <p>
-                    Chez **LPA**, notre laboratoire est le pilier de notre engagement envers la qualité. Il est équipé d'instruments à la **pointe de la technologie** pour garantir la précision et la fiabilité de toutes nos analyses. Nous sommes spécialisés dans le **contrôle de la qualité et de la conformité** des produits, des denrées alimentaires et des échantillons environnementaux.
+                <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 40px;">
+                    Chez LPA, notre laboratoire est le pilier de notre engagement envers la qualité. Il est équipé d'instruments à la **pointe de la technologie** pour garantir la précision et la fiabilité de toutes nos analyses. Nous sommes spécialisés dans le **contrôle de la qualité et de la conformité** des produits, des denrées alimentaires et des échantillons environnementaux.
                 </p>
-                <p>
-                    Notre mission est d'accompagner nos clients vers la **conformité totale** en fournissant des services d'analyse certifiés, conformes aux normes et standards internationaux et nationaux, tout en maintenant une totale **transparence et intégrité**.
+                <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333;">
+                    Notre mission est d'accompagner nos clients vers la **conformité totale en fournissant des services d'analyse certifiés, conformes aux normes et standards internationaux et nationaux, tout en maintenant une totale **transparence et intégrité**.
                 </p>
     
-                <hr> <h3>Nos Domaines d'Analyse Détaillés</h3>
+                <hr style="margin: 40px auto; border-color: #eee;">
+    
+                <h3>Nos Domaines d'Analyse Détaillés</h3>
                 
                 <div class="analysis-flex-container">
                     <div style="flex: 1;">
@@ -191,19 +275,19 @@ footer {
                     </div>
                 </div>
 
-                <hr>
+                <hr style="margin: 40px auto; border-color: #eee;">
                 
                 <h3>Nos Équipements Clés</h3>
-                <p style="text-align: center; font-style: italic;">La fiabilité de nos résultats repose sur l'utilisation d'équipements étalonnés de marques reconnues internationalement.</p>
+                <p style="text-align: center; font-style: italic; color: #555;">La fiabilité de nos résultats repose sur l'utilisation d'équipements étalonnés de marques reconnues internationalement.</p>
                 
                 <div class="analysis-flex-container">
                     <div style="flex: 1; text-align: center;">
-                        <h4 style="color: #0378A6;">Équipements Chimiques</h4>
-                        <p>Spectrophotomètre d'absorption atomique (pour métaux lourds), Spectromètre UV-Visible, Chromatographes Liquide et Gazeux (HPLC/GC) pour les contaminants organiques, pH-mètres de haute précision.</p>
+                        <h4 style="color: #4F9BCC;">Équipements Chimiques</h4>
+                        <p style="text-align: center;">Spectrophotomètre d'absorption atomique (pour métaux lourds), Spectromètre UV-Visible, Chromatographes Liquide et Gazeux (HPLC/GC) pour les contaminants organiques, pH-mètres de haute précision.</p>
                     </div>
                     <div style="flex: 1; text-align: center;">
-                        <h4 style="color: #0378A6;">Équipements Microbiologiques</h4>
-                        <p>Autoclaves et Étuvées de culture, Hottes à Flux Laminaire (sécurité et stérilité), Compteur de colonies automatique, Systèmes de filtration sous vide pour les analyses d'eau.</p>
+                        <h4 style="color: #4F9BCC;">Équipements Microbiologiques</h4>
+                        <p style="text-align: center;">Autoclaves et Étuvées de culture, Hottes à Flux Laminaire (sécurité et stérilité), Compteur de colonies automatique, Systèmes de filtration sous vide pour les analyses d'eau.</p>
                     </div>
                 </div>
 

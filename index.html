@@ -13,10 +13,11 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 90px;
+    /* AJUSTEMENT : On fixe le padding-top à 140px pour laisser de l'espace pour le header fixe et le bandeau défilant */
+    padding-top: 140px; 
     background-color: #EBEBEB;
-    color: #333;
-    line-height: 1.6;
+    color: #333333;
+    line-height: 1.7; 
     scroll-behavior: smooth;
 }
 .container {
@@ -33,7 +34,7 @@ section {
 }
 h1, h2, h3 {
     font-family: 'Poppins', sans-serif;
-    color: #0378A6;
+    color: #4F9BCC; 
     text-align: center;
     margin-bottom: 30px;
 }
@@ -50,6 +51,7 @@ p {
     line-height: 1.8;
     color: #555;
     text-align: center;
+    margin-bottom: 20px;
 }
 .text-center { text-align: center; }
 .mt-4 { margin-top: 40px; }
@@ -59,7 +61,7 @@ p {
 /* EN-TÊTE (HEADER) ET NAVIGATION                           */
 /* ======================================================= */
 header {
-    background-color: #0378A6;
+    background-color: #4F9BCC; 
     color: #fff;
     padding: 1rem 2rem;
     display: flex;
@@ -72,43 +74,14 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-height: 70px;
 }
-header .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
 header .logo img {
     height: 50px;
     vertical-align: middle;
 }
-nav {
-    /* Ajouté pour permettre à la navigation de se centrer */
-    flex-grow: 1;
-    text-align: center;
-}
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block; /* Pour centrer le menu */
-}
-nav ul li {
-    display: inline-block;
-    margin-left: 30px;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 5px 0;
-    position: relative;
-    transition: color 0.3s ease;
-}
+nav { flex-grow: 1; text-align: center; }
+nav ul { list-style: none; margin: 0; padding: 0; display: inline-block; }
+nav ul li { display: inline-block; margin-left: 30px; }
+nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.1rem; padding: 5px 0; position: relative; transition: color 0.3s ease; }
 nav a::after {
     content: '';
     position: absolute;
@@ -116,35 +89,52 @@ nav a::after {
     bottom: -5px;
     width: 0;
     height: 3px;
-    background-color: #F22EBE;
+    background-color: #0378A6; 
     transition: width 0.3s ease-in-out;
 }
 nav a:hover::after,
-nav a.active::after {
+nav a.active::after { width: 100%; }
+nav a:hover { color: #0378A6; }
+.contact-info { display: flex; gap: 20px; align-items: center; }
+.contact-info .contact-link { color: #fff; text-decoration: none; font-size: 1rem; padding: 5px 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; transition: background-color 0.3s ease; }
+.contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
+
+/* ======================================================= */
+/* BANDEAU DE TEXTE DÉFILANT (SCROLLING MESSAGE BAR)      */
+/* ======================================================= */
+.scrolling-message-bar {
+    position: fixed; 
+    /* Positionne juste sous le header. 100px pour couvrir min-height + padding du header. */
+    top: 100px; 
+    left: 0;
     width: 100%;
-}
-nav a:hover {
-    color: #F22EBE;
-}
-.contact-info {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-.contact-info .contact-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 5px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.contact-info .contact-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    overflow: hidden; 
+    background-color: #0378A6; 
+    color: #FFD700;
+    padding: 8px 0; 
+    z-index: 999; 
+    box-shadow: 0 3px 5px rgba(238, 238, 236, 0.1);
 }
 
+.scrolling-text {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap; 
+    margin: 0;
+    padding-right: 100%; 
+    animation: scroll-promo 20s linear infinite; 
+}
+
+@keyframes scroll-promo {
+    0% {
+        transform: translate3d(0, 0, 0); 
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0); 
+    }
+}
 
 /* ======================================================= */
 /* BOUTONS (CTA)                                          */
@@ -162,15 +152,15 @@ nav a:hover {
     border: 2px solid transparent;
 }
 .btn.primary-btn {
-    background-color: #0378A6;
+    background-color: #0378A6; 
     color: #fff;
     border-color: #0378A6;
 }
 .btn.primary-btn:hover {
-    background-color: #F22EBE;
-    border-color: #F22EBE;
+    background-color: #4F9BCC; 
+    border-color: #4F9BCC;
     transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(242, 46, 190, 0.3);
+    box-shadow: 0 8px 15px rgba(79, 155, 204, 0.5);
 }
 .btn.secondary-btn {
     background-color: transparent;
@@ -179,145 +169,294 @@ nav a:hover {
 }
 .btn.secondary-btn:hover {
     background-color: #fff;
-    color: #0378A6; 
+    color: #4F9BCC; 
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
 }
 
 /* ======================================================= */
-/* SECTIONS SPÉCIFIQUES À L'INDEX                          */
+/* HERO SECTION AVEC CARROUSEL DE FOND ET ANIMATION      */
 /* ======================================================= */
-
-/* Hero Section (Section d'accueil) */
 .hero-section {
     position: relative;
-    height: 70vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     text-align: center;
     overflow: hidden;
-    background-image: url('lab1.jpg'); 
+    background-color: #000;
+}
+
+/* Conteneur du Carrousel d'images */
+.image-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
-/* ... (Animations CSS non modifiées) ... */
-@keyframes fadeInScale {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+.carousel-image.active {
+    opacity: 1;
 }
-@keyframes subtleFloat {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0px); }
+
+/* OVERLAY NOIR SEMI-TRANSPARENT pour améliorer la lisibilité */
+.image-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Fond noir semi-transparent */
+    z-index: 1;
+}
+
+/* Filtre Bleu Léger */
+.animated-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(79, 155, 204, 0.3); /* Bleu très léger */
+    z-index: 2; 
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 3; /* Assure que le contenu est au-dessus de tout */
     padding: 40px 60px;
-    max-width: 900px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: fadeInScale 1s ease-out forwards, subtleFloat 3s ease-in-out infinite alternate;
+    max-width: 100%;
+    /* Animation globale du contenu */
+    animation: fadeIn 1.5s 1s ease-out forwards;
+    opacity: 0;
 }
-.hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 15px;
-    color: #fff;
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Animation ajoutée pour le titre et le paragraphe */
+.hero-content h1, .hero-content p {
+    animation: slideUp 1s 1.5s ease-out forwards; 
+    opacity: 0;
+    transform: translateY(20px);
 }
 .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    color: #f0f0f0;
-    text-align: center;
+    animation-delay: 1.8s; 
 }
 
-/* Section Aperçu des Services (supprimée pour l'instant car non présente dans le HTML fourni) */
+@keyframes slideUp {
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
 
-/* CARROUSEL (Témoignages) */
+.hero-content h1 {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7); 
+}
+.hero-content p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: #f0f0f0;
+    font-weight: 400; 
+}
+.hero-content .btn {
+    margin-top: 20px;
+}
+
+/* ======================================================= */
+/* SECTION PARTENAIRES (LOGOS DÉFILANTS)                 */
+/* ======================================================= */
+.partners-section {
+    padding: 60px 0;
+    background-color: #fff;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+}
+.partners-section h2 {
+    color: #0378A6; 
+    border-bottom: none;
+}
+.logo-strip {
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    position: relative;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+.logos-slide {
+    display: inline-block;
+    animation: slide-logos 30s linear infinite;
+}
+.logos-slide img {
+    height: 80px;
+    margin: 0 40px;
+    vertical-align: middle;
+    filter: none; 
+    opacity: 1; 
+    transition: all 0.3s;
+}
+.logos-slide img:hover {
+    filter: none;
+    opacity: 0.8; 
+}
+@keyframes slide-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ======================================================= */
+/* CARROUSEL (Témoignages) - MISE À JOUR FONDU/MONTÉE     */
+/* ======================================================= */
 .testimonial-carousel {
     background-color: #f0f4f7;
     padding: 80px 0;
     margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #4F9BCC;
+}
+/* Styles nécessaires pour le carrousel des témoignages (SUPERPOSITION) */
 .carousel-wrapper {
     overflow: hidden;
     width: 100%;
-    position: relative;
-    border-radius: 10px;
+    min-height: 250px; /* Ajout d'une hauteur minimale pour éviter les sauts */
+    position: relative; /* Base pour le positionnement absolu des slides */
 }
 .slide-wrapper {
-    display: flex;
-    transition: transform 0.8s ease-in-out;
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    transition: none; 
 }
 .slide {
+    position: absolute; 
+    top: 0;
+    left: 0;
     width: 100%;
-    flex-shrink: 0;
-    text-align: center;
-    padding: 30px 50px;
+    padding: 0 50px;
     box-sizing: border-box;
+    /* Styles pour l'animation de fondu/montée */
+    opacity: 0; 
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; 
+    transform: translateY(20px); 
 }
-.testimonial-card {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+/* Nouvelle classe pour le slide actif (visible) */
+.slide.active-testimonial {
+    opacity: 1;
+    transform: translateY(0); 
 }
+
 .testimonial-card .quote {
-    font-size: 1.3rem;
     font-style: italic;
-    color: #444;
-    margin-bottom: 20px;
-    line-height: 1.5;
+    font-size: 1.2rem;
 }
 .testimonial-card .author {
-    font-size: 1rem;
     font-weight: bold;
     color: #0378A6;
-    margin: 0;
 }
 
-
-/* Section Appel à l'action (CTA) */
+/* ======================================================= */
+/* CTA (Call to Action)                                   */
+/* ======================================================= */
 .call-to-action {
-    background: linear-gradient(135deg, #0378A6 0%, #1DA1F2 100%); 
+    background: linear-gradient(135deg, #0378A6 0%, #4F9BCC 100%);
     color: #fff;
     padding: 100px 0;
     margin-bottom: 0;
     border-radius: 0;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15);
 }
-.call-to-action h2 {
+.call-to-action h2 { color: #fff; border-bottom: none; margin-bottom: 20px; }
+.call-to-action p { color: #f0f0f0; margin-bottom: 40px; }
+
+
+/* ======================================================= */
+/* FOOTER DÉTAILLÉ                                        */
+/* ======================================================= */
+footer {
+    background-color: #0378A6;
     color: #fff;
-    border-bottom: none;
-    margin-bottom: 20px;
+    padding-top: 50px;
+    font-size: 1rem;
 }
-.call-to-action p {
-    color: #f0f0f0;
-    margin-bottom: 40px;
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+.footer-col h3 {
+    color: #4F9BCC;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.footer-col p,
+.footer-col ul {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #ccc;
+    line-height: 2.0;
+}
+.footer-col a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-col a:hover {
+    color: #4F9BCC;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 20px 0;
+}
+.developer-credit {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 5px;
 }
 
-/* Footer (Pied de page) */
-footer {
-    background-color: #9B44F2;
-    color: #fff;
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 50px;
-    font-size: 0.95rem;
-}
 /* Bouton Retour en Haut */
 #myBtn {
     display: none;
     position: fixed;
-    bottom: 20px;
+    bottom: 30px;
     right: 30px;
     z-index: 99;
     border: none;
@@ -332,113 +471,67 @@ footer {
     transition: background-color 0.3s;
 }
 #myBtn:hover {
-    background-color: #F22EBE;
+    background-color: #4F9BCC;
 }
 
 /* ======================================================= */
-/* RESPONSIVE DESIGN (Media Queries)                        */
+/* MEDIA QUERY POUR MOBILE                               */
 /* ======================================================= */
-
 @media (max-width: 992px) {
-    /* Styles pour tablettes et écrans intermédiaires */
-    header { padding: 1rem 1.5rem; }
-    nav ul li { margin-left: 20px; }
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2rem; }
-    .hero-content h1 { font-size: 3rem; }
-    .hero-content p { font-size: 1.3rem; }
-    section { padding: 40px 25px; }
-    .btn { padding: 12px 25px; font-size: 1rem; }
+    .testimonial-carousel .slide {
+        padding: 0 20px;
+    }
 }
-
 @media (max-width: 768px) {
-    /* Styles pour mobiles et petits écrans */
+    /* Sur mobile, on enlève le positionnement fixe des éléments du haut */
+    header { 
+        flex-direction: column; 
+        position: static; 
+    }
+    .scrolling-message-bar {
+        position: static; /* Le bandeau devient normal (non-fixe) sur mobile */
+        top: auto;
+    }
     body { 
-        padding-top: 20px; /* On enlève le padding-top car le header n'est plus fixe */
+        padding-top: 20px; /* Retour au padding de base pour mobile */
     }
-    header {
-        flex-direction: column; /* Empile les éléments du header */
-        align-items: center;
-        padding: 0.8rem 1rem;
-        position: static; /* Le header n'est plus fixe, il défile avec le contenu */
-        height: auto;
-    }
+
     header .logo { margin-bottom: 10px; }
-    
-    /* Navigation */
-    nav { 
-        width: 100%; 
-        margin-bottom: 15px; /* Plus d'espace sous la nav */
-    }
-    nav ul { 
-        text-align: center; 
-        display: block; 
-    }
-    nav ul li {
-        display: block;
-        margin: 0;
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    nav { width: 100%; margin-top: 10px; margin-bottom: 10px; }
+    nav ul { display: block; text-align: center; }
+    nav ul li { display: block; margin: 5px 0; padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
     nav ul li:last-child { border-bottom: none; }
-    nav a { display: block; padding: 5px 0; color: #fff; }
     nav a::after { display: none; }
-
-    /* Infos Contact */
-    .contact-info {
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 10px;
-        width: 100%;
+    .contact-info { width: 100%; margin-left: 0; flex-direction: column; gap: 8px; }
+    .contact-info .contact-link { width: 90%; text-align: center; margin: 0 auto; }
+    
+    .hero-content h1 { 
+        font-size: 2.5rem; 
+        line-height: 1.2;
     }
-    .contact-info .contact-link {
-        font-size: 0.9rem;
-        width: 100%;
-        text-align: center;
+    .hero-content p { 
+        font-size: 1.1rem; 
     }
-
-    /* Typographie */
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 1.8rem; }
-    p { font-size: 1rem; }
-
-    /* Hero Section Mobile */
-    .hero-section { 
-        height: 60vh; 
-        padding: 0 10px; /* Plus de padding horizontal pour les petites sections */
+    .hero-content .btn { display: block; margin: 10px 0 !important; width: 100%; }
+    
+    .footer-col h3, 
+    .footer-col p,
+    .footer-col ul { text-align: center; } 
+    .logos-slide img { height: 60px; margin: 0 20px; }
+    
+    /* Overlay pour mobile */
+    .animated-overlay { 
+        animation: none; 
+        transform: none; 
+        background-color: rgba(79, 155, 204, 0.6); 
     }
-    .hero-content {
-        padding: 30px 20px;
+    .image-carousel::after {
+        background-color: rgba(0, 0, 0, 0.6); /* Plus opaque sur mobile */
     }
-    .hero-content h1 { font-size: 2.2rem; }
-    .hero-content p { font-size: 1.1rem; }
-    .hero-content .btn { 
-        display: block; 
-        margin: 10px auto; /* Empile les boutons */
-        width: 80%;
-    }
-    .btn.secondary-btn { margin-left: 0 !important; }
-
-    /* Carrousel Mobile */
+    
     .slide {
-        padding: 20px 15px; /* Réduit le padding du carrousel */
+        padding: 0 10px;
     }
-    .testimonial-card {
-        padding: 20px;
-    }
-    .testimonial-card .quote {
-        font-size: 1.1rem;
-    }
-    .testimonial-carousel {
-        padding: 40px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Styles pour très petits mobiles */
-    .hero-content h1 { font-size: 2rem; }
-    .hero-content p { font-size: 0.9rem; }
-    .btn { padding: 10px 20px; font-size: 0.9rem; }
 }
     </style>
 </head>
@@ -447,100 +540,180 @@ footer {
     <header>
         <div class="logo">
             <a href="index.html">
-                <img src="Logo LPA.jpg" alt="Logo de LPA">
+                <img src="LOGO LPA.jpg" alt="Logo de LPA">
             </a>
         </div>
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
                 <li><a href="services.html">Nos services</a></li>
                 <li><a href="contact.html">Demande de devis</a></li>
             </ul>
         </nav>
         <div class="contact-info">
-            <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
+            <a href="tel:+2250787652368" class="contact-link"> +225 07 87 65 23 68</a>
+            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">commerciallpa3@gmail.com</a>
         </div>
     </header>
 
-  <main>
-    <section class="hero-section">
-        
-        <div class="hero-content">
-            <h1>LPA : Votre Partenaire en Contrôle Qualité</h1>
-            <p>
-                Laboratoire privé d'Analyses, LPA est spécialisé dans l'excellence analytique pour la chimie, l'agroalimentaire et les prélèvements environnementaux. Forts de nos équipements de pointe et de notre équipe d'experts certifiés, nous vous garantissons la conformité, la sécurité et la qualité de vos produits et environnements.
-            </p>
-            <a href="services.html" class="btn primary-btn">Découvrir nos Services</a>
-            <a href="contact.html" class="btn secondary-btn" style="margin-left: 15px;">Demander un devis</a>
-        </div>
-    </section>
+    <div class="scrolling-message-bar">
+        <p class="scrolling-text">LPA votre partenaire de confiance en contrôle qualité. Nous vous accompagnons pour des analyses fiables. &bull; LPA votre partenaire de confiance en contrôle qualité. Nous vous accompagnons pour des analyses fiables. &bull;</p>
+    </div>
+    <main>
+        <section class="hero-section">
+            
+            <div class="image-carousel">
+                <div class="carousel-image active" style="background-image: url('lpa0.jpg');"></div>
+                <div class="carousel-image" style="background-image: url('LPA 1.png');"></div>
+                <div class="carousel-image" style="background-image: url('LPA2.png');"></div>
+            </div>
 
-    <section class="testimonial-carousel">
-        <div class="container">
-            <h2>Ce que disent nos Clients</h2>
-            <div class="carousel-wrapper">
-                <div class="slide-wrapper">
-                    <div class="slide testimonial-card">
-                        <p class="quote">"Le professionnalisme et la rapidité des analyses de LPA nous ont permis de maintenir un contrôle qualité irréprochable sur nos produits. Un partenaire essentiel."</p>
-                        <p class="author">- Marie D., Directrice Qualité, AgroTech Solutions</p>
-                    </div>
-                    <div class="slide testimonial-card">
-                        <p class="quote">"Leurs prélèvements environnementaux sont effectués avec la plus grande rigueur. Les rapports sont clairs et détaillés. Service de haute qualité."</p>
-                        <p class="author">- Jean L., Ingénieur Environnement, EcoBuild</p>
-                    </div>
-                    <div class="slide testimonial-card">
-                        <p class="quote">"Nous collaborons avec LPA depuis des années pour nos analyses chimiques complexes. Leur expertise technique est sans égal."</p>
-                        <p class="author">- Sophie R., Responsable R&D, Chimie Plus</p>
+            <div class="animated-overlay"></div>
+            
+            <div class="hero-content">
+                <h1>LPA - Laboratoire de Contrôle Qualité</h1>
+                <p>Votre partenaire d'excellence pour des analyses fiables en agroalimentaire, environnement et chimie. La précision au service de votre réussite.</p>
+                <a href="about.html" class="btn primary-btn">En savoir plus</a> 
+                <a href="contact.html" class="btn secondary-btn" style="margin-left: 15px;">Demander un devis</a>
+            </div>
+        </section>
+
+        <section class="partners-section">
+            <div class="container">
+                <h2>Ils nous font confiance</h2>
+                <div class="logo-strip">
+                    <div class="logos-slide">
+                        <img src="agrifor.webp" alt="Partenaire Agrifor">
+                        <img src="emplo jeune.webp" alt="Partenaire Emploi Jeune">
+                        <img src="foraci.webp" alt="Partenaire Foraci">
+                        <img src="foraco.webp" alt="Partenaire Foraco">
+                        
+                        <img src="agrifor.webp" alt="Partenaire Agrifor">
+                        <img src="emplo jeune.webp" alt="Partenaire Emploi Jeune">
+                        <img src="foraci.webp" alt="Partenaire Foraci">
+                        <img src="foraco.webp" alt="Partenaire Foraco">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <section class="testimonial-carousel">
+            <div class="container">
+                <h2>Ce que disent nos Clients</h2>
+                <div class="carousel-wrapper">
+                    <div class="slide-wrapper">
+                        <div class="slide testimonial-card">
+                            <img src="photo-client-marie.jpg" alt="Photo de Marie D.">
+                            <p class="quote">"Le professionnalisme et la rapidité des analyses de LPA nous ont permis de maintenir un contrôle qualité irréprochable sur nos produits. Un partenaire essentiel."</p>
+                            <p class="author">- Marie D., Directrice Qualité, AgroTech Solutions</p>
+                        </div>
+                        <div class="slide testimonial-card">
+                            <img src="photo-client-jean.jpg" alt="Photo de Jean L.">
+                            <p class="quote">"Leurs prélèvements environnementaux sont effectués avec la plus grande rigueur. Les rapports sont clairs et détaillés. Service de haute qualité."</p>
+                            <p class="author">- Jean L., Ingénieur Environnement, EcoBuild</p>
+                        </div>
+                        <div class="slide testimonial-card">
+                            <img src="photo-client-sophie.jpg" alt="Photo de Sophie R.">
+                            <p class="quote">"Nous collaborons avec LPA depuis des années pour nos analyses chimiques complexes. Leur expertise technique est sans égal."</p>
+                            <p class="author">- Sophie R., Responsable R&D, Chimie Plus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="call-to-action text-center">
-        <div class="container">
-            <h2>Prêt à Collaborer ?</h2>
-            <p>Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques et obtenir un devis personnalisé.</p>
-            <a href="contact.html" class="btn primary-btn">Contactez-nous</a>
-        </div>
-    </section>
+        <section class="call-to-action text-center">
+            <div class="container">
+                <h2>Prêt à Collaborer ?</h2>
+                <p>Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques et obtenir un devis personnalisé.</p>
+                <a href="contact.html" class="btn primary-btn">Contactez-nous</a>
+            </div>
+        </section>
 
-</main>
+    </main>
 
     <footer>
-        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+        <div class="container footer-grid">
+            
+            <div class="footer-col contact-info-footer">
+                <h3>Contact LPA</h3>
+                <p><strong>Adresse:</strong> Abidjan, Côte d'Ivoire</p>
+                <p><strong>Téléphone:</strong> <a href="tel:+2250787652368">+225 07 87 65 23 68</a></p>
+                <p><strong>Email:</strong> <a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></p>
+            </div>
+            
+            <div class="footer-col quick-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="services.html">Nos services</a></li>
+                    <li><a href="contact.html">Demande de devis</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col social-media">
+                <h3>Suivez-nous</h3>
+                <p>
+                    <a href="#" style="margin-right: 15px;">Facebook</a> 
+                    <a href="#">LinkedIn</a>
+                </p>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2025 LPA. Tous droits réservés.</p>
+            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
+        </div>
     </footer>
 
     <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
 
     <script>
-        // Script du carrousel
+        // Script du carrousel de fond (Hero)
+        const images = document.querySelectorAll('.carousel-image');
+        let current = 0;
+        function nextImage() {
+            images[current].classList.remove('active');
+            current = (current + 1) % images.length;
+            images[current].classList.add('active');
+        }
+        if (images.length > 1) {
+            images[0].classList.add('active');
+            setInterval(nextImage, 7000); // Change toutes les 7 secondes
+        }
+
+        // Script du carrousel de témoignages (FINAL)
         const wrapper = document.querySelector('.slide-wrapper');
-        
         if (wrapper) { 
             const slides = document.querySelectorAll('.slide');
             const totalSlides = slides.length;
             let currentSlide = 0;
-
-            wrapper.style.width = `${totalSlides * 100}%`; 
+            
+            // Initialisation : Rendre le premier slide actif
+            slides[0].classList.add('active-testimonial');
 
             function nextSlide() {
+                // 1. Cacher le slide actuel (retirer l'opacité et l'effet de montée)
+                slides[currentSlide].classList.remove('active-testimonial');
+
+                // 2. Calculer le nouveau slide
                 currentSlide = (currentSlide + 1) % totalSlides;
-                wrapper.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
+                
+                // 3. Afficher le nouveau slide avec l'animation (ajouter l'opacité et l'effet de montée)
+                slides[currentSlide].classList.add('active-testimonial');
             }
-            
-            // J'ai vérifié que le carrousel est bien configuré pour fonctionner sur mobile aussi.
+            // Démarre l'animation du carrousel de témoignages
             setInterval(nextSlide, 5000);
         }
 
         // Script du bouton de retour en haut
         let mybutton = document.getElementById("myBtn");
-        window.onscroll = function() {
-            scrollFunction()
-        };
+        window.onscroll = function() { scrollFunction() };
         function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";

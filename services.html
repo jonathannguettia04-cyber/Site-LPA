@@ -10,11 +10,13 @@
 /* ======================================================= */
 /* CONFIGURATION GÉNÉRALE */
 /* ======================================================= */
+/* Couleurs de l'index: #4F9BCC (Bleu Ciel), #0378A6 (Bleu Teal/Primaire) */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 90px; /* Espace pour le header fixé */
+    /* Ajusté à 100px pour un header simple sans bandeau défilant */
+    padding-top: 100px; 
     background-color: #EBEBEB;
     color: #333;
     line-height: 1.6;
@@ -35,7 +37,7 @@ section {
 h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
-    color: #0378A6;
+    color: #4F9BCC; /* Utilisation de la couleur Bleu Ciel de l'index */
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
@@ -99,7 +101,7 @@ nav a::after {
     bottom: -5px;
     width: 0;
     height: 3px;
-    background-color: #F22EBE;
+    background-color: #4F9BCC; /* Changement: Utilisation du Bleu Ciel */
     transition: width 0.3s ease-in-out;
 }
 nav a:hover::after,
@@ -107,7 +109,7 @@ nav a.active::after {
     width: 100%;
 }
 nav a:hover {
-    color: #F22EBE;
+    color: #4F9BCC; /* Changement: Utilisation du Bleu Ciel */
 }
 .contact-info {
     display: flex;
@@ -146,25 +148,39 @@ nav a:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     color: #333;
-    border: 3px solid transparent; /* Bordure transparente pour éviter le saut au survol */
+    border: 3px solid transparent; 
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     text-align: left;
     display: block; 
+    overflow: hidden; /* Important pour l'animation de l'image */
 }
 .service-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: #F22EBE; /* Bordure Fuchsia au survol */
+    border-color: #4F9BCC; /* Changement: Utilisation du Bleu Ciel au survol */
 }
-.service-card img {
-    width: 100%;
+
+/* Conteneur d'image pour l'effet de zoom */
+.image-container {
     height: 200px;
-    object-fit: cover;
+    overflow: hidden;
     border-radius: 8px;
     margin-bottom: 15px;
 }
+.service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Animation de l'image seule */
+    transition: transform 0.5s ease;
+}
+.service-card:hover img {
+    transform: scale(1.1); /* Zoom au survol de la carte */
+}
+
 .service-card h3 {
-    color: #0378A6;
+    color: #0378A6; /* Utilisation du Bleu Teal */
     font-size: 1.6rem;
     margin: 0 0 10px 0;
     text-align: center;
@@ -182,7 +198,7 @@ nav a:hover {
     z-index: 99; 
     border: none;
     outline: none;
-    background-color: #0378A6; 
+    background-color: #0378A6; /* Utilisation du Bleu Teal */
     color: white; 
     cursor: pointer;
     padding: 15px;
@@ -192,14 +208,13 @@ nav a:hover {
     transition: background-color 0.3s;
 }
 #myBtn:hover {
-    background-color: #F22EBE; 
+    background-color: #4F9BCC; /* Changement: Utilisation du Bleu Ciel au survol */
 }
 
 /* ======================================================= */
 /* MEDIA QUERIES POUR LA RÉACTIVITÉ (MOBILE) */
 /* ======================================================= */
 @media (max-width: 992px) {
-    /* Sur tablettes et petits écrans, on réduit l'espacement et la taille de police */
     .container {
         max-width: 90%;
         margin: 20px auto;
@@ -208,7 +223,6 @@ nav a:hover {
         font-size: 2rem;
     }
     .services-grid {
-        /* Passe à une grille de 2 colonnes minimum pour mieux utiliser l'espace */
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
@@ -217,7 +231,7 @@ nav a:hover {
 @media (max-width: 768px) {
     /* Sur mobiles */
     header {
-        flex-direction: column; /* Empile les éléments du header */
+        flex-direction: column; 
         align-items: center;
         padding: 15px 10px;
         min-height: auto;
@@ -226,7 +240,7 @@ nav a:hover {
         margin-bottom: 10px;
     }
     nav {
-        order: 3; /* Déplace la navigation en bas si nécessaire */
+        order: 3; 
         width: 100%;
     }
     nav ul {
@@ -242,16 +256,15 @@ nav a:hover {
         gap: 5px;
         margin-left: 0;
         margin-top: 10px;
-        align-items: flex-start; /* Alignement à gauche pour les liens de contact */
+        align-items: flex-start; 
     }
     .contact-info .contact-link {
         font-size: 0.9rem;
     }
     body {
-        padding-top: 150px; /* Augmentation de l'espace pour le header empilé */
+        padding-top: 150px; 
     }
     .services-grid {
-        /* Une seule colonne sur les très petits écrans pour maximiser la lisibilité */
         grid-template-columns: 1fr;
     }
     .service-card {
@@ -272,12 +285,13 @@ nav a:hover {
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="services.html" class="active">Nos services</a></li>
+                <li><a href="about.html">À Propos</a></li>
                 <li><a href="contact.html">Demande de devis</a></li>
             </ul>
         </nav>
         <div class="contact-info">
-            <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
+            <a href="tel:+2250787652368" class="contact-link">+225 07 87 65 23 68</a>
+            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">commerciallpa3@gmail.com</a>
         </div>
     </header>
     
@@ -290,34 +304,43 @@ nav a:hover {
             <div class="services-grid">
                 
                 <a href="agro-alimentaire.html" class="service-card">
-                    <img src="agroalimentaire.webp" alt="Services Agro-alimentaire">
+                    <div class="image-container">
+                        <img src="agroalimentaire.webp" alt="Services Agro-alimentaire">
+                    </div>
                     <h3>Agro-alimentaire</h3>
                     <p>Sécurité alimentaire, contrôle des contaminants, vérification des informations nutritionnelles et tests de stabilité.</p>
                 </a>
                 
                 <a href="chimie.html" class="service-card">
-                    <img src="chimie.webp" alt="Services Chimie">
+                    <div class="image-container">
+                        <img src="chimie.webp" alt="Services Chimie">
+                    </div>
                     <h3>Chimie Industrielle</h3>
                     <p>Analyses de pureté, caractérisation de matières premières, contrôle de conformité des produits finis (peintures, plastiques, etc.).</p>
                 </a>
 
                 <a href="analyse-eau.html" class="service-card">
-                    <img src="télécharger.webp" alt="Services Analyse de l'eau">
+                    <div class="image-container">
+                        <img src="télécharger.webp" alt="Services Analyse de l'eau">
+                    </div>
                     <h3>Analyse de l'eau</h3>
                     <p>Tests de potabilité (eaux de boisson), surveillance des rejets industriels, qualité des eaux souterraines et de surface.</p>
                 </a>
 
                 <a href="prelevement.html" class="service-card">
-                    <img src="prelement.webp" alt="Services Prélèvement">
+                    <div class="image-container">
+                        <img src="prelement.webp" alt="Services Prélèvement">
+                    </div>
                     <h3>Prélèvement et Échantillonnage</h3>
                     <p>Service sur site de prélèvement d'échantillons (air, eau, sol, produits) par nos techniciens certifiés pour une fiabilité maximale.</p>
                 </a>
                 
                 <a href="laboratoire.html" class="service-card">
-                    <img src="lab.webp" alt="Services Laboratoire Général">
+                    <div class="image-container">
+                        <img src="lab.webp" alt="Services Laboratoire Général">
+                    </div>
                     <h3>Services Laboratoire Général</h3>
                     <p>Tests personnalisés, développement de méthodes analytiques spécifiques et assistance technique en laboratoire.</p>
-                </a>
                 
             </div>
         </section>
