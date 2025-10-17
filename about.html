@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos | LPA - Laboratoire d'Analyses</title>
+    <title>À Propos | LPA - L'Excellence du Laboratoire et du Traitement d'Eau</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <style>
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                   */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                   */
 /* ======================================================= */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 90px; 
-    background-color: #EBEBEB; /* Gris très léger */
+    /* Ajustement du padding pour dégager l'en-tête fixe sur desktop */
+    padding-top: 120px; 
+    background-color: #EBEBEB;
     color: #333;
     line-height: 1.7; 
     scroll-behavior: smooth;
 }
 .container {
     max-width: 1200px;
-    margin: 30px auto;
+    /* Marge ajustée pour un meilleur espacement après la bannière */
+    margin: 50px auto; 
     padding: 0 25px;
 }
 section {
@@ -34,7 +38,7 @@ section {
 h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
-    color: #4F9BCC; /* Bleu clair (Sky Blue) */
+    color: #4F9BCC;
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
@@ -43,7 +47,7 @@ h2 {
 h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.0rem;
-    color: #0378A6; /* Bleu Teal */
+    color: #0378A6;
     margin-top: 40px;
     margin-bottom: 15px;
     border-left: 5px solid #4F9BCC;
@@ -53,7 +57,7 @@ h3 {
 h4 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
-    color: #4F9BCC; /* Bleu clair */
+    color: #4F9BCC;
     margin-top: 15px;
     margin-bottom: 10px;
     text-align: left;
@@ -66,7 +70,7 @@ p {
     text-align: left;
 }
 p strong {
-    color: #0378A6; /* Met en évidence les mots clés */
+    color: #0378A6;
 }
 ul {
     padding-left: 20px;
@@ -79,14 +83,14 @@ li {
     line-height: 1.8;
 }
 li strong {
-    color: #0378A6; /* Met en évidence les mots clés dans les listes */
+    color: #0378A6;
 }
 
 /* ======================================================= */
-/* EN-TÊTE (HEADER) (Styles mis à jour)                   */
+/* EN-TÊTE (HEADER)                                       */
 /* ======================================================= */
 header {
-    background-color: #4F9BCC; /* Bleu clair */
+    background-color: #4F9BCC;
     color: #fff;
     padding: 1rem 2rem;
     display: flex;
@@ -115,11 +119,127 @@ nav a:hover { color: #0378A6; }
 .contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
 
 /* ======================================================= */
-/* SECTION HISTORIQUE ET GRILLE GÉNÉRALE                  */
+/* NOUVEAUTÉ: BANNIÈRE HÉRO (HERO SECTION) 🌟            */
+/* ======================================================= */
+#hero-banner {
+    /* Image de fond avec dégradé bleu pour la lisibilité. Changez 'banner-lab.jpg' par votre image. */
+    background: linear-gradient(rgba(3, 120, 166, 0.7), rgba(79, 155, 204, 0.7)), url('lab1.jpg') no-repeat center center/cover;
+    height: 60vh; /* Hauteur de 60% du viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* Effet Parallax */
+    background-attachment: fixed; 
+}
+
+#hero-banner .hero-content {
+    max-width: 900px;
+    padding: 0 25px;
+}
+
+#hero-banner h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-bottom: none; 
+}
+
+#hero-banner p {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Style du bouton CTA */
+.cta-button {
+    display: inline-block;
+    background-color: #0378A6; /* Bleu foncé LPA */
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid #fff;
+}
+
+.cta-button:hover {
+    background-color: #4F9BCC; /* Bleu clair LPA au survol */
+    transform: translateY(-3px);
+}
+/* Animation spécifique pour le bouton */
+.cta-button.animated {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.cta-button.animated.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ======================================================= */
+/* ANIMATIONS ET EFFETS DYNAMIQUES 🌟 (EXISTANT)          */
+/* ======================================================= */
+
+/* 1. Définition de l'animation de fondu (Fade-in) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Styles d'initialisation pour l'animation (Invisible au départ) */
+.animated {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(20px);
+}
+
+/* 3. Style appliqué quand l'élément entre dans le viewport (déclenché par JS) */
+.animated.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 4. Effet de zoom léger sur les conteneurs d'images */
+.history-image-container, .pdg-image-container {
+    overflow: hidden; 
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.history-image-container:hover, .pdg-image-container:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.history-image-container img, .pdg-image-container img {
+    transition: transform 0.6s ease-in-out; 
+}
+
+.history-image-container:hover img, .pdg-image-container:hover img {
+    transform: scale(1.05); 
+}
+
+/* ======================================================= */
+/* GRILLES DE CONTENU (EXISTANT)                          */
 /* ======================================================= */
 .history-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* 2/3 pour le texte, 1/3 pour l'image */
+    grid-template-columns: 2fr 1fr;
     gap: 40px;
     align-items: center;
 }
@@ -142,41 +262,14 @@ nav a:hover { color: #0378A6; }
     text-align: center;
 }
 
-/* Grille de Mission et Valeurs */
-.mission-grid {
-    padding-top: 20px;
-}
-.mission-grid h3 {
-    text-align: center;
-    border-left: none;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 15px;
-}
-.value-block {
-    margin-top: 30px;
-    padding: 20px 30px;
-    background-color: #fcfcfc;
-    border-left: 5px solid #0378A6;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-.value-block:nth-child(even) {
-    border-left: 5px solid #4F9BCC; /* Alternance de couleur */
-}
-.value-block ul {
-    list-style: disc;
-    padding-left: 20px;
-    text-align: left;
-}
-
 /* Section Leadership (PDG) */
 #leadership {
-    background-color: #EBEBEB; /* Pour casser le blanc */
+    background-color: #EBEBEB; 
     box-shadow: none;
 }
 .pdg-bio-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Photo 1/3, Texte 2/3 */
+    grid-template-columns: 1fr 2fr;
     gap: 40px;
     align-items: center;
     background-color: #fff;
@@ -191,7 +284,7 @@ nav a:hover { color: #0378A6; }
     width: 100%;
     max-width: 250px; 
     height: auto;
-    border-radius: 50%; /* Image ronde pour le portrait */
+    border-radius: 50%;
     border: 5px solid #0378A6;
     object-fit: cover;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -204,72 +297,193 @@ nav a:hover { color: #0378A6; }
     margin-bottom: 20px;
 }
 
+/* Grille de Mission et Valeurs */
+.mission-grid {
+    padding-top: 20px;
+}
+.mission-grid h3 {
+    text-align: center;
+    border-left: none;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+.mission-content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 30px;
+}
+.value-block {
+    flex: 1 1 100%;
+    padding: 20px 30px;
+    background-color: #fcfcfc;
+    border-left: 5px solid #0378A6;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.value-block:nth-child(even) {
+    border-left: 5px solid #4F9BCC;
+}
+.value-block ul {
+    list-style: disc;
+    padding-left: 20px;
+    text-align: left;
+}
 
 /* ======================================================= */
-/* FOOTER DÉTAILLÉ                                       */
+/* FOOTER DÉTAILLÉ (EXISTANT)                             */
 /* ======================================================= */
 footer {
-    background-color: #0378A6; /* Bleu Teal pour le footer */
+    background-color: #0378A6;
     color: #fff;
-    padding-top: 50px;
+    padding: 50px 0 0 0; 
     font-size: 1rem;
 }
+
+/* Grille principale du pied de page */
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    padding-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px; 
+    padding-bottom: 40px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
+
 .footer-col h3 {
-    color: #4F9BCC; /* Bleu clair pour les titres */
-    font-size: 1.4rem;
-    margin-bottom: 15px;
+    color: #4F9BCC;
+    font-size: 1.2rem;
+    margin-bottom: 20px; 
     text-align: left;
-    border-left: none; /* Retirer la barre de gauche */
-    padding-left: 0;
+    font-weight: 600;
 }
-.footer-col p,
-.footer-col ul {
+
+/* Colonne spéciale pour la marque/logo */
+.footer-brand p {
     text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+/* Style commun pour les listes de liens/contact */
+.footer-col ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
-    color: #ccc;
-    line-height: 2.0; 
+    line-height: 1.8; 
 }
+.footer-col ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+.footer-col ul li i {
+    color: #4F9BCC;
+    margin-right: 10px;
+    width: 15px; 
+}
+
 .footer-col a {
-    color: #fff;
+    color: #ccc;
     text-decoration: none;
     transition: color 0.3s;
 }
 .footer-col a:hover {
+    color: #fff; 
+}
+
+/* Style des icônes sociales */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    color: #fff; 
+    font-size: 1.3rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
     color: #4F9BCC;
 }
+
+
+/* Zone du bas de page (Copyright et crédit) */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0; 
     text-align: center;
-    padding: 20px 0;
 }
-.developer-credit {
+.footer-bottom p {
     font-size: 0.9rem;
+    text-align: center;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+.developer-credit {
+    font-size: 0.8rem;
     color: #aaa;
-    margin-top: 5px;
+}
+
+
+/* Bouton Retour en Haut */
+#myBtn {
+    display: none; 
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #0378A6;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+#myBtn:hover {
+    background-color: #4F9BCC;
 }
 
 /* ======================================================= */
-/* MEDIA QUERY POUR MOBILE                               */
+/* MEDIA QUERIES (ADAPTATION AUX PETITS TERMINAUX) 📱      */
 /* ======================================================= */
-@media (max-width: 992px) {
-    .history-grid {
-        grid-template-columns: 1fr; /* Une seule colonne */
+
+/* Adaptation pour les écrans de taille tablette et plus */
+@media (min-width: 768px) {
+    .mission-content-grid {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: space-between;
     }
-    .history-image-container {
-        order: -1; /* Place l'image au-dessus du texte */
+    .value-block {
+        width: calc(50% - 15px); 
+    }
+    /* Correction de la taille de police H1 sur desktop */
+    #hero-banner h1 {
+        font-size: 4rem;
     }
 }
+
+/* Adaptation pour les écrans de taille moyenne */
+@media (max-width: 992px) {
+    .history-grid {
+        grid-template-columns: 1fr;
+    }
+    .history-image-container {
+        order: -1;
+    }
+}
+
+/* Adaptation pour les smartphones */
 @media (max-width: 768px) {
-    body { padding-top: 20px; }
-    header { flex-direction: column; position: static; padding-top: 20px; padding-bottom: 15px; min-height: auto; }
+    /* Maintien de l'en-tête fixe et ajustement du padding du body pour le dégager */
+    body { padding-top: 280px; } 
+    header { flex-direction: column; padding-top: 20px; padding-bottom: 15px; min-height: auto; }
     nav { width: 100%; margin-top: 10px; margin-bottom: 10px; }
     nav ul { display: block; text-align: center; }
     nav ul li { display: block; margin: 5px 0; padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
@@ -279,8 +493,6 @@ footer {
     .contact-info .contact-link { width: 90%; text-align: center; margin: 0 auto; }
     .footer-col h3, .footer-col p, .footer-col ul { text-align: center; }
     h3 { text-align: center; border-left: none; padding-left: 0; border-bottom: 2px solid #4F9BCC; padding-bottom: 10px; }
-    
-    /* Adaptation PDG et Valeurs */
     .pdg-bio-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -304,9 +516,11 @@ footer {
     .value-block:nth-child(even) {
         border-bottom: 5px solid #4F9BCC;
     }
-    .value-block ul {
-        text-align: left;
-        margin-top: 15px;
+    #hero-banner h1 {
+        font-size: 2.5rem; /* Taille adaptée pour mobile */
+    }
+    #hero-banner p {
+        font-size: 1.2rem;
     }
 }
     </style>
@@ -328,78 +542,100 @@ footer {
             </ul>
         </nav>
         <div class="contact-info">
-            <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
+            <a href="tel:+2252721767351" class="contact-link">+225 27 21 76 73 51</a>
+            <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
         </div>
     </header>
     
     <main>
+        
+        <section id="hero-banner">
+            <div class="container hero-content">
+                <h1 class="animated">L'Excellence du Laboratoire. La Pureté de l'Eau.</h1>
+                <p class="animated" style="animation-delay: 0.3s;">Analyses fiables, Traitements garantis. Votre partenaire qualité agréé.</p>
+                <a href="services.html" class="cta-button animated" style="animation-delay: 0.6s;">Découvrez nos Solutions</a>
+            </div>
+        </section>
+        
         <div class="container">
 
-            <section id="about-us">
-                <h2>L'Excellence et la Rigueur au service de la Qualité</h2>
+            <section id="about-us" class="animated">
+                <h2>L'Excellence et la Rigueur au service de la Qualité </h2>
 
                 <div class="history-grid">
                     
-                    <div class="history-text">
+                    <div class="history-text animated">
                         
-                        <h3>Notre Vision</h3>
-                        <p>Devenir le laboratoire d'analyse de référence en Afrique de l'Ouest, reconnu pour la **fiabilité de ses résultats**, son **innovation technologique** et son engagement à garantir la sécurité sanitaire et environnementale pour tous nos partenaires.</p>
-                        <p>Nous aspirons à être un moteur de la conformité réglementaire et de l'amélioration continue de la qualité dans les secteurs de l'agroalimentaire, de la chimie, et de l'environnement.</p>
-
-                        <h3>Notre Historique : Une Croissance Axée sur la Rigueur</h3>
-                        <p>Fondé en **2015** par une équipe de chimistes et biologistes expérimentés, LPA est né de la volonté de combler un déficit critique en matière d'analyses de laboratoire indépendantes et certifiées dans la région.</p>
-                        <p>Depuis nos modestes débuts, nous avons investi massivement dans l'équipement de pointe et dans la formation de notre personnel pour répondre aux **normes internationales (ISO 17025)**. Notre croissance rapide témoigne de la confiance que nos clients accordent à notre expertise et à notre impartialité.</p>
+                        <h3>Notre Vision : Bâtir l'Excellence Africaine</h3>
+                        <p>La vision de LPA est de faire de ses clients les leaders incontestés de leurs domaines. Nous ne visons pas seulement l'analyse, mais le partenariat stratégique pour une amélioration continue de la qualité. Notre ambition est de devenir la référence ouest-africaine en matière de sécurité sanitaire et environnementale.</p>
+                        
+                        <h3>Notre Mission : Fiabilité Garantie, Prix Imbattables</h3>
+                        <p>Notre engagement fondamental est de proposer des solutions et des services d'excellence conformes à vos attentes, à des prix imbattables. Nous vous délivrons des résultats précis et rapides, essentiels pour la conformité réglementaire** et la protection de vos actifs.</p>
+                        
+                        <h4>Accréditation et Normes Internationales</h4>
+                        <p>Notre engagement est scellé par :</p>
+                        <ul>
+                            <li>Agrément Officiel :N° 012-MCI/CAB du 27-01-2021.</li>
+                            <li>Démarche Qualité :Nous progressons vers l'accréditation ISO/CEI 17025:2017, gage de la plus haute compétence technique dans nos analyses.</li>
+                        </ul>
                         
                     </div>
                     
-                    <div class="history-image-container">
+                    <div class="history-image-container animated">
                         <img src="lab1.jpg" alt="Photo historique du Laboratoire LPA">
-                        <p>Le siège du laboratoire LPA lors de son inauguration en 2015.</p>
+                        <p>Un laboratoire équipé pour répondre aux défis de la qualité moderne.</p>
                     </div>
                     
                 </div>
                 
             </section>
 
-            <section id="mission-values">
+            <section id="mission-values" class="animated">
                 <div class="mission-grid">
                     
-                    <h3>Mission et Valeurs Fondamentales</h3>
+                    <h3>Nos Piliers Fondamentaux : Sécurité et Expertise</h3>
 
-                    <div class="value-block">
-                        <h4>Notre Mission</h4>
-                        <p>Fournir des services d'analyse précis, rapides et conformes aux exigences réglementaires et industrielles. Nous aidons nos clients à sécuriser leurs produits, à protéger l'environnement et à prendre des décisions éclairées.</p>
+                    <div class="mission-content-grid">
+                        
+                        <div class="value-block animated" style="animation-delay: 0.1s;">
+                            <h4>Contrôle Qualité : Zéro Compromis</h4>
+                            <p>Nous effectuons un contrôle qualité rigoureux de vos échantillons (eaux, aliments, sols) en utilisant des méthodes reconnues mondialement : OMS 2017, AFNOR,ISO et CODINORM. Votre conformité est notre priorité absolue.</p>
+                        </div>
+    
+                        <div class="value-block animated" style="animation-delay: 0.3s;">
+                            <h4>Traitement d'Eau : Solutions Intégrées</h4>
+                            <p>De l'eau de forage à l'eau usée, nos solutions de traitement (désinfection, neutralisation, nettoyage de réseaux) sont conçues sur mesure. Nous garantissons une qualité d'eau irréprochable et durable.</p>
+                        </div>
+    
+                        <div class="value-block animated" style="animation-delay: 0.5s;">
+                            <h4>Équipement & Technologie de Pointe</h4>
+                            <p>Notre laboratoire est équipé d'instruments de dernière génération, notamment le Spectrophotomètre DR 1900, pour des analyses physico-chimiques ultra-précises. L'innovation assure la fiabilité de chaque donnée.</p>
+                        </div>
+                        
+                        <div class="value-block animated" style="animation-delay: 0.7s;">
+                            <h4>Partenariat Client : La Confiance</h4>
+                            <p>Nous ne sommes pas un simple prestataire. Nous sommes votre conseiller technique. Notre équipe d'experts offre un suivi personnalisé et des formations ciblées pour renforcer l'autonomie et la compétence interne de vos équipes.</p>
+                        </div>
                     </div>
 
-                    <div class="value-block">
-                        <h4>Nos Valeurs Clés</h4>
-                        <ul>
-                            <li>**Rigueur Scientifique :** L'exactitude et la précision sont au cœur de chacun de nos tests.</li>
-                            <li>**Indépendance :** Nous garantissons une impartialité totale dans l'interprétation de nos résultats.</li>
-                            <li>**Innovation :** Investissement constant dans les nouvelles technologies d'analyse.</li>
-                            <li>**Engagement Client :** Un partenariat basé sur la transparence et l'écoute de vos besoins.</li>
-                        </ul>
-                    </div>
-                    
                 </div>
             </section>
 
-            <section id="leadership">
+            <section id="leadership" class="animated">
                 <div class="container">
-                    <h2>Notre Équipe Dirigeante</h2>
+                    <h2>Notre Équipe Dirigeante : Les Garants de la Qualité</h2>
                     
                     <div class="pdg-bio-grid">
                         
-                        <div class="pdg-image-container">
+                        <div class="pdg-image-container animated">
                             <img src="PH-1.jpg" alt="Photo du PDG de LPA">
                         </div>
                         
-                        <div class="pdg-bio-text">
+                        <div class="pdg-bio-text animated" style="animation-delay: 0.2s;">
                             <h3>Mot du Président Directeur Général</h3>
-                            <h4>M. Johnatan Guettia (Chimiste & Fondateur)</h4>
-                            <p>« La qualité n'est pas un acte, c'est une habitude. Chez LPA, cette conviction guide chaque membre de notre équipe. Notre mission va au-delà des chiffres : il s'agit de bâtir la confiance et d'assurer un environnement et des aliments plus sûrs pour nos communautés. Je suis fier de l'équipe d'experts que nous avons réunie pour atteindre cette excellence. »</p>
-                            <p>Fort de **20 ans d'expérience** dans l'industrie chimique et l'assurance qualité, M. Guettia est le moteur de l'orientation stratégique et de la culture de l'excellence de LPA.</p>
+                            <h4>M. KONAN KOUASSI (Chimiste & Fondateur)</h4>
+                            <p class="citation">« La qualité n'est pas un acte, c'est une habitude. Cette conviction guide chaque membre de notre équipe. Notre mission est de bâtir la confiance et d'assurer un environnement et des aliments plus sûrs pour nos communautés. »</p>
+                            <p>M. Guettia est le visionnaire de LPA. Il est soutenu par le Directeur Technique, M. KONAN KOUASSI, qui veille à l'application rigoureuse des protocoles scientifiques sur le terrain, assurant une chaîne de valeur irréprochable.</p>
                         </div>
 
                     </div>
@@ -410,37 +646,75 @@ footer {
     </main>
 
     <footer>
-        <div class="container footer-grid">
-            
-            <div class="footer-col">
-                <h3>LPA - Qui sommes-nous ?</h3>
-                <p>Laboratoire d'Analyses de référence en Afrique de l'Ouest. Nous garantissons la sécurité sanitaire et la conformité de vos produits grâce à une expertise scientifique et une rigueur inégalée.</p>
-            </div>
-            
-            <div class="footer-col">
-                <h3>Nos Services</h3>
-                <ul>
-                    <li><a href="laboratoire.html">Analyses de Laboratoire</a></li>
-                    <li><a href="agro-alimentaire.html">Agroalimentaire</a></li>
-                    <li><a href="chimie.html">Chimie</a></li>
-                    <li><a href="analyse-eau.html">Analyse d'Eau</a></li>
-                    <li><a href="prelevement.html">Prélèvement</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h3>Contact Rapide</h3>
-                <p>(+225) 07 87 65 23 68</p>
-                <p>✉️ commerciallpa3@gmail.com</p>
-                <p>(Adresse Physique ici, ex: Abidjan, Cocody Riviera)</p>
-            </div>
-
-        </div>
+        
+        
         <div class="footer-bottom">
-            <p>&copy; 2024 LPA. Tous droits réservés.</p>
-            <p class="developer-credit">Design & Développement par Jonathan Guettia.</p>
+            <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
+            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
         </div>
     </footer>
+
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+
+    <script>
+        // Logique d'animation (Fade-in au défilement)
+        document.addEventListener("DOMContentLoaded", function() {
+            // Sélectionne tous les éléments avec la classe 'animated'
+            // Ajout des sélecteurs pour les éléments spécifiques de la bannière
+            const animatedElements = document.querySelectorAll('.animated, #hero-banner h1, #hero-banner p, .cta-button');
+            
+            // Configuration de l'Intersection Observer
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            // Fonction de rappel appelée lorsque les éléments entrent ou sortent du viewport
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    // Si l'élément est visible dans le viewport
+                    if (entry.isIntersecting) {
+                        // Ajoute la classe 'visible' pour déclencher l'animation CSS
+                        entry.target.classList.add('visible');
+                        // Arrête d'observer l'élément une fois qu'il a été animé
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            // Crée un nouvel observateur
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // Commence à observer chaque élément animé
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // =======================================================
+        // Logique du bouton "Retour en Haut"
+        // =======================================================
+        var mybutton = document.getElementById("myBtn");
+
+        // 1. Fonction pour afficher/masquer le bouton lors du défilement
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+            // Affiche le bouton si le défilement est supérieur à 20 pixels
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // 2. Fonction appelée au clic pour remonter en haut
+        function topFunction() {
+            // Utilise l'API de défilement pour un retour en haut doux et animé
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>

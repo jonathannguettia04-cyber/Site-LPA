@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact & Devis | LPA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
 /* ======================================================= */
 /* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Thème Bleu Clair)*/
@@ -46,7 +46,7 @@ p {
 }
 
 /* ======================================================= */
-/* BANNIÈRE DE CONTACT AVEC ANIMATION (MISE À JOUR)       */
+/* BANNIÈRE DE CONTACT AVEC TEXTE DYNAMIQUE */
 /* ======================================================= */
 .contact-banner {
     height: 300px;
@@ -75,7 +75,7 @@ p {
     animation: zoomEffect 30s infinite alternate; /* Animation lente */
 }
 
-/* Overlay pour améliorer la lisibilité si on ajoute du texte (non utilisé ici, mais bonne pratique) */
+/* Overlay pour améliorer la lisibilité du texte (AJOUTÉ) */
 .contact-banner::after {
     content: '';
     position: absolute;
@@ -83,8 +83,45 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2); /* Léger filtre sombre */
+    background-color: rgba(0, 0, 0, 0.45); /* Filtre sombre pour le contraste */
     border-radius: 10px;
+    z-index: 1; /* S'assure que l'overlay est sous le texte */
+}
+
+/* Styles pour l'affichage du texte sur la bannière (AJOUTÉ) */
+.banner-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff; /* Texte blanc */
+    z-index: 2; /* Au-dessus de l'overlay sombre */
+    padding: 20px;
+}
+
+.banner-text-overlay h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem; /* Grande taille */
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Ombre pour lisibilité */
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.banner-text-overlay p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 15px;
+    font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    border-top: 3px solid #0378A6; 
+    padding-top: 10px;
 }
 
 /* Définition de l'animation */
@@ -101,7 +138,7 @@ p {
 
 
 /* ======================================================= */
-/* EN-TÊTE (HEADER) (Styles conservés)                    */
+/* EN-TÊTE (HEADER) */
 /* ======================================================= */
 header {
     background-color: #4F9BCC;
@@ -133,7 +170,7 @@ nav a:hover { color: #0378A6; }
 .contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
 
 /* ======================================================= */
-/* STYLE DU FORMULAIRE DE DEVIS (Styles conservés)        */
+/* STYLE DU FORMULAIRE DE DEVIS */
 /* ======================================================= */
 .contact-form button { background-color: #0378A6; }
 .contact-form button:hover { background-color: #4F9BCC; transform: translateY(-2px); }
@@ -146,7 +183,7 @@ nav a:hover { color: #0378A6; }
 .radio-group input[type="radio"] { margin-right: 8px; width: auto; padding: 0; }
 
 /* ======================================================= */
-/* FOOTER DÉTAILLÉ (Styles conservés)                     */
+/* FOOTER DÉTAILLÉ */
 /* ======================================================= */
 footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding-bottom: 40px; }
@@ -158,7 +195,7 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
 .developer-credit { font-size: 0.9rem; color: #aaa; margin-top: 5px; }
 
 /* ======================================================= */
-/* MEDIA QUERY POUR MOBILE (Styles conservés)             */
+/* MEDIA QUERY POUR MOBILE (Ajustement du texte de la bannière) */
 /* ======================================================= */
 @media (max-width: 768px) {
     body { padding-top: 20px; }
@@ -175,6 +212,17 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
     .radio-group { flex-direction: column; gap: 10px !important; }
     .contact-form button { padding: 15px 10px; }
     .footer-col h3, .footer-col p, .footer-col ul { text-align: center; }
+    /* Ajustement du texte de la bannière sur mobile */
+    .contact-banner {
+        height: 220px; 
+    }
+    .banner-text-overlay h1 {
+        font-size: 1.8rem;
+    }
+    .banner-text-overlay p {
+        font-size: 1.1rem;
+        padding-top: 5px;
+    }
 }
     </style>
 </head>
@@ -195,8 +243,8 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
             </ul>
         </nav>
         <div class="contact-info">
-            <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
+            <a href="tel:+2250707201696" class="contact-link">+225 07 07 20 16 96</a>
+            <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
         </div>
     </header>
     
@@ -204,7 +252,11 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
         <div class="container">
             
             <div class="contact-banner">
+                <div class="banner-text-overlay">
+                    <h1>CONTRÔLE QUALITÉ & CONFORMITÉ</h1>
+                    <p>VOTRE PARTENAIRE DE CONFIANCE POUR LE MEILLEUR DE VOS PRODUITS</p>
                 </div>
+            </div>
 
             <section id="contact">
                 <h2>Demande de Devis & Contact</h2>
@@ -236,11 +288,14 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
                             <label for="service">Domaine d'Analyse ou Service Requis</label>
                             <select id="service" name="service" required>
                                 <option value="" disabled selected>-- Sélectionnez un domaine --</option>
-                                <option value="agroalimentaire">Agro-alimentaire</option>
-                                <option value="chimie">Chimie Industrielle (peinture, plastique, etc.)</option>
-                                <option value="eau">Analyse d'Eau (Potabilité, Rejets)</option>
+                                <option value="analyse-physico-chimique">Laboratoire (Analyses Physico-chimiques)</option>
+                                <option value="analyse-microbiologique">Laboratoire (Analyses Microbiologiques)</option>
+                                <option value="controle-conformite">Contrôle de Conformité (Produits/Denrées)</option>
+                                <option value="traitement-eau-surface">Traitement d'Eau de Surface (Complet)</option>
+                                <option value="traitement-eau-forage">Traitement d'Eau de Forage (Désinfection/Neutralisation)</option>
+                                <option value="traitement-eau-usées">Traitement d'Eau Usée / Industrielle</option>
+                                <option value="nettoyage-desinfection-reseau">Nettoyage et Désinfection de Réseau et Conduites</option>
                                 <option value="prelevement">Prélèvement seul</option>
-                                <option value="microbiologie">Microbiologie</option>
                                 <option value="autre">Autre (précisez dans le message)</option>
                             </select>
                         </div>
@@ -269,34 +324,6 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
     </main>
 
     <footer>
-        <div class="container footer-grid">
-            
-            <div class="footer-col contact-info-footer">
-                <h3>Contact LPA</h3>
-                <p><strong>Adresse:</strong> Abidjan, Côte d'Ivoire</p>
-                <p><strong>Téléphone:</strong> <a href="tel:+2250787652368">+225 07 87 65 23 68</a></p>
-                <p><strong>Email:</strong> <a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></p>
-            </div>
-            
-            <div class="footer-col quick-links">
-                <h3>Liens rapides</h3>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À Propos</a></li>
-                    <li><a href="services.html">Nos services</a></li>
-                    <li><a href="contact.html">Demande de devis</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col social-media">
-                <h3>Suivez-nous</h3>
-                <p>
-                    <a href="#" style="margin-right: 15px;">Facebook</a> 
-                    <a href="#">LinkedIn</a>
-                </p>
-            </div>
-            
-        </div>
         
         <div class="footer-bottom">
             <p>Copyright &copy; 2025 LPA. Tous droits réservés.</p>

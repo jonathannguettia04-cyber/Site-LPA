@@ -190,6 +190,22 @@ nav a:hover {
     color: #555;
     text-align: center;
 }
+/* Style du pied de page adapté aux informations de contact complètes */
+footer {
+    background-color: #0378A6; 
+    color: #fff;
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+footer p {
+    color: #fff;
+    margin: 5px 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
 #myBtn {
     display: none; 
     position: fixed; 
@@ -284,63 +300,55 @@ nav a:hover {
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
-                <li><a href="services.html" class="active">Nos services</a></li>
                 <li><a href="about.html">À Propos</a></li>
+                 <li><a href="services.html" class="active">Nos services</a></li>
                 <li><a href="contact.html">Demande de devis</a></li>
             </ul>
         </nav>
         <div class="contact-info">
-            <a href="tel:+2250787652368" class="contact-link">+225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">commerciallpa3@gmail.com</a>
+            <a href="tel:+2250707201696" class="contact-link">+225 07 07 20 16 96</a>
+            <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
         </div>
     </header>
     
     <main>
     <div class="container">
         <section id="services-list">
-            <h2>Notre Excellence Analytique : Des Services Spécialisés</h2>
-            <p>Découvrez notre gamme complète d'analyses et de solutions. Chaque service est conçu pour garantir la conformité, la sécurité et la performance dans votre domaine d'activité.</p>
+            <h2>Notre Excellence Analytique et Technique : Des Solutions Complètes</h2>
+            <p>Découvrez nos quatre piliers de service, conçus pour garantir la qualité, la conformité, la sécurité et la performance dans votre domaine d'activité. Nous vous offrons des solutions d'analyse, de traitement, de formation et d'expertise.</p>
 
             <div class="services-grid">
                 
-                <a href="agro-alimentaire.html" class="service-card">
+                <a href="laboratoire.html" class="service-card">
                     <div class="image-container">
-                        <img src="agroalimentaire.webp" alt="Services Agro-alimentaire">
+                        <img src="agroalimentaire.webp" alt="Services Laboratoire d'Analyse">
                     </div>
-                    <h3>Agro-alimentaire</h3>
-                    <p>Sécurité alimentaire, contrôle des contaminants, vérification des informations nutritionnelles et tests de stabilité.</p>
+                    <h3>Laboratoire d'Analyse</h3>
+                    <p>Contrôle de la qualité et de la conformité des produits (aliments, eau, sols) par analyses physico-chimiques et microbiologiques selon les normes internationales.</p>
                 </a>
                 
-                <a href="chimie.html" class="service-card">
-                    <div class="image-container">
-                        <img src="chimie.webp" alt="Services Chimie">
-                    </div>
-                    <h3>Chimie Industrielle</h3>
-                    <p>Analyses de pureté, caractérisation de matières premières, contrôle de conformité des produits finis (peintures, plastiques, etc.).</p>
-                </a>
-
                 <a href="analyse-eau.html" class="service-card">
                     <div class="image-container">
-                        <img src="télécharger.webp" alt="Services Analyse de l'eau">
+                        <img src="chimie.webp" alt="Services Traitement des Eaux">
                     </div>
-                    <h3>Analyse de l'eau</h3>
-                    <p>Tests de potabilité (eaux de boisson), surveillance des rejets industriels, qualité des eaux souterraines et de surface.</p>
+                    <h3>Traitement des Eaux</h3>
+                    <p>Solutions de potabilisation, désinfection et nettoyage des réseaux (eaux de surface, eaux de forage, eaux usées) pour assurer une qualité d'eau exigée.</p>
                 </a>
 
                 <a href="prelevement.html" class="service-card">
                     <div class="image-container">
-                        <img src="prelement.webp" alt="Services Prélèvement">
+                        <img src="laboratoire.webp" alt="Services Prélèvement et Échantillonnage">
                     </div>
                     <h3>Prélèvement et Échantillonnage</h3>
-                    <p>Service sur site de prélèvement d'échantillons (air, eau, sol, produits) par nos techniciens certifiés pour une fiabilité maximale.</p>
+                    <p>Service sur site de prélèvement d'échantillons (air, eau, sol, produits) par nos techniciens certifiés pour une fiabilité maximale des analyses.</p>
                 </a>
-                
-                <a href="laboratoire.html" class="service-card">
+                 <a href="chimie.html" class="service-card">
                     <div class="image-container">
-                        <img src="lab.webp" alt="Services Laboratoire Général">
+                        <img src="lab.jpeg" alt="Services Expertise et Conseil">
                     </div>
-                    <h3>Services Laboratoire Général</h3>
-                    <p>Tests personnalisés, développement de méthodes analytiques spécifiques et assistance technique en laboratoire.</p>
+                    <h3>Expertise et Conseil</h3>
+                    <p>Consultance technique, développement de méthodes analytiques spécifiques et assistance pour la mise en place de démarches qualité (ISO/CEI 17025).</p>
+                </a>
                 
             </div>
         </section>
@@ -348,7 +356,14 @@ nav a:hover {
 </main>
 
     <footer>
-        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+        
+        <div class="footer-bottom">
+            <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
+            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
+        </div>
+    </footer>
+
+    
     </footer>
 
     <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>

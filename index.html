@@ -1,27 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPA - Laboratoire de Contrôle Qualité</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
+/* ... VOTRE CODE CSS INTERNE (INCHANGÉ SAUF POUR LE FIX FA) ... */
+/* J'ai retiré la règle de test 'color: red !important;' du CSS pour revenir à la couleur normale, 
+    car le passage au CDN devrait résoudre le problème d'affichage des icônes. */
+
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                   */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                      */
 /* ======================================================= */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* AJUSTEMENT : On fixe le padding-top à 140px pour laisser de l'espace pour le header fixe et le bandeau défilant */
-    padding-top: 140px; 
+    padding-top: 100px; 
     background-color: #EBEBEB;
     color: #333333;
     line-height: 1.7; 
     scroll-behavior: smooth;
 }
 .container {
-    max-width: 1200px;
+    max-width: 1000px; 
     margin: 20px auto;
     padding: 0 25px;
 }
@@ -58,7 +64,7 @@ p {
 .mb-4 { margin-bottom: 40px; }
 
 /* ======================================================= */
-/* EN-TÊTE (HEADER) ET NAVIGATION                           */
+/* EN-TÊTE (HEADER) ET NAVIGATION                            */
 /* ======================================================= */
 header {
     background-color: #4F9BCC; 
@@ -73,6 +79,7 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-height: 70px;
+    box-sizing: border-box;
 }
 header .logo img {
     height: 50px;
@@ -100,44 +107,7 @@ nav a:hover { color: #0378A6; }
 .contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
 
 /* ======================================================= */
-/* BANDEAU DE TEXTE DÉFILANT (SCROLLING MESSAGE BAR)      */
-/* ======================================================= */
-.scrolling-message-bar {
-    position: fixed; 
-    /* Positionne juste sous le header. 100px pour couvrir min-height + padding du header. */
-    top: 100px; 
-    left: 0;
-    width: 100%;
-    overflow: hidden; 
-    background-color: #0378A6; 
-    color: #FFD700;
-    padding: 8px 0; 
-    z-index: 999; 
-    box-shadow: 0 3px 5px rgba(238, 238, 236, 0.1);
-}
-
-.scrolling-text {
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    white-space: nowrap; 
-    margin: 0;
-    padding-right: 100%; 
-    animation: scroll-promo 20s linear infinite; 
-}
-
-@keyframes scroll-promo {
-    0% {
-        transform: translate3d(0, 0, 0); 
-    }
-    100% {
-        transform: translate3d(-50%, 0, 0); 
-    }
-}
-
-/* ======================================================= */
-/* BOUTONS (CTA)                                          */
+/* BOUTONS (CTA)                                             */
 /* ======================================================= */
 .btn {
     display: inline-block;
@@ -173,9 +143,13 @@ nav a:hover { color: #0378A6; }
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
 }
+.btn.primary-btn.btn-small {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
 
 /* ======================================================= */
-/* HERO SECTION AVEC CARROUSEL DE FOND ET ANIMATION      */
+/* HERO SECTION AVEC CARROUSEL DE FOND ET ANIMATION          */
 /* ======================================================= */
 .hero-section {
     position: relative;
@@ -188,8 +162,6 @@ nav a:hover { color: #0378A6; }
     overflow: hidden;
     background-color: #000;
 }
-
-/* Conteneur du Carrousel d'images */
 .image-carousel {
     position: absolute;
     top: 0;
@@ -212,8 +184,6 @@ nav a:hover { color: #0378A6; }
 .carousel-image.active {
     opacity: 1;
 }
-
-/* OVERLAY NOIR SEMI-TRANSPARENT pour améliorer la lisibilité */
 .image-carousel::after {
     content: '';
     position: absolute;
@@ -221,35 +191,29 @@ nav a:hover { color: #0378A6; }
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.45); /* Fond noir semi-transparent */
+    background-color: rgba(0, 0, 0, 0.45); 
     z-index: 1;
 }
-
-/* Filtre Bleu Léger */
 .animated-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(79, 155, 204, 0.3); /* Bleu très léger */
+    background-color: rgba(79, 155, 204, 0.3); 
     z-index: 2; 
 }
-
 .hero-content {
     position: relative;
-    z-index: 3; /* Assure que le contenu est au-dessus de tout */
+    z-index: 3; 
     padding: 40px 60px;
     max-width: 100%;
-    /* Animation globale du contenu */
     animation: fadeIn 1.5s 1s ease-out forwards;
     opacity: 0;
 }
 @keyframes fadeIn {
     to { opacity: 1; }
 }
-
-/* Animation ajoutée pour le titre et le paragraphe */
 .hero-content h1, .hero-content p {
     animation: slideUp 1s 1.5s ease-out forwards; 
     opacity: 0;
@@ -258,14 +222,12 @@ nav a:hover { color: #0378A6; }
 .hero-content p {
     animation-delay: 1.8s; 
 }
-
 @keyframes slideUp {
     to { 
         opacity: 1; 
         transform: translateY(0); 
     }
 }
-
 .hero-content h1 {
     font-size: 4.5rem;
     margin-bottom: 20px;
@@ -284,7 +246,59 @@ nav a:hover { color: #0378A6; }
 }
 
 /* ======================================================= */
-/* SECTION PARTENAIRES (LOGOS DÉFILANTS)                 */
+/* SECTION MISE EN AVANT DES SERVICES (Expertise Grid)     */
+/* ======================================================= */
+.services-highlights {
+    background-color: #fff;
+    padding: 80px 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+.services-highlights h2 {
+    color: #4F9BCC;
+}
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+.expertise-card {
+    padding: 30px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid #0378A6; 
+    height: 100%; 
+    box-sizing: border-box;
+}
+.expertise-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(3, 120, 166, 0.15);
+}
+.expertise-card h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #0378A6;
+    font-size: 1.6rem;
+    text-align: center;
+}
+.expertise-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+.expertise-card i {
+    font-size: 3rem; 
+    color: #4F9BCC;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* ======================================================= */
+/* SECTION PARTENAIRES (LOGOS DÉFILANTS)                   */
 /* ======================================================= */
 .partners-section {
     padding: 60px 0;
@@ -328,7 +342,7 @@ nav a:hover { color: #0378A6; }
 }
 
 /* ======================================================= */
-/* CARROUSEL (Témoignages) - MISE À JOUR FONDU/MONTÉE     */
+/* CARROUSEL (Témoignages) - MISE À JOUR FONDU/MONTÉE      */
 /* ======================================================= */
 .testimonial-carousel {
     background-color: #f0f4f7;
@@ -348,12 +362,11 @@ nav a:hover { color: #0378A6; }
     margin-bottom: 15px;
     border: 4px solid #4F9BCC;
 }
-/* Styles nécessaires pour le carrousel des témoignages (SUPERPOSITION) */
 .carousel-wrapper {
     overflow: hidden;
     width: 100%;
-    min-height: 250px; /* Ajout d'une hauteur minimale pour éviter les sauts */
-    position: relative; /* Base pour le positionnement absolu des slides */
+    min-height: 250px; 
+    position: relative; 
 }
 .slide-wrapper {
     position: relative;
@@ -368,17 +381,14 @@ nav a:hover { color: #0378A6; }
     width: 100%;
     padding: 0 50px;
     box-sizing: border-box;
-    /* Styles pour l'animation de fondu/montée */
     opacity: 0; 
     transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; 
     transform: translateY(20px); 
 }
-/* Nouvelle classe pour le slide actif (visible) */
 .slide.active-testimonial {
     opacity: 1;
     transform: translateY(0); 
 }
-
 .testimonial-card .quote {
     font-style: italic;
     font-size: 1.2rem;
@@ -389,7 +399,7 @@ nav a:hover { color: #0378A6; }
 }
 
 /* ======================================================= */
-/* CTA (Call to Action)                                   */
+/* CTA (Call to Action)                                      */
 /* ======================================================= */
 .call-to-action {
     background: linear-gradient(135deg, #0378A6 0%, #4F9BCC 100%);
@@ -404,55 +414,137 @@ nav a:hover { color: #0378A6; }
 
 
 /* ======================================================= */
-/* FOOTER DÉTAILLÉ                                        */
+/* DEBUT AJOUT POUR LA CARTE DE GÉOLOCALISATION            */
+/* ======================================================= */
+.map-section {
+    background-color: #f7f9fc; /* Couleur de fond légèrement différente */
+    padding: 80px 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+.map-container {
+    /* Assure que la carte est responsive et garde un ratio 16:9 */
+    overflow: hidden;
+    position: relative;
+    padding-top: 56.25%; /* Ratio 16:9 (hauteur/largeur) */
+    height: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 40px;
+}
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+    border-radius: 8px;
+}
+/* ======================================================= */
+/* FIN AJOUT POUR LA CARTE DE GÉOLOCALISATION              */
+/* ======================================================= */
+
+
+/* ======================================================= */
+/* FOOTER DÉTAILLÉ (VERSION PROFESSIONNELLE À 3 COLONNES)  */
 /* ======================================================= */
 footer {
     background-color: #0378A6;
     color: #fff;
-    padding-top: 50px;
+    padding: 50px 0 0 0; 
     font-size: 1rem;
 }
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    padding-bottom: 40px;
+    gap: 30px; 
+    padding-bottom: 40px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 .footer-col h3 {
     color: #4F9BCC;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 20px; 
     text-align: left;
+    font-weight: 600;
 }
-.footer-col p,
-.footer-col ul {
+.footer-brand p {
     text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+.footer-brand .agrement-text {
+    font-weight: bold;
+    color: #fff; 
+    display: block;
+}
+.footer-col ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
-    color: #ccc;
-    line-height: 2.0;
+    line-height: 1.8; 
+}
+.footer-col ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+.footer-col ul li i {
+    color: #4F9BCC;
+    margin-right: 10px;
+    width: 15px; 
 }
 .footer-col a {
-    color: #fff;
+    color: #ccc;
     text-decoration: none;
     transition: color 0.3s;
 }
 .footer-col a:hover {
-    color: #4F9BCC;
+    color: #fff; 
+}
+.social-links {
+    margin-top: 20px;
+    text-align: left; 
+}
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2); 
+    transition: background-color 0.3s;
+}
+.social-links a i {
+    color: #fff; 
+    font-size: 1.2rem; 
+}
+.social-links a:hover {
+    background-color: #fff; 
+}
+.social-links a:hover i {
+    color: #0378A6; 
 }
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0; 
     text-align: center;
-    padding: 20px 0;
+}
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin: 5px 0;
 }
 .developer-credit {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #aaa;
-    margin-top: 5px;
 }
-
-/* Bouton Retour en Haut */
 #myBtn {
     display: none;
     position: fixed;
@@ -475,7 +567,7 @@ footer {
 }
 
 /* ======================================================= */
-/* MEDIA QUERY POUR MOBILE                               */
+/* MEDIA QUERY POUR MOBILE (ASSURER LE RESPONSIVE)           */
 /* ======================================================= */
 @media (max-width: 992px) {
     .testimonial-carousel .slide {
@@ -483,28 +575,30 @@ footer {
     }
 }
 @media (max-width: 768px) {
-    /* Sur mobile, on enlève le positionnement fixe des éléments du haut */
     header { 
         flex-direction: column; 
         position: static; 
-    }
-    .scrolling-message-bar {
-        position: static; /* Le bandeau devient normal (non-fixe) sur mobile */
-        top: auto;
+        padding: 1rem 1rem;
     }
     body { 
-        padding-top: 20px; /* Retour au padding de base pour mobile */
+        padding-top: 0; 
     }
-
     header .logo { margin-bottom: 10px; }
     nav { width: 100%; margin-top: 10px; margin-bottom: 10px; }
     nav ul { display: block; text-align: center; }
-    nav ul li { display: block; margin: 5px 0; padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    nav ul li { 
+        display: block; 
+        margin: 5px 0; 
+        padding: 5px 0; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    }
     nav ul li:last-child { border-bottom: none; }
     nav a::after { display: none; }
     .contact-info { width: 100%; margin-left: 0; flex-direction: column; gap: 8px; }
     .contact-info .contact-link { width: 90%; text-align: center; margin: 0 auto; }
     
+    .hero-section { height: 60vh; }
+    .hero-content { padding: 20px; }
     .hero-content h1 { 
         font-size: 2.5rem; 
         line-height: 1.2;
@@ -512,25 +606,50 @@ footer {
     .hero-content p { 
         font-size: 1.1rem; 
     }
-    .hero-content .btn { display: block; margin: 10px 0 !important; width: 100%; }
-    
+    .hero-content .btn { 
+        display: block; 
+        margin: 10px 0 !important; 
+        width: 100%; 
+    }
     .footer-col h3, 
     .footer-col p,
-    .footer-col ul { text-align: center; } 
+    .footer-col ul,
+    .social-links { 
+        text-align: center; 
+    } 
+    .social-links {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .footer-col ul li {
+        justify-content: center; 
+    }
+    .footer-col ul li i {
+        display: inline-block;
+        width: auto;
+        margin-right: 5px;
+    }
     .logos-slide img { height: 60px; margin: 0 20px; }
-    
-    /* Overlay pour mobile */
     .animated-overlay { 
         animation: none; 
         transform: none; 
         background-color: rgba(79, 155, 204, 0.6); 
     }
     .image-carousel::after {
-        background-color: rgba(0, 0, 0, 0.6); /* Plus opaque sur mobile */
+        background-color: rgba(0, 0, 0, 0.6); 
     }
-    
     .slide {
         padding: 0 10px;
+    }
+    .services-highlights {
+        padding: 50px 20px;
+    }
+    .expertise-grid {
+        grid-template-columns: 1fr; 
+    }
+    /* AJOUT MOBILE POUR CARTE */
+    .map-section {
+        padding: 50px 20px;
     }
 }
     </style>
@@ -544,22 +663,11 @@ footer {
             </a>
         </div>
         <nav>
-            <ul>
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="about.html">À Propos</a></li>
-                <li><a href="services.html">Nos services</a></li>
-                <li><a href="contact.html">Demande de devis</a></li>
-            </ul>
+            <ul id="main-nav-links"></ul>
         </nav>
-        <div class="contact-info">
-            <a href="tel:+2250787652368" class="contact-link"> +225 07 87 65 23 68</a>
-            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">commerciallpa3@gmail.com</a>
-        </div>
+        <div class="contact-info" id="header-contact-info"></div>
     </header>
-
-    <div class="scrolling-message-bar">
-        <p class="scrolling-text">LPA votre partenaire de confiance en contrôle qualité. Nous vous accompagnons pour des analyses fiables. &bull; LPA votre partenaire de confiance en contrôle qualité. Nous vous accompagnons pour des analyses fiables. &bull;</p>
-    </div>
+    
     <main>
         <section class="hero-section">
             
@@ -573,24 +681,26 @@ footer {
             
             <div class="hero-content">
                 <h1>LPA - Laboratoire de Contrôle Qualité</h1>
-                <p>Votre partenaire d'excellence pour des analyses fiables en agroalimentaire, environnement et chimie. La précision au service de votre réussite.</p>
+                <p>Spécialiste du Contrôle Qualité et du Traitement d'Eau. Notre mission : Assurer la conformité de vos produits et la qualité de votre eau selon les normes nationales et internationales.</p>
                 <a href="about.html" class="btn primary-btn">En savoir plus</a> 
                 <a href="contact.html" class="btn secondary-btn" style="margin-left: 15px;">Demander un devis</a>
             </div>
         </section>
 
+        <section class="services-highlights">
+            <div class="container">
+                <h2>Notre Cœur d'Expertise</h2>
+                <div class="expertise-grid" id="expertise-grid"></div>
+            </div>
+        </section>
+        
         <section class="partners-section">
             <div class="container">
                 <h2>Ils nous font confiance</h2>
                 <div class="logo-strip">
                     <div class="logos-slide">
                         <img src="agrifor.webp" alt="Partenaire Agrifor">
-                        <img src="emplo jeune.webp" alt="Partenaire Emploi Jeune">
-                        <img src="foraci.webp" alt="Partenaire Foraci">
-                        <img src="foraco.webp" alt="Partenaire Foraco">
-                        
-                        <img src="agrifor.webp" alt="Partenaire Agrifor">
-                        <img src="emplo jeune.webp" alt="Partenaire Emploi Jeune">
+                        <img src="sodeci.jpeg" alt="sodeci">
                         <img src="foraci.webp" alt="Partenaire Foraci">
                         <img src="foraco.webp" alt="Partenaire Foraco">
                     </div>
@@ -602,23 +712,8 @@ footer {
             <div class="container">
                 <h2>Ce que disent nos Clients</h2>
                 <div class="carousel-wrapper">
-                    <div class="slide-wrapper">
-                        <div class="slide testimonial-card">
-                            <img src="photo-client-marie.jpg" alt="Photo de Marie D.">
-                            <p class="quote">"Le professionnalisme et la rapidité des analyses de LPA nous ont permis de maintenir un contrôle qualité irréprochable sur nos produits. Un partenaire essentiel."</p>
-                            <p class="author">- Marie D., Directrice Qualité, AgroTech Solutions</p>
+                    <div class="slide-wrapper" id="testimonial-slides">
                         </div>
-                        <div class="slide testimonial-card">
-                            <img src="photo-client-jean.jpg" alt="Photo de Jean L.">
-                            <p class="quote">"Leurs prélèvements environnementaux sont effectués avec la plus grande rigueur. Les rapports sont clairs et détaillés. Service de haute qualité."</p>
-                            <p class="author">- Jean L., Ingénieur Environnement, EcoBuild</p>
-                        </div>
-                        <div class="slide testimonial-card">
-                            <img src="photo-client-sophie.jpg" alt="Photo de Sophie R.">
-                            <p class="quote">"Nous collaborons avec LPA depuis des années pour nos analyses chimiques complexes. Leur expertise technique est sans égal."</p>
-                            <p class="author">- Sophie R., Responsable R&D, Chimie Plus</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -631,98 +726,496 @@ footer {
             </div>
         </section>
 
-    </main>
+        <section id="location-map" class="map-section">
+            <div class="container">
+                <h2>Où nous trouver</h2>
+                <p>Notre laboratoire est situé au cœur d'Abidjan. Consultez la carte pour nous rendre visite ou obtenir votre itinéraire.</p>
+                <div class="map-container">
+                    <iframe 
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.840699198487!2d-3.9863238262767564!3d5.4411461347965675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc193577cf3be4b%3A0xc326e096f18cee96!2sPharmacie%20Biabou%20Mosquee!5e0!3m2!1sfr!2sci!4v1760657901399!5m2!1sfr!2sci" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      
+                </div>
+            </div>
+        </section>
+        </main>
 
     <footer>
         <div class="container footer-grid">
             
-            <div class="footer-col contact-info-footer">
-                <h3>Contact LPA</h3>
-                <p><strong>Adresse:</strong> Abidjan, Côte d'Ivoire</p>
-                <p><strong>Téléphone:</strong> <a href="tel:+2250787652368">+225 07 87 65 23 68</a></p>
-                <p><strong>Email:</strong> <a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></p>
-            </div>
-            
-            <div class="footer-col quick-links">
-                <h3>Liens rapides</h3>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À Propos</a></li>
-                    <li><a href="services.html">Nos services</a></li>
-                    <li><a href="contact.html">Demande de devis</a></li>
-                </ul>
+            <div class="footer-col footer-brand">
+                <h3>LPA - Contrôle Qualité</h3>
+                <p>Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. Votre partenaire de confiance pour la conformité et l'excellence.</p>
+                <span class="agrement-text">Agrément N° 012-MCI/CAB du 27-01-2021</span>
+                
+                <div class="social-links" id="footer-social-links" style="margin-top: 20px;">
+                    </div>
             </div>
 
-            <div class="footer-col social-media">
-                <h3>Suivez-nous</h3>
-                <p>
-                    <a href="#" style="margin-right: 15px;">Facebook</a> 
-                    <a href="#">LinkedIn</a>
-                </p>
+            <div class="footer-col quick-links">
+                <h3>Nos Liens Rapides</h3>
+                <ul id="footer-quick-links"></ul>
+            </div>
+            
+            <div class="footer-col contact-details">
+                <h3>Contactez-nous</h3>
+                   <ul id="footer-contact-details"></ul>
             </div>
             
         </div>
         
         <div class="footer-bottom">
-            <p>Copyright &copy; 2025 LPA. Tous droits réservés.</p>
+            <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
             <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
         </div>
     </footer>
 
+
     <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
 
     <script>
-        // Script du carrousel de fond (Hero)
-        const images = document.querySelectorAll('.carousel-image');
-        let current = 0;
-        function nextImage() {
-            images[current].classList.remove('active');
-            current = (current + 1) % images.length;
-            images[current].classList.add('active');
-        }
-        if (images.length > 1) {
-            images[0].classList.add('active');
-            setInterval(nextImage, 7000); // Change toutes les 7 secondes
-        }
+        // Le code JavaScript va être injecté ici
+        // =======================================================
+// 1. STRUCTURE DE DONNÉES GLOBALE (100% Dynamique)
+// =======================================================
 
-        // Script du carrousel de témoignages (FINAL)
-        const wrapper = document.querySelector('.slide-wrapper');
-        if (wrapper) { 
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
+const siteData = {
+    contact: {
+        tel1: '+225 07 07 20 16 96',
+        tel2: '+225 07 57 89 68 53',
+        fixe: '+225 27 21 76 73 51',
+        email: 'laboratoire1lpa@gmail.com',
+        adresse: '21 BP 259 Abidjan 21, Côte d\'Ivoire'
+    },
+    navigation: [
+        { name: 'Accueil', url: 'index.html', active: true },
+        { name: 'À Propos', url: 'about.html', active: false },
+        { name: 'Nos services', url: 'services.html', active: false },
+        { name: 'Demande de devis', url: 'contact.html', active: false }
+    ],
+    services: [
+        { 
+            icon: 'fas fa-flask', 
+            title: 'Laboratoire & Contrôle Qualité', 
+            description: 'Analyses physico-chimiques, microbiologiques et environnementales. Nous garantissons la conformité de vos produits et de votre environnement aux normes strictes.', 
+            link: 'services.html#labo', 
+            linkText: 'Détails Labo' 
+        },
+        { 
+            icon: 'fas fa-water', 
+            title: 'Traitement des Eaux', 
+            description: 'Solutions complètes de potabilisation, de désinfection et de traitement d\'eaux usées pour les industriels et les collectivités. De l\'étude à la mise en œuvre.', 
+            link: 'services.html#traitement', 
+            linkText: 'Voir Solutions' 
+        },
+        { 
+            icon: 'fas fa-chalkboard-teacher', 
+            title: 'Formation & Expertise', 
+            description: 'Nous partageons notre savoir-faire par des formations sur mesure et des missions d\'expertise technique pour auditer et optimiser vos installations.', 
+            link: 'services.html#formation', 
+            linkText: 'Nos Programmes' 
+        }
+    ],
+    testimonials: [
+        {
+            img: 'photo-client-marie.jpg',
+            quote: '"Le professionnalisme et la rapidité des analyses de LPA nous ont permis de maintenir un contrôle qualité irréprochable sur nos produits. Un partenaire essentiel."',
+            author: '- Marie D., Directrice Qualité, AgroTech Solutions'
+        },
+        {
+            img: 'photo-client-jean.jpg',
+            quote: '"Leurs prélèvements environnementaux sont effectués avec la plus grande rigueur. Les rapports sont clairs et détaillés. Service de haute qualité."',
+            author: '- Jean L., Ingénieur Environnement, EcoBuild'
+        },
+        {
+            img: 'photo-client-sophie.jpg',
+            quote: '"Nous collaborons avec LPA depuis des années pour nos analyses chimiques complexes. Leur expertise technique est sans égal."',
+            author: '- Sophie R., Responsable R&D, Chimie Plus'
+        }
+    ],
+    social: [
+        { icon: 'fab fa-facebook-f', url: 'https://www.facebook.com/votrepage', title: 'Page Facebook' },
+        { icon: 'fab fa-linkedin-in', url: 'https://www.linkedin.com/in/votreprofil', title: 'Profil LinkedIn' }
+    ]
+};
+
+// =======================================================
+// 2. FONCTION DE RENDU DYNAMIQUE
+// =======================================================
+
+function renderContent() {
+    // A. RENDU DES LIENS DE NAVIGATION (Header)
+    const navUl = document.getElementById('main-nav-links');
+    if (navUl) {
+        navUl.innerHTML = siteData.navigation.map(link => 
+            `<li><a href="${link.url}" class="${link.active ? 'active' : ''}">${link.name}</a></li>`
+        ).join('');
+    }
+
+    // B. RENDU DES CONTACTS (Header)
+    const headerContact = document.getElementById('header-contact-info');
+    if (headerContact) {
+        headerContact.innerHTML = `
+            <a href="tel:${siteData.contact.tel1.replace(/\s/g, '')}" class="contact-link">${siteData.contact.tel1}</a>
+            <a href="mailto:${siteData.contact.email}" class="contact-link">${siteData.contact.email}</a>
+        `;
+    }
+
+    // C. RENDU DES SERVICES (Expertise Grid)
+    const expertiseGrid = document.getElementById('expertise-grid');
+    if (expertiseGrid) {
+        expertiseGrid.innerHTML = siteData.services.map(service => 
+            `<div class="expertise-card">
+                <i class="${service.icon}"></i> 
+                <h3>${service.title}</h3>
+                <p>${service.description}</p>
+                <a href="${service.link}" class="btn primary-btn btn-small">${service.linkText}</a>
+            </div>`
+        ).join('');
+    }
+    
+    // D. RENDU DES TÉMOIGNAGES (Carousel)
+    const testimonialSlides = document.getElementById('testimonial-slides');
+    if (testimonialSlides) {
+        testimonialSlides.innerHTML = siteData.testimonials.map((t, index) => 
+            `<div class="slide testimonial-card ${index === 0 ? 'active-testimonial' : ''}">
+                <img src="${t.img}" alt="Photo de ${t.author}">
+                <p class="quote">${t.quote}</p>
+                <p class="author">${t.author}</p>
+            </div>`
+        ).join('');
+    }
+    
+    // E. RENDU DES LIENS RAPIDES (Footer)
+    const footerQuickLinks = document.getElementById('footer-quick-links');
+    if (footerQuickLinks) {
+        footerQuickLinks.innerHTML = siteData.navigation.map(link => 
+            `<li><i class="fas fa-angle-right"></i> <a href="${link.url}">${link.name}</a></li>`
+        ).join('');
+        // Ajout des liens spécifiques Footer
+        footerQuickLinks.innerHTML += `
+            <li><i class="fas fa-angle-right"></i> <a href="formation.html">Formation & Partenariat</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="expertise.html">Expertise & Conseil</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="#location-map">Localisation</a></li>
+        `;
+    }
+    
+    // F. RENDU DES DÉTAILS DE CONTACT (Footer)
+    const footerContact = document.getElementById('footer-contact-details');
+    if (footerContact) {
+        footerContact.innerHTML = `
+            <li>
+                <i class="fas fa-map-marker-alt"></i> 
+                <a href="#location-map">${siteData.contact.adresse}</a>
+            </li>
+            <li>
+                <i class="fas fa-phone-alt"></i> 
+                <a href="tel:${siteData.contact.fixe.replace(/\s/g, '')}">${siteData.contact.fixe}</a> (Fixe)
+            </li>
+            <li>
+                <i class="fas fa-mobile-alt"></i> 
+                <a href="tel:${siteData.contact.tel1.replace(/\s/g, '')}">${siteData.contact.tel1}</a> (Cel 1)
+            </li>
+            <li>
+                <i class="fas fa-mobile-alt"></i> 
+                <a href="tel:${siteData.contact.tel2.replace(/\s/g, '')}">${siteData.contact.tel2}</a> (Cel 2)
+            </li>
+            <li>
+                <i class="fas fa-envelope"></i> 
+                <a href="mailto:${siteData.contact.email}">${siteData.contact.email}</a>
+            </li>
+        `;
+    }
+
+    // G. RENDU DES LIENS SOCIAUX (Footer)
+    const socialLinks = document.getElementById('footer-social-links');
+    if (socialLinks) {
+        socialLinks.innerHTML = siteData.social.map(s => 
+            `<a href="${s.url}" target="_blank" title="${s.title}"><i class="${s.icon}"></i></a>`
+        ).join('');
+    }
+}
+
+// Appeler la fonction de rendu après le chargement du DOM
+document.addEventListener('DOMContentLoaded', renderContent);
+
+
+// =======================================================
+// 3. LOGIQUE DU CARROUSEL ET DU BOUTON SCROLL
+// =======================================================
+
+// Script du carrousel de fond (Hero)
+const images = document.querySelectorAll('.carousel-image');
+let current = 0;
+function nextImage() {
+    images[current].classList.remove('active');
+    current = (current + 1) % images.length;
+    images[current].classList.add('active');
+}
+if (images.length > 1) {
+    images[0].classList.add('active');
+    setInterval(nextImage, 7000); // Change toutes les 7 secondes
+}
+
+// Script du carrousel de témoignages (Fondu/Montée)
+const wrapper = document.getElementById('testimonial-slides'); 
+if (wrapper) { 
+    // On doit appeler les slides APRÈS que le contenu dynamique soit injecté
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        if (totalSlides > 1) {
             let currentSlide = 0;
             
-            // Initialisation : Rendre le premier slide actif
-            slides[0].classList.add('active-testimonial');
-
             function nextSlide() {
-                // 1. Cacher le slide actuel (retirer l'opacité et l'effet de montée)
                 slides[currentSlide].classList.remove('active-testimonial');
-
-                // 2. Calculer le nouveau slide
                 currentSlide = (currentSlide + 1) % totalSlides;
-                
-                // 3. Afficher le nouveau slide avec l'animation (ajouter l'opacité et l'effet de montée)
                 slides[currentSlide].classList.add('active-testimonial');
             }
-            // Démarre l'animation du carrousel de témoignages
-            setInterval(nextSlide, 5000);
+            setInterval(nextSlide, 5000); // Change toutes les 5 secondes
         }
+    });
+}
 
-        // Script du bouton de retour en haut
-        let mybutton = document.getElementById("myBtn");
-        window.onscroll = function() { scrollFunction() };
-        function scrollFunction() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
+// Script du bouton de retour en haut
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() { scrollFunction() };
+function scrollFunction() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+// Fonction pour le défilement fluide vers le haut
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+    </script>
+</body>
+</html>
+        </section>
+
+    </main>
+
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+
+    <script>
+        // Le code JavaScript va être injecté ici
+        // =======================================================
+// 1. STRUCTURE DE DONNÉES GLOBALE (100% Dynamique)
+// =======================================================
+
+const siteData = {
+    contact: {
+        tel1: '+225 07 07 20 16 96',
+        tel2: '+225 07 57 89 68 53',
+        fixe: '+225 27 21 76 73 51',
+        email: 'laboratoire1lpa@gmail.com',
+        adresse: '21 BP 259 Abidjan 21, Côte d\'Ivoire'
+    },
+    navigation: [
+        { name: 'Accueil', url: 'index.html', active: true },
+        { name: 'À Propos', url: 'about.html', active: false },
+        { name: 'Nos services', url: 'services.html', active: false },
+        { name: 'Demande de devis', url: 'contact.html', active: false }
+    ],
+    services: [
+        { 
+            icon: 'fas fa-flask', 
+            title: 'Laboratoire & Contrôle Qualité', 
+            description: 'Analyses physico-chimiques, microbiologiques et environnementales. Nous garantissons la conformité de vos produits et de votre environnement aux normes strictes.', 
+            link: 'services.html#labo', 
+            linkText: 'Détails Labo' 
+        },
+        { 
+            icon: 'fas fa-water', 
+            title: 'Traitement des Eaux', 
+            description: 'Solutions complètes de potabilisation, de désinfection et de traitement d\'eaux usées pour les industriels et les collectivités. De l\'étude à la mise en œuvre.', 
+            link: 'services.html#traitement', 
+            linkText: 'Voir Solutions' 
+        },
+        { 
+            icon: 'fas fa-chalkboard-teacher', 
+            title: 'Formation & Expertise', 
+            description: 'Nous partageons notre savoir-faire par des formations sur mesure et des missions d\'expertise technique pour auditer et optimiser vos installations.', 
+            link: 'services.html#formation', 
+            linkText: 'Nos Programmes' 
+        }
+    ],
+    testimonials: [
+        {
+            img: 'photo-client-marie.jpg',
+            quote: '"Le professionnalisme et la rapidité des analyses de LPA nous ont permis de maintenir un contrôle qualité irréprochable sur nos produits. Un partenaire essentiel."',
+            author: '- Marie D., Directrice Qualité, AgroTech Solutions'
+        },
+        {
+            img: 'photo-client-jean.jpg',
+            quote: '"Leurs prélèvements environnementaux sont effectués avec la plus grande rigueur. Les rapports sont clairs et détaillés. Service de haute qualité."',
+            author: '- Jean L., Ingénieur Environnement, EcoBuild'
+        },
+        {
+            img: 'photo-client-sophie.jpg',
+            quote: '"Nous collaborons avec LPA depuis des années pour nos analyses chimiques complexes. Leur expertise technique est sans égal."',
+            author: '- Sophie R., Responsable R&D, Chimie Plus'
+        }
+    ],
+    social: [
+        { icon: 'fab fa-facebook-f', url: 'https://www.facebook.com/votrepage', title: 'Page Facebook' },
+        { icon: 'fab fa-linkedin-in', url: 'https://www.linkedin.com/in/votreprofil', title: 'Profil LinkedIn' }
+    ]
+};
+
+// =======================================================
+// 2. FONCTION DE RENDU DYNAMIQUE
+// =======================================================
+
+function renderContent() {
+    // A. RENDU DES LIENS DE NAVIGATION (Header)
+    const navUl = document.getElementById('main-nav-links');
+    if (navUl) {
+        navUl.innerHTML = siteData.navigation.map(link => 
+            `<li><a href="${link.url}" class="${link.active ? 'active' : ''}">${link.name}</a></li>`
+        ).join('');
+    }
+
+    // B. RENDU DES CONTACTS (Header)
+    const headerContact = document.getElementById('header-contact-info');
+    if (headerContact) {
+        headerContact.innerHTML = `
+            <a href="tel:${siteData.contact.tel1.replace(/\s/g, '')}" class="contact-link">${siteData.contact.tel1}</a>
+            <a href="mailto:${siteData.contact.email}" class="contact-link">${siteData.contact.email}</a>
+        `;
+    }
+
+    // C. RENDU DES SERVICES (Expertise Grid)
+    const expertiseGrid = document.getElementById('expertise-grid');
+    if (expertiseGrid) {
+        expertiseGrid.innerHTML = siteData.services.map(service => 
+            `<div class="expertise-card">
+                <i class="${service.icon}"></i> 
+                <h3>${service.title}</h3>
+                <p>${service.description}</p>
+                <a href="${service.link}" class="btn primary-btn btn-small">${service.linkText}</a>
+            </div>`
+        ).join('');
+    }
+    
+    // D. RENDU DES TÉMOIGNAGES (Carousel)
+    const testimonialSlides = document.getElementById('testimonial-slides');
+    if (testimonialSlides) {
+        testimonialSlides.innerHTML = siteData.testimonials.map((t, index) => 
+            `<div class="slide testimonial-card ${index === 0 ? 'active-testimonial' : ''}">
+                <img src="${t.img}" alt="Photo de ${t.author}">
+                <p class="quote">${t.quote}</p>
+                <p class="author">${t.author}</p>
+            </div>`
+        ).join('');
+    }
+    
+    // E. RENDU DES LIENS RAPIDES (Footer)
+    const footerQuickLinks = document.getElementById('footer-quick-links');
+    if (footerQuickLinks) {
+        footerQuickLinks.innerHTML = siteData.navigation.map(link => 
+            `<li><i class="fas fa-angle-right"></i> <a href="${link.url}">${link.name}</a></li>`
+        ).join('');
+        // Ajout des liens spécifiques Footer
+        footerQuickLinks.innerHTML += `
+            <li><i class="fas fa-angle-right"></i> <a href="formation.html">Formation & Partenariat</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="expertise.html">Expertise & Conseil</a></li>
+        `;
+    }
+    
+    // F. RENDU DES DÉTAILS DE CONTACT (Footer)
+    const footerContact = document.getElementById('footer-contact-details');
+    if (footerContact) {
+        footerContact.innerHTML = `
+            <li>
+                <i class="fas fa-map-marker-alt"></i> 
+                ${siteData.contact.adresse}
+            </li>
+            <li>
+                <i class="fas fa-phone-alt"></i> 
+                <a href="tel:${siteData.contact.fixe.replace(/\s/g, '')}">${siteData.contact.fixe}</a> (Fixe)
+            </li>
+            <li>
+                <i class="fas fa-mobile-alt"></i> 
+                <a href="tel:${siteData.contact.tel1.replace(/\s/g, '')}">${siteData.contact.tel1}</a> (Cel 1)
+            </li>
+            <li>
+                <i class="fas fa-mobile-alt"></i> 
+                <a href="tel:${siteData.contact.tel2.replace(/\s/g, '')}">${siteData.contact.tel2}</a> (Cel 2)
+            </li>
+            <li>
+                <i class="fas fa-envelope"></i> 
+                <a href="mailto:${siteData.contact.email}">${siteData.contact.email}</a>
+            </li>
+        `;
+    }
+
+    // G. RENDU DES LIENS SOCIAUX (Footer)
+    const socialLinks = document.getElementById('footer-social-links');
+    if (socialLinks) {
+        socialLinks.innerHTML = siteData.social.map(s => 
+            `<a href="${s.url}" target="_blank" title="${s.title}"><i class="${s.icon}"></i></a>`
+        ).join('');
+    }
+}
+
+// Appeler la fonction de rendu après le chargement du DOM
+document.addEventListener('DOMContentLoaded', renderContent);
+
+
+// =======================================================
+// 3. LOGIQUE DU CARROUSEL ET DU BOUTON SCROLL
+// =======================================================
+
+// Script du carrousel de fond (Hero)
+const images = document.querySelectorAll('.carousel-image');
+let current = 0;
+function nextImage() {
+    images[current].classList.remove('active');
+    current = (current + 1) % images.length;
+    images[current].classList.add('active');
+}
+if (images.length > 1) {
+    images[0].classList.add('active');
+    setInterval(nextImage, 7000); // Change toutes les 7 secondes
+}
+
+// Script du carrousel de témoignages (Fondu/Montée)
+const wrapper = document.getElementById('testimonial-slides'); 
+if (wrapper) { 
+    // On doit appeler les slides APRÈS que le contenu dynamique soit injecté
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        if (totalSlides > 1) {
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active-testimonial');
+                currentSlide = (currentSlide + 1) % totalSlides;
+                slides[currentSlide].classList.add('active-testimonial');
             }
+            setInterval(nextSlide, 5000); // Change toutes les 5 secondes
         }
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+    });
+}
+
+// Script du bouton de retour en haut
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() { scrollFunction() };
+function scrollFunction() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+// Fonction pour le défilement fluide vers le haut
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
     </script>
 </body>
 </html>
