@@ -448,95 +448,111 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
     <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
 
     <script>
-        // Script du bouton de retour en haut (inchangé)
-        let mybutton = document.getElementById("myBtn");
-        window.onscroll = function() { scrollFunction() };
-        function scrollFunction() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
+<script>
+    // Script du bouton de retour en haut (inchangé)
+    let mybutton = document.getElementById("myBtn");
+    window.onscroll = function() { scrollFunction() };
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    // =======================================================
+    // GESTION DU MENU HAMBURGER (Mise à jour pour fermeture automatique)
+    // =======================================================
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const navFullContainer = document.getElementById("nav-full-container");
+    const navLinks = document.querySelectorAll('#nav-full-container nav ul li a'); // Sélectionne tous les liens de la nav
+
+    // 1. Fonction pour ouvrir/fermer le menu
+    function toggleMenu() {
+        navFullContainer.classList.toggle('active');
+    }
+
+    // Écouteur pour le bouton Hamburger
+    hamburgerBtn.addEventListener('click', toggleMenu);
+
+    // 2. Écouteurs pour la fermeture auto après clic sur un lien
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Ferme le menu en retirant la classe 'active'
+            if (navFullContainer.classList.contains('active')) {
+                navFullContainer.classList.remove('active');
             }
-        }
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-
-        // =======================================================
-        // GESTION DU MENU HAMBURGER
-        // =======================================================
-        const hamburgerBtn = document.getElementById("hamburger-btn");
-        const navFullContainer = document.getElementById("nav-full-container");
-
-        hamburgerBtn.addEventListener('click', () => {
-            // Bascule la classe 'active' pour afficher/masquer le menu
-            navFullContainer.classList.toggle('active');
         });
+    });
 
-        // =======================================================
-        // GESTION DE L'ENVOI DE FORMULAIRE AJAX
-        // =======================================================
-        const form = document.getElementById('devis-form');
-        const formMessages = document.getElementById('form-messages');
-        const submitButton = form.querySelector('button[type="submit"]');
+    // =======================================================
+    // GESTION DE L'ENVOI DE FORMULAIRE AJAX
+    // =======================================================
+    const form = document.getElementById('devis-form');
+    const formMessages = document.getElementById('form-messages');
+    const submitButton = form.querySelector('button[type="submit"]');
 
-        form.addEventListener('submit', function(e) {
-            // 1. Empêche l'envoi traditionnel qui causerait un rechargement
-            e.preventDefault(); 
-            
-            // 2. Préparation et désactivation du bouton
-            formMessages.style.display = 'none';
-            formMessages.classList.remove('form-success', 'form-error');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Envoi en cours...';
-            submitButton.style.opacity = '0.6';
+    form.addEventListener('submit', function(e) {
+        // 1. Empêche l'envoi traditionnel qui causerait un rechargement
+        e.preventDefault(); 
+        
+        // 2. Préparation et désactivation du bouton
+        formMessages.style.display = 'none';
+        formMessages.classList.remove('form-success', 'form-error');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Envoi en cours...';
+        submitButton.style.opacity = '0.6';
 
-            const data = new FormData(form);
-            
-            // 3. Envoi de la requête asynchrone (AJAX)
-            fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Succès
-                    formMessages.style.display = 'block';
-                    formMessages.classList.add('form-success');
-                    formMessages.textContent = '✅ Votre demande de devis a été envoyée avec succès ! Nous vous recontacterons très vite.';
-                    form.reset(); // Vide les champs du formulaire
-                } else {
-                    // Échec
-                    response.json().then(data => {
-                        formMessages.style.display = 'block';
-                        formMessages.classList.add('form-error');
-                        if (Object.hasOwn(data, 'errors')) {
-                            formMessages.textContent = '❌ Erreur : ' + data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            formMessages.textContent = '❌ Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par email.';
-                        }
-                    })
-                }
-            })
-            .catch(error => {
-                // Erreur de connexion
+        const data = new FormData(form);
+        
+        // 3. Envoi de la requête asynchrone (AJAX)
+        fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Succès
                 formMessages.style.display = 'block';
-                formMessages.classList.add('form-error');
-                formMessages.textContent = '❌ Une erreur de connexion est survenue. Veuillez vérifier votre réseau.';
-            })
-            .finally(() => {
-                // 4. Réactiver le bouton et faire défiler vers le message
-                submitButton.disabled = false;
-                submitButton.textContent = 'Envoyer la Demande de Devis';
-                submitButton.style.opacity = '1';
-                
-                formMessages.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+                formMessages.classList.add('form-success');
+                formMessages.textContent = '✅ Votre demande de devis a été envoyée avec succès ! Nous vous recontacterons très vite.';
+                form.reset(); // Vide les champs du formulaire
+            } else {
+                // Échec
+                response.json().then(data => {
+                    formMessages.style.display = 'block';
+                    formMessages.classList.add('form-error');
+                    if (Object.hasOwn(data, 'errors')) {
+                        formMessages.textContent = '❌ Erreur : ' + data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        formMessages.textContent = '❌ Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par email.';
+                    }
+                })
+            }
+        })
+        .catch(error => {
+            // Erreur de connexion
+            formMessages.style.display = 'block';
+            formMessages.classList.add('form-error');
+            formMessages.textContent = '❌ Une erreur de connexion est survenue. Veuillez vérifier votre réseau.';
+        })
+        .finally(() => {
+            // 4. Réactiver le bouton et faire défiler vers le message
+            submitButton.disabled = false;
+            submitButton.textContent = 'Envoyer la Demande de Devis';
+            submitButton.style.opacity = '1';
+            
+            formMessages.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+    });
+</script>
     </script>
 </body>
 </html>
