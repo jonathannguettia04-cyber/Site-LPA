@@ -173,11 +173,99 @@ ul li:before {
 /* FOOTER ET BOUTON RETOUR EN HAUT */
 /* ======================================================= */
 footer {
-    background-color: #0378A6; /* Remplacé par le Bleu Teal pour le footer */
+    background-color: #0378A6;
     color: #fff;
+    padding: 50px 0 0 0; 
+    font-size: 1rem;
+}
+
+/* Grille principale du pied de page */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px; 
+    padding-bottom: 40px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-col h3 {
+    color: #4F9BCC;
+    font-size: 1.2rem;
+    margin-bottom: 20px; 
+    text-align: left;
+    font-weight: 600;
+}
+
+/* Colonne spéciale pour la marque/logo */
+.footer-brand p {
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+/* Style commun pour les listes de liens/contact */
+.footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8; 
+}
+.footer-col ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    display: flex; /* Ajouté pour aligner l'icône */
+    align-items: center;
+}
+.footer-col ul li i {
+    color: #4F9BCC;
+    margin-right: 10px;
+    width: 15px; 
+}
+
+.footer-col a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-col a:hover {
+    color: #fff; 
+}
+
+/* Style des icônes sociales */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    color: #fff; 
+    font-size: 1.3rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: #4F9BCC;
+}
+
+
+/* Zone du bas de page (Copyright et crédit) */
+.footer-bottom {
+    padding: 15px 0; 
     text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 30px;
+}
+.footer-bottom p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+.developer-credit {
+    font-size: 0.8rem;
+    color: #aaa;
+}
 }
 #myBtn {
     display: none; 
@@ -236,10 +324,10 @@ footer {
             <section id="laboratoire">
                 <h2>L'Excellence au Cœur de Notre Laboratoire</h2>
                 <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 40px;">
-                    Chez LPA, notre laboratoire est le pilier de notre engagement envers la qualité. Il est équipé d'instruments à la **pointe de la technologie** pour garantir la précision et la fiabilité de toutes nos analyses. Nous sommes spécialisés dans le **contrôle de la qualité et de la conformité** des produits, des denrées alimentaires et des échantillons environnementaux.
+                    Chez LPA, notre laboratoire est le pilier de notre engagement envers la qualité. Il est équipé d'instruments à la pointe de la technologie pour garantir la précision et la fiabilité de toutes nos analyses. Nous sommes spécialisés dans le contrôle de la qualité et de la conformité des produits, des denrées alimentaires et des échantillons environnementaux.
                 </p>
                 <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333;">
-                    Notre mission est d'accompagner nos clients vers la **conformité totale en fournissant des services d'analyse certifiés, conformes aux normes et standards internationaux et nationaux, tout en maintenant une totale **transparence et intégrité**.
+                    Notre mission est d'accompagner nos clients vers la conformité totale en fournissant des services d'analyse certifiés, conformes aux normes et standards internationaux et nationaux, tout en maintenant une totale transparence et intégrité.
                 </p>
     
                 <hr style="margin: 40px auto; border-color: #eee;">
@@ -254,7 +342,7 @@ footer {
                             <li>Température, pH (potentiel hydrogène)</li>
                             <li>Turbidité (clarté), Conductivité (pureté)</li>
                             <li>Dureté totale (teneur en calcium et magnésium)</li>
-                            <li>**Métaux lourds** (Plomb, Cadmium, Arsenic, etc.)</li>
+                            <li>Métaux lourds (Plomb, Cadmium, Arsenic, etc.)</li>
                             <li>Teneur en chlore libre et total, Fluorures</li>
                             <li>Ammonium, Nitrites et Nitrates</li>
                             <li>Taux d'humidité, matières grasses, protéines, cendres.</li>
@@ -265,11 +353,11 @@ footer {
                         <p style="text-align: left; font-size: 1rem; color: #777;">Identification et quantification des micro-organismes potentiellement dangereux ou indicateurs de contamination :</p>
                         <ul>
                             <li>Coliformes totaux et Fécaux</li>
-                            <li>**Escherichia coli** (E. coli)</li>
+                            <li>Escherichia coli (E. coli)</li>
                             <li>Entérocoques intestinaux</li>
-                            <li>**Clostridium perfringens** et Bacillus Cereus</li>
+                            <li>Clostridium perfringens et Bacillus Cereus</li>
                             <li>Germes aérobies à 22 °C et 36 °C (Flore Totale)</li>
-                            <li>Recherche de **Salmonella** et **Listeria**</li>
+                            <li>Recherche de Salmonella et Listeria</li>
                             <li>Staphylocoques pathogènes, Levures et Moisissures.</li>
                         </ul>
                     </div>
@@ -296,7 +384,14 @@ footer {
     </main>
 
     <footer>
-        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+        <div class="container footer-grid">
+            
+            </div>
+        
+        <div class="footer-bottom">
+            <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
+            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
+        </div>
     </footer>
 
     <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>

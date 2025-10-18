@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À Propos | LPA - L'Excellence du Laboratoire et du Traitement d'Eau</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                   */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                   */
 /* ======================================================= */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     /* Ajustement du padding pour dégager l'en-tête fixe sur desktop */
-    padding-top: 120px; 
+    padding-top: 100px; /* Réduit à 100px pour le desktop */
     background-color: #EBEBEB;
     color: #333;
-    line-height: 1.7; 
+    line-height: 1.7; 
     scroll-behavior: smooth;
 }
 .container {
     max-width: 1200px;
     /* Marge ajustée pour un meilleur espacement après la bannière */
-    margin: 50px auto; 
+    margin: 50px auto; 
     padding: 0 25px;
 }
 section {
@@ -63,7 +63,7 @@ h4 {
     text-align: left;
 }
 p {
-    font-size: 1.15rem; 
+    font-size: 1.15rem; 
     line-height: 1.8;
     color: #555;
     margin-bottom: 20px;
@@ -87,7 +87,7 @@ li strong {
 }
 
 /* ======================================================= */
-/* EN-TÊTE (HEADER)                                       */
+/* EN-TÊTE (HEADER)                                       */
 /* ======================================================= */
 header {
     background-color: #4F9BCC;
@@ -102,15 +102,16 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-height: 70px;
+    box-sizing: border-box; /* IMPORTANT pour le padding */
 }
 header .logo img { height: 50px; vertical-align: middle; }
 nav { flex-grow: 1; text-align: center; }
 nav ul { list-style: none; margin: 0; padding: 0; display: inline-block; }
 nav ul li { display: inline-block; margin-left: 30px; }
 nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.1rem; padding: 5px 0; position: relative; transition: color 0.3s ease; }
-nav a::after { 
+nav a::after { 
     content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 3px;
-    background-color: #0378A6; transition: width 0.3s ease-in-out; 
+    background-color: #0378A6; transition: width 0.3s ease-in-out; 
 }
 nav a:hover::after, nav a.active::after { width: 100%; }
 nav a:hover { color: #0378A6; }
@@ -119,7 +120,29 @@ nav a:hover { color: #0378A6; }
 .contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
 
 /* ======================================================= */
-/* NOUVEAUTÉ: BANNIÈRE HÉRO (HERO SECTION) 🌟            */
+/* HAMBURGER MENU / MOBILE TOGGLE                          */
+/* ======================================================= */
+.hamburger {
+    display: none; /* Cache l'icône sur les écrans de bureau */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    transition: transform 0.3s;
+}
+.hamburger:hover {
+    transform: scale(1.1);
+}
+/* Classe pour afficher le menu */
+nav.open {
+    display: block !important; /* Force l'affichage du menu lorsqu'il est actif */
+}
+
+/* ======================================================= */
+/* NOUVEAUTÉ: BANNIÈRE HÉRO (HERO SECTION) 🌟            */
 /* ======================================================= */
 #hero-banner {
     /* Image de fond avec dégradé bleu pour la lisibilité. Changez 'banner-lab.jpg' par votre image. */
@@ -132,7 +155,7 @@ nav a:hover { color: #0378A6; }
     color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     /* Effet Parallax */
-    background-attachment: fixed; 
+    background-attachment: fixed; 
 }
 
 #hero-banner .hero-content {
@@ -146,7 +169,7 @@ nav a:hover { color: #0378A6; }
     color: #fff;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    border-bottom: none; 
+    border-bottom: none; 
 }
 
 #hero-banner p {
@@ -187,7 +210,7 @@ nav a:hover { color: #0378A6; }
 }
 
 /* ======================================================= */
-/* ANIMATIONS ET EFFETS DYNAMIQUES 🌟 (EXISTANT)          */
+/* ANIMATIONS ET EFFETS DYNAMIQUES 🌟 (EXISTANT)          */
 /* ======================================================= */
 
 /* 1. Définition de l'animation de fondu (Fade-in) */
@@ -217,25 +240,25 @@ nav a:hover { color: #0378A6; }
 
 /* 4. Effet de zoom léger sur les conteneurs d'images */
 .history-image-container, .pdg-image-container {
-    overflow: hidden; 
+    overflow: hidden; 
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
 .history-image-container:hover, .pdg-image-container:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .history-image-container img, .pdg-image-container img {
-    transition: transform 0.6s ease-in-out; 
+    transition: transform 0.6s ease-in-out; 
 }
 
 .history-image-container:hover img, .pdg-image-container:hover img {
-    transform: scale(1.05); 
+    transform: scale(1.05); 
 }
 
 /* ======================================================= */
-/* GRILLES DE CONTENU (EXISTANT)                          */
+/* GRILLES DE CONTENU (EXISTANT)                          */
 /* ======================================================= */
 .history-grid {
     display: grid;
@@ -264,7 +287,7 @@ nav a:hover { color: #0378A6; }
 
 /* Section Leadership (PDG) */
 #leadership {
-    background-color: #EBEBEB; 
+    background-color: #EBEBEB; 
     box-shadow: none;
 }
 .pdg-bio-grid {
@@ -282,7 +305,7 @@ nav a:hover { color: #0378A6; }
 }
 .pdg-image-container img {
     width: 100%;
-    max-width: 250px; 
+    max-width: 250px; 
     height: auto;
     border-radius: 50%;
     border: 5px solid #0378A6;
@@ -331,12 +354,12 @@ nav a:hover { color: #0378A6; }
 }
 
 /* ======================================================= */
-/* FOOTER DÉTAILLÉ (EXISTANT)                             */
+/* FOOTER DÉTAILLÉ (EXISTANT)                             */
 /* ======================================================= */
 footer {
     background-color: #0378A6;
     color: #fff;
-    padding: 50px 0 0 0; 
+    padding: 50px 0 0 0; 
     font-size: 1rem;
 }
 
@@ -344,15 +367,15 @@ footer {
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px; 
-    padding-bottom: 40px; 
+    gap: 30px; 
+    padding-bottom: 40px; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .footer-col h3 {
     color: #4F9BCC;
     font-size: 1.2rem;
-    margin-bottom: 20px; 
+    margin-bottom: 20px; 
     text-align: left;
     font-weight: 600;
 }
@@ -371,16 +394,18 @@ footer {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 1.8; 
+    line-height: 1.8; 
 }
 .footer-col ul li {
     margin-bottom: 8px;
     font-size: 0.95rem;
+    display: flex; /* Ajouté pour aligner l'icône */
+    align-items: center;
 }
 .footer-col ul li i {
     color: #4F9BCC;
     margin-right: 10px;
-    width: 15px; 
+    width: 15px; 
 }
 
 .footer-col a {
@@ -389,7 +414,7 @@ footer {
     transition: color 0.3s;
 }
 .footer-col a:hover {
-    color: #fff; 
+    color: #fff; 
 }
 
 /* Style des icônes sociales */
@@ -399,7 +424,7 @@ footer {
 
 .social-links a {
     display: inline-block;
-    color: #fff; 
+    color: #fff; 
     font-size: 1.3rem;
     margin-right: 15px;
     transition: color 0.3s;
@@ -411,7 +436,7 @@ footer {
 
 /* Zone du bas de page (Copyright et crédit) */
 .footer-bottom {
-    padding: 15px 0; 
+    padding: 15px 0; 
     text-align: center;
 }
 .footer-bottom p {
@@ -429,7 +454,7 @@ footer {
 
 /* Bouton Retour en Haut */
 #myBtn {
-    display: none; 
+    display: none; 
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -450,18 +475,18 @@ footer {
 }
 
 /* ======================================================= */
-/* MEDIA QUERIES (ADAPTATION AUX PETITS TERMINAUX) 📱      */
+/* MEDIA QUERIES (ADAPTATION AUX PETITS TERMINAUX) 📱      */
 /* ======================================================= */
 
 /* Adaptation pour les écrans de taille tablette et plus */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .mission-content-grid {
-        flex-direction: row; 
-        flex-wrap: wrap; 
+        flex-direction: row; 
+        flex-wrap: wrap; 
         justify-content: space-between;
     }
     .value-block {
-        width: calc(50% - 15px); 
+        width: calc(50% - 15px); 
     }
     /* Correction de la taille de police H1 sur desktop */
     #hero-banner h1 {
@@ -477,22 +502,74 @@ footer {
     .history-image-container {
         order: -1;
     }
+    .pdg-bio-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Adaptation pour les smartphones */
 @media (max-width: 768px) {
-    /* Maintien de l'en-tête fixe et ajustement du padding du body pour le dégager */
-    body { padding-top: 280px; } 
-    header { flex-direction: column; padding-top: 20px; padding-bottom: 15px; min-height: auto; }
-    nav { width: 100%; margin-top: 10px; margin-bottom: 10px; }
-    nav ul { display: block; text-align: center; }
-    nav ul li { display: block; margin: 5px 0; padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    
+    /* Configuration générale pour le header fixe */
+    header { 
+        flex-direction: row; /* Logo et Hamburger sur une ligne */
+        justify-content: space-between; 
+        align-items: center;
+        padding: 0.8rem 1rem;
+        min-height: 50px;
+        flex-wrap: nowrap; /* Empêche de passer à la ligne */
+    }
+    
+    /* Dégagement du body pour le header fixe */
+    body { padding-top: 80px; }  /* Dégage le header fixe de 70px + marge */
+    
+    /* Affichage du bouton hamburger */
+    .hamburger {
+        display: block; 
+    }
+    
+    /* Masquage des éléments non essentiels sur mobile */
+    .contact-info { 
+         display: none; 
+    }
+    
+    /* Configuration de la navigation mobile */
+    nav { 
+        display: none; /* Cache la navigation par défaut */
+        position: absolute;
+        top: 70px; /* Se positionne juste en dessous du header */
+        left: 0;
+        width: 100%;
+        background-color: #4F9BCC; 
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+        z-index: 999;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+        text-align: left; 
+    }
+
+    /* Styles des liens du menu mobile */
+    nav ul { 
+        display: block; 
+        padding: 0;
+    }
+    nav ul li { 
+        display: block; 
+        margin: 0; 
+        padding: 12px 20px; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    }
     nav ul li:last-child { border-bottom: none; }
-    nav a::after { display: none; }
-    .contact-info { width: 100%; margin-left: 0; flex-direction: column; gap: 8px; }
-    .contact-info .contact-link { width: 90%; text-align: center; margin: 0 auto; }
-    .footer-col h3, .footer-col p, .footer-col ul { text-align: center; }
-    h3 { text-align: center; border-left: none; padding-left: 0; border-bottom: 2px solid #4F9BCC; padding-bottom: 10px; }
+    nav a { 
+        font-size: 1.2rem;
+        display: block;
+        padding: 0;
+    }
+    nav a:hover { color: #0378A6; }
+    nav a::after { display: none; } /* Retirer l'animation de soulignement */
+
+    /* Autres ajustements pour le responsive */
+    h3 { text-align: left; border-bottom: none; border-left: 5px solid #4F9BCC; padding-left: 15px; }
     .pdg-bio-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -517,11 +594,15 @@ footer {
         border-bottom: 5px solid #4F9BCC;
     }
     #hero-banner h1 {
-        font-size: 2.5rem; /* Taille adaptée pour mobile */
+        font-size: 2.5rem; 
     }
     #hero-banner p {
         font-size: 1.2rem;
     }
+    
+    /* Footer cleanup */
+    .footer-col h3, .footer-col p, .footer-col ul, .social-links { text-align: center; } 
+    .footer-col ul li { justify-content: center; }
 }
     </style>
 </head>
@@ -533,7 +614,10 @@ footer {
                 <img src="LOGO LPA.jpg" alt="Logo de LPA">
             </a>
         </div>
-        <nav>
+        <button class="hamburger" id="hamburger-menu" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="about.html" class="active">À Propos</a></li>
@@ -570,13 +654,13 @@ footer {
                         <p>La vision de LPA est de faire de ses clients les leaders incontestés de leurs domaines. Nous ne visons pas seulement l'analyse, mais le partenariat stratégique pour une amélioration continue de la qualité. Notre ambition est de devenir la référence ouest-africaine en matière de sécurité sanitaire et environnementale.</p>
                         
                         <h3>Notre Mission : Fiabilité Garantie, Prix Imbattables</h3>
-                        <p>Notre engagement fondamental est de proposer des solutions et des services d'excellence conformes à vos attentes, à des prix imbattables. Nous vous délivrons des résultats précis et rapides, essentiels pour la conformité réglementaire** et la protection de vos actifs.</p>
+                        <p>Notre engagement fondamental est de proposer des solutions et des services d'excellence conformes à vos attentes, à des prix imbattables. Nous vous délivrons des résultats précis et rapides, essentiels pour la **conformité réglementaire** et la protection de vos actifs.</p>
                         
                         <h4>Accréditation et Normes Internationales</h4>
                         <p>Notre engagement est scellé par :</p>
                         <ul>
                             <li>Agrément Officiel :N° 012-MCI/CAB du 27-01-2021.</li>
-                            <li>Démarche Qualité :Nous progressons vers l'accréditation ISO/CEI 17025:2017, gage de la plus haute compétence technique dans nos analyses.</li>
+                            <li>Démarche Qualité :Nous progressons vers l'accréditation **ISO/CEI 17025:2017**, gage de la plus haute compétence technique dans nos analyses.</li>
                         </ul>
                         
                     </div>
@@ -646,7 +730,9 @@ footer {
     </main>
 
     <footer>
-        
+        <div class="container footer-grid">
+            
+            </div>
         
         <div class="footer-bottom">
             <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
@@ -657,17 +743,18 @@ footer {
     <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
 
     <script>
+        // =======================================================
         // Logique d'animation (Fade-in au défilement)
+        // =======================================================
         document.addEventListener("DOMContentLoaded", function() {
             // Sélectionne tous les éléments avec la classe 'animated'
-            // Ajout des sélecteurs pour les éléments spécifiques de la bannière
             const animatedElements = document.querySelectorAll('.animated, #hero-banner h1, #hero-banner p, .cta-button');
             
             // Configuration de l'Intersection Observer
             const observerOptions = {
-                root: null, 
+                root: null, 
                 rootMargin: '0px',
-                threshold: 0.1 
+                threshold: 0.1 
             };
 
             // Fonction de rappel appelée lorsque les éléments entrent ou sortent du viewport
@@ -693,7 +780,49 @@ footer {
         });
 
         // =======================================================
-        // Logique du bouton "Retour en Haut"
+        // 1. LOGIQUE DU MENU HAMBURGER (AJOUTÉE)
+        // =======================================================
+        function setupHamburgerMenu() {
+            const hamburger = document.getElementById('hamburger-menu');
+            const nav = document.getElementById('main-nav');
+            
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', () => {
+                    // Basculer la classe 'open' sur la balise <nav>
+                    nav.classList.toggle('open');
+                    
+                    // Basculer l'icône (barres <-> croix)
+                    const icon = hamburger.querySelector('i');
+                    if (nav.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times'); // Utilise 'fa-times' pour la croix
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Fermer le menu après le clic sur un lien (expérience mobile)
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        // Vérifier si nous sommes sur un écran mobile
+                        if (window.innerWidth <= 768 && nav.classList.contains('open')) {
+                            nav.classList.remove('open');
+                            // Réinitialiser l'icône à 'fa-bars'
+                            hamburger.querySelector('i').classList.remove('fa-times');
+                            hamburger.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+        }
+
+        // Appeler la fonction de configuration du hamburger après le chargement du DOM
+        document.addEventListener('DOMContentLoaded', setupHamburgerMenu);
+
+        // =======================================================
+        // 2. Logique du bouton "Retour en Haut"
         // =======================================================
         var mybutton = document.getElementById("myBtn");
 

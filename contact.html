@@ -13,7 +13,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 90px; 
+    padding-top: 80px; /* Ajusté pour le header fixe */ 
     background-color: #EBEBEB;
     color: #333;
     line-height: 1.7; 
@@ -50,18 +50,16 @@ p {
 /* ======================================================= */
 .contact-banner {
     height: 300px;
-    /* UTILISATION DE L'IMAGE TÉLÉVERSÉE */
     background-image: url('LPA4.png'); 
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     margin-bottom: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    overflow: hidden; /* Important pour l'effet de zoom */
+    overflow: hidden; 
     position: relative;
 }
 
-/* Effet de léger zoom/mouvement sur l'image */
 .contact-banner::before {
     content: '';
     position: absolute;
@@ -69,13 +67,12 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: inherit; /* Utilise l'image de la bannière comme fond */
-    background-size: 110%; /* Pour commencer légèrement zoomé */
-    transition: all 0.5s ease-out; /* Transition pour un effet subtil */
-    animation: zoomEffect 30s infinite alternate; /* Animation lente */
+    background: inherit; 
+    background-size: 110%; 
+    transition: all 0.5s ease-out; 
+    animation: zoomEffect 30s infinite alternate; 
 }
 
-/* Overlay pour améliorer la lisibilité du texte (AJOUTÉ) */
 .contact-banner::after {
     content: '';
     position: absolute;
@@ -83,12 +80,11 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.45); /* Filtre sombre pour le contraste */
+    background-color: rgba(0, 0, 0, 0.45); 
     border-radius: 10px;
-    z-index: 1; /* S'assure que l'overlay est sous le texte */
+    z-index: 1; 
 }
 
-/* Styles pour l'affichage du texte sur la bannière (AJOUTÉ) */
 .banner-text-overlay {
     position: absolute;
     top: 0;
@@ -100,16 +96,16 @@ p {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff; /* Texte blanc */
-    z-index: 2; /* Au-dessus de l'overlay sombre */
+    color: #fff; 
+    z-index: 2; 
     padding: 20px;
 }
 
 .banner-text-overlay h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem; /* Grande taille */
+    font-size: 3.5rem; 
     margin: 0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Ombre pour lisibilité */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
     line-height: 1.2;
     font-weight: 700;
 }
@@ -124,7 +120,6 @@ p {
     padding-top: 10px;
 }
 
-/* Définition de l'animation */
 @keyframes zoomEffect {
     0% {
         transform: scale(1);
@@ -138,12 +133,12 @@ p {
 
 
 /* ======================================================= */
-/* EN-TÊTE (HEADER) */
+/* EN-TÊTE (HEADER) et NAVIGATION */
 /* ======================================================= */
 header {
     background-color: #4F9BCC;
     color: #fff;
-    padding: 1rem 2rem;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -154,7 +149,34 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-height: 70px;
 }
+
+/* Conteneur pour la navigation et les contacts sur desktop */
+#nav-full-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
 header .logo img { height: 50px; vertical-align: middle; }
+
+/* Styles pour le bouton Hamburger */
+.hamburger {
+    display: none; /* Masqué par défaut sur desktop */
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    z-index: 1001;
+}
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
 nav { flex-grow: 1; text-align: center; }
 nav ul { list-style: none; margin: 0; padding: 0; display: inline-block; }
 nav ul li { display: inline-block; margin-left: 30px; }
@@ -170,17 +192,31 @@ nav a:hover { color: #0378A6; }
 .contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
 
 /* ======================================================= */
-/* STYLE DU FORMULAIRE DE DEVIS */
+/* STYLE DU FORMULAIRE DE DEVIS & MESSAGES */
 /* ======================================================= */
-.contact-form button { background-color: #0378A6; }
+.contact-form button { 
+    background-color: #0378A6; 
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s;
+}
 .contact-form button:hover { background-color: #4F9BCC; transform: translateY(-2px); }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px; margin-bottom: 15px; }
 .full-width { grid-column: 1 / 3; }
 .contact-form input:not([type="radio"]), .contact-form textarea, .contact-form select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; transition: border-color 0.3s; }
 .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: #4F9BCC; outline: none; box-shadow: 0 0 5px rgba(79, 155, 204, 0.5); }
-.contact-form button { color: white; padding: 15px; border: none; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: bold; transition: background-color 0.3s ease, transform 0.3s ease; width: 100%; }
+.contact-form button { color: white; padding: 15px; border: none; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: bold; width: 100%; }
 .radio-group label { font-weight: normal; color: #555; display: inline-flex; align-items: center; cursor: pointer; }
 .radio-group input[type="radio"] { margin-right: 8px; width: auto; padding: 0; }
+
+.form-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.form-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
 
 /* ======================================================= */
 /* FOOTER DÉTAILLÉ */
@@ -195,34 +231,101 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
 .developer-credit { font-size: 0.9rem; color: #aaa; margin-top: 5px; }
 
 /* ======================================================= */
-/* MEDIA QUERY POUR MOBILE (Ajustement du texte de la bannière) */
+/* MEDIA QUERY POUR MOBILE (Intégration du Hamburger) */
 /* ======================================================= */
 @media (max-width: 768px) {
-    body { padding-top: 20px; }
-    header { flex-direction: column; position: static; padding-top: 20px; padding-bottom: 15px; min-height: auto; }
-    nav { width: 100%; margin-top: 10px; margin-bottom: 10px; }
-    nav ul { display: block; text-align: center; }
-    nav ul li { display: block; margin: 5px 0; padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    body { padding-top: 80px; } /* Ajusté pour le header fixe */
+    
+    /* Afficher le bouton hamburger */
+    .hamburger {
+        display: block;
+    }
+    
+    header { 
+        position: fixed; 
+        top: 0;
+        left: 0;
+        right: 0;
+        flex-direction: row; 
+        justify-content: space-between;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    /* Le conteneur de navigation complet (masqué par défaut) */
+    #nav-full-container {
+        display: none; 
+        position: fixed;
+        top: 80px; 
+        left: 0;
+        width: 100%;
+        background-color: #4F9BCC; 
+        flex-direction: column;
+        align-items: center;
+        z-index: 999;
+        max-height: 0; 
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Classe JavaScript : Déployer le menu */
+    #nav-full-container.active {
+        display: flex; 
+        max-height: 100vh; 
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    nav { 
+        width: 90%; 
+        margin-top: 10px; 
+        margin-bottom: 20px; 
+        text-align: center;
+    }
+    nav ul { 
+        display: block; 
+        text-align: center; 
+    }
+    nav ul li { 
+        display: block; 
+        margin: 0; 
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+    }
     nav ul li:last-child { border-bottom: none; }
+    nav a { 
+        font-size: 1.2rem;
+        color: #fff;
+    }
     nav a::after { display: none; }
-    .contact-info { width: 100%; margin-left: 0; flex-direction: column; gap: 8px; }
-    .contact-info .contact-link { width: 90%; text-align: center; margin: 0 auto; }
+    
+    .contact-info { 
+        width: 90%; 
+        margin-left: 0; 
+        flex-direction: column; 
+        gap: 15px; 
+        border-top: 1px solid rgba(255, 255, 255, 0.15); 
+        padding-top: 20px;
+    }
+    .contact-info .contact-link { 
+        width: 80%; 
+        text-align: center; 
+        margin: 0 auto; 
+        background-color: #0378A6;
+        padding: 10px;
+        border: none;
+    }
+    
     .form-grid { grid-template-columns: 1fr; gap: 15px; }
     .full-width { grid-column: 1 / 2; }
     .radio-group { flex-direction: column; gap: 10px !important; }
     .contact-form button { padding: 15px 10px; }
     .footer-col h3, .footer-col p, .footer-col ul { text-align: center; }
-    /* Ajustement du texte de la bannière sur mobile */
-    .contact-banner {
-        height: 220px; 
-    }
-    .banner-text-overlay h1 {
-        font-size: 1.8rem;
-    }
-    .banner-text-overlay p {
-        font-size: 1.1rem;
-        padding-top: 5px;
-    }
+    
+    .contact-banner { height: 220px; }
+    .banner-text-overlay h1 { font-size: 1.8rem; }
+    .banner-text-overlay p { font-size: 1.1rem; padding-top: 5px; }
 }
     </style>
 </head>
@@ -234,18 +337,27 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
                 <img src="LOGO LPA.jpg" alt="Logo de LPA" style="height: 50px;">
             </a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À Propos</a></li>
-                <li><a href="services.html">Nos services</a></li>
-                <li><a href="contact.html" class="active">Demande de devis</a></li>
-            </ul>
-        </nav>
-        <div class="contact-info">
-            <a href="tel:+2250707201696" class="contact-link">+225 07 07 20 16 96</a>
-            <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
+        
+        <div id="nav-full-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="services.html">Nos services</a></li>
+                    <li><a href="contact.html" class="active">Demande de devis</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <a href="tel:+2250707201696" class="contact-link">+225 07 07 20 16 96</a>
+                <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
+            </div>
         </div>
+        
+        <button class="hamburger" id="hamburger-btn" aria-label="Ouvrir le menu de navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
     </header>
     
     <main>
@@ -262,7 +374,9 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
                 <h2>Demande de Devis & Contact</h2>
                 <p style="text-align: center; margin-bottom: 40px;">Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé. Nous vous répondrons dans les plus brefs délais.</p>
 
-                <form class="contact-form" action="https://formspree.io/f/mdkwozgg" method="POST">
+                <div id="form-messages" style="display: none; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; text-align: center;"></div>
+
+                <form class="contact-form" id="devis-form" action="https://formspree.io/f/mdkwozgg" method="POST">
                     
                     <div class="form-grid">
                         
@@ -330,7 +444,9 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
             <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
         </div>
     </footer>
+    
     <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+
     <script>
         // Script du bouton de retour en haut (inchangé)
         let mybutton = document.getElementById("myBtn");
@@ -346,6 +462,81 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+
+        // =======================================================
+        // GESTION DU MENU HAMBURGER
+        // =======================================================
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const navFullContainer = document.getElementById("nav-full-container");
+
+        hamburgerBtn.addEventListener('click', () => {
+            // Bascule la classe 'active' pour afficher/masquer le menu
+            navFullContainer.classList.toggle('active');
+        });
+
+        // =======================================================
+        // GESTION DE L'ENVOI DE FORMULAIRE AJAX
+        // =======================================================
+        const form = document.getElementById('devis-form');
+        const formMessages = document.getElementById('form-messages');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function(e) {
+            // 1. Empêche l'envoi traditionnel qui causerait un rechargement
+            e.preventDefault(); 
+            
+            // 2. Préparation et désactivation du bouton
+            formMessages.style.display = 'none';
+            formMessages.classList.remove('form-success', 'form-error');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Envoi en cours...';
+            submitButton.style.opacity = '0.6';
+
+            const data = new FormData(form);
+            
+            // 3. Envoi de la requête asynchrone (AJAX)
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Succès
+                    formMessages.style.display = 'block';
+                    formMessages.classList.add('form-success');
+                    formMessages.textContent = '✅ Votre demande de devis a été envoyée avec succès ! Nous vous recontacterons très vite.';
+                    form.reset(); // Vide les champs du formulaire
+                } else {
+                    // Échec
+                    response.json().then(data => {
+                        formMessages.style.display = 'block';
+                        formMessages.classList.add('form-error');
+                        if (Object.hasOwn(data, 'errors')) {
+                            formMessages.textContent = '❌ Erreur : ' + data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            formMessages.textContent = '❌ Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter par email.';
+                        }
+                    })
+                }
+            })
+            .catch(error => {
+                // Erreur de connexion
+                formMessages.style.display = 'block';
+                formMessages.classList.add('form-error');
+                formMessages.textContent = '❌ Une erreur de connexion est survenue. Veuillez vérifier votre réseau.';
+            })
+            .finally(() => {
+                // 4. Réactiver le bouton et faire défiler vers le message
+                submitButton.disabled = false;
+                submitButton.textContent = 'Envoyer la Demande de Devis';
+                submitButton.style.opacity = '1';
+                
+                formMessages.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
     </script>
 </body>
 </html>
