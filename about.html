@@ -9,23 +9,29 @@
     
     <style>
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Thème Bleu Clair) */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE */
 /* ======================================================= */
-body {
-    font-family: 'Roboto', Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
     padding-top: 80px; 
     background-color: #EBEBEB;
     color: #333;
     line-height: 1.7; 
     scroll-behavior: smooth;
 }
+
 .container {
     max-width: 1200px;
     margin: 50px auto; 
     padding: 0 25px;
 }
+
 section {
     background-color: #fff;
     padding: 50px 40px;
@@ -33,6 +39,7 @@ section {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
@@ -42,6 +49,7 @@ h2 {
     padding-bottom: 15px;
     margin-bottom: 40px;
 }
+
 h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.0rem;
@@ -52,6 +60,7 @@ h3 {
     padding-left: 15px;
     text-align: left;
 }
+
 h4 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
@@ -60,6 +69,7 @@ h4 {
     margin-bottom: 10px;
     text-align: left;
 }
+
 p {
     font-size: 1.15rem; 
     line-height: 1.8;
@@ -67,21 +77,34 @@ p {
     margin-bottom: 20px;
     text-align: left;
 }
+
 p strong {
     color: #0378A6;
 }
+
 ul {
     padding-left: 20px;
     margin-bottom: 20px;
     text-align: left;
 }
+
 li {
     font-size: 1.15rem;
     color: #555;
     line-height: 1.8;
+    margin-bottom: 10px;
 }
+
 li strong {
     color: #0378A6;
+}
+
+.citation {
+    font-style: italic;
+    color: #0378A6;
+    border-left: 4px solid #4F9BCC;
+    padding-left: 20px;
+    margin: 20px 0;
 }
 
 /* ======================================================= */
@@ -100,25 +123,81 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-height: 70px;
-    box-sizing: border-box; 
 }
-header .logo img { height: 50px; vertical-align: middle; }
-nav { flex-grow: 1; text-align: center; }
-nav ul { list-style: none; margin: 0; padding: 0; display: inline-block; }
-nav ul li { display: inline-block; margin-left: 30px; }
-nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.1rem; padding: 5px 0; position: relative; transition: color 0.3s ease; }
+
+header .logo img { 
+    height: 50px; 
+    vertical-align: middle; 
+}
+
+nav { 
+    flex-grow: 1; 
+    text-align: center; 
+}
+
+nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: inline-block; 
+}
+
+nav ul li { 
+    display: inline-block; 
+    margin-left: 30px; 
+}
+
+nav a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 1.1rem; 
+    padding: 5px 0; 
+    position: relative; 
+    transition: color 0.3s ease; 
+}
+
 nav a::after { 
-    content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 3px;
-    background-color: #0378A6; transition: width 0.3s ease-in-out; 
+    content: ''; 
+    position: absolute; 
+    left: 0; 
+    bottom: -5px; 
+    width: 0; 
+    height: 3px;
+    background-color: #0378A6; 
+    transition: width 0.3s ease-in-out; 
 }
-nav a:hover::after, nav a.active::after { width: 100%; }
-nav a:hover { color: #0378A6; }
-.contact-info { display: flex; gap: 20px; align-items: center; margin-left: 40px; }
-.contact-info .contact-link { color: #fff; text-decoration: none; font-size: 1rem; padding: 5px 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; transition: background-color 0.3s ease; }
-.contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
+
+nav a:hover::after, nav a.active::after { 
+    width: 100%; 
+}
+
+nav a:hover { 
+    color: #0378A6; 
+}
+
+.contact-info { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+}
+
+.contact-info .contact-link { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 1rem; 
+    padding: 5px 10px; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+.contact-info .contact-link:hover { 
+    background-color: rgba(255, 255, 255, 0.2); 
+}
 
 /* ======================================================= */
-/* HAMBURGER MENU / MOBILE TOGGLE (Animation) */
+/* HAMBURGER MENU */
 /* ======================================================= */
 .hamburger {
     display: none; 
@@ -131,34 +210,29 @@ nav a:hover { color: #0378A6; }
     z-index: 1001;
     transition: transform 0.3s;
 }
+
 .hamburger:hover {
     transform: scale(1.1);
 }
-/* La navigation mobile est masquée/affichée via max-height pour l'animation */
+
 #main-nav {
-    max-height: 0;
-    overflow: hidden;
     transition: max-height 0.4s ease-in-out;
-}
-/* Classe pour afficher le menu */
-#main-nav.open {
-    max-height: 500px; 
-    padding-bottom: 10px; 
 }
 
 /* ======================================================= */
-/* BANNIÈRE HÉRO (HERO SECTION) */
+/* BANNIÈRE HÉRO */
 /* ======================================================= */
 #hero-banner {
-    background: linear-gradient(rgba(3, 120, 166, 0.7), rgba(79, 155, 204, 0.7)), url('lab1.jpg') no-repeat center center/cover;
-    height: 60vh; 
+    background: linear-gradient(rgba(3, 120, 166, 0.7), rgba(79, 155, 204, 0.7)), 
+                url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200') no-repeat center center/cover;
+    min-height: 60vh; 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    background-attachment: fixed; 
+    padding: 40px 20px;
 }
 
 #hero-banner .hero-content {
@@ -172,7 +246,6 @@ nav a:hover { color: #0378A6; }
     color: #fff;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    border-bottom: none; 
 }
 
 #hero-banner p {
@@ -182,7 +255,6 @@ nav a:hover { color: #0378A6; }
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Style du bouton CTA */
 .cta-button {
     display: inline-block;
     background-color: #0378A6; 
@@ -201,89 +273,78 @@ nav a:hover { color: #0378A6; }
     background-color: #4F9BCC; 
     transform: translateY(-3px);
 }
-/* Animation pour le bouton */
-.cta-button.animated {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.cta-button.animated.visible {
-    opacity: 1;
-    transform: scale(1);
-}
 
 /* ======================================================= */
-/* ANIMATIONS ET EFFETS DYNAMIQUES */
+/* ANIMATIONS */
 /* ======================================================= */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 .animated {
     opacity: 0;
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     transform: translateY(20px);
 }
+
 .animated.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 .history-image-container, .pdg-image-container {
     overflow: hidden; 
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
+
 .history-image-container:hover, .pdg-image-container:hover {
     transform: translateY(-5px); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 .history-image-container img, .pdg-image-container img {
     transition: transform 0.6s ease-in-out; 
 }
+
 .history-image-container:hover img, .pdg-image-container:hover img {
     transform: scale(1.05); 
 }
 
 /* ======================================================= */
-/* GRILLES DE CONTENU (CORRECTION PDG) */
+/* GRILLES DE CONTENU */
 /* ======================================================= */
 .history-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
-    align-items: center;
+    align-items: start;
 }
+
 .history-image-container {
     padding: 20px;
     background-color: #f7f7f7;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
 .history-image-container img {
     width: 100%;
     height: auto;
     border-radius: 8px;
     display: block;
 }
+
 .history-image-container p {
     font-size: 0.95rem;
     color: #777;
     margin-top: 10px;
     text-align: center;
 }
+
 #leadership {
     background-color: #EBEBEB; 
     box-shadow: none;
 }
-/* CORRECTION PDG : Passage à 1fr 3fr pour élargir le texte sur desktop */
+
 .pdg-bio-grid {
     display: grid;
-    grid-template-columns: 1fr 3fr; /* Ratio ajusté: 1/4 image, 3/4 texte */
+    grid-template-columns: 1fr 3fr;
     gap: 40px;
     align-items: center;
     background-color: #fff;
@@ -291,9 +352,11 @@ nav a:hover { color: #0378A6; }
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
 .pdg-image-container {
     text-align: center;
 }
+
 .pdg-image-container img {
     width: 100%;
     max-width: 250px; 
@@ -303,6 +366,7 @@ nav a:hover { color: #0378A6; }
     object-fit: cover;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
 .pdg-bio-text h4 {
     color: #777;
     font-size: 1.1rem;
@@ -310,121 +374,68 @@ nav a:hover { color: #0378A6; }
     margin-top: -10px;
     margin-bottom: 20px;
 }
+
 .mission-grid {
     padding-top: 20px;
 }
+
 .mission-grid h3 {
     text-align: center;
     border-left: none;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
 }
+
 .mission-content-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding-top: 30px;
 }
+
 .value-block {
-    flex: 1 1 100%;
     padding: 20px 30px;
     background-color: #fcfcfc;
     border-left: 5px solid #0378A6;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
 .value-block:nth-child(even) {
     border-left: 5px solid #4F9BCC;
 }
+
 .value-block ul {
     list-style: disc;
     padding-left: 20px;
-    text-align: left;
 }
 
 /* ======================================================= */
-/* FOOTER DÉTAILLÉ (EXISTANT) */
+/* FOOTER */
 /* ======================================================= */
 footer {
     background-color: #0378A6;
     color: #fff;
-    padding: 50px 0 0 0; 
+    padding: 30px 0;
     font-size: 1rem;
 }
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px; 
-    padding-bottom: 40px; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-.footer-col h3 {
-    color: #4F9BCC;
-    font-size: 1.2rem;
-    margin-bottom: 20px; 
-    text-align: left;
-    font-weight: 600;
-}
-.footer-brand p {
-    text-align: left;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #ccc;
-    margin-bottom: 15px;
-}
-.footer-col ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    line-height: 1.8; 
-}
-.footer-col ul li {
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-    display: flex; 
-    align-items: center;
-}
-.footer-col ul li i {
-    color: #4F9BCC;
-    margin-right: 10px;
-    width: 15px; 
-}
-.footer-col a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.footer-col a:hover {
-    color: #fff; 
-}
-.social-links {
-    margin-top: 20px;
-}
-.social-links a {
-    display: inline-block;
-    color: #fff; 
-    font-size: 1.3rem;
-    margin-right: 15px;
-    transition: color 0.3s;
-}
-.social-links a:hover {
-    color: #4F9BCC;
-}
+
 .footer-bottom {
     padding: 15px 0; 
     text-align: center;
 }
+
 .footer-bottom p {
     font-size: 0.9rem;
     text-align: center;
     color: #ccc;
     margin: 5px 0;
 }
+
 .developer-credit {
     font-size: 0.8rem;
     color: #aaa;
 }
-
 
 /* Bouton Retour en Haut */
 #myBtn {
@@ -444,67 +455,62 @@ footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: background-color 0.3s;
 }
+
 #myBtn:hover {
     background-color: #4F9BCC;
 }
 
 /* ======================================================= */
-/* MEDIA QUERIES (ADAPTATION AUX PETITS TERMINAUX) 📱     */
+/* MEDIA QUERIES - RESPONSIVE */
 /* ======================================================= */
 
-@media (min-width: 769px) {
-    .mission-content-grid {
-        flex-direction: row; 
-        flex-wrap: wrap; 
-        justify-content: space-between;
-    }
-    .value-block {
-        width: calc(50% - 15px); 
-    }
-    #hero-banner h1 {
-        font-size: 4rem;
-    }
-}
-
-/* Correction: Empilement du contenu PDG et Historique dès 992px pour maximiser la largeur du texte */
+/* Tablettes */
 @media (max-width: 992px) {
     .history-grid {
         grid-template-columns: 1fr;
     }
+    
     .history-image-container {
         order: -1;
     }
+    
     .pdg-bio-grid {
-        grid-template-columns: 1fr; /* Le texte prend 100% de la largeur disponible */
-        padding-top: 50px; 
+        grid-template-columns: 1fr;
     }
-    .pdg-bio-grid .pdg-image-container {
-        order: -1; /* L'image passe au-dessus du texte */
+    
+    .pdg-image-container {
+        order: -1;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.7rem;
     }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-    
-    header { 
-        flex-direction: row; 
-        justify-content: space-between; 
-        align-items: center;
-        padding: 0.8rem 1rem;
-        min-height: 50px;
-        flex-wrap: nowrap;
+    body { 
+        padding-top: 70px; 
     }
     
-    body { padding-top: 80px; } 
+    header { 
+        flex-wrap: wrap;
+        padding: 0.8rem 1rem;
+        min-height: 60px;
+    }
     
     .hamburger {
         display: block; 
     }
     
     .contact-info { 
-        display: none; /* Cache les infos de contact sur mobile pour économiser de l'espace */
+        display: none;
     }
     
-    /* Configuration de la navigation mobile */
     nav { 
         position: absolute;
         top: 70px; 
@@ -512,64 +518,135 @@ footer {
         width: 100%;
         background-color: #4F9BCC; 
         box-shadow: 0 5px 5px rgba(0,0,0,0.2);
-        z-index: 999;
-        box-sizing: border-box;
-        text-align: left; 
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    nav.open {
+        max-height: 500px;
     }
 
-    /* Styles des liens du menu mobile */
     nav ul { 
         display: block; 
         padding: 0;
     }
+    
     nav ul li { 
         display: block; 
         margin: 0; 
-        padding: 12px 20px; 
+        padding: 15px 20px; 
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     }
-    nav ul li:last-child { border-bottom: none; }
+    
+    nav ul li:last-child { 
+        border-bottom: none; 
+    }
+    
     nav a { 
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         display: block;
         padding: 0;
     }
-    nav a:hover { color: #0378A6; }
-    nav a::after { display: none; } 
-
     
-    h3 { text-align: left; border-bottom: none; border-left: 5px solid #4F9BCC; padding-left: 15px; }
-    .pdg-bio-grid {
-        /* grid-template-columns: 1fr; Déjà géré par 992px */
-        text-align: center;
-        padding: 20px;
+    nav a::after { 
+        display: none; 
     }
-    /* .pdg-image-container { order: -1; } Déjà géré par 992px */
+    
+    section {
+        padding: 30px 20px;
+    }
+    
+    .container {
+        padding: 0 15px;
+        margin: 30px auto;
+    }
+    
+    #hero-banner {
+        min-height: 50vh;
+    }
+    
+    #hero-banner h1 {
+        font-size: 2.2rem; 
+    }
+    
+    #hero-banner p {
+        font-size: 1.1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+        margin-top: 25px;
+    }
+    
+    h4 {
+        font-size: 1.3rem;
+    }
+    
+    p, li {
+        font-size: 1rem;
+    }
+    
     .pdg-image-container img {
-        max-width: 180px;
+        max-width: 200px;
     }
-    .pdg-bio-text h3, .pdg-bio-text h4 {
+    
+    .pdg-bio-text h3, 
+    .pdg-bio-text h4 {
         text-align: center;
     }
+    
     .value-block {
         border-left: none;
         border-bottom: 5px solid #0378A6;
-        border-radius: 0 0 5px 5px;
-        margin-top: 20px;
+        padding: 15px 20px;
     }
+    
     .value-block:nth-child(even) {
         border-bottom: 5px solid #4F9BCC;
     }
-    #hero-banner h1 {
-        font-size: 2.5rem; 
+    
+    #myBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        font-size: 16px;
     }
-    #hero-banner p {
-        font-size: 1.2rem;
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+    #hero-banner h1 {
+        font-size: 1.8rem;
     }
     
-    /* Footer cleanup */
-    .footer-col h3, .footer-col p, .footer-col ul, .social-links { text-align: center; } 
-    .footer-col ul li { justify-content: center; }
+    #hero-banner p {
+        font-size: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    section {
+        padding: 20px 15px;
+    }
+    
+    .pdg-bio-grid {
+        padding: 20px 15px;
+    }
 }
     </style>
 </head>
@@ -591,31 +668,27 @@ footer {
                 <li><a href="services.html">Nos services</a></li>
                 <li><a href="contact.html">Demande de devis</a></li>
             </ul>
-            <div class="contact-info mobile-only">
-                <a href="tel:+2252721767351" class="contact-link">+225 27 21 76 73 51</a>
-                <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
-            </div>
         </nav>
-        <div class="contact-info desktop-only">
-            <a href="tel:+2252721767351" class="contact-link">+225 27 21 76 73 51</a>
-            <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
+        <div class="contact-info">
+            <a href="tel:+2252721767351" class="contact-link"><i class="fas fa-phone"></i> +225 27 21 76 73 51</a>
+            <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
         </div>
     </header>
     
     <main>
         
         <section id="hero-banner">
-            <div class="container hero-content">
+            <div class="hero-content">
                 <h1 class="animated">L'Excellence du Laboratoire. La Pureté de l'Eau.</h1>
-                <p class="animated" style="animation-delay: 0.3s;">Analyses fiables, Traitements garantis. Votre partenaire qualité agréé.</p>
-                <a href="services.html" class="cta-button animated" style="animation-delay: 0.6s;">Découvrez nos Solutions</a>
+                <p class="animated">Analyses fiables, Traitements garantis. Votre partenaire qualité agréé.</p>
+                <a href="services.html" class="cta-button animated">Découvrez nos Solutions</a>
             </div>
         </section>
         
         <div class="container">
 
             <section id="about-us" class="animated">
-                <h2>L'Excellence et la Rigueur au service de la Qualité </h2>
+                <h2>L'Excellence et la Rigueur au service de la Qualité</h2>
 
                 <div class="history-grid">
                     
@@ -625,19 +698,19 @@ footer {
                         <p>La vision de LPA est de faire de ses clients les leaders incontestés de leurs domaines. Nous ne visons pas seulement l'analyse, mais le partenariat stratégique pour une amélioration continue de la qualité. Notre ambition est de devenir la référence ouest-africaine en matière de sécurité sanitaire et environnementale.</p>
                         
                         <h3>Notre Mission : Fiabilité Garantie, Prix Imbattables</h3>
-                        <p>Notre engagement fondamental est de proposer des solutions et des services d'excellence conformes à vos attentes, à des prix imbattables. Nous vous délivrons des résultats précis et rapides, essentiels pour la **conformité réglementaire** et la protection de vos actifs.</p>
+                        <p>Notre engagement fondamental est de proposer des solutions et des services d'excellence conformes à vos attentes, à des prix imbattables. Nous vous délivrons des résultats précis et rapides, essentiels pour la <strong>conformité réglementaire</strong> et la protection de vos actifs.</p>
                         
                         <h4>Accréditation et Normes Internationales</h4>
                         <p>Notre engagement est scellé par :</p>
                         <ul>
-                            <li>Agrément Officiel :N° 012-MCI/CAB du 27-01-2021.</li>
-                            <li>Démarche Qualité :Nous progressons vers l'accréditation **ISO/CEI 17025:2017**, gage de la plus haute compétence technique dans nos analyses.</li>
+                            <li><strong>Agrément Officiel :</strong> N° 012-MCI/CAB du 27-01-2021</li>
+                            <li><strong>Démarche Qualité :</strong> Nous progressons vers l'accréditation <strong>ISO/CEI 17025:2017</strong>, gage de la plus haute compétence technique dans nos analyses</li>
                         </ul>
                         
                     </div>
                     
                     <div class="history-image-container animated">
-                        <img src="lab1.jpg" alt="Photo historique du Laboratoire LPA">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600" alt="Laboratoire LPA équipé">
                         <p>Un laboratoire équipé pour répondre aux défis de la qualité moderne.</p>
                     </div>
                     
@@ -652,25 +725,22 @@ footer {
 
                     <div class="mission-content-grid">
                         
-                        <div class="value-block animated" style="animation-delay: 0.1s;">
+                        <div class="value-block animated">
                             <h4>Contrôle Qualité : Zéro Compromis</h4>
-                            <p>Nous effectuons un contrôle qualité rigoureux de vos échantillons (eaux, aliments, sols) en utilisant des méthodes reconnues mondialement : OMS 2017, AFNOR,ISO et CODINORM. Votre conformité est notre priorité absolue.</p>
+                            <p>Nous effectuons un contrôle qualité rigoureux de vos échantillons (eaux, aliments, sols) en utilisant des méthodes reconnues mondialement : OMS 2017, AFNOR, ISO et CODINORM. Votre conformité est notre priorité absolue.</p>
                         </div>
     
-                        <div class="value-block animated" style="animation-delay: 0.3s;">
+                        <div class="value-block animated">
                             <h4>Traitement d'Eau : Solutions Intégrées</h4>
                             <p>De l'eau de forage à l'eau usée, nos solutions de traitement (désinfection, neutralisation, nettoyage de réseaux) sont conçues sur mesure. Nous garantissons une qualité d'eau irréprochable et durable.</p>
                         </div>
     
-                        <div class="value-block animated" style="animation-delay: 0.5s;">
+                        <div class="value-block animated">
                             <h4>Équipement & Technologie de Pointe</h4>
                             <p>Notre laboratoire est équipé d'instruments de dernière génération, notamment le Spectrophotomètre DR 1900, pour des analyses physico-chimiques ultra-précises. L'innovation assure la fiabilité de chaque donnée.</p>
                         </div>
                         
-                        <div class="value-block animated" style="animation-delay: 0.7s;">
-                            <h4>Partenariat Client : La Confiance</h4>
-                            <p>Nous ne sommes pas un simple prestataire. Nous sommes votre conseiller technique. Notre équipe d'experts offre un suivi personnalisé et des formations ciblées pour renforcer l'autonomie et la compétence interne de vos équipes.</p>
-                        </div>
+                    
                     </div>
 
                 </div>
@@ -683,14 +753,14 @@ footer {
                     <div class="pdg-bio-grid">
                         
                         <div class="pdg-image-container animated">
-                            <img src="PH-1.jpg" alt="Photo du PDG de LPA">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" alt="PDG de LPA">
                         </div>
                         
-                        <div class="pdg-bio-text animated" style="animation-delay: 0.2s;">
+                        <div class="pdg-bio-text animated">
                             <h3>Mot du Président Directeur Général</h3>
                             <h4>M. KONAN KOUASSI (Chimiste & Fondateur)</h4>
                             <p class="citation">« La qualité n'est pas un acte, c'est une habitude. Cette conviction guide chaque membre de notre équipe. Notre mission est de bâtir la confiance et d'assurer un environnement et des aliments plus sûrs pour nos communautés. »</p>
-                            <p>M. Guettia est le visionnaire de LPA. Il est soutenu par le Directeur Technique, M. KONAN KOUASSI, qui veille à l'application rigoureuse des protocoles scientifiques sur le terrain, assurant une chaîne de valeur irréprochable.</p>
+                            <p>M. Konan Kouassi est le visionnaire de LPA. Fort d'une expertise reconnue en chimie, il a fondé LPA avec la conviction que l'excellence analytique est la clé du développement durable. Il est soutenu par une équipe technique qui veille à l'application rigoureuse des protocoles scientifiques sur le terrain, assurant une chaîne de valeur irréprochable.</p>
                         </div>
 
                     </div>
@@ -701,21 +771,18 @@ footer {
     </main>
 
     <footer>
-        
         <div class="footer-bottom">
             <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
             <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
         </div>
     </footer>
 
-    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script>
-        // =======================================================
-        // Logique d'animation (Fade-in au défilement)
-        // =======================================================
+        // Animation au défilement
         document.addEventListener("DOMContentLoaded", function() {
-            const animatedElements = document.querySelectorAll('.animated, #hero-banner h1, #hero-banner p, .cta-button');
+            const animatedElements = document.querySelectorAll('.animated');
             
             const observerOptions = {
                 root: null, 
@@ -739,9 +806,7 @@ footer {
             });
         });
 
-        // =======================================================
-        // 1. LOGIQUE DU MENU HAMBURGER (AVEC BASCULE D'ICÔNE ET FERMETURE AUTO) 🚀
-        // =======================================================
+        // Menu hamburger
         function setupHamburgerMenu() {
             const hamburger = document.getElementById('hamburger-menu');
             const nav = document.getElementById('main-nav');
@@ -749,10 +814,8 @@ footer {
             if (hamburger && nav) {
                 
                 const toggleMenu = () => {
-                    // 1. Basculer l'affichage du menu (basé sur max-height)
                     nav.classList.toggle('open');
                     
-                    // 2. Basculer l'icône (barres <-> croix)
                     const icon = hamburger.querySelector('i');
                     if (nav.classList.contains('open')) {
                         icon.classList.remove('fa-bars');
@@ -765,11 +828,9 @@ footer {
 
                 hamburger.addEventListener('click', toggleMenu);
 
-                // Fermer le menu après le clic sur un lien (expérience mobile)
                 const navLinks = nav.querySelectorAll('a'); 
                 navLinks.forEach(link => {
                     link.addEventListener('click', () => {
-                        // On ferme seulement si le menu est ouvert
                         if (nav.classList.contains('open')) {
                             toggleMenu();
                         }
@@ -778,15 +839,11 @@ footer {
             }
         }
 
-        // Appeler la fonction de configuration du hamburger après le chargement du DOM
         document.addEventListener('DOMContentLoaded', setupHamburgerMenu);
 
-        // =======================================================
-        // 2. Logique du bouton "Retour en Haut"
-        // =======================================================
+        // Bouton retour en haut
         var mybutton = document.getElementById("myBtn");
 
-        // 1. Fonction pour afficher/masquer le bouton lors du défilement
         window.onscroll = function() {scrollFunction()};
         
         function scrollFunction() {
@@ -797,7 +854,6 @@ footer {
             }
         }
 
-        // 2. Fonction appelée au clic pour remonter en haut
         function topFunction() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }

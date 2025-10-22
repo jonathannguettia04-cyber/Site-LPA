@@ -5,25 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact & Devis | LPA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Thème Bleu Clair)*/
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE */
 /* ======================================================= */
-body {
-    font-family: 'Roboto', Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    padding-top: 80px; /* Ajusté pour le header fixe */ 
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    padding-top: 80px;
     background-color: #EBEBEB;
     color: #333;
     line-height: 1.7; 
     scroll-behavior: smooth;
 }
+
 .container {
     max-width: 1000px; 
     margin: 30px auto;
     padding: 0 25px;
 }
+
 section {
     background-color: #fff;
     padding: 50px 40px;
@@ -31,26 +38,29 @@ section {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
-    color: #4F9BCC; /* Nouveau bleu clair */
+    color: #4F9BCC;
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
     margin-bottom: 40px;
 }
+
 p {
     font-size: 1.15rem; 
     line-height: 1.8;
 }
 
 /* ======================================================= */
-/* BANNIÈRE DE CONTACT AVEC TEXTE DYNAMIQUE */
+/* BANNIÈRE DE CONTACT AVEC ANIMATION */
 /* ======================================================= */
 .contact-banner {
     height: 300px;
-    background-image: url('LPA4.png'); 
+    background-image: linear-gradient(rgba(3, 120, 166, 0.6), rgba(79, 155, 204, 0.6)), 
+                      url('https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200');
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -80,7 +90,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.45); 
+    background-color: rgba(0, 0, 0, 0.3); 
     border-radius: 10px;
     z-index: 1; 
 }
@@ -131,14 +141,13 @@ p {
     }
 }
 
-
 /* ======================================================= */
-/* EN-TÊTE (HEADER) et NAVIGATION */
+/* EN-TÊTE (HEADER) ET NAVIGATION */
 /* ======================================================= */
 header {
     background-color: #4F9BCC;
     color: #fff;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -150,24 +159,27 @@ header {
     min-height: 70px;
 }
 
-/* Conteneur pour la navigation et les contacts sur desktop */
 #nav-full-container {
     display: flex;
     align-items: center;
     flex-grow: 1;
     justify-content: flex-end;
 }
-header .logo img { height: 50px; vertical-align: middle; }
 
-/* Styles pour le bouton Hamburger */
+header .logo img { 
+    height: 50px; 
+    vertical-align: middle; 
+}
+
 .hamburger {
-    display: none; /* Masqué par défaut sur desktop */
+    display: none;
     cursor: pointer;
     background: none;
     border: none;
     padding: 10px;
     z-index: 1001;
 }
+
 .bar {
     display: block;
     width: 28px;
@@ -177,41 +189,176 @@ header .logo img { height: 50px; vertical-align: middle; }
     transition: all 0.3s ease-in-out;
 }
 
-nav { flex-grow: 1; text-align: center; }
-nav ul { list-style: none; margin: 0; padding: 0; display: inline-block; }
-nav ul li { display: inline-block; margin-left: 30px; }
-nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.1rem; padding: 5px 0; position: relative; transition: color 0.3s ease; }
-nav a::after {
-    content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 3px;
-    background-color: #0378A6; transition: width 0.3s ease-in-out; 
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
 }
-nav a:hover::after, nav a.active::after { width: 100%; }
-nav a:hover { color: #0378A6; }
-.contact-info { display: flex; gap: 20px; align-items: center; margin-left: 40px; }
-.contact-info .contact-link { color: #fff; text-decoration: none; font-size: 1rem; padding: 5px 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; transition: background-color 0.3s ease; }
-.contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+nav { 
+    flex-grow: 1; 
+    text-align: center; 
+}
+
+nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: inline-block; 
+}
+
+nav ul li { 
+    display: inline-block; 
+    margin-left: 30px; 
+}
+
+nav a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 1.1rem; 
+    padding: 5px 0; 
+    position: relative; 
+    transition: color 0.3s ease; 
+}
+
+nav a::after {
+    content: ''; 
+    position: absolute; 
+    left: 0; 
+    bottom: -5px; 
+    width: 0; 
+    height: 3px;
+    background-color: #0378A6; 
+    transition: width 0.3s ease-in-out; 
+}
+
+nav a:hover::after, 
+nav a.active::after { 
+    width: 100%; 
+}
+
+nav a:hover { 
+    color: #0378A6; 
+}
+
+.contact-info { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+    margin-left: 40px; 
+}
+
+.contact-info .contact-link { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 1rem; 
+    padding: 5px 10px; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+.contact-info .contact-link:hover { 
+    background-color: rgba(255, 255, 255, 0.2); 
+}
 
 /* ======================================================= */
-/* STYLE DU FORMULAIRE DE DEVIS & MESSAGES */
+/* STYLE DU FORMULAIRE */
 /* ======================================================= */
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px 30px; 
+    margin-bottom: 15px; 
+}
+
+.full-width { 
+    grid-column: 1 / 3; 
+}
+
+.contact-form input:not([type="radio"]), 
+.contact-form textarea, 
+.contact-form select { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s; 
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus, 
+.contact-form select:focus { 
+    border-color: #4F9BCC; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(79, 155, 204, 0.5); 
+}
+
 .contact-form button { 
+    color: white; 
+    padding: 15px; 
+    border: none; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    width: 100%; 
     background-color: #0378A6; 
     transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s;
 }
-.contact-form button:hover { background-color: #4F9BCC; transform: translateY(-2px); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px; margin-bottom: 15px; }
-.full-width { grid-column: 1 / 3; }
-.contact-form input:not([type="radio"]), .contact-form textarea, .contact-form select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; transition: border-color 0.3s; }
-.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: #4F9BCC; outline: none; box-shadow: 0 0 5px rgba(79, 155, 204, 0.5); }
-.contact-form button { color: white; padding: 15px; border: none; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: bold; width: 100%; }
-.radio-group label { font-weight: normal; color: #555; display: inline-flex; align-items: center; cursor: pointer; }
-.radio-group input[type="radio"] { margin-right: 8px; width: auto; padding: 0; }
+
+.contact-form button:hover { 
+    background-color: #4F9BCC; 
+    transform: translateY(-2px); 
+}
+
+.contact-form button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.radio-group label { 
+    font-weight: normal; 
+    color: #555; 
+    display: inline-flex; 
+    align-items: center; 
+    cursor: pointer; 
+}
+
+.radio-group input[type="radio"] { 
+    margin-right: 8px; 
+    width: auto; 
+    cursor: pointer;
+}
 
 .form-success {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
+
 .form-error {
     background-color: #f8d7da;
     color: #721c24;
@@ -219,112 +366,232 @@ nav a:hover { color: #0378A6; }
 }
 
 /* ======================================================= */
-/* FOOTER DÉTAILLÉ */
+/* FOOTER */
 /* ======================================================= */
-footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1rem; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding-bottom: 40px; }
-.footer-col h3 { color: #4F9BCC; font-size: 1.4rem; margin-bottom: 15px; text-align: left; }
-.footer-col p, .footer-col ul { text-align: left; margin: 0; padding: 0; list-style: none; color: #ccc; line-height: 2.0; }
-.footer-col a { color: #fff; text-decoration: none; transition: color 0.3s; }
-.footer-col a:hover { color: #4F9BCC; }
-.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; padding: 20px 0; }
-.developer-credit { font-size: 0.9rem; color: #aaa; margin-top: 5px; }
+footer { 
+    background-color: #0378A6; 
+    color: #fff; 
+    padding: 30px 40px;
+    font-size: 1rem; 
+}
+
+.footer-bottom { 
+    text-align: center; 
+    padding: 20px 0; 
+}
+
+.footer-bottom p {
+    color: #fff;
+    margin: 5px 0;
+}
+
+.developer-credit { 
+    font-size: 0.85rem; 
+    color: #ccc; 
+}
 
 /* ======================================================= */
-/* MEDIA QUERY POUR MOBILE (Intégration du Hamburger) */
+/* BOUTON RETOUR EN HAUT */
 /* ======================================================= */
-@media (max-width: 768px) {
-    body { padding-top: 80px; } /* Ajusté pour le header fixe */
+#myBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none;
+    background-color: #0378A6;
+    color: white; 
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#myBtn:hover {
+    background-color: #4F9BCC;
+    transform: scale(1.1);
+}
+
+/* ======================================================= */
+/* MEDIA QUERIES - RESPONSIVE */
+/* ======================================================= */
+@media (max-width: 992px) {
+    .contact-banner {
+        height: 250px;
+    }
     
-    /* Afficher le bouton hamburger */
+    .banner-text-overlay h1 {
+        font-size: 2.5rem;
+    }
+    
+    .banner-text-overlay p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body { 
+        padding-top: 70px; 
+    }
+    
+    header {
+        padding: 0.8rem 1.5rem;
+        min-height: 60px;
+    }
+    
     .hamburger {
         display: block;
     }
-    
-    header { 
-        position: fixed; 
-        top: 0;
-        left: 0;
-        right: 0;
-        flex-direction: row; 
-        justify-content: space-between;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
 
-    /* Le conteneur de navigation complet (CORRECTION APPLIQUÉE ICI) */
     #nav-full-container {
-        display: flex; /* Doit être 'flex' pour que la hauteur fonctionne */
         position: fixed;
-        top: 80px; 
+        top: 70px; 
         left: 0;
         width: 100%;
         background-color: #4F9BCC; 
         flex-direction: column;
         align-items: center;
         z-index: 999;
-        max-height: 0; /* Caché par défaut */
+        max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-in-out;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     }
     
-    /* Classe JavaScript : Déployer le menu */
     #nav-full-container.active {
-        max-height: 100vh; /* Déploie le menu */
-        padding-top: 10px;
-        padding-bottom: 20px;
+        max-height: 500px;
+        padding: 20px 0;
     }
 
     nav { 
-        width: 90%; 
-        margin-top: 10px; 
+        width: 100%; 
         margin-bottom: 20px; 
         text-align: center;
     }
+    
     nav ul { 
         display: block; 
         text-align: center; 
     }
+    
     nav ul li { 
         display: block; 
         margin: 0; 
         padding: 10px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
     }
-    nav ul li:last-child { border-bottom: none; }
+    
+    nav ul li:last-child { 
+        border-bottom: none; 
+    }
+    
     nav a { 
         font-size: 1.2rem;
-        color: #fff;
     }
-    nav a::after { display: none; }
+    
+    nav a::after { 
+        display: none; 
+    }
     
     .contact-info { 
-        width: 90%; 
+        width: 100%; 
         margin-left: 0; 
         flex-direction: column; 
-        gap: 15px; 
+        gap: 10px; 
         border-top: 1px solid rgba(255, 255, 255, 0.15); 
         padding-top: 20px;
     }
+    
     .contact-info .contact-link { 
-        width: 80%; 
+        width: 100%; 
+        max-width: 300px;
         text-align: center; 
-        margin: 0 auto; 
         background-color: #0378A6;
         padding: 10px;
         border: none;
     }
     
-    .form-grid { grid-template-columns: 1fr; gap: 15px; }
-    .full-width { grid-column: 1 / 2; }
-    .radio-group { flex-direction: column; gap: 10px !important; }
-    .contact-form button { padding: 15px 10px; }
-    .footer-col h3, .footer-col p, .footer-col ul { text-align: center; }
+    section {
+        padding: 30px 20px;
+    }
     
-    .contact-banner { height: 220px; }
-    .banner-text-overlay h1 { font-size: 1.8rem; }
-    .banner-text-overlay p { font-size: 1.1rem; padding-top: 5px; }
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .form-grid { 
+        grid-template-columns: 1fr; 
+        gap: 15px; 
+    }
+    
+    .full-width { 
+        grid-column: 1 / 2; 
+    }
+    
+    .radio-group { 
+        flex-direction: column; 
+        gap: 10px;
+    }
+    
+    .contact-form button { 
+        padding: 15px 10px; 
+    }
+    
+    .contact-banner { 
+        height: 220px; 
+    }
+    
+    .banner-text-overlay h1 { 
+        font-size: 1.8rem; 
+    }
+    
+    .banner-text-overlay p { 
+        font-size: 1.1rem; 
+        padding-top: 5px; 
+    }
+    
+    #myBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo img {
+        height: 40px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    .contact-banner {
+        height: 180px;
+    }
+    
+    .banner-text-overlay h1 {
+        font-size: 1.4rem;
+    }
+    
+    .banner-text-overlay p {
+        font-size: 0.95rem;
+    }
+    
+    .contact-form input:not([type="radio"]), 
+    .contact-form textarea, 
+    .contact-form select {
+        font-size: 0.95rem;
+    }
 }
     </style>
 </head>
@@ -333,7 +600,7 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
     <header>
         <div class="logo">
             <a href="index.html">
-                <img src="LOGO LPA.jpg" alt="Logo de LPA" style="height: 50px;">
+                <img src="LOGO LPA.jpg" alt="Logo de LPA">
             </a>
         </div>
         
@@ -347,8 +614,8 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
                 </ul>
             </nav>
             <div class="contact-info">
-                <a href="tel:+2250707201696" class="contact-link">+225 07 07 20 16 96</a>
-                <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
+                <a href="tel:+2250707201696" class="contact-link"><i class="fas fa-phone"></i> +225 07 07 20 16 96</a>
+                <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
             </div>
         </div>
         
@@ -380,25 +647,25 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
                     <div class="form-grid">
                         
                         <div>
-                            <label for="company">Nom de l'Entreprise / Organisation</label>
+                            <label for="company">Nom de l'Entreprise / Organisation *</label>
                             <input type="text" id="company" name="company" required>
                         </div>
                         <div>
-                            <label for="name">Votre Nom et Prénom</label>
+                            <label for="name">Votre Nom et Prénom *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         
                         <div>
-                            <label for="email">Email de contact</label>
+                            <label for="email">Email de contact *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div>
-                            <label for="phone">Téléphone</label>
+                            <label for="phone">Téléphone *</label>
                             <input type="tel" id="phone" name="phone" placeholder="+225 xxxx xxxx" required>
                         </div>
 
                         <div class="full-width">
-                            <label for="service">Domaine d'Analyse ou Service Requis</label>
+                            <label for="service">Domaine d'Analyse ou Service Requis *</label>
                             <select id="service" name="service" required>
                                 <option value="" disabled selected>-- Sélectionnez un domaine --</option>
                                 <option value="analyse-physico-chimique">Laboratoire (Analyses Physico-chimiques)</option>
@@ -406,7 +673,7 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
                                 <option value="controle-conformite">Contrôle de Conformité (Produits/Denrées)</option>
                                 <option value="traitement-eau-surface">Traitement d'Eau de Surface (Complet)</option>
                                 <option value="traitement-eau-forage">Traitement d'Eau de Forage (Désinfection/Neutralisation)</option>
-                                <option value="traitement-eau-usées">Traitement d'Eau Usée / Industrielle</option>
+                                <option value="traitement-eau-usees">Traitement d'Eau Usée / Industrielle</option>
                                 <option value="nettoyage-desinfection-reseau">Nettoyage et Désinfection de Réseau et Conduites</option>
                                 <option value="prelevement">Prélèvement seul</option>
                                 <option value="autre">Autre (précisez dans le message)</option>
@@ -416,14 +683,14 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
 
                     <div class="full-width" style="margin-bottom: 15px;">
                         <label>Avez-vous déjà un échantillon prêt ?</label>
-                        <div class="radio-group" style="display: flex; gap: 20px;">
+                        <div class="radio-group">
                             <label><input type="radio" name="sample_status" value="oui"> Oui, l'échantillon est prêt.</label>
                             <label><input type="radio" name="sample_status" value="non"> Non, le prélèvement est à prévoir.</label>
                         </div>
                     </div>
                     
                     <div class="full-width">
-                        <label for="details">Détails de votre demande (Type d'analyse, quantité, urgence, etc.)</label>
+                        <label for="details">Détails de votre demande (Type d'analyse, quantité, urgence, etc.) *</label>
                         <textarea id="details" name="details" rows="7" required></textarea>
                     </div>
                     
@@ -437,19 +704,22 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
     </main>
 
     <footer>
-        
         <div class="footer-bottom">
             <p>Copyright &copy; 2025 LPA. Tous droits réservés.</p>
             <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
         </div>
     </footer>
     
-    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script>
-        // Script du bouton de retour en haut (inchangé)
+        // Bouton retour en haut
         let mybutton = document.getElementById("myBtn");
-        window.onscroll = function() { scrollFunction() };
+        
+        window.onscroll = function() { 
+            scrollFunction() 
+        };
+        
         function scrollFunction() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
                 mybutton.style.display = "block";
@@ -457,49 +727,40 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
                 mybutton.style.display = "none";
             }
         }
+        
         function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // =======================================================
-        // GESTION DU MENU HAMBURGER (Corrigé pour l'ouverture et la fermeture)
-        // =======================================================
+        // Menu hamburger
         const hamburgerBtn = document.getElementById("hamburger-btn");
         const navFullContainer = document.getElementById("nav-full-container");
-        // Sélectionne tous les liens (y compris ceux de la navigation principale et des infos de contact)
         const navLinks = document.querySelectorAll('#nav-full-container a'); 
 
-        // 1. Fonction pour ouvrir/fermer le menu
         function toggleMenu() {
             navFullContainer.classList.toggle('active');
+            hamburgerBtn.classList.toggle('active');
         }
 
-        // Écouteur pour le bouton Hamburger
         hamburgerBtn.addEventListener('click', toggleMenu);
 
-        // 2. Écouteurs pour la fermeture auto après clic sur un lien
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                // Ferme le menu en retirant la classe 'active' si elle est présente
                 if (navFullContainer.classList.contains('active')) {
                     navFullContainer.classList.remove('active');
+                    hamburgerBtn.classList.remove('active');
                 }
             });
         });
 
-        // =======================================================
-        // GESTION DE L'ENVOI DE FORMULAIRE AJAX
-        // =======================================================
+        // Gestion de l'envoi de formulaire AJAX
         const form = document.getElementById('devis-form');
         const formMessages = document.getElementById('form-messages');
         const submitButton = form.querySelector('button[type="submit"]');
 
         form.addEventListener('submit', function(e) {
-            // 1. Empêche l'envoi traditionnel qui causerait un rechargement
             e.preventDefault(); 
             
-            // 2. Préparation et désactivation du bouton
             formMessages.style.display = 'none';
             formMessages.classList.remove('form-success', 'form-error');
             submitButton.disabled = true;
@@ -508,7 +769,6 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
 
             const data = new FormData(form);
             
-            // 3. Envoi de la requête asynchrone (AJAX)
             fetch(form.action, {
                 method: form.method,
                 body: data,
@@ -518,13 +778,11 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
             })
             .then(response => {
                 if (response.ok) {
-                    // Succès
                     formMessages.style.display = 'block';
                     formMessages.classList.add('form-success');
                     formMessages.textContent = '✅ Votre demande de devis a été envoyée avec succès ! Nous vous recontacterons très vite.';
-                    form.reset(); // Vide les champs du formulaire
+                    form.reset();
                 } else {
-                    // Échec
                     response.json().then(data => {
                         formMessages.style.display = 'block';
                         formMessages.classList.add('form-error');
@@ -537,13 +795,11 @@ footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1
                 }
             })
             .catch(error => {
-                // Erreur de connexion
                 formMessages.style.display = 'block';
                 formMessages.classList.add('form-error');
                 formMessages.textContent = '❌ Une erreur de connexion est survenue. Veuillez vérifier votre réseau.';
             })
             .finally(() => {
-                // 4. Réactiver le bouton et faire défiler vers le message
                 submitButton.disabled = false;
                 submitButton.textContent = 'Envoyer la Demande de Devis';
                 submitButton.style.opacity = '1';

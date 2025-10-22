@@ -5,57 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratoire | LPA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Styles Harmonisé)*/
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE */
 /* ======================================================= */
-/* Couleurs de l'index: #4F9BCC (Bleu Ciel), #0378A6 (Bleu Teal/Primaire) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    padding: 0; 
     background-color: #EBEBEB; 
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
+
 .container {
-    max-width: 1100px; /* Espace plus grand pour le texte */
+    max-width: 1100px;
     margin: 50px auto; 
     padding: 0 25px;
 }
+
 section {
-    background-color: #fff; /* Blanc solide */
-    padding: 60px 50px; /* Plus d'espace intérieur */
+    background-color: #fff;
+    padding: 60px 50px;
     margin-bottom: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.8rem; 
-    color: #0378A6; /* Bleu Teal */
+    color: #0378A6;
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 20px;
-    margin-bottom: 50px; /* Plus d'espacement après le titre principal */
+    margin-bottom: 50px;
     line-height: 1.2;
 }
+
 h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
-    color: #4F9BCC; /* Remplacé par le Bleu Ciel */
+    color: #4F9BCC;
     margin-top: 40px; 
     margin-bottom: 25px; 
     text-align: center;
 }
+
 h4 {
-    color: #0378A6; /* Remplacé par le Bleu Teal */
+    color: #0378A6;
     font-size: 1.5rem;
-    border-bottom: 1px dotted #ccc; /* Ligne plus discrète */
+    border-bottom: 1px dotted #ccc;
     padding-bottom: 10px;
     margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
 }
+
 p {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -63,39 +74,28 @@ p {
     text-align: justify;
     margin-bottom: 20px;
 }
+
 ul {
-    list-style-type: disc; /* Retour aux puces standard (points) */
+    list-style-type: disc;
     padding-left: 20px; 
-}
-ul li {
-    font-size: 1.1rem; /* Taille de police harmonisée */
-    padding: 7px 0;
-    border-bottom: none; /* Suppression des lignes en dessous des li */
-    color: #555;
-    position: static; 
-    padding-left: 0;
-}
-ul li:before {
-    content: none; /* Suppression de la puce personnalisée */
+    margin-bottom: 20px;
 }
 
-/* Flexbox pour les analyses sur les grands écrans */
-.analysis-flex-container {
-    display: flex; 
-    gap: 40px; /* Espacement accru */
-    margin-top: 20px;
+ul li {
+    font-size: 1.1rem;
+    padding: 7px 0;
+    color: #555;
+    line-height: 1.6;
 }
-/* Style pour les sous-sections dans le flex container */
-.analysis-flex-container > div {
-    background: #f7f7f7;
-    padding: 30px;
-    border-radius: 8px;
-    border-left: 4px solid #4F9BCC; /* Bordure latérale subtile */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+hr {
+    margin: 40px auto;
+    border: none;
+    border-top: 1px solid #eee;
 }
 
 /* ======================================================= */
-/* BANNIERE D'IMAGE (HERO) AVEC ANIMATION KEN BURNS       */
+/* BANNIÈRE HERO AVEC ANIMATION KEN BURNS */
 /* ======================================================= */
 .hero-banner {
     position: relative;
@@ -108,6 +108,7 @@ ul li:before {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     margin-bottom: 50px;
 }
+
 .hero-banner img { 
     position: absolute;
     top: 0;
@@ -117,6 +118,7 @@ ul li:before {
     object-fit: cover;
     animation: kenBurns 20s ease-in-out infinite alternate; 
 }
+
 .hero-banner::after {
     content: '';
     position: absolute;
@@ -124,9 +126,10 @@ ul li:before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(3, 120, 166, 0.4); /* Overlay Bleu Teal sombre */
+    background-color: rgba(3, 120, 166, 0.4);
     z-index: 1; 
 }
+
 .banner-title {
     position: relative;
     z-index: 2; 
@@ -136,9 +139,9 @@ ul li:before {
     color: #fff;
     padding: 0 20px;
     text-align: center;
+    line-height: 1.3;
 }
 
-/* Keyframes pour l'animation Ken Burns */
 @keyframes kenBurns {
     0% {
         transform: scale(1) translate(0, 0);
@@ -148,113 +151,61 @@ ul li:before {
     }
 }
 
+/* ======================================================= */
+/* FLEXBOX POUR LES ANALYSES */
+/* ======================================================= */
+.analysis-flex-container {
+    display: flex; 
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.analysis-flex-container > div {
+    flex: 1;
+    background: #f7f7f7;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid #4F9BCC;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
 
 /* ======================================================= */
-/* LIEN DE RETOUR AUX SERVICES (Modifié depuis l'Accueil) */
+/* LIEN DE RETOUR AUX SERVICES */
 /* ======================================================= */
 .return-home {
-    display: block;
-    margin: 0 auto 50px auto;
-    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 50px;
     padding: 12px 25px;
-    background-color: #0378A6; /* Bleu Teal */
+    background-color: #0378A6;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
     transition: background-color 0.3s, transform 0.3s;
 }
+
 .return-home:hover {
-    background-color: #4F9BCC; /* Bleu Ciel au survol */
+    background-color: #4F9BCC;
     transform: translateY(-2px);
 }
 
 /* ======================================================= */
-/* FOOTER ET BOUTON RETOUR EN HAUT */
+/* FOOTER */
 /* ======================================================= */
 footer {
     background-color: #0378A6;
     color: #fff;
-    padding: 50px 0 0 0; 
+    padding: 30px 0;
     font-size: 1rem;
 }
 
-/* Grille principale du pied de page */
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px; 
-    padding-bottom: 40px; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.footer-col h3 {
-    color: #4F9BCC;
-    font-size: 1.2rem;
-    margin-bottom: 20px; 
-    text-align: left;
-    font-weight: 600;
-}
-
-/* Colonne spéciale pour la marque/logo */
-.footer-brand p {
-    text-align: left;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #ccc;
-    margin-bottom: 15px;
-}
-
-/* Style commun pour les listes de liens/contact */
-.footer-col ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    line-height: 1.8; 
-}
-.footer-col ul li {
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-    display: flex; /* Ajouté pour aligner l'icône */
-    align-items: center;
-}
-.footer-col ul li i {
-    color: #4F9BCC;
-    margin-right: 10px;
-    width: 15px; 
-}
-
-.footer-col a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.footer-col a:hover {
-    color: #fff; 
-}
-
-/* Style des icônes sociales */
-.social-links {
-    margin-top: 20px;
-}
-
-.social-links a {
-    display: inline-block;
-    color: #fff; 
-    font-size: 1.3rem;
-    margin-right: 15px;
-    transition: color 0.3s;
-}
-.social-links a:hover {
-    color: #4F9BCC;
-}
-
-
-/* Zone du bas de page (Copyright et crédit) */
 .footer-bottom {
-    padding: 15px 0; 
+    padding: 15px 0;
     text-align: center;
 }
+
 .footer-bottom p {
     font-size: 0.9rem;
     text-align: center;
@@ -266,11 +217,14 @@ footer {
     font-size: 0.8rem;
     color: #aaa;
 }
-}
+
+/* ======================================================= */
+/* BOUTON RETOUR EN HAUT */
+/* ======================================================= */
 #myBtn {
     display: none; 
     position: fixed; 
-    bottom: 20px; 
+    bottom: 30px; 
     right: 30px; 
     z-index: 99; 
     border: none;
@@ -282,30 +236,126 @@ footer {
     border-radius: 50%;
     font-size: 18px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s;
-}
-#myBtn:hover {
-    background-color: #4F9BCC; /* Bleu Ciel au survol */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Media Query pour mobile */
+#myBtn:hover {
+    background-color: #4F9BCC;
+    transform: scale(1.1);
+}
+
+/* ======================================================= */
+/* MEDIA QUERIES - RESPONSIVE */
+/* ======================================================= */
+@media (max-width: 992px) {
+    .container {
+        margin: 30px auto;
+    }
+    
+    section {
+        padding: 40px 30px;
+    }
+    
+    h2 {
+        font-size: 2.3rem;
+        margin-bottom: 35px;
+    }
+    
+    h3 {
+        font-size: 1.7rem;
+    }
+    
+    .hero-banner {
+        height: 250px;
+    }
+    
+    .banner-title {
+        font-size: 2.3rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+    
+    section {
+        padding: 30px 20px;
+    }
+    
     .analysis-flex-container {
-        flex-direction: column; /* Une seule colonne sur mobile */
+        flex-direction: column;
         gap: 20px;
     }
+    
     .hero-banner {
         height: 200px;
     }
+    
     .banner-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
+    
     h2 {
         font-size: 2rem;
         margin-bottom: 30px;
     }
+    
     h3 {
         font-size: 1.5rem;
+        margin-top: 30px;
+    }
+    
+    h4 {
+        font-size: 1.3rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    ul li {
+        font-size: 1rem;
+    }
+    
+    .return-home {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+    
+    #myBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        height: 150px;
+    }
+    
+    .banner-title {
+        font-size: 1.4rem;
+    }
+    
+    h2 {
+        font-size: 1.7rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    section {
+        padding: 20px 15px;
+    }
+    
+    .analysis-flex-container > div {
+        padding: 20px;
     }
 }
     </style>
@@ -313,13 +363,15 @@ footer {
 <body>
 
     <div class="hero-banner"> 
-        <img src="laboratoire.webp" alt="Laboratoire d'analyse moderne et équipements de pointe">
+        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200" alt="Laboratoire d'analyse moderne et équipements de pointe">
         <h1 class="banner-title">L'Excellence Scientifique : Notre Laboratoire au Service de Votre Qualité</h1>
     </div>
 
     <main>
         <div class="container">
-            <a href="services.html" class="return-home">← Retour à Nos Services</a>
+            <a href="services.html" class="return-home">
+                <i class="fas fa-arrow-left"></i> Retour à Nos Services
+            </a>
 
             <section id="laboratoire">
                 <h2>L'Excellence au Cœur de Notre Laboratoire</h2>
@@ -330,12 +382,12 @@ footer {
                     Notre mission est d'accompagner nos clients vers la conformité totale en fournissant des services d'analyse certifiés, conformes aux normes et standards internationaux et nationaux, tout en maintenant une totale transparence et intégrité.
                 </p>
     
-                <hr style="margin: 40px auto; border-color: #eee;">
+                <hr>
     
                 <h3>Nos Domaines d'Analyse Détaillés</h3>
                 
                 <div class="analysis-flex-container">
-                    <div style="flex: 1;">
+                    <div>
                         <h4>Analyses Physico-chimiques</h4>
                         <p style="text-align: left; font-size: 1rem; color: #777;">Mesure des caractéristiques fondamentales des échantillons (eaux, produits, matières premières) :</p>
                         <ul>
@@ -345,10 +397,10 @@ footer {
                             <li>Métaux lourds (Plomb, Cadmium, Arsenic, etc.)</li>
                             <li>Teneur en chlore libre et total, Fluorures</li>
                             <li>Ammonium, Nitrites et Nitrates</li>
-                            <li>Taux d'humidité, matières grasses, protéines, cendres.</li>
+                            <li>Taux d'humidité, matières grasses, protéines, cendres</li>
                         </ul>
                     </div>
-                    <div style="flex: 1;">
+                    <div>
                         <h4>Analyses Microbiologiques</h4>
                         <p style="text-align: left; font-size: 1rem; color: #777;">Identification et quantification des micro-organismes potentiellement dangereux ou indicateurs de contamination :</p>
                         <ul>
@@ -358,22 +410,22 @@ footer {
                             <li>Clostridium perfringens et Bacillus Cereus</li>
                             <li>Germes aérobies à 22 °C et 36 °C (Flore Totale)</li>
                             <li>Recherche de Salmonella et Listeria</li>
-                            <li>Staphylocoques pathogènes, Levures et Moisissures.</li>
+                            <li>Staphylocoques pathogènes, Levures et Moisissures</li>
                         </ul>
                     </div>
                 </div>
 
-                <hr style="margin: 40px auto; border-color: #eee;">
+                <hr>
                 
                 <h3>Nos Équipements Clés</h3>
                 <p style="text-align: center; font-style: italic; color: #555;">La fiabilité de nos résultats repose sur l'utilisation d'équipements étalonnés de marques reconnues internationalement.</p>
                 
                 <div class="analysis-flex-container">
-                    <div style="flex: 1; text-align: center;">
+                    <div style="text-align: center;">
                         <h4 style="color: #4F9BCC;">Équipements Chimiques</h4>
                         <p style="text-align: center;">Spectrophotomètre d'absorption atomique (pour métaux lourds), Spectromètre UV-Visible, Chromatographes Liquide et Gazeux (HPLC/GC) pour les contaminants organiques, pH-mètres de haute précision.</p>
                     </div>
-                    <div style="flex: 1; text-align: center;">
+                    <div style="text-align: center;">
                         <h4 style="color: #4F9BCC;">Équipements Microbiologiques</h4>
                         <p style="text-align: center;">Autoclaves et Étuvées de culture, Hottes à Flux Laminaire (sécurité et stérilité), Compteur de colonies automatique, Systèmes de filtration sous vide pour les analyses d'eau.</p>
                     </div>
@@ -384,23 +436,18 @@ footer {
     </main>
 
     <footer>
-        <div class="container footer-grid">
-            
-            </div>
-        
         <div class="footer-bottom">
             <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
             <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
         </div>
     </footer>
 
-    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script>
-        // Récupère le bouton
+        // Bouton retour en haut
         let mybutton = document.getElementById("myBtn");
 
-        // Quand l'utilisateur défile vers le bas de 200px (ajusté pour la visibilité), on montre le bouton
         window.onscroll = function() {
             scrollFunction()
         };
@@ -413,10 +460,8 @@ footer {
             }
         }
 
-        // Quand l'utilisateur clique sur le bouton, on remonte en haut de la page
         function topFunction() {
-            document.body.scrollTop = 0; // Pour Safari
-            document.documentElement.scrollTop = 0; // Pour Chrome, Firefox, IE et Opera
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>

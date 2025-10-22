@@ -9,23 +9,35 @@
     
     <style>
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                    */
+/* RESET & CONFIGURATION GLOBALE                          */
 /* ======================================================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 100px; /* Valeur ajustée pour le header fixe par défaut */
+    padding-top: 80px;
     background-color: #EBEBEB;
     color: #333333;
     line-height: 1.7; 
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .container {
     max-width: 1000px; 
     margin: 20px auto;
     padding: 0 25px;
 }
+
 section {
     background-color: #fff;
     padding: 80px 40px;
@@ -33,20 +45,25 @@ section {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 h1, h2, h3 {
     font-family: 'Poppins', sans-serif;
     color: #4F9BCC; 
     text-align: center;
     margin-bottom: 30px;
 }
+
 h1 { font-size: 3.5rem; }
+
 h2 {
     font-size: 2.5rem;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
     margin-bottom: 40px;
 }
+
 h3 { font-size: 1.8rem; }
+
 p {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -54,9 +71,6 @@ p {
     text-align: center;
     margin-bottom: 20px;
 }
-.text-center { text-align: center; }
-.mt-4 { margin-top: 40px; }
-.mb-4 { margin-bottom: 40px; }
 
 /* ======================================================= */
 /* EN-TÊTE (HEADER) ET NAVIGATION                          */
@@ -74,16 +88,40 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-height: 70px;
-    box-sizing: border-box;
 }
+
 header .logo img {
     height: 50px;
     vertical-align: middle;
 }
-nav { flex-grow: 1; text-align: center; }
-nav ul { list-style: none; margin: 0; padding: 0; display: inline-block; }
-nav ul li { display: inline-block; margin-left: 30px; }
-nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.1rem; padding: 5px 0; position: relative; transition: color 0.3s ease; }
+
+nav { 
+    flex-grow: 1; 
+    text-align: center; 
+}
+
+nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: inline-block; 
+}
+
+nav ul li { 
+    display: inline-block; 
+    margin-left: 30px; 
+}
+
+nav a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 1.1rem; 
+    padding: 5px 0; 
+    position: relative; 
+    transition: color 0.3s ease; 
+}
+
 nav a::after {
     content: '';
     position: absolute;
@@ -94,12 +132,52 @@ nav a::after {
     background-color: #0378A6; 
     transition: width 0.3s ease-in-out;
 }
+
 nav a:hover::after,
-nav a.active::after { width: 100%; }
-nav a:hover { color: #0378A6; }
-.contact-info { display: flex; gap: 20px; align-items: center; }
-.contact-info .contact-link { color: #fff; text-decoration: none; font-size: 1rem; padding: 5px 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; transition: background-color 0.3s ease; }
-.contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
+nav a.active::after { 
+    width: 100%; 
+}
+
+nav a:hover { 
+    color: #0378A6; 
+}
+
+.contact-info { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+}
+
+.contact-info .contact-link { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 1rem; 
+    padding: 5px 10px; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+}
+
+.contact-info .contact-link:hover { 
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    transition: transform 0.3s;
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
+}
 
 /* ======================================================= */
 /* BOUTONS (CTA)                                           */
@@ -116,39 +194,46 @@ nav a:hover { color: #0378A6; }
     text-align: center;
     border: 2px solid transparent;
 }
+
 .btn.primary-btn {
     background-color: #0378A6; 
     color: #fff;
     border-color: #0378A6;
 }
+
 .btn.primary-btn:hover {
     background-color: #4F9BCC; 
     border-color: #4F9BCC;
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(79, 155, 204, 0.5);
 }
+
 .btn.secondary-btn {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.15);
     color: #fff; 
-    border-color: #fff; 
+    border: 2px solid #fff;
+    backdrop-filter: blur(5px);
 }
+
 .btn.secondary-btn:hover {
     background-color: #fff;
     color: #4F9BCC; 
     transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.4);
 }
+
 .btn.primary-btn.btn-small {
     padding: 10px 20px;
     font-size: 1rem;
 }
 
 /* ======================================================= */
-/* HERO SECTION AVEC CARROUSEL DE FOND ET ANIMATION        */
+/* HERO SECTION AVEC CARROUSEL                             */
 /* ======================================================= */
 .hero-section {
     position: relative;
-    height: 80vh;
+    height: 95vh;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,6 +242,7 @@ nav a:hover { color: #0378A6; }
     overflow: hidden;
     background-color: #000;
 }
+
 .image-carousel {
     position: absolute;
     top: 0;
@@ -165,6 +251,7 @@ nav a:hover { color: #0378A6; }
     height: 100%;
     z-index: 0;
 }
+
 .carousel-image {
     position: absolute;
     top: 0;
@@ -176,9 +263,11 @@ nav a:hover { color: #0378A6; }
     opacity: 0;
     transition: opacity 2s ease-in-out;
 }
+
 .carousel-image.active {
     opacity: 1;
 }
+
 .image-carousel::after {
     content: '';
     position: absolute;
@@ -189,6 +278,7 @@ nav a:hover { color: #0378A6; }
     background-color: rgba(0, 0, 0, 0.45); 
     z-index: 1;
 }
+
 .animated-overlay {
     position: absolute;
     top: 0;
@@ -198,6 +288,7 @@ nav a:hover { color: #0378A6; }
     background-color: rgba(79, 155, 204, 0.3); 
     z-index: 2; 
 }
+
 .hero-content {
     position: relative;
     z-index: 3; 
@@ -205,30 +296,40 @@ nav a:hover { color: #0378A6; }
     max-width: 100%;
     animation: fadeIn 1.5s 1s ease-out forwards;
     opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 @keyframes fadeIn {
     to { opacity: 1; }
 }
+
 .hero-content h1, .hero-content p {
     animation: slideUp 1s 1.5s ease-out forwards; 
     opacity: 0;
     transform: translateY(20px);
 }
+
 .hero-content p {
     animation-delay: 1.8s; 
 }
+
 @keyframes slideUp {
     to { 
         opacity: 1; 
         transform: translateY(0); 
     }
 }
+
 .hero-content h1 {
     font-size: 4.5rem;
     margin-bottom: 20px;
     color: #fff;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.7); 
 }
+
 .hero-content p {
     font-size: 1.5rem;
     max-width: 800px;
@@ -236,12 +337,24 @@ nav a:hover { color: #0378A6; }
     color: #f0f0f0;
     font-weight: 400; 
 }
+
 .hero-content .btn {
     margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 /* ======================================================= */
-/* SECTION MISE EN AVANT DES SERVICES (Expertise Grid)     */
+/* SERVICES HIGHLIGHTS                                     */
 /* ======================================================= */
 .services-highlights {
     background-color: #fff;
@@ -250,15 +363,18 @@ nav a:hover { color: #0378A6; }
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 .services-highlights h2 {
     color: #4F9BCC;
 }
+
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 50px;
 }
+
 .expertise-card {
     padding: 30px;
     background-color: #f8f8f8;
@@ -267,24 +383,26 @@ nav a:hover { color: #0378A6; }
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-top: 5px solid #0378A6; 
     height: 100%; 
-    box-sizing: border-box;
 }
+
 .expertise-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(3, 120, 166, 0.15);
 }
+
 .expertise-card h3 {
     margin-top: 15px;
     margin-bottom: 10px;
     color: #0378A6;
     font-size: 1.6rem;
-    text-align: center;
 }
+
 .expertise-card p {
     font-size: 1rem;
     color: #555;
     margin-bottom: 25px;
 }
+
 .expertise-card i {
     font-size: 3rem; 
     color: #4F9BCC;
@@ -293,7 +411,7 @@ nav a:hover { color: #0378A6; }
 }
 
 /* ======================================================= */
-/* SECTION PARTENAIRES (LOGOS DÉFILANTS)                   */
+/* PARTENAIRES                                             */
 /* ======================================================= */
 .partners-section {
     padding: 60px 0;
@@ -302,10 +420,12 @@ nav a:hover { color: #0378A6; }
     box-shadow: none;
     text-align: center;
 }
+
 .partners-section h2 {
     color: #0378A6; 
     border-bottom: none;
 }
+
 .logo-strip {
     overflow: hidden;
     width: 100%;
@@ -315,40 +435,44 @@ nav a:hover { color: #0378A6; }
     border-bottom: 1px solid #eee;
     padding: 20px 0;
 }
+
 .logos-slide {
     display: inline-block;
     animation: slide-logos 30s linear infinite;
 }
+
 .logos-slide img {
     height: 80px;
     margin: 0 40px;
     vertical-align: middle;
-    filter: none; 
     opacity: 1; 
     transition: all 0.3s;
 }
+
 .logos-slide img:hover {
-    filter: none;
     opacity: 0.8; 
 }
+
 @keyframes slide-logos {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
 /* ======================================================= */
-/* CARROUSEL (Témoignages) - MISE À JOUR FONDU/MONTÉE      */
+/* TÉMOIGNAGES                                             */
 /* ======================================================= */
 .testimonial-carousel {
     background-color: #f0f4f7;
     padding: 80px 0;
     margin-bottom: 30px;
 }
+
 .testimonial-card {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .testimonial-card img {
     width: 80px;
     height: 80px;
@@ -357,18 +481,20 @@ nav a:hover { color: #0378A6; }
     margin-bottom: 15px;
     border: 4px solid #4F9BCC;
 }
+
 .carousel-wrapper {
     overflow: hidden;
     width: 100%;
     min-height: 250px; 
     position: relative; 
 }
+
 .slide-wrapper {
     position: relative;
     width: 100%; 
     height: 100%;
-    transition: none; 
 }
+
 .slide {
     position: absolute; 
     top: 0;
@@ -380,21 +506,24 @@ nav a:hover { color: #0378A6; }
     transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; 
     transform: translateY(20px); 
 }
+
 .slide.active-testimonial {
     opacity: 1;
     transform: translateY(0); 
 }
+
 .testimonial-card .quote {
     font-style: italic;
     font-size: 1.2rem;
 }
+
 .testimonial-card .author {
     font-weight: bold;
     color: #0378A6;
 }
 
 /* ======================================================= */
-/* CTA (Call to Action)                                    */
+/* CTA                                                     */
 /* ======================================================= */
 .call-to-action {
     background: linear-gradient(135deg, #0378A6 0%, #4F9BCC 100%);
@@ -404,12 +533,20 @@ nav a:hover { color: #0378A6; }
     border-radius: 0;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15);
 }
-.call-to-action h2 { color: #fff; border-bottom: none; margin-bottom: 20px; }
-.call-to-action p { color: #f0f0f0; margin-bottom: 40px; }
 
+.call-to-action h2 { 
+    color: #fff; 
+    border-bottom: none; 
+    margin-bottom: 20px; 
+}
+
+.call-to-action p { 
+    color: #f0f0f0; 
+    margin-bottom: 40px; 
+}
 
 /* ======================================================= */
-/* CARTE DE GÉOLOCALISATION                                */
+/* CARTE                                                   */
 /* ======================================================= */
 .map-section {
     background-color: #f7f9fc; 
@@ -418,27 +555,29 @@ nav a:hover { color: #0378A6; }
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 .map-container {
     overflow: hidden;
     position: relative;
-    padding-top: 56.25%; /* Ratio 16:9 (hauteur/largeur) */
+    padding-top: 56.25%;
     height: 0;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     margin-top: 40px;
 }
+
 .map-container iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
     border: 0;
     border-radius: 8px;
 }
 
 /* ======================================================= */
-/* FOOTER DÉTAILLÉ (VERSION PROFESSIONNELLE À 3 COLONNES)  */
+/* FOOTER                                                  */
 /* ======================================================= */
 footer {
     background-color: #0378A6;
@@ -446,13 +585,15 @@ footer {
     padding: 50px 0 0 0; 
     font-size: 1rem;
 }
+
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px; 
-    padding-bottom: 40px; 
+    padding: 0 25px 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
+
 .footer-col h3 {
     color: #4F9BCC;
     font-size: 1.2rem;
@@ -460,6 +601,7 @@ footer {
     text-align: left;
     font-weight: 600;
 }
+
 .footer-brand p {
     text-align: left;
     font-size: 0.9rem;
@@ -467,40 +609,48 @@ footer {
     color: #ccc;
     margin-bottom: 15px;
 }
+
 .footer-brand .agrement-text {
     font-weight: bold;
     color: #fff; 
     display: block;
 }
+
 .footer-col ul {
     list-style: none;
     margin: 0;
     padding: 0;
     line-height: 1.8; 
 }
+
 .footer-col ul li {
     margin-bottom: 8px;
     font-size: 0.95rem;
     display: flex;
     align-items: center;
 }
+
 .footer-col ul li i {
     color: #4F9BCC;
     margin-right: 10px;
     width: 15px; 
 }
+
 .footer-col a {
     color: #ccc;
     text-decoration: none;
     transition: color 0.3s;
 }
+
 .footer-col a:hover {
     color: #fff; 
 }
+
 .social-links {
     margin-top: 20px;
     text-align: left; 
 }
+
 .social-links a {
     display: inline-flex;
     align-items: center;
@@ -512,29 +662,37 @@ footer {
     background-color: rgba(255, 255, 255, 0.2); 
     transition: background-color 0.3s;
 }
+
 .social-links a i {
     color: #fff; 
     font-size: 1.2rem; 
 }
+
 .social-links a:hover {
     background-color: #fff; 
 }
+
 .social-links a:hover i {
     color: #0378A6; 
 }
+
 .footer-bottom {
     padding: 15px 0; 
     text-align: center;
 }
+
 .footer-bottom p {
     font-size: 0.9rem;
     color: #ccc;
     margin: 5px 0;
 }
+
 .developer-credit {
     font-size: 0.8rem;
     color: #aaa;
 }
+
+/* BOUTON RETOUR */
 #myBtn {
     display: none;
     position: fixed;
@@ -552,69 +710,64 @@ footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     transition: background-color 0.3s;
 }
+
 #myBtn:hover {
     background-color: #4F9BCC;
 }
 
 /* ======================================================= */
-/* HAMBURGER MENU / MOBILE TOGGLE                          */
+/* MEDIA QUERIES - RESPONSIVE                              */
 /* ======================================================= */
-.hamburger {
-    display: none; /* Cache l'icône sur les écrans de bureau */
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-    transition: transform 0.3s;
-}
-.hamburger:hover {
-    transform: scale(1.1);
-}
 
-/* ======================================================= */
-/* MEDIA QUERY POUR MOBILE (ASSURER LE RESPONSIVE)         */
-/* ======================================================= */
+/* Tablettes Paysage */
 @media (max-width: 992px) {
     .testimonial-carousel .slide {
         padding: 0 20px;
     }
-}
-@media (max-width: 768px) {
-    /* Nouvelle configuration du header pour le menu hamburger */
-    header { 
-        flex-direction: row; /* Logo et Hamburger sur une ligne */
-        justify-content: space-between; 
-        position: fixed; /* Reste en haut lors du défilement */
-        padding: 0.8rem 1rem;
-        min-height: 50px;
-        align-items: center;
+    
+    .hero-section {
+        height: 85vh;
+        min-height: 600px;
     }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    section {
+        padding: 60px 30px;
+    }
+}
+
+/* Tablettes Portrait et Mobiles */
+@media (max-width: 768px) {
+    /* HEADER MOBILE */
     body { 
-        padding-top: 70px; /* Espace pour le header fixe */
+        padding-top: 70px;
+    }
+    
+    header { 
+        padding: 0.8rem 1rem;
+        min-height: 70px;
     }
     
     .hamburger {
-        display: block; /* Affiche l'icône hamburger */
-        order: 2; /* S'assure que le bouton est à droite */
+        display: block;
     }
     
-    /* Le menu de navigation par défaut */
+    /* Navigation mobile */
     nav { 
-        display: none; /* Cache la navigation par défaut */
-        position: absolute;
-        top: 70px; /* Se positionne juste en dessous du header */
+        display: none;
+        position: fixed;
+        top: 70px;
         left: 0;
         width: 100%;
         background-color: #4F9BCC; 
-        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
         z-index: 999;
-        padding-bottom: 10px;
-        box-sizing: border-box;
+        padding: 20px 0;
     }
-    /* Classe pour afficher le menu */
+    
     nav.open {
         display: block;
     }
@@ -622,39 +775,234 @@ footer {
     nav ul { 
         display: block; 
         text-align: center; 
-        margin: 0; 
-        padding: 0;
     }
+    
     nav ul li { 
         display: block; 
         margin: 0; 
-        padding: 10px 0; 
+        padding: 15px 0; 
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     }
-    nav ul li:last-child { border-bottom: none; }
-    nav a:hover { color: #0378A6; }
-    nav a::after { display: none; } /* Retirer l'animation de soulignement */
-
-    /* Masquer les coordonnées de contact dans le header mobile pour simplifier */
-    .contact-info { 
-         display: none; 
+    
+    nav ul li:last-child { 
+        border-bottom: none; 
     }
     
-    /* Autres ajustements pour le responsive */
-    .hero-section { height: 60vh; margin-top: 0; }
-    .hero-content h1 { font-size: 2.5rem; line-height: 1.2; }
-    .hero-content p { font-size: 1.1rem; }
-    .hero-content .btn { display: block; margin: 10px 0 !important; width: 100%; }
-    .footer-col h3, .footer-col p, .footer-col ul, .social-links { text-align: center; } 
-    .social-links { text-align: center; margin-top: 10px; }
-    .footer-col ul li { justify-content: center; }
-    .footer-col ul li i { display: inline-block; width: auto; margin-right: 5px; }
-    .logos-slide img { height: 60px; margin: 0 20px; }
-    .animated-overlay { animation: none; transform: none; background-color: rgba(79, 155, 204, 0.6); }
-    .image-carousel::after { background-color: rgba(0, 0, 0, 0.6); }
-    .slide { padding: 0 10px; }
-    .services-highlights, .map-section { padding: 50px 20px; }
-    .expertise-grid { grid-template-columns: 1fr; }
+    nav a {
+        font-size: 1.2rem;
+        display: block;
+    }
+    
+    nav a::after { 
+        display: none;
+    }
+
+    .contact-info { 
+        display: none; 
+    }
+    
+    /* HERO */
+    .hero-section { 
+        height: 60vh;
+        min-height: 500px;
+    }
+    
+    .hero-content {
+        padding: 20px 15px 40px;
+    }
+    
+    .hero-content h1 { 
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+    
+    .hero-content p { 
+        font-size: 1rem;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .hero-content .btn { 
+        display: block;
+        margin: 8px auto !important;
+        padding: 12px 25px;
+        font-size: 1rem;
+        max-width: 280px;
+        width: 100%;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    
+    /* Améliorer la visibilité du bouton secondaire sur mobile */
+    .hero-content .btn.secondary-btn {
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #0378A6;
+        border-color: #fff;
+        font-weight: bold;
+    }
+    
+    .hero-content .btn.secondary-btn:hover {
+        background-color: #fff;
+        color: #4F9BCC;
+    }
+    
+    /* SECTIONS */
+    .container {
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 40px 20px;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    /* SERVICES */
+    .services-highlights {
+        padding: 40px 20px;
+    }
+    
+    .expertise-grid { 
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .expertise-card {
+        padding: 25px 20px;
+    }
+    
+    .expertise-card i {
+        font-size: 2.5rem;
+    }
+    
+    .expertise-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* PARTENAIRES */
+    .logos-slide img { 
+        height: 50px;
+        margin: 0 15px;
+    }
+    
+    /* TÉMOIGNAGES */
+    .slide { 
+        padding: 0 15px;
+    }
+    
+    .testimonial-card .quote {
+        font-size: 1rem;
+    }
+    
+    /* CTA */
+    .call-to-action {
+        padding: 60px 20px;
+    }
+    
+    .call-to-action h2 {
+        font-size: 1.8rem;
+    }
+    
+    .call-to-action p {
+        font-size: 1rem;
+    }
+    
+    /* CARTE */
+    .map-section { 
+        padding: 40px 20px;
+    }
+    
+    .map-container {
+        padding-top: 75%;
+        margin-top: 20px;
+    }
+    
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 20px 30px;
+    }
+    
+    .footer-col h3,
+    .footer-col p,
+    .footer-col ul { 
+        text-align: center;
+    } 
+    
+    .social-links { 
+        text-align: center;
+    }
+    
+    .footer-col ul li { 
+        justify-content: center;
+    }
+    
+    /* BOUTON RETOUR */
+    #myBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+/* Petits Mobiles */
+@media (max-width: 480px) {
+    .hero-section {
+        height: 65vh;
+        min-height: 480px;
+    }
+    
+    .hero-content {
+        padding: 15px 10px 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+    
+    .hero-content .btn {
+        margin: 6px auto !important;
+        padding: 11px 20px;
+        font-size: 0.95rem;
+    }
+    
+    section {
+        padding: 30px 15px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .expertise-card {
+        padding: 20px 15px;
+    }
 }
     </style>
 </head>
@@ -677,7 +1025,6 @@ footer {
     
     <main>
         <section class="hero-section">
-            
             <div class="image-carousel">
                 <div class="carousel-image active" style="background-image: url('lpa0.jpg');"></div>
                 <div class="carousel-image" style="background-image: url('LPA 1.png');"></div>
@@ -689,8 +1036,10 @@ footer {
             <div class="hero-content">
                 <h1>LPA - Laboratoire de Contrôle Qualité</h1>
                 <p>Spécialiste du Contrôle Qualité et du Traitement d'Eau. Notre mission : Assurer la conformité de vos produits et la qualité de votre eau selon les normes nationales et internationales.</p>
-                <a href="about.html" class="btn primary-btn">En savoir plus</a> 
-                <a href="contact.html" class="btn secondary-btn" style="margin-left: 15px;">Demander un devis</a>
+                <div class="hero-buttons">
+                    <a href="about.html" class="btn primary-btn">En savoir plus</a> 
+                    <a href="contact.html" class="btn secondary-btn">Demander un devis</a>
+                </div>
             </div>
         </section>
 
@@ -710,6 +1059,10 @@ footer {
                         <img src="sodeci.jpeg" alt="sodeci">
                         <img src="foraci.webp" alt="Partenaire Foraci">
                         <img src="foraco.webp" alt="Partenaire Foraco">
+                        <img src="agrifor.webp" alt="Partenaire Agrifor">
+                        <img src="sodeci.jpeg" alt="sodeci">
+                        <img src="foraci.webp" alt="Partenaire Foraci">
+                        <img src="foraco.webp" alt="Partenaire Foraco">
                     </div>
                 </div>
             </div>
@@ -719,13 +1072,12 @@ footer {
             <div class="container">
                 <h2>Ce que disent nos Clients</h2>
                 <div class="carousel-wrapper">
-                    <div class="slide-wrapper" id="testimonial-slides">
-                        </div>
+                    <div class="slide-wrapper" id="testimonial-slides"></div>
                 </div>
             </div>
         </section>
 
-        <section class="call-to-action text-center">
+        <section class="call-to-action">
             <div class="container">
                 <h2>Prêt à Collaborer ?</h2>
                 <p>Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques et obtenir un devis personnalisé.</p>
@@ -739,23 +1091,23 @@ footer {
                 <p>Notre laboratoire est situé au cœur d'Abidjan. Consultez la carte pour nous rendre visite ou obtenir votre itinéraire.</p>
                 <div class="map-container">
                     <iframe 
-             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.840699198487!2d-3.9863238262767564!3d5.4411461347965675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc193577cf3be4b%3A0xc326e096f18cee96!2sPharmacie%20Biabou%20Mosquee!5e0!3m2!1sfr!2sci!4v1760657901399!5m2!1sfr!2sci" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                     
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.840699198487!2d-3.9863238262767564!3d5.4411461347965675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc193577cf3be4b%3A0xc326e096f18cee96!2sPharmacie%20Biabou%20Mosquee!5e0!3m2!1sfr!2sci!4v1760657901399!5m2!1sfr!2sci" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </section>
-        </main>
+    </main>
 
     <footer>
-        <div class="container footer-grid">
-            
+        <div class="footer-grid">
             <div class="footer-col footer-brand">
                 <h3>LPA - Contrôle Qualité</h3>
                 <p>Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. Votre partenaire de confiance pour la conformité et l'excellence.</p>
                 <span class="agrement-text">Agrément N° 012-MCI/CAB du 27-01-2021</span>
-                
-                <div class="social-links" id="footer-social-links" style="margin-top: 20px;">
-                    </div>
+                <div class="social-links" id="footer-social-links"></div>
             </div>
 
             <div class="footer-col quick-links">
@@ -765,9 +1117,8 @@ footer {
             
             <div class="footer-col contact-details">
                 <h3>Contactez-nous</h3>
-                       <ul id="footer-contact-details"></ul>
+                <ul id="footer-contact-details"></ul>
             </div>
-            
         </div>
         
         <div class="footer-bottom">
@@ -776,14 +1127,12 @@ footer {
         </div>
     </footer>
 
-
     <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
 
     <script>
-        // =======================================================
-// 1. STRUCTURE DE DONNÉES GLOBALE (100% Dynamique)
 // =======================================================
-
+// STRUCTURE DE DONNÉES GLOBALE
+// =======================================================
 const siteData = {
     contact: {
         tel1: '+225 07 07 20 16 96',
@@ -845,11 +1194,10 @@ const siteData = {
 };
 
 // =======================================================
-// 2. FONCTION DE RENDU DYNAMIQUE
+// FONCTION DE RENDU DYNAMIQUE
 // =======================================================
-
 function renderContent() {
-    // A. RENDU DES LIENS DE NAVIGATION (Header)
+    // Navigation
     const navUl = document.getElementById('main-nav-links');
     if (navUl) {
         navUl.innerHTML = siteData.navigation.map(link => 
@@ -857,7 +1205,7 @@ function renderContent() {
         ).join('');
     }
 
-    // B. RENDU DES CONTACTS (Header)
+    // Contacts Header
     const headerContact = document.getElementById('header-contact-info');
     if (headerContact) {
         headerContact.innerHTML = `
@@ -866,7 +1214,7 @@ function renderContent() {
         `;
     }
 
-    // C. RENDU DES SERVICES (Expertise Grid)
+    // Services
     const expertiseGrid = document.getElementById('expertise-grid');
     if (expertiseGrid) {
         expertiseGrid.innerHTML = siteData.services.map(service => 
@@ -879,7 +1227,7 @@ function renderContent() {
         ).join('');
     }
     
-    // D. RENDU DES TÉMOIGNAGES (Carousel)
+    // Témoignages
     const testimonialSlides = document.getElementById('testimonial-slides');
     if (testimonialSlides) {
         testimonialSlides.innerHTML = siteData.testimonials.map((t, index) => 
@@ -891,13 +1239,12 @@ function renderContent() {
         ).join('');
     }
     
-    // E. RENDU DES LIENS RAPIDES (Footer)
+    // Liens Rapides Footer
     const footerQuickLinks = document.getElementById('footer-quick-links');
     if (footerQuickLinks) {
         footerQuickLinks.innerHTML = siteData.navigation.map(link => 
             `<li><i class="fas fa-angle-right"></i> <a href="${link.url}">${link.name}</a></li>`
         ).join('');
-        // Ajout des liens spécifiques Footer
         footerQuickLinks.innerHTML += `
             <li><i class="fas fa-angle-right"></i> <a href="formation.html">Formation & Partenariat</a></li>
             <li><i class="fas fa-angle-right"></i> <a href="expertise.html">Expertise & Conseil</a></li>
@@ -905,141 +1252,124 @@ function renderContent() {
         `;
     }
     
-    // F. RENDU DES DÉTAILS DE CONTACT (Footer)
+    // Contact Footer
     const footerContact = document.getElementById('footer-contact-details');
     if (footerContact) {
         footerContact.innerHTML = `
-            <li>
-                <i class="fas fa-map-marker-alt"></i> 
-                <a href="#location-map">${siteData.contact.adresse}</a>
-            </li>
-            <li>
-                <i class="fas fa-phone-alt"></i> 
-                <a href="tel:${siteData.contact.fixe.replace(/\s/g, '')}">${siteData.contact.fixe}</a> (Fixe)
-            </li>
-            <li>
-                <i class="fas fa-mobile-alt"></i> 
-                <a href="tel:${siteData.contact.tel1.replace(/\s/g, '')}">${siteData.contact.tel1}</a> (Cel 1)
-            </li>
-            <li>
-                <i class="fas fa-mobile-alt"></i> 
-                <a href="tel:${siteData.contact.tel2.replace(/\s/g, '')}">${siteData.contact.tel2}</a> (Cel 2)
-            </li>
-            <li>
-                <i class="fas fa-envelope"></i> 
-                <a href="mailto:${siteData.contact.email}">${siteData.contact.email}</a>
-            </li>
+            <li><i class="fas fa-map-marker-alt"></i> <a href="#location-map">${siteData.contact.adresse}</a></li>
+            <li><i class="fas fa-phone-alt"></i> <a href="tel:${siteData.contact.fixe.replace(/\s/g, '')}">${siteData.contact.fixe}</a> (Fixe)</li>
+            <li><i class="fas fa-mobile-alt"></i> <a href="tel:${siteData.contact.tel1.replace(/\s/g, '')}">${siteData.contact.tel1}</a> (Cel 1)</li>
+            <li><i class="fas fa-mobile-alt"></i> <a href="tel:${siteData.contact.tel2.replace(/\s/g, '')}">${siteData.contact.tel2}</a> (Cel 2)</li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:${siteData.contact.email}">${siteData.contact.email}</a></li>
         `;
     }
 
-    // G. RENDU DES LIENS SOCIAUX (Footer)
+    // Réseaux Sociaux
     const socialLinks = document.getElementById('footer-social-links');
     if (socialLinks) {
         socialLinks.innerHTML = siteData.social.map(s => 
-            `<a href="${s.url}" target="_blank" title="${s.title}"><i class="${s.icon}"></i></a>`
+            `<a href="${s.url}" target="_blank" rel="noopener noreferrer" title="${s.title}"><i class="${s.icon}"></i></a>`
         ).join('');
     }
 }
 
-// Appeler la fonction de rendu après le chargement du DOM
-document.addEventListener('DOMContentLoaded', renderContent);
-
-
 // =======================================================
-// 3. LOGIQUE DU CARROUSEL, DU HAMBURGER ET DU BOUTON SCROLL
+// CARROUSEL DE FOND (HERO)
 // =======================================================
-
-// Script du carrousel de fond (Hero)
 const images = document.querySelectorAll('.carousel-image');
 let current = 0;
+
 function nextImage() {
     images[current].classList.remove('active');
     current = (current + 1) % images.length;
     images[current].classList.add('active');
 }
+
 if (images.length > 1) {
-    images[0].classList.add('active');
-    setInterval(nextImage, 7000); // Change toutes les 7 secondes
+    setInterval(nextImage, 7000);
 }
 
-// Script du carrousel de témoignages (Fondu/Montée)
-const wrapper = document.getElementById('testimonial-slides'); 
-if (wrapper) { 
-    // On doit appeler les slides APRÈS que le contenu dynamique soit injecté
-    document.addEventListener('DOMContentLoaded', () => {
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        if (totalSlides > 1) {
-            let currentSlide = 0;
-            
-            function nextSlide() {
-                slides[currentSlide].classList.remove('active-testimonial');
-                currentSlide = (currentSlide + 1) % totalSlides;
-                slides[currentSlide].classList.add('active-testimonial');
-            }
-            setInterval(nextSlide, 5000); // Change toutes les 5 secondes
+// =======================================================
+// CARROUSEL TÉMOIGNAGES
+// =======================================================
+function initTestimonialCarousel() {
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    
+    if (totalSlides > 1) {
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active-testimonial');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active-testimonial');
         }
-    });
+        
+        setInterval(nextSlide, 5000);
+    }
 }
 
-// AJOUT: Script du menu hamburger
+// =======================================================
+// MENU HAMBURGER
+// =======================================================
 function setupHamburgerMenu() {
     const hamburger = document.getElementById('hamburger-menu');
     const nav = document.getElementById('main-nav');
     
     if (hamburger && nav) {
         hamburger.addEventListener('click', () => {
-            // Basculer la classe 'open' sur la balise <nav>
             nav.classList.toggle('open');
             
-            // Basculer l'icône (barres <-> croix)
             const icon = hamburger.querySelector('i');
             if (nav.classList.contains('open')) {
                 icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times'); // Utilise 'fa-times' pour la croix
+                icon.classList.add('fa-times');
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
         });
 
-        // Fermer le menu après le clic sur un lien (expérience mobile)
+        // Fermer au clic sur un lien
         const navLinks = nav.querySelectorAll('a');
         navLinks.forEach(link => {
-            // S'assurer que les liens dans la nav existent (ils sont créés dynamiquement)
-            if (link.closest('#main-nav')) {
-                 link.addEventListener('click', () => {
-                    // Vérifier si nous sommes sur un écran mobile
-                    if (window.innerWidth <= 768 && nav.classList.contains('open')) {
-                        nav.classList.remove('open');
-                        // Réinitialiser l'icône à 'fa-bars'
-                        hamburger.querySelector('i').classList.remove('fa-times');
-                        hamburger.querySelector('i').classList.add('fa-bars');
-                    }
-                });
-            }
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    hamburger.querySelector('i').classList.remove('fa-times');
+                    hamburger.querySelector('i').classList.add('fa-bars');
+                }
+            });
         });
     }
 }
 
-// Appeler la fonction de configuration du hamburger après le rendu du contenu
-document.addEventListener('DOMContentLoaded', setupHamburgerMenu);
+// =======================================================
+// BOUTON RETOUR EN HAUT
+// =======================================================
+const mybutton = document.getElementById("myBtn");
 
-
-// Script du bouton de retour en haut
-let mybutton = document.getElementById("myBtn");
-window.onscroll = function() { scrollFunction() };
-function scrollFunction() {
+window.onscroll = function() {
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
         mybutton.style.display = "block";
     } else {
         mybutton.style.display = "none";
     }
-}
-// Fonction pour le défilement fluide vers le haut
+};
+
 function topFunction() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// =======================================================
+// INITIALISATION AU CHARGEMENT
+// =======================================================
+document.addEventListener('DOMContentLoaded', () => {
+    renderContent();
+    setupHamburgerMenu();
+    // Petit délai pour s'assurer que le contenu dynamique est chargé
+    setTimeout(initTestimonialCarousel, 100);
+});
     </script>
 </body>
 </html>

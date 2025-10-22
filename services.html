@@ -5,28 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos services | LPA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
 
 /* ======================================================= */
 /* CONFIGURATION GÉNÉRALE */
 /* ======================================================= */
-/* Couleurs de l'index: #4F9BCC (Bleu Ciel), #0378A6 (Bleu Teal/Primaire) */
-body {
-    font-family: 'Roboto', Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    /* Ajusté à 80px car le header est plus compact sur mobile */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
     padding-top: 80px; 
     background-color: #EBEBEB;
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
+
 .container {
     max-width: 1200px;
     margin: 30px auto;
     padding: 0 25px;
 }
+
 section {
     background-color: #fff;
     padding: 50px 40px;
@@ -34,15 +39,17 @@ section {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
-    color: #4F9BCC; /* Utilisation de la couleur Bleu Ciel de l'index */
+    color: #4F9BCC;
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
     margin-bottom: 40px;
 }
+
 p {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -54,9 +61,9 @@ p {
 /* EN-TÊTE (HEADER) ET NAVIGATION */
 /* ======================================================= */
 header {
-    background-color: #0378A6; /* Bleu Teal */
+    background-color: #0378A6;
     color: #fff;
-    padding: 10px 20px; /* Réduit le padding pour une meilleure gestion sur mobile */
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,26 +74,26 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-height: 70px;
 }
+
 header .logo img {
     height: 50px;
     vertical-align: middle;
 }
 
-/* Conteneur pour la navigation et les contacts (Flexible) */
 #nav-container {
     display: flex; 
     align-items: center;
     flex-grow: 1;
-    justify-content: flex-end; /* Aligner à droite */
+    justify-content: flex-end;
 }
 
-/* Styles pour le bouton Hamburger */
 .hamburger {
-    display: none; /* Masqué par défaut sur desktop */
+    display: none;
     cursor: pointer;
     background: none;
     border: none;
     padding: 10px;
+    z-index: 1001;
 }
 
 .bar {
@@ -98,20 +105,36 @@ header .logo img {
     transition: all 0.3s ease-in-out;
 }
 
+/* Animation du hamburger en X */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 nav {
     flex-grow: 1; 
     text-align: right; 
 }
+
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: inline-block;
 }
+
 nav ul li {
     display: inline-block;
     margin-left: 30px;
 }
+
 nav a {
     color: #fff;
     text-decoration: none;
@@ -121,6 +144,7 @@ nav a {
     position: relative;
     transition: color 0.3s ease;
 }
+
 nav a::after {
     content: '';
     position: absolute;
@@ -128,22 +152,26 @@ nav a::after {
     bottom: -5px;
     width: 0;
     height: 3px;
-    background-color: #4F9BCC; /* Changement: Utilisation du Bleu Ciel */
+    background-color: #4F9BCC;
     transition: width 0.3s ease-in-out;
 }
+
 nav a:hover::after,
 nav a.active::after {
     width: 100%;
 }
+
 nav a:hover {
-    color: #4F9BCC; /* Changement: Utilisation du Bleu Ciel */
+    color: #4F9BCC;
 }
+
 .contact-info {
     display: flex;
     gap: 20px;
     align-items: center;
     margin-left: 40px; 
 }
+
 .contact-info .contact-link {
     color: #fff;
     text-decoration: none;
@@ -153,21 +181,21 @@ nav a:hover {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+
 .contact-info .contact-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
 }
 
 /* ======================================================= */
-/* GRILLE DE SERVICES (inchangé) */
+/* GRILLE DE SERVICES */
 /* ======================================================= */
 .services-grid {
     display: grid;
-    /* Adapte automatiquement le nombre de colonnes, min 300px */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
     margin-top: 30px;
 }
+
 .service-card {
     background-color: #fff;
     padding: 20px;
@@ -179,53 +207,61 @@ nav a:hover {
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     text-align: left;
     display: block; 
-    overflow: hidden; /* Important pour l'animation de l'image */
+    overflow: hidden;
 }
+
 .service-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: #4F9BCC; /* Changement: Utilisation du Bleu Ciel au survol */
+    border-color: #4F9BCC;
 }
 
-/* Conteneur d'image pour l'effet de zoom */
 .image-container {
     height: 200px;
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 15px;
+    background-color: #f0f0f0;
 }
+
 .service-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    /* Animation de l'image seule */
     transition: transform 0.5s ease;
 }
+
 .service-card:hover img {
-    transform: scale(1.1); /* Zoom au survol de la carte */
+    transform: scale(1.1);
 }
 
 .service-card h3 {
-    color: #0378A6; /* Utilisation du Bleu Teal */
+    color: #0378A6;
     font-size: 1.6rem;
     margin: 0 0 10px 0;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
+
 .service-card p {
     font-size: 1rem;
     color: #555;
     text-align: center;
+    line-height: 1.6;
 }
 
-/* Style du pied de page adapté aux informations de contact complètes */
+/* ======================================================= */
+/* FOOTER */
+/* ======================================================= */
 footer {
     background-color: #0378A6; 
     color: #fff;
-    padding: 20px 40px;
+    padding: 30px 40px;
     text-align: center;
     font-size: 0.9rem;
 }
+
 footer p {
     color: #fff;
     margin: 5px 0;
@@ -233,134 +269,204 @@ footer p {
     line-height: 1.5;
 }
 
+.developer-credit {
+    font-size: 0.85rem;
+    color: #ccc;
+}
 
+/* ======================================================= */
+/* BOUTON RETOUR EN HAUT */
+/* ======================================================= */
 #myBtn {
     display: none; 
     position: fixed; 
-    bottom: 20px; 
+    bottom: 30px; 
     right: 30px; 
     z-index: 99; 
     border: none;
     outline: none;
-    background-color: #0378A6; /* Utilisation du Bleu Teal */
+    background-color: #0378A6;
     color: white; 
     cursor: pointer;
     padding: 15px;
     border-radius: 50%;
     font-size: 18px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
+
 #myBtn:hover {
-    background-color: #4F9BCC; /* Changement: Utilisation du Bleu Ciel au survol */
+    background-color: #4F9BCC;
+    transform: scale(1.1);
 }
 
 /* ======================================================= */
-/* MEDIA QUERIES POUR LA RÉACTIVITÉ (MOBILE) */
+/* MEDIA QUERIES - RESPONSIVE */
 /* ======================================================= */
 @media (max-width: 992px) {
     .container {
         max-width: 90%;
         margin: 20px auto;
     }
+    
     h2 {
         font-size: 2rem;
     }
+    
     .services-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
+    
+    .contact-info {
+        margin-left: 20px;
+    }
 }
 
 @media (max-width: 768px) {
-    /* Sur mobiles */
-    header {
-        flex-direction: row; 
-        align-items: center;
-        padding: 10px 20px;
+    body {
+        padding-top: 70px;
     }
     
-    /* Afficher le bouton hamburger */
+    header {
+        padding: 0.8rem 1.5rem;
+        min-height: 60px;
+    }
+    
     .hamburger {
         display: block;
-        z-index: 1001;
     }
 
-    /* Conteneur de la navigation et des contacts : Masqué par défaut */
     #nav-container {
         position: fixed;
-        top: 70px; /* Doit être la hauteur du header */
+        top: 70px;
         left: 0;
         width: 100%;
-        height: 0; /* Masqué au début */
+        max-height: 0;
         background-color: #0378A6;
-        flex-direction: column; /* Les éléments internes se mettent en colonne */
+        flex-direction: column;
         align-items: center;
-        overflow-y: hidden; /* Cache le contenu qui dépasse */
-        transition: height 0.4s ease-in-out;
-        z-index: 999;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); 
     }
 
-    /* Classe JavaScript : Afficher le menu déroulant */
     #nav-container.active {
-        height: 80vh; /* Hauteur pour afficher le contenu sur le mobile */
-        padding-top: 20px;
+        max-height: 500px;
+        padding: 20px 0;
     }
     
-    /* Navigation */
     nav {
-        order: 1; 
         width: 100%;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
+    
     nav ul {
         display: flex;
-        flex-direction: column; /* Les liens se mettent en colonne */
+        flex-direction: column;
         width: 100%;
     }
+    
     nav ul li {
-        margin: 15px 0;
+        margin: 10px 0;
     }
+    
     nav a {
-        font-size: 1.3rem; /* Taille de police plus grande pour la lisibilité mobile */
+        font-size: 1.2rem;
         padding: 10px 0;
         display: block;
     }
+    
     nav a::after {
-        display: none; /* Masquer la ligne de soulignement pour le menu déroulant */
-    }
-    nav a.active {
-        color: #4F9BCC; /* Couleur du lien actif */
-    }
-
-    /* Infos Contact */
-    .contact-info {
-        order: 2; 
-        flex-direction: column;
-        gap: 15px;
-        margin-left: 0;
-        align-items: center; /* Centrer les liens de contact */
-        width: 100%;
-    }
-    .contact-info .contact-link {
-        font-size: 1.1rem;
-        padding: 10px 20px;
-        border: 1px solid #4F9BCC; /* Mettre en évidence les liens */
-        width: 70%;
-        text-align: center;
+        display: none;
     }
     
-    header .logo {
-        margin-bottom: 0;
+    nav a.active {
+        color: #4F9BCC;
     }
 
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 0;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .contact-info .contact-link {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: 1px solid #4F9BCC;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    section {
+        padding: 30px 20px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
     .services-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
+    
     .service-card {
         padding: 15px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    .image-container {
+        height: 180px;
+    }
+    
+    #myBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.6rem 1rem;
+    }
+    
+    header .logo img {
+        height: 40px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .services-grid {
+        gap: 15px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .service-card p {
+        font-size: 0.95rem;
+    }
+    
+    .image-container {
+        height: 150px;
     }
 }
     </style>
@@ -379,13 +485,13 @@ footer p {
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="about.html">À Propos</a></li>
-                     <li><a href="services.html" class="active">Nos services</a></li>
+                    <li><a href="services.html" class="active">Nos services</a></li>
                     <li><a href="contact.html">Demande de devis</a></li>
                 </ul>
             </nav>
             <div class="contact-info">
-                <a href="tel:+2250707201696" class="contact-link">+225 07 07 20 16 96</a>
-                <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link">laboratoire1lpa@gmail.com</a>
+                <a href="tel:+2250707201696" class="contact-link"><i class="fas fa-phone"></i> +225 07 07 20 16 96</a>
+                <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
             </div>
         </div>
         
@@ -397,87 +503,98 @@ footer p {
     </header>
     
     <main>
-    <div class="container">
-        <section id="services-list">
-            <h2>Notre Excellence Analytique et Technique : Des Solutions Complètes</h2>
-            <p>Découvrez nos quatre piliers de service, conçus pour garantir la qualité, la conformité, la sécurité et la performance dans votre domaine d'activité. Nous vous offrons des solutions d'analyse, de traitement, de formation et d'expertise.</p>
+        <div class="container">
+            <section id="services-list">
+                <h2>Notre Excellence Analytique et Technique : Des Solutions Complètes</h2>
+                <p>Découvrez nos quatre piliers de service, conçus pour garantir la qualité, la conformité, la sécurité et la performance dans votre domaine d'activité. Nous vous offrons des solutions d'analyse, de traitement, de formation et d'expertise.</p>
 
-            <div class="services-grid">
-                
-                <a href="laboratoire.html" class="service-card">
-                    <div class="image-container">
-                        <img src="agroalimentaire.webp" alt="Services Laboratoire d'Analyse">
-                    </div>
-                    <h3>Laboratoire d'Analyse</h3>
-                    <p>Contrôle de la qualité et de la conformité des produits (aliments, eau, sols) par analyses physico-chimiques et microbiologiques selon les normes internationales.</p>
-                </a>
-                
-                <a href="analyse-eau.html" class="service-card">
-                    <div class="image-container">
-                        <img src="chimie.webp" alt="Services Traitement des Eaux">
-                    </div>
-                    <h3>Traitement des Eaux</h3>
-                    <p>Solutions de potabilisation, désinfection et nettoyage des réseaux (eaux de surface, eaux de forage, eaux usées) pour assurer une qualité d'eau exigée.</p>
-                </a>
+                <div class="services-grid">
+                    
+                    <a href="laboratoire.html" class="service-card">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600" alt="Services Laboratoire d'Analyse">
+                        </div>
+                        <h3>Laboratoire d'Analyse</h3>
+                        <p>Contrôle de la qualité et de la conformité des produits (aliments, eau, sols) par analyses physico-chimiques et microbiologiques selon les normes internationales.</p>
+                    </a>
+                    
+                    <a href="analyse-eau.html" class="service-card">
+                        <div class="image-container">
+                            <img src="télécharger.webp" alt="Services Traitement des Eaux">
+                        </div>
+                        <h3>Traitement des Eaux</h3>
+                        <p>Solutions de potabilisation, désinfection et nettoyage des réseaux (eaux de surface, eaux de forage, eaux usées) pour assurer une qualité d'eau exigée.</p>
+                    </a>
 
-                <a href="prelevement.html" class="service-card">
-                    <div class="image-container">
-                        <img src="laboratoire.webp" alt="Services Prélèvement et Échantillonnage">
-                    </div>
-                    <h3>Prélèvement et Échantillonnage</h3>
-                    <p>Service sur site de prélèvement d'échantillons (air, eau, sol, produits) par nos techniciens certifiés pour une fiabilité maximale des analyses.</p>
-                </a>
-                 <a href="chimie.html" class="service-card">
-                    <div class="image-container">
-                        <img src="lab.jpeg" alt="Services Expertise et Conseil">
-                    </div>
-                    <h3>Expertise et Conseil</h3>
-                    <p>Consultance technique, développement de méthodes analytiques spécifiques et assistance pour la mise en place de démarches qualité (ISO/CEI 17025).</p>
-                </a>
-                
-            </div>
-        </section>
-    </div>
-</main>
+                    <a href="prelevement.html" class="service-card">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600" alt="Services Prélèvement et Échantillonnage">
+                        </div>
+                        <h3>Prélèvement et Échantillonnage</h3>
+                        <p>Service sur site de prélèvement d'échantillons (air, eau, sol, produits) par nos techniciens certifiés pour une fiabilité maximale des analyses.</p>
+                    </a>
+                    
+                    <a href="chimie.html" class="service-card">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=600" alt="Services Expertise et Conseil">
+                        </div>
+                        <h3>Expertise et Conseil</h3>
+                        <p>Consultance technique, développement de méthodes analytiques spécifiques et assistance pour la mise en place de démarches qualité (ISO/CEI 17025).</p>
+                    </a>
+                    
+                </div>
+            </section>
+        </div>
+    </main>
 
     <footer>
-        
         <div class="footer-bottom">
             <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
             <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
         </div>
     </footer>
 
-    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script>
-    // Script du bouton de retour en haut (fonctionnel)
-    let mybutton = document.getElementById("myBtn");
-    window.onscroll = function() {
-        scrollFunction()
-    };
+        // Bouton retour en haut
+        let mybutton = document.getElementById("myBtn");
+        
+        window.onscroll = function() {
+            scrollFunction()
+        };
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
         }
-    }
 
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-    
-    // NOUVEAU SCRIPT POUR LE MENU HAMBURGER
-    const hamburgerBtn = document.getElementById("hamburger-btn");
-    const navContainer = document.getElementById("nav-container");
+        function topFunction() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Menu hamburger
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const navContainer = document.getElementById("nav-container");
 
-    hamburgerBtn.addEventListener('click', () => {
-        // Bascule la classe 'active' pour afficher/masquer le menu
-        navContainer.classList.toggle('active');
-    });
+        hamburgerBtn.addEventListener('click', () => {
+            navContainer.classList.toggle('active');
+            hamburgerBtn.classList.toggle('active');
+        });
+
+        // Fermer le menu au clic sur un lien
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navContainer.classList.contains('active')) {
+                    navContainer.classList.remove('active');
+                    hamburgerBtn.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>

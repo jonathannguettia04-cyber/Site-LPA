@@ -3,83 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chimie Industrielle | LPA</title>
+    <title>Expertise et Conseil | LPA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
 /* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Styles Harmonisé)*/
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE */
 /* ======================================================= */
-/* Couleurs de l'index: #4F9BCC (Bleu Ciel), #0378A6 (Bleu Teal/Primaire) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    padding: 0; 
     background-color: #EBEBEB; 
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
 }
+
 .container {
-    max-width: 1100px; /* Espace plus grand pour le texte */
+    max-width: 1100px;
     margin: 50px auto; 
     padding: 0 25px;
 }
+
 section {
-    background-color: #fff; /* Blanc solide */
-    padding: 60px 50px; /* Plus d'espace intérieur */
+    background-color: #fff;
+    padding: 60px 50px;
     margin-bottom: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 2.8rem; 
-    color: #0378A6; /* Bleu Teal */
+    color: #0378A6;
     text-align: center;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 20px;
-    margin-bottom: 50px; /* Plus d'espacement après le titre principal */
+    margin-bottom: 50px;
     line-height: 1.2;
 }
+
 h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
-    color: #4F9BCC; /* Bleu Ciel pour les sous-titres */
+    color: #4F9BCC;
     margin-top: 40px; 
     margin-bottom: 25px; 
     text-align: center;
 }
 
-/* Style pour les blocs d'analyse (grille 2 colonnes) */
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+
+hr {
+    margin: 40px auto;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+/* ======================================================= */
+/* GRILLE DE SERVICES (2 COLONNES) */
+/* ======================================================= */
 .service-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px; /* Espacement accru entre les blocs */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 40px;
     margin-top: 40px;
 }
+
 .service-block {
     background: #f7f7f7;
-    padding: 30px; /* Plus de padding */
+    padding: 30px;
     border-radius: 8px;
-    border-top: 4px solid #4F9BCC; /* Utilisation du Bleu Ciel pour la bordure */
+    border-top: 4px solid #4F9BCC;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
+
 .service-block:hover {
     transform: translateY(-5px);
-    border-color: #0378A6; /* Bordure plus foncée au survol */
+    border-color: #0378A6;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
+
 .service-block h4 {
-    color: #0378A6; /* Bleu Teal pour les titres de bloc */
+    color: #0378A6;
     font-size: 1.5rem;
     margin-top: 0;
+    margin-bottom: 15px;
     border-bottom: 1px dotted #ccc;
     padding-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
 }
+
+.service-block p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
 .service-block ul {
-    list-style-type: disc; /* Retour à des puces standard (points) */
-    padding-left: 20px; 
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
 }
+
 .service-block ul li {
     padding: 7px 0;
     font-size: 1.1rem;
@@ -88,7 +125,7 @@ h3 {
 }
 
 /* ======================================================= */
-/* BANNIERE D'IMAGE (HERO) AVEC ANIMATION KEN BURNS       */
+/* BANNIÈRE HERO AVEC ANIMATION KEN BURNS */
 /* ======================================================= */
 .hero-banner {
     position: relative;
@@ -101,6 +138,7 @@ h3 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     margin-bottom: 50px;
 }
+
 .hero-banner img { 
     position: absolute;
     top: 0;
@@ -110,6 +148,7 @@ h3 {
     object-fit: cover;
     animation: kenBurns 20s ease-in-out infinite alternate; 
 }
+
 .hero-banner::after {
     content: '';
     position: absolute;
@@ -117,9 +156,10 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(3, 120, 166, 0.4); /* Overlay Bleu Teal sombre */
+    background-color: rgba(3, 120, 166, 0.4);
     z-index: 1; 
 }
+
 .banner-title {
     position: relative;
     z-index: 2; 
@@ -129,9 +169,9 @@ h3 {
     color: #fff;
     padding: 0 20px;
     text-align: center;
+    line-height: 1.3;
 }
 
-/* Keyframes pour l'animation Ken Burns */
 @keyframes kenBurns {
     0% {
         transform: scale(1) translate(0, 0);
@@ -141,35 +181,35 @@ h3 {
     }
 }
 
-
 /* ======================================================= */
-/* LIEN DE RETOUR AUX SERVICES (Modifié depuis l'Accueil) */
+/* LIENS DE RETOUR ET CTA */
 /* ======================================================= */
 .return-home {
-    display: block;
-    margin: 0 auto 50px auto;
-    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 50px;
     padding: 12px 25px;
-    background-color: #0378A6; /* Bleu Teal */
+    background-color: #0378A6;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
     transition: background-color 0.3s, transform 0.3s;
 }
+
 .return-home:hover {
-    background-color: #4F9BCC; /* Bleu Ciel au survol */
+    background-color: #4F9BCC;
     transform: translateY(-2px);
 }
-/* ======================================================= */
-/* BOUTON D'ACTION (CALL TO ACTION) */
-/* ======================================================= */
+
 .cta-button {
-    display: block;
-    width: fit-content;
-    margin: 50px auto 20px auto; /* Marge accrue */
-    padding: 18px 40px; /* Bouton plus grand */
-    background-color: #4F9BCC; /* Bleu Ciel */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 50px auto 20px auto;
+    padding: 18px 40px;
+    background-color: #4F9BCC;
     color: white;
     text-decoration: none;
     font-size: 1.3rem;
@@ -178,24 +218,51 @@ h3 {
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
 .cta-button:hover {
-    background-color: #0378A6; /* Bleu Teal au survol */
+    background-color: #0378A6;
     transform: translateY(-3px);
 }
+
+.cta-wrapper {
+    text-align: center;
+}
+
 /* ======================================================= */
-/* FOOTER ET BOUTON RETOUR EN HAUT */
+/* FOOTER */
 /* ======================================================= */
 footer {
-    background-color: #0378A6; /* Bleu Teal pour le footer */
+    background-color: #0378A6;
     color: #fff;
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 30px 0;
     margin-top: 30px;
 }
+
+.footer-bottom {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+.developer-credit {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* ======================================================= */
+/* BOUTON RETOUR EN HAUT */
+/* ======================================================= */
 #myBtn {
     display: none; 
     position: fixed; 
-    bottom: 20px; 
+    bottom: 30px; 
     right: 30px; 
     z-index: 99; 
     border: none;
@@ -207,33 +274,140 @@ footer {
     border-radius: 50%;
     font-size: 18px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s;
-}
-#myBtn:hover {
-    background-color: #4F9BCC; /* Bleu Ciel au survol */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Media Query pour mobile */
-@media (max-width: 768px) {
-    .service-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+#myBtn:hover {
+    background-color: #4F9BCC;
+    transform: scale(1.1);
+}
+
+/* ======================================================= */
+/* MEDIA QUERIES - RESPONSIVE */
+/* ======================================================= */
+@media (max-width: 992px) {
+    .container {
+        margin: 30px auto;
     }
+    
+    section {
+        padding: 40px 30px;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    h2 {
+        font-size: 2.3rem;
+        margin-bottom: 35px;
+    }
+    
+    h3 {
+        font-size: 1.7rem;
+    }
+    
+    .hero-banner {
+        height: 250px;
+    }
+    
+    .banner-title {
+        font-size: 2.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+    
+    section {
+        padding: 30px 20px;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
     .hero-banner {
         height: 200px;
     }
+    
     .banner-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
+    
     h2 {
         font-size: 2rem;
         margin-bottom: 30px;
     }
+    
     h3 {
         font-size: 1.5rem;
     }
+    
+    .service-block h4 {
+        font-size: 1.3rem;
+    }
+    
+    .service-block ul li {
+        font-size: 1rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
     .cta-button {
         padding: 15px 30px;
         font-size: 1.1rem;
+    }
+    
+    .return-home {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+    
+    #myBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        height: 150px;
+    }
+    
+    .banner-title {
+        font-size: 1.4rem;
+    }
+    
+    h2 {
+        font-size: 1.7rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    section {
+        padding: 20px 15px;
+    }
+    
+    .service-block {
+        padding: 20px;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }
     </style>
@@ -241,107 +415,116 @@ footer {
 <body>
 
     <div class="hero-banner"> 
-        <img src="chimie.webp" alt="Laboratoire d'Analyse Chimique Industrielle">
-        <h1 class="banner-title">Chimie Industrielle : Maîtrise, Conformité et Innovation</h1>
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200" alt="Expertise et Conseil Technique">
+        <h1 class="banner-title">Expertise et Conseil : Sécurité, Conformité et Performance</h1>
     </div>
 
     <main>
         <div class="container">
-            <a href="services.html" class="return-home">← Retour à Nos Services</a>
+            <a href="services.html" class="return-home">
+                <i class="fas fa-arrow-left"></i> Retour à Nos Services
+            </a>
 
-            <section id="chimie">
-                <h2>Maîtrise et Performance : L'Expertise Chimique au Cœur de Votre Innovation</h2>
+            <section id="expertise">
+                <h2>Votre Partenaire en Maîtrise des Risques et Accréditation Laboratoire</h2>
+                
                 <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 40px;">
-                    Dans un secteur où la **précision est primordiale**, la qualité de vos produits chimiques ne doit pas être laissée au hasard. **LPA** propose des services d'analyse de pointe pour vous aider à maîtriser la qualité et la performance de vos produits chimiques, manufacturés ou non.
+                    Face à des exigences réglementaires croissantes, LPA met à disposition ses experts pour vous guider. Notre service d'expertise et de conseil technique est la clé pour valider vos processus, développer des méthodes sur mesure et atteindre l'excellence opérationnelle, notamment par la mise en conformité ISO.
                 </p>
                 
-                <hr style="margin: 40px auto; border-color: #eee;">
+                <hr>
 
-                <h3>Des Analyses Critiques pour la Chimie Industrielle</h3>
+                <h3>Nos Domaines d'Intervention en Expertise Technique</h3>
                 
                 <div class="service-grid">
                     
                     <div class="service-block">
-                        <h4>Caractérisation de Produits</h4>
-                        <p>Nous déterminons les propriétés physiques et chimiques pour garantir la conformité :</p>
+                        <h4><i class="fas fa-certificate"></i> Accompagnement à l'Accréditation ISO/CEI 17025</h4>
+                        <p>Nous vous guidons pour structurer votre système qualité :</p>
                         <ul>
-                            <li>Détermination du **pH**, de la Viscosité et de la Densité</li>
-                            <li>Mesure du Point d'Éclair et de la Température de Fusion</li>
-                            <li>Analyse de la Composition Élémentaire</li>
-                            <li>Essais de performance et de stabilité des produits</li>
+                            <li>Évaluation des écarts par rapport à la norme ISO/CEI 17025:2017</li>
+                            <li>Aide à la rédaction des procédures et du Manuel Qualité</li>
+                            <li>Formation du personnel aux exigences d'un laboratoire accrédité</li>
+                            <li>Mise en place de la gestion de la traçabilité des résultats d'analyse</li>
                         </ul>
                     </div>
 
                     <div class="service-block">
-                        <h4>Contrôle de Conformité et Qualité</h4>
-                        <p>Nos analyses garantissent que vos produits respectent les normes et spécifications techniques :</p>
+                        <h4><i class="fas fa-flask"></i> Développement de Méthodes Analytiques Spécifiques</h4>
+                        <p>Des solutions sur mesure pour vos besoins analytiques uniques :</p>
                         <ul>
-                            <li>Vérification de la pureté des matières premières</li>
-                            <li>Contrôle de la qualité des **peintures, vernis, et revêtements**</li>
-                            <li>Validation des formules pour l'industrie du **plastique et du caoutchouc**</li>
-                            <li>Application des normes ISO et réglementations en vigueur</li>
+                            <li>Recherche et validation de méthodes d'analyse non standard</li>
+                            <li>Optimisation des protocoles d'échantillonnage pour des matrices complexes</li>
+                            <li>Assistance pour le choix et l'utilisation d'équipements de laboratoire</li>
+                            <li>Études de faisabilité pour de nouveaux tests ou analyses</li>
                         </ul>
                     </div>
                     
                     <div class="service-block">
-                        <h4>Détection et Quantification de Contaminants</h4>
-                        <p>Identification des impuretés qui peuvent compromettre la qualité ou la sécurité :</p>
+                        <h4><i class="fas fa-search"></i> Audit Technique et Diagnostic Qualité</h4>
+                        <p>Un regard extérieur pour identifier et résoudre les faiblesses :</p>
                         <ul>
-                            <li>Recherche de **métaux lourds** et autres résidus toxiques</li>
-                            <li>Quantification des COV (Composés Organiques Volatils)</li>
-                            <li>Analyse des solvants et des résidus de production</li>
-                            <li>Utilisation de l'équipement de pointe comme le **Spectrophotomètre DR 1900**</li>
+                            <li>Audit des systèmes de contrôle qualité internes (prélèvement à la remise de résultats)</li>
+                            <li>Identification des causes profondes de non-conformité et de défaillance</li>
+                            <li>Conseils pour l'amélioration des processus de production ou de traitement d'eau</li>
+                            <li>Réduction des risques analytiques et des erreurs d'interprétation</li>
                         </ul>
                     </div>
-                    
+
                     <div class="service-block">
-                        <h4>Diagnostic et Optimisation</h4>
-                        <p>Nous vous aidons à améliorer vos processus et à résoudre les problèmes de production :</p>
+                        <h4><i class="fas fa-chart-line"></i> Interprétation des Données et Conformité Réglementaire</h4>
+                        <p>Transformer les résultats en décisions stratégiques :</p>
                         <ul>
-                            <li>Analyse des défaillances et identification des causes profondes</li>
-                            <li>Optimisation des formulations chimiques</li>
-                            <li>Étude de la durabilité et de la résistance des matériaux</li>
-                            <li>Conseils d'experts pour la certification et le contrôle qualité</li>
+                            <li>Interprétation détaillée des analyses physico-chimiques et microbiologiques</li>
+                            <li>Validation des résultats en regard des normes OMS, ISO, AFNOR ou CODINORM</li>
+                            <li>Conseil sur la réglementation en vigueur (eau, rejets industriels, produits)</li>
+                            <li>Définition de plans d'action correctifs basés sur l'expertise scientifique</li>
                         </ul>
                     </div>
                 </div>
 
                 <p style="margin-top: 50px; text-align: center; font-style: italic; color: #555;">
-                    Nous vous aidons à valider vos processus, à optimiser la qualité de vos produits et à respecter les standards les plus exigeants de l'industrie chimique.
+                    Faites confiance à l'expertise de LPA, agréé par le Ministère du Commerce (Agrément N° 012-MCI/CAB), pour des conseils qui sécurisent votre avenir.
                 </p>
 
-                <a href="contact.html" class="cta-button">Je souhaite un Partenariat d'Analyse Chimique</a>
+                <div class="cta-wrapper">
+                    <a href="contact.html" class="cta-button">
+                        <i class="fas fa-user-tie"></i> Demander un Devis d'Expertise
+                    </a>
+                </div>
 
             </section>
         </div>
     </main>
 
     <footer>
-        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+        <div class="footer-bottom">
+            <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
+            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
+        </div>
     </footer>
-    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+
     <script>
-    // Récupère le bouton
-    let mybutton = document.getElementById("myBtn");
+        // Bouton retour en haut
+        let mybutton = document.getElementById("myBtn");
 
-    // Quand l'utilisateur défile vers le bas de 200px, on montre le bouton
-    window.onscroll = function() {
-        scrollFunction()
-    };
+        window.onscroll = function() {
+            scrollFunction()
+        };
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
         }
-    }
 
-    // Quand l'utilisateur clique sur le bouton, on remonte en haut de la page
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script>
+        function topFunction() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
