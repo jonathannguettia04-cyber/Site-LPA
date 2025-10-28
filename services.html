@@ -3,598 +3,559 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos services | LPA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Nos Services | LPA - Laboratoire de Contrôle Qualité</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    
     <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ======================================================= */
-/* CONFIGURATION GÉNÉRALE */
-/* ======================================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --primary: #0047AB;
+    --secondary: #FF6B35;
+    --accent: #00D9FF;
+    --dark: #0F172A;
+    --light: #F8FAFC;
+    --gradient-hero: linear-gradient(135deg, #0047AB 0%, #0066CC 50%, #0088FF 100%);
+    --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+    --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
+    --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
+    --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
+    --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    padding-top: 80px; 
-    background-color: #EBEBEB;
-    color: #333;
-    line-height: 1.6;
-    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 0 25px;
+html { scroll-behavior: smooth; }
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-section {
-    background-color: #fff;
-    padding: 50px 40px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
-    color: #4F9BCC;
-    text-align: center;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 15px;
-    margin-bottom: 40px;
-}
-
-p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    text-align: center;
-}
-
-/* ======================================================= */
-/* EN-TÊTE (HEADER) ET NAVIGATION */
-/* ======================================================= */
 header {
-    background-color: #0378A6;
-    color: #fff;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    min-height: 70px;
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;
+    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(0,71,171,0.1); transition: var(--transition-base);
 }
 
-header .logo img {
-    height: 50px;
-    vertical-align: middle;
+header.scrolled { background: rgba(255, 255, 255, 0.95); box-shadow: var(--shadow-md); }
+
+.header-container {
+    max-width: 1400px; margin: 0 auto; padding: 1.2rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
 }
 
-#nav-container {
-    display: flex; 
-    align-items: center;
-    flex-grow: 1;
-    justify-content: flex-end;
+.logo-container { display: flex; align-items: center; gap: 1rem; }
+.logo-container img { height: 60px; cursor: pointer; }
+
+.nav-menu { display: flex; gap: 3rem; list-style: none; }
+
+.nav-menu a {
+    color: var(--dark); text-decoration: none; font-weight: 600;
+    font-size: 0.95rem; position: relative; transition: var(--transition-base);
+    padding: 0.5rem 0;
 }
+
+.nav-menu a::before {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px;
+    background: var(--gradient-accent); transition: width 0.3s ease; border-radius: 2px;
+}
+
+.nav-menu a:hover::before, .nav-menu a.active::before { width: 100%; }
+.nav-menu a:hover { color: var(--primary); }
+
+.header-cta { display: flex; gap: 1rem; align-items: center; }
+
+.btn-header {
+    padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700;
+    text-decoration: none; transition: var(--transition-bounce);
+    display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.95rem;
+}
+
+.btn-header-primary {
+    background: var(--gradient-accent); color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-header-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4); }
+
+.btn-header-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+.btn-header-outline:hover { background: var(--primary); color: white; }
 
 .hamburger {
-    display: none;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 10px;
-    z-index: 1001;
+    display: none; background: none; border: none; font-size: 1.6rem;
+    color: var(--primary); cursor: pointer; transition: var(--transition-base);
 }
 
-.bar {
-    display: block;
-    width: 28px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: #fff;
-    transition: all 0.3s ease-in-out;
+.page-hero {
+    position: relative; min-height: 50vh; display: flex; align-items: center;
+    background: var(--gradient-hero); padding-top: 120px; padding-bottom: 80px;
+    overflow: hidden;
 }
 
-/* Animation du hamburger en X */
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0,217,255,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,107,53,0.08) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(0,71,171,0.85) 0%, rgba(0,102,204,0.8) 100%);
+    z-index: 1;
 }
 
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
+.hero-content {
+    position: relative; z-index: 10; max-width: 1400px;
+    margin: 0 auto; padding: 0 2rem; text-align: center;
 }
 
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+.breadcrumb {
+    display: flex; justify-content: center; align-items: center;
+    gap: 0.5rem; margin-bottom: 2rem; font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-nav {
-    flex-grow: 1; 
-    text-align: right; 
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-left: 30px;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 5px 0;
-    position: relative;
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.9); text-decoration: none;
     transition: color 0.3s ease;
 }
 
-nav a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0;
-    height: 3px;
-    background-color: #4F9BCC;
-    transition: width 0.3s ease-in-out;
+.breadcrumb a:hover { color: white; }
+.breadcrumb i { font-size: 0.8rem; }
+
+.page-title {
+    font-family: 'Space Grotesk', sans-serif; font-size: 4rem;
+    font-weight: 900; color: white; margin-bottom: 1.5rem;
+    letter-spacing: -2px; animation: slideInUp 0.8s ease-out;
 }
 
-nav a:hover::after,
-nav a.active::after {
-    width: 100%;
+.page-subtitle {
+    font-size: 1.3rem; line-height: 1.8; color: rgba(255, 255, 255, 0.95);
+    max-width: 800px; margin: 0 auto; animation: slideInUp 1s ease-out;
 }
 
-nav a:hover {
-    color: #4F9BCC;
+.services-section { padding: 8rem 2rem; background: white; }
+
+.section-header { text-align: center; max-width: 800px; margin: 0 auto 6rem; }
+
+.section-tag {
+    display: inline-block; background: var(--gradient-accent); color: white;
+    padding: 0.6rem 1.8rem; border-radius: 50px; font-size: 0.8rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
-.contact-info {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-left: 40px; 
+.section-title {
+    font-family: 'Space Grotesk', sans-serif; font-size: 3rem;
+    font-weight: 900; color: var(--dark); margin-bottom: 1.5rem;
+    line-height: 1.2; letter-spacing: -1px;
 }
 
-.contact-info .contact-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 5px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+.section-description { font-size: 1.15rem; color: #64748B; line-height: 1.8; }
 
-.contact-info .contact-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* ======================================================= */
-/* GRILLE DE SERVICES */
-/* ======================================================= */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px;
-    margin-top: 30px;
+    max-width: 1400px; margin: 0 auto; display: grid;
+    grid-template-columns: repeat(2, 1fr); gap: 3rem;
 }
 
 .service-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: #333;
-    border: 3px solid transparent; 
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    text-align: left;
-    display: block; 
-    overflow: hidden;
+    background: white; border-radius: 30px; padding: 0;
+    position: relative; overflow: hidden; transition: var(--transition-bounce);
+    border: 2px solid transparent; box-shadow: var(--shadow-sm);
+    text-decoration: none; display: block;
 }
 
-.service-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: #4F9BCC;
+.service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+    background: var(--gradient-hero); transform: scaleX(0); transition: transform 0.5s ease;
 }
 
-.image-container {
-    height: 200px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    background-color: #f0f0f0;
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-lg); border-color: rgba(0,71,171,0.1); }
+
+.service-image {
+    width: 100%; height: 280px; overflow: hidden; position: relative;
 }
 
-.service-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.service-image img {
+    width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.service-card:hover img {
-    transform: scale(1.1);
+.service-card:hover .service-image img { transform: scale(1.1); }
+
+.service-content { padding: 2.5rem; }
+
+.service-icon-wrapper {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, rgba(0,71,171,0.05) 0%, rgba(0,217,255,0.05) 100%);
+    border-radius: 20px; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem; transition: var(--transition-base);
 }
 
-.service-card h3 {
-    color: #0378A6;
-    font-size: 1.6rem;
-    margin: 0 0 10px 0;
+.service-card:hover .service-icon-wrapper {
+    background: var(--gradient-hero); transform: rotate(5deg) scale(1.05);
+}
+
+.service-icon {
+    font-size: 2.2rem; color: var(--primary); transition: var(--transition-base);
+}
+
+.service-card:hover .service-icon { color: white; transform: scale(1.1); }
+
+.service-title {
+    font-size: 1.8rem; font-weight: 700; color: var(--dark);
+    margin-bottom: 1rem; line-height: 1.3; text-align: center;
+}
+
+.service-description {
+    color: #64748B; line-height: 1.8; margin-bottom: 2rem;
+    font-size: 1.05rem; text-align: center;
+}
+
+.service-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.8rem; color: var(--primary); font-weight: 700;
+    text-decoration: none; transition: var(--transition-base);
+    font-size: 1rem; width: 100%;
+}
+
+.service-link:hover { gap: 1.2rem; color: var(--secondary); }
+
+.cta-section {
+    padding: 8rem 2rem; background: linear-gradient(135deg, var(--dark) 0%, #1E293B 100%);
     text-align: center;
-    font-family: 'Poppins', sans-serif;
 }
 
-.service-card p {
-    font-size: 1rem;
-    color: #555;
-    text-align: center;
-    line-height: 1.6;
+.cta-content { max-width: 900px; margin: 0 auto; }
+.cta-section .section-title { color: white; font-size: 3.5rem; margin-bottom: 1.5rem; }
+.cta-section .section-description { color: rgba(255, 255, 255, 0.8); font-size: 1.25rem; margin-bottom: 3rem; }
+
+.cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+
+.btn-cta {
+    padding: 1.2rem 3rem; border-radius: 50px; font-weight: 700;
+    font-size: 1.1rem; text-decoration: none; transition: var(--transition-bounce);
+    display: inline-flex; align-items: center; gap: 0.8rem;
 }
 
-/* ======================================================= */
-/* FOOTER */
-/* ======================================================= */
-footer {
-    background-color: #0378A6; 
-    color: #fff;
-    padding: 30px 40px;
-    text-align: center;
-    font-size: 0.9rem;
+.btn-cta-primary { background: white; color: var(--primary); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2); }
+.btn-cta-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3); }
+
+.btn-cta-secondary { background: var(--gradient-accent); color: white; box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3); }
+.btn-cta-secondary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4); }
+
+footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
+
+.footer-content {
+    max-width: 1400px; margin: 0 auto; text-align: center;
+    padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-footer p {
-    color: #fff;
-    margin: 5px 0;
-    font-size: 1rem;
-    line-height: 1.5;
+.footer-brand h3 {
+    font-family: 'Space Grotesk', sans-serif; font-size: 2rem;
+    font-weight: 900; margin-bottom: 1rem;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-.developer-credit {
-    font-size: 0.85rem;
-    color: #ccc;
+.footer-description { color: rgba(255, 255, 255, 0.7); line-height: 1.8; margin-bottom: 1.5rem; max-width: 600px; margin: 0 auto; }
+
+.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 2rem; text-align: center; }
+.footer-bottom p { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+.scroll-top {
+    position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px;
+    background: var(--gradient-accent); color: white; border: none;
+    border-radius: 50%; font-size: 1.5rem; cursor: pointer;
+    box-shadow: var(--shadow-md); opacity: 0; visibility: hidden;
+    transition: var(--transition-bounce); z-index: 9998;
 }
 
-/* ======================================================= */
-/* BOUTON RETOUR EN HAUT */
-/* ======================================================= */
-#myBtn {
-    display: none; 
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    border: none;
-    outline: none;
-    background-color: #0378A6;
-    color: white; 
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s, transform 0.3s;
-}
+.scroll-top.visible { opacity: 1; visibility: visible; }
+.scroll-top:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
 
-#myBtn:hover {
-    background-color: #4F9BCC;
-    transform: scale(1.1);
-}
-
-/* ======================================================= */
-/* MEDIA QUERIES - RESPONSIVE */
-/* ======================================================= */
-@media (max-width: 992px) {
-    .container {
-        max-width: 90%;
-        margin: 20px auto;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-    
-    .contact-info {
-        margin-left: 20px;
-    }
+@media (max-width: 1024px) {
+    .services-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
 @media (max-width: 768px) {
-    body {
-        padding-top: 70px;
+    .nav-menu {
+        position: fixed; top: 85px; left: -100%; width: 100%;
+        height: calc(100vh - 85px); background: white; flex-direction: column;
+        padding: 3rem 2rem; gap: 0; box-shadow: var(--shadow-lg);
+        transition: left 0.4s ease;
     }
-    
-    header {
-        padding: 0.8rem 1.5rem;
-        min-height: 60px;
-    }
-    
-    .hamburger {
-        display: block;
-    }
-
-    #nav-container {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        max-height: 0;
-        background-color: #0378A6;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); 
-    }
-
-    #nav-container.active {
-        max-height: 500px;
-        padding: 20px 0;
-    }
-    
-    nav {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    nav ul li {
-        margin: 10px 0;
-    }
-    
-    nav a {
-        font-size: 1.2rem;
-        padding: 10px 0;
-        display: block;
-    }
-    
-    nav a::after {
-        display: none;
-    }
-    
-    nav a.active {
-        color: #4F9BCC;
-    }
-
-    .contact-info {
-        flex-direction: column;
-        gap: 10px;
-        margin-left: 0;
-        width: 100%;
-        padding: 0 20px;
-    }
-    
-    .contact-info .contact-link {
-        font-size: 1rem;
-        padding: 10px 20px;
-        border: 1px solid #4F9BCC;
-        width: 100%;
-        max-width: 300px;
-        text-align: center;
-    }
-
-    section {
-        padding: 30px 20px;
-    }
-    
-    h2 {
-        font-size: 1.8rem;
-    }
-    
-    p {
-        font-size: 1rem;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .service-card {
-        padding: 15px;
-    }
-    
-    .service-card h3 {
-        font-size: 1.4rem;
-    }
-    
-    .image-container {
-        height: 180px;
-    }
-    
-    #myBtn {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px;
-        font-size: 16px;
-    }
+    .nav-menu.open { left: 0; }
+    .nav-menu li { padding: 1.5rem 0; border-bottom: 1px solid rgba(0,71,171,0.1); }
+    .header-cta { display: none; }
+    .hamburger { display: block; }
+    .page-title { font-size: 2.5rem; }
+    .page-subtitle { font-size: 1.1rem; }
+    .section-title { font-size: 2.2rem; }
+    .services-grid { gap: 2rem; }
+    .service-image { height: 220px; }
+    .service-content { padding: 2rem; }
 }
 
 @media (max-width: 480px) {
-    header {
-        padding: 0.6rem 1rem;
-    }
-    
-    header .logo img {
-        height: 40px;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
-    
-    .services-grid {
-        gap: 15px;
-    }
-    
-    .service-card h3 {
-        font-size: 1.3rem;
-    }
-    
-    .service-card p {
-        font-size: 0.95rem;
-    }
-    
-    .image-container {
-        height: 150px;
-    }
+    .page-title { font-size: 2rem; }
+    .service-title { font-size: 1.5rem; }
 }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="LOGO LPA.jpg" alt="Logo de LPA">
-            </a>
-        </div>
-        
-        <div id="nav-container">
+    <header id="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="LOGO LPA.jpg" alt="Logo LPA">
+            </div>
+            
             <nav>
-                <ul>
+                <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="about.html">A propos</a></li>
                     <li><a href="services.html" class="active">Nos services</a></li>
-                    <li><a href="contact.html">Demande de devis</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-            <div class="contact-info">
-                <a href="tel:+2250707201696" class="contact-link"><i class="fas fa-phone"></i> +225 07 07 20 16 96</a>
-                <a href="mailto:laboratoire1lpa@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+            
+            <div class="header-cta">
+                <a href="tel:+2250707201696" class="btn-header btn-header-outline">
+                    <i class="fas fa-phone"></i> 07 07 20 16 96
+                </a>
+                <a href="contact.html" class="btn-header btn-header-primary">Devis Gratuit</a>
+            </div>
+            
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Services</span>
+            </div>
+            <h1 class="page-title">Nos Services</h1>
+            <p class="page-subtitle">
+                Des solutions complètes et personnalisées pour garantir la conformité 
+                et la qualité de vos produits et installations
+            </p>
+        </div>
+    </section>
+
+    <section class="services-section reveal">
+        <div class="section-header">
+            <span class="section-tag">Excellence & Innovation</span>
+            <h2 class="section-title">Notre Cœur d'Expertise</h2>
+            <p class="section-description">
+                Découvrez nos quatre piliers de service, conçus pour garantir la qualité, 
+                la conformité, la sécurité et la performance dans votre domaine d'activité
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <a href="laboratoire.html" class="service-card reveal">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80" alt="Laboratoire d'Analyse">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-flask service-icon"></i>
+                    </div>
+                    <h3 class="service-title">Laboratoire d'Analyse</h3>
+                    <p class="service-description">
+                        Contrôle de la qualité et de la conformité des produits (aliments, eau, sols) 
+                        par analyses physico-chimiques et microbiologiques selon les normes internationales.
+                    </p>
+                    <span class="service-link">
+                        En savoir plus <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="analyse-eau.html" class="service-card reveal">
+                <div class="service-image">
+                    <img src="télécharger.webp" alt="Traitement des Eaux">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-water service-icon"></i>
+                    </div>
+                    <h3 class="service-title">Traitement des Eaux</h3>
+                    <p class="service-description">
+                        Solutions complètes de potabilisation, désinfection et traitement d'eaux usées 
+                        pour les industriels et les collectivités. De l'étude à la mise en œuvre.
+                    </p>
+                    <span class="service-link">
+                        En savoir plus <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="prelevement.html" class="service-card reveal">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80" alt="Prélèvement et Échantillonnage">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-vial service-icon"></i>
+                    </div>
+                    <h3 class="service-title">Prélèvement et Échantillonnage</h3>
+                    <p class="service-description">
+                        Service sur site de prélèvement d'échantillons (air, eau, sol, produits) 
+                        par nos techniciens certifiés pour une fiabilité maximale des analyses.
+                    </p>
+                    <span class="service-link">
+                        En savoir plus <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+
+            <a href="chimie.html" class="service-card reveal">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=800&q=80" alt="Expertise et Conseil">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-chalkboard-teacher service-icon"></i>
+                    </div>
+                    <h3 class="service-title">Expertise et Conseil</h3>
+                    <p class="service-description">
+                        Consultance technique, développement de méthodes analytiques spécifiques 
+                        et assistance pour la mise en place de démarches qualité (ISO/CEI 17025).
+                    </p>
+                    <span class="service-link">
+                        En savoir plus <i class="fas fa-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="cta-section reveal">
+        <div class="cta-content">
+            <h2 class="section-title">Prêt à Collaborer ?</h2>
+            <p class="section-description">
+                Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques 
+                et obtenir un devis personnalisé gratuit
+            </p>
+            <div class="cta-buttons">
+                <a href="tel:+2250707201696" class="btn-cta btn-cta-primary">
+                    <i class="fas fa-phone"></i> 07 07 20 16 96
+                </a>
+                <a href="mailto:laboratoire1lpa@gmail.com" class="btn-cta btn-cta-secondary">
+                    <i class="fas fa-envelope"></i> Envoyer un Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>LPA</h3>
+                <p class="footer-description">
+                    Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. 
+                    Votre partenaire de confiance pour la conformité et l'excellence.
+                </p>
             </div>
         </div>
         
-        <button class="hamburger" id="hamburger-btn" aria-label="Ouvrir le menu de navigation">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-    </header>
-    
-    <main>
-        <div class="container">
-            <section id="services-list">
-                <h2>Notre Excellence Analytique et Technique : Des Solutions Complètes</h2>
-                <p>Découvrez nos quatre piliers de service, conçus pour garantir la qualité, la conformité, la sécurité et la performance dans votre domaine d'activité. Nous vous offrons des solutions d'analyse, de traitement, de formation et d'expertise.</p>
-
-                <div class="services-grid">
-                    
-                    <a href="laboratoire.html" class="service-card">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600" alt="Services Laboratoire d'Analyse">
-                        </div>
-                        <h3>Laboratoire d'Analyse</h3>
-                        <p>Contrôle de la qualité et de la conformité des produits (aliments, eau, sols) par analyses physico-chimiques et microbiologiques selon les normes internationales.</p>
-                    </a>
-                    
-                    <a href="analyse-eau.html" class="service-card">
-                        <div class="image-container">
-                            <img src="télécharger.webp" alt="Services Traitement des Eaux">
-                        </div>
-                        <h3>Traitement des Eaux</h3>
-                        <p>Solutions de potabilisation, désinfection et nettoyage des réseaux (eaux de surface, eaux de forage, eaux usées) pour assurer une qualité d'eau exigée.</p>
-                    </a>
-
-                    <a href="prelevement.html" class="service-card">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600" alt="Services Prélèvement et Échantillonnage">
-                        </div>
-                        <h3>Prélèvement et Échantillonnage</h3>
-                        <p>Service sur site de prélèvement d'échantillons (air, eau, sol, produits) par nos techniciens certifiés pour une fiabilité maximale des analyses.</p>
-                    </a>
-                    
-                    <a href="chimie.html" class="service-card">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=600" alt="Services Expertise et Conseil">
-                        </div>
-                        <h3>Expertise et Conseil</h3>
-                        <p>Consultance technique, développement de méthodes analytiques spécifiques et assistance pour la mise en place de démarches qualité (ISO/CEI 17025).</p>
-                    </a>
-                    
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
         <div class="footer-bottom">
-            <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
-            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
+            <p>&copy; 2025 LPA. Tous droits réservés.</p>
+            <p>Site développé par Jonathan N'GUETTIA</p>
         </div>
     </footer>
 
-    <button onclick="topFunction()" id="myBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    <button class="scroll-top" id="scroll-top"><i class="fas fa-arrow-up"></i></button>
 
     <script>
-        // Bouton retour en haut
-        let mybutton = document.getElementById("myBtn");
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    const scrollTop = document.getElementById('scroll-top');
+    
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+        scrollTop.classList.add('visible');
+    } else {
+        header.classList.remove('scrolled');
+        scrollTop.classList.remove('visible');
+    }
+});
+
+document.getElementById('hamburger').addEventListener('click', function() {
+    const navMenu = document.getElementById('nav-menu');
+    const icon = this.querySelector('i');
+    
+    navMenu.classList.toggle('open');
+    
+    if (navMenu.classList.contains('open')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+});
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navMenu = document.getElementById('nav-menu');
+        const hamburger = document.getElementById('hamburger');
+        const icon = hamburger.querySelector('i');
         
-        window.onscroll = function() {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
+        if (navMenu.classList.contains('open')) {
+            navMenu.classList.remove('open');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
         }
+    });
+});
 
-        function topFunction() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+document.getElementById('scroll-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
         
-        // Menu hamburger
-        const hamburgerBtn = document.getElementById("hamburger-btn");
-        const navContainer = document.getElementById("nav-container");
+        if (elementTop < windowHeight - 100) {
+            element.classList.add('active');
+        }
+    });
+}
 
-        hamburgerBtn.addEventListener('click', () => {
-            navContainer.classList.toggle('active');
-            hamburgerBtn.classList.toggle('active');
-        });
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-        // Fermer le menu au clic sur un lien
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navContainer.classList.contains('active')) {
-                    navContainer.classList.remove('active');
-                    hamburgerBtn.classList.remove('active');
-                }
-            });
-        });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        
+        if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+    });
+});
     </script>
 </body>
 </html>
