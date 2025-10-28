@@ -3,466 +3,837 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratoire | LPA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Laboratoire | LPA - Excellence Scientifique</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    
     <style>
-/* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE */
-/* ======================================================= */
+/* ============================================ */
+/* VARIABLES & RESET */
+/* ============================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #0047AB;
+    --secondary: #FF6B35;
+    --accent: #00D9FF;
+    --success: #10B981;
+    --dark: #0F172A;
+    --light: #F8FAFC;
+    --lab-purple: #6366F1;
+    --lab-blue: #0078D4;
+    --gradient-hero: linear-gradient(135deg, #6366F1 0%, #0078D4 50%, #0047AB 100%);
+    --gradient-card: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(0,120,212,0.05) 100%);
+    --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
+    --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
+    --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: #EBEBEB; 
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 50px auto; 
-    padding: 0 25px;
+/* ============================================ */
+/* BOUTON RETOUR SERVICES */
+/* ============================================ */
+.back-to-services {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 9999;
+    animation: fadeInLeft 0.8s ease-out;
 }
 
-section {
-    background-color: #fff;
-    padding: 60px 50px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.8rem; 
-    color: #0378A6;
-    text-align: center;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 20px;
-    margin-bottom: 50px;
-    line-height: 1.2;
+.btn-back {
+    background: white;
+    color: var(--lab-blue);
+    padding: 1rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 2px solid transparent;
 }
 
-h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    color: #4F9BCC;
-    margin-top: 40px; 
-    margin-bottom: 25px; 
-    text-align: center;
+.btn-back:hover {
+    background: var(--lab-blue);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--lab-blue);
 }
 
-h4 {
-    color: #0378A6;
-    font-size: 1.5rem;
-    border-bottom: 1px dotted #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    font-family: 'Poppins', sans-serif;
-}
-
-p {
+.btn-back i {
     font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    text-align: justify;
-    margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
 
-ul {
-    list-style-type: disc;
-    padding-left: 20px; 
-    margin-bottom: 20px;
+.btn-back:hover i {
+    transform: translateX(-3px);
 }
 
-ul li {
-    font-size: 1.1rem;
-    padding: 7px 0;
-    color: #555;
-    line-height: 1.6;
-}
-
-hr {
-    margin: 40px auto;
-    border: none;
-    border-top: 1px solid #eee;
-}
-
-/* ======================================================= */
-/* BANNIÈRE HERO AVEC ANIMATION KEN BURNS */
-/* ======================================================= */
-.hero-banner {
+/* ============================================ */
+/* HERO SECTION */
+/* ============================================ */
+.hero-lab {
     position: relative;
-    height: 300px; 
-    overflow: hidden; 
+    min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 50px;
+    background: var(--gradient-hero);
+    overflow: hidden;
 }
 
-.hero-banner img { 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: kenBurns 20s ease-in-out infinite alternate; 
-}
-
-.hero-banner::after {
+.hero-lab::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(3, 120, 166, 0.4);
-    z-index: 1; 
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+    opacity: 0.5;
 }
 
-.banner-title {
-    position: relative;
-    z-index: 2; 
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 0 20px;
-    text-align: center;
-    line-height: 1.3;
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-@keyframes kenBurns {
-    0% {
-        transform: scale(1) translate(0, 0);
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float-particle 15s infinite ease-in-out;
+}
+
+@keyframes float-particle {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
     }
     100% {
-        transform: scale(1.2) translate(-5%, -5%);
+        transform: translate(100px, -100vh) scale(0.5);
+        opacity: 0;
     }
 }
 
-/* ======================================================= */
-/* FLEXBOX POUR LES ANALYSES */
-/* ======================================================= */
-.analysis-flex-container {
-    display: flex; 
-    gap: 40px;
-    margin-top: 20px;
+.hero-lab-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    max-width: 1100px;
+    padding: 0 2rem;
+    animation: fadeInUp 1s ease-out;
 }
 
-.analysis-flex-container > div {
-    flex: 1;
-    background: #f7f7f7;
-    padding: 30px;
-    border-radius: 8px;
-    border-left: 4px solid #4F9BCC;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* ======================================================= */
-/* LIEN DE RETOUR AUX SERVICES */
-/* ======================================================= */
-.return-home {
+.hero-icon {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.hero-lab h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.hero-lab p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    opacity: 0.95;
+    margin-bottom: 3rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1.1rem 2.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: var(--transition);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 50px;
-    padding: 12px 25px;
-    background-color: #0378A6;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+    gap: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: white;
+    color: var(--lab-blue);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================ */
+/* MISSION SECTION */
+/* ============================================ */
+.mission-section {
+    padding: 8rem 2rem;
+    background: white;
+    position: relative;
+    margin-top: -100px;
+    z-index: 20;
+}
+
+.mission-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 30px;
+    padding: 4rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(99,102,241,0.1);
+}
+
+.mission-card h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--dark);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.mission-card p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: #64748B;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* ============================================ */
+/* ANALYSES SECTION */
+/* ============================================ */
+.analyses-section {
+    padding: 8rem 2rem;
+    background: var(--light);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 5rem;
+}
+
+.section-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #6366F1 0%, #0078D4 100%);
+    color: white;
+    padding: 0.6rem 1.8rem;
     border-radius: 50px;
-    transition: background-color 0.3s, transform 0.3s;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
 }
 
-.return-home:hover {
-    background-color: #4F9BCC;
-    transform: translateY(-2px);
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
 }
 
-/* ======================================================= */
-/* FOOTER */
-/* ======================================================= */
-footer {
-    background-color: #0378A6;
-    color: #fff;
-    padding: 30px 0;
+.analyses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+}
+
+.analysis-card {
+    background: white;
+    border-radius: 30px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+}
+
+.analysis-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--lab-purple) 0%, var(--lab-blue) 100%);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.analysis-card:hover::before {
+    transform: scaleX(1);
+}
+
+.analysis-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(99,102,241,0.2);
+}
+
+.analysis-icon {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(0,120,212,0.1) 100%);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--lab-purple);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.analysis-card:hover .analysis-icon {
+    background: linear-gradient(135deg, var(--lab-purple) 0%, var(--lab-blue) 100%);
+    color: white;
+    transform: rotate(5deg) scale(1.05);
+}
+
+.analysis-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.analysis-card p {
+    color: #64748B;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
     font-size: 1rem;
 }
 
-.footer-bottom {
-    padding: 15px 0;
+.analysis-list {
+    list-style: none;
+    padding: 0;
+}
+
+.analysis-list li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: #64748B;
+    border-bottom: 1px solid rgba(99,102,241,0.1);
+}
+
+.analysis-list li:last-child {
+    border-bottom: none;
+}
+
+.analysis-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+/* ============================================ */
+/* EQUIPEMENTS SECTION */
+/* ============================================ */
+.equipments-section {
+    padding: 8rem 2rem;
+    background: white;
+}
+
+.equipment-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-style: italic;
+    color: #64748B;
+    font-size: 1.2rem;
+}
+
+.equipments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.equipment-card {
+    background: var(--gradient-card);
+    border-radius: 30px;
+    padding: 3rem;
+    text-align: center;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.equipment-card:hover {
+    background: white;
+    box-shadow: var(--shadow-md);
+    border-color: rgba(99,102,241,0.2);
+    transform: translateY(-10px);
+}
+
+.equipment-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--lab-blue);
+    margin-bottom: 1.5rem;
+}
+
+.equipment-card p {
+    color: #64748B;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* ============================================ */
+/* FOOTER */
+/* ============================================ */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 3rem 2rem;
     text-align: center;
 }
 
-.footer-bottom p {
-    font-size: 0.9rem;
-    text-align: center;
-    color: #ccc;
-    margin: 5px 0;
+footer p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.5rem 0;
 }
 
-.developer-credit {
-    font-size: 0.8rem;
-    color: #aaa;
-}
-
-/* ======================================================= */
-/* BOUTON RETOUR EN HAUT */
-/* ======================================================= */
-#myBtn {
-    display: none; 
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
+/* ============================================ */
+/* SCROLL TO TOP */
+/* ============================================ */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--lab-purple) 0%, var(--lab-blue) 100%);
+    color: white;
     border: none;
-    outline: none;
-    background-color: #0378A6; 
-    color: white; 
-    cursor: pointer;
-    padding: 15px;
     border-radius: 50%;
-    font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 9998;
 }
 
-#myBtn:hover {
-    background-color: #4F9BCC;
-    transform: scale(1.1);
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
-/* ======================================================= */
-/* MEDIA QUERIES - RESPONSIVE */
-/* ======================================================= */
-@media (max-width: 992px) {
-    .container {
-        margin: 30px auto;
-    }
-    
-    section {
-        padding: 40px 30px;
-    }
-    
-    h2 {
-        font-size: 2.3rem;
-        margin-bottom: 35px;
-    }
-    
-    h3 {
-        font-size: 1.7rem;
-    }
-    
-    .hero-banner {
-        height: 250px;
-    }
-    
-    .banner-title {
-        font-size: 2.3rem;
+.scroll-top:hover {
+    transform: translateY(-8px);
+}
+
+/* ============================================ */
+/* SCROLL ANIMATIONS */
+/* ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
+@media (max-width: 1024px) {
+    .analyses-grid,
+    .equipments-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-        margin: 20px auto;
+    .back-to-services {
+        top: 20px;
+        left: 20px;
     }
     
-    section {
-        padding: 30px 20px;
+    .btn-back {
+        padding: 0.8rem 1.4rem;
+        font-size: 0.85rem;
     }
     
-    .analysis-flex-container {
+    .hero-lab h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-lab p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
         flex-direction: column;
-        gap: 20px;
     }
     
-    .hero-banner {
-        height: 200px;
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
     
-    .banner-title {
-        font-size: 1.8rem;
+    .mission-card {
+        padding: 2rem;
     }
     
-    h2 {
+    .mission-card h2 {
         font-size: 2rem;
-        margin-bottom: 30px;
     }
     
-    h3 {
-        font-size: 1.5rem;
-        margin-top: 30px;
+    .section-title {
+        font-size: 2.2rem;
     }
     
-    h4 {
-        font-size: 1.3rem;
-    }
-    
-    p {
-        font-size: 1rem;
-        text-align: left;
-    }
-    
-    ul li {
-        font-size: 1rem;
-    }
-    
-    .return-home {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-    }
-    
-    #myBtn {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px;
-        font-size: 16px;
+    .analysis-card,
+    .equipment-card {
+        padding: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-banner {
-        height: 150px;
+    .btn-back {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+        gap: 0.5rem;
     }
     
-    .banner-title {
-        font-size: 1.4rem;
+    .hero-lab h1 {
+        font-size: 2rem;
     }
     
-    h2 {
+    .hero-icon {
+        font-size: 3.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .mission-card h2 {
         font-size: 1.7rem;
-    }
-    
-    h3 {
-        font-size: 1.3rem;
-    }
-    
-    section {
-        padding: 20px 15px;
-    }
-    
-    .analysis-flex-container > div {
-        padding: 20px;
     }
 }
     </style>
 </head>
 <body>
-
-    <div class="hero-banner"> 
-        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200" alt="Laboratoire d'analyse moderne et équipements de pointe">
-        <h1 class="banner-title">L'Excellence Scientifique : Notre Laboratoire au Service de Votre Qualité</h1>
+    <!-- BOUTON RETOUR SERVICES -->
+    <div class="back-to-services">
+        <a href="services.html" class="btn-back">
+            <i class="fas fa-arrow-left"></i>
+            <span>Retour Services</span>
+        </a>
     </div>
 
-    <main>
+    <!-- HERO SECTION -->
+    <section class="hero-lab">
+        <div class="particles" id="particles"></div>
+        
+        <div class="hero-lab-content">
+            <div class="hero-icon">🥼</div>
+            <h1>L'Excellence Scientifique<br>Notre Laboratoire à Votre Service</h1>
+            <p>
+                Équipements de pointe, expertise certifiée et engagement total 
+                pour la précision et la fiabilité de toutes nos analyses.
+            </p>
+            <div class="hero-buttons">
+                <a href="#analyses" class="btn btn-primary">
+                    <i class="fas fa-flask"></i> Découvrir nos Analyses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION SECTION -->
+    <section class="mission-section reveal">
+        <div class="mission-card">
+            <h2>Notre Mission : Votre Conformité Totale</h2>
+            <p>
+                Chez LPA, notre laboratoire est le pilier de notre engagement envers la qualité. 
+                Nous sommes spécialisés dans le contrôle de la qualité et de la conformité 
+                des produits, des denrées alimentaires et des échantillons environnementaux.
+            </p>
+            <p>
+                Notre mission est d'accompagner nos clients vers la conformité totale en fournissant 
+                des services d'analyse certifiés, conformes aux normes et standards internationaux 
+                et nationaux, tout en maintenant une totale transparence et intégrité.
+            </p>
+        </div>
+    </section>
+
+    <!-- ANALYSES SECTION -->
+    <section class="analyses-section" id="analyses">
         <div class="container">
-            <a href="services.html" class="return-home">
-                <i class="fas fa-arrow-left"></i> Retour à Nos Services
-            </a>
-
-            <section id="laboratoire">
-                <h2>L'Excellence au Cœur de Notre Laboratoire</h2>
-                <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 40px;">
-                    Chez LPA, notre laboratoire est le pilier de notre engagement envers la qualité. Il est équipé d'instruments à la pointe de la technologie pour garantir la précision et la fiabilité de toutes nos analyses. Nous sommes spécialisés dans le contrôle de la qualité et de la conformité des produits, des denrées alimentaires et des échantillons environnementaux.
-                </p>
-                <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333;">
-                    Notre mission est d'accompagner nos clients vers la conformité totale en fournissant des services d'analyse certifiés, conformes aux normes et standards internationaux et nationaux, tout en maintenant une totale transparence et intégrité.
-                </p>
-    
-                <hr>
-    
-                <h3>Nos Domaines d'Analyse Détaillés</h3>
-                
-                <div class="analysis-flex-container">
-                    <div>
-                        <h4>Analyses Physico-chimiques</h4>
-                        <p style="text-align: left; font-size: 1rem; color: #777;">Mesure des caractéristiques fondamentales des échantillons (eaux, produits, matières premières) :</p>
-                        <ul>
-                            <li>Température, pH (potentiel hydrogène)</li>
-                            <li>Turbidité (clarté), Conductivité (pureté)</li>
-                            <li>Dureté totale (teneur en calcium et magnésium)</li>
-                            <li>Métaux lourds (Plomb, Cadmium, Arsenic, etc.)</li>
-                            <li>Teneur en chlore libre et total, Fluorures</li>
-                            <li>Ammonium, Nitrites et Nitrates</li>
-                            <li>Taux d'humidité, matières grasses, protéines, cendres</li>
-                        </ul>
+            <div class="section-header">
+                <span class="section-tag">Expertise Scientifique</span>
+                <h2 class="section-title">Nos Domaines d'Analyse Détaillés</h2>
+            </div>
+            
+            <div class="analyses-grid">
+                <div class="analysis-card reveal">
+                    <div class="analysis-icon">
+                        <i class="fas fa-flask"></i>
                     </div>
-                    <div>
-                        <h4>Analyses Microbiologiques</h4>
-                        <p style="text-align: left; font-size: 1rem; color: #777;">Identification et quantification des micro-organismes potentiellement dangereux ou indicateurs de contamination :</p>
-                        <ul>
-                            <li>Coliformes totaux et Fécaux</li>
-                            <li>Escherichia coli (E. coli)</li>
-                            <li>Entérocoques intestinaux</li>
-                            <li>Clostridium perfringens et Bacillus Cereus</li>
-                            <li>Germes aérobies à 22 °C et 36 °C (Flore Totale)</li>
-                            <li>Recherche de Salmonella et Listeria</li>
-                            <li>Staphylocoques pathogènes, Levures et Moisissures</li>
-                        </ul>
-                    </div>
+                    <h3>Analyses Physico-chimiques</h3>
+                    <p>
+                        Mesure des caractéristiques fondamentales des échantillons 
+                        (eaux, produits, matières premières) :
+                    </p>
+                    <ul class="analysis-list">
+                        <li>Température, pH (potentiel hydrogène)</li>
+                        <li>Turbidité (clarté), Conductivité (pureté)</li>
+                        <li>Dureté totale (calcium et magnésium)</li>
+                        <li>Métaux lourds (Plomb, Cadmium, Arsenic)</li>
+                        <li>Teneur en chlore libre et total, Fluorures</li>
+                        <li>Ammonium, Nitrites et Nitrates</li>
+                        <li>Humidité, matières grasses, protéines, cendres</li>
+                    </ul>
                 </div>
 
-                <hr>
-                
-                <h3>Nos Équipements Clés</h3>
-                <p style="text-align: center; font-style: italic; color: #555;">La fiabilité de nos résultats repose sur l'utilisation d'équipements étalonnés de marques reconnues internationalement.</p>
-                
-                <div class="analysis-flex-container">
-                    <div style="text-align: center;">
-                        <h4 style="color: #4F9BCC;">Équipements Chimiques</h4>
-                        <p style="text-align: center;">Spectrophotomètre d'absorption atomique (pour métaux lourds), Spectromètre UV-Visible, Chromatographes Liquide et Gazeux (HPLC/GC) pour les contaminants organiques, pH-mètres de haute précision.</p>
+                <div class="analysis-card reveal">
+                    <div class="analysis-icon">
+                        <i class="fas fa-bacteria"></i>
                     </div>
-                    <div style="text-align: center;">
-                        <h4 style="color: #4F9BCC;">Équipements Microbiologiques</h4>
-                        <p style="text-align: center;">Autoclaves et Étuvées de culture, Hottes à Flux Laminaire (sécurité et stérilité), Compteur de colonies automatique, Systèmes de filtration sous vide pour les analyses d'eau.</p>
-                    </div>
+                    <h3>Analyses Microbiologiques</h3>
+                    <p>
+                        Identification et quantification des micro-organismes 
+                        potentiellement dangereux ou indicateurs de contamination :
+                    </p>
+                    <ul class="analysis-list">
+                        <li>Coliformes totaux et Fécaux</li>
+                        <li>Escherichia coli (E. coli)</li>
+                        <li>Entérocoques intestinaux</li>
+                        <li>Clostridium perfringens et Bacillus Cereus</li>
+                        <li>Germes aérobies à 22 °C et 36 °C (Flore Totale)</li>
+                        <li>Recherche de Salmonella et Listeria</li>
+                        <li>Staphylocoques pathogènes, Levures et Moisissures</li>
+                    </ul>
                 </div>
-
-            </section>
+            </div>
         </div>
-    </main>
+    </section>
 
+    <!-- EQUIPEMENTS SECTION -->
+    <section class="equipments-section reveal">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Technologies de Pointe</span>
+                <h2 class="section-title">Nos Équipements Clés</h2>
+            </div>
+            
+            <p class="equipment-intro">
+                La fiabilité de nos résultats repose sur l'utilisation d'équipements 
+                étalonnés de marques reconnues internationalement.
+            </p>
+            
+            <div class="equipments-grid">
+                <div class="equipment-card reveal">
+                    <h3>⚗️ Équipements Chimiques</h3>
+                    <p>
+                        Spectrophotomètre d'absorption atomique (pour métaux lourds), 
+                        Spectromètre UV-Visible, Chromatographes Liquide et Gazeux (HPLC/GC) 
+                        pour les contaminants organiques, pH-mètres de haute précision.
+                    </p>
+                </div>
+
+                <div class="equipment-card reveal">
+                    <h3>🦠 Équipements Microbiologiques</h3>
+                    <p>
+                        Autoclaves et Étuves de culture, Hottes à Flux Laminaire 
+                        (sécurité et stérilité), Compteur de colonies automatique, 
+                        Systèmes de filtration sous vide pour les analyses d'eau.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-bottom">
-            <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
-            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
-        </div>
+        <p>&copy; 2025 LPA - Laboratoire de Contrôle Qualité. Tous droits réservés.</p>
+        <p>Site développé par <strong>Jonathan N'GUETTIA</strong></p>
     </footer>
 
-    <button onclick="topFunction()" id="myBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
-        // Bouton retour en haut
-        let mybutton = document.getElementById("myBtn");
+// ============================================
+// CRÉATION DES PARTICULES
+// ============================================
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 30;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const left = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 10 + 10;
+        
+        particle.style.left = `${left}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
 
-        window.onscroll = function() {
-            scrollFunction()
-        };
+createParticles();
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
+// ============================================
+// SCROLL TO TOP
+// ============================================
+const scrollTop = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollTop.classList.add('visible');
+    } else {
+        scrollTop.classList.remove('visible');
+    }
+});
+
+scrollTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ============================================
+// SCROLL REVEAL ANIMATIONS
+// ============================================
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+            element.classList.add('active');
         }
+    });
+}
 
-        function topFunction() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// ============================================
+// SMOOTH SCROLL
+// ============================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        
+        if (target) {
+            const offsetTop = target.offsetTop - 80;
+            
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
         }
+    });
+});
     </script>
 </body>
 </html>

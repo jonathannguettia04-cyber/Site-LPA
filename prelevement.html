@@ -3,162 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prélèvement | LPA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Prélèvement | LPA - Expertise en Contrôle Qualité</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    
     <style>
-/* ======================================================= */
-/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE */
-/* ======================================================= */
+/* ============================================ */
+/* VARIABLES & RESET */
+/* ============================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #0047AB;
+    --secondary: #FF6B35;
+    --accent: #00D9FF;
+    --success: #10B981;
+    --dark: #0F172A;
+    --light: #F8FAFC;
+    --water-blue: #00A8E8;
+    --water-light: #7FC8F8;
+    --gradient-hero: linear-gradient(135deg, #00A8E8 0%, #0066CC 50%, #0047AB 100%);
+    --gradient-card: linear-gradient(135deg, rgba(0,168,232,0.05) 0%, rgba(0,217,255,0.05) 100%);
+    --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
+    --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
+    --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: #EBEBEB; 
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 50px auto; 
-    padding: 0 25px;
+/* ============================================ */
+/* BOUTON RETOUR SERVICES */
+/* ============================================ */
+.back-to-services {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 9999;
+    animation: fadeInLeft 0.8s ease-out;
 }
 
-section {
-    background-color: #fff;
-    padding: 60px 50px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.8rem; 
-    color: #0378A6;
-    text-align: center;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 20px;
-    margin-bottom: 50px;
-    line-height: 1.2;
+.btn-back {
+    background: white;
+    color: var(--water-blue);
+    padding: 1rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 2px solid transparent;
 }
 
-h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    color: #4F9BCC;
-    margin-top: 40px; 
-    margin-bottom: 25px; 
-    text-align: center;
+.btn-back:hover {
+    background: var(--water-blue);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--water-blue);
 }
 
-p {
+.btn-back i {
     font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    text-align: justify;
-    margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
 
-hr {
-    margin: 40px auto;
-    border: none;
-    border-top: 1px solid #eee;
+.btn-back:hover i {
+    transform: translateX(-3px);
 }
 
-/* ======================================================= */
-/* BLOCS DE POINTS CLÉS */
-/* ======================================================= */
-.key-points {
-    display: flex;
-    justify-content: space-around;
-    gap: 40px;
-    margin: 40px 0;
-    text-align: center;
-}
-
-.key-point {
-    flex: 1;
-    padding: 30px;
-    border: 1px solid #4F9BCC;
-    border-radius: 8px;
-    background-color: #e6f3f8;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.key-point:hover {
-    box-shadow: 0 8px 15px rgba(3, 120, 166, 0.2);
-    transform: translateY(-5px);
-}
-
-.key-point strong {
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
-    color: #0378A6;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #a8d7eb;
-    padding-bottom: 5px;
-}
-
-.key-point p {
-    font-size: 1rem;
-    text-align: center;
-    color: #777;
-}
-
-/* ======================================================= */
-/* BANNIÈRE HERO AVEC ANIMATION KEN BURNS */
-/* ======================================================= */
-.hero-banner {
+/* ============================================ */
+/* HERO SECTION AVEC PARALLAX */
+/* ============================================ */
+.hero-prelevement {
     position: relative;
-    height: 300px; 
-    overflow: hidden; 
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 50px;
+    background: var(--gradient-hero);
+    overflow: hidden;
 }
 
-.hero-banner img { 
+.hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    animation: kenBurns 20s ease-in-out infinite alternate; 
-}
-
-.hero-banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(3, 120, 166, 0.4);
-    z-index: 1; 
-}
-
-.banner-title {
-    position: relative;
-    z-index: 2; 
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 0 20px;
-    text-align: center;
-    line-height: 1.3;
+    background: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200') center/cover;
+    animation: kenBurns 20s ease-in-out infinite alternate;
 }
 
 @keyframes kenBurns {
@@ -166,326 +129,722 @@ hr {
         transform: scale(1) translate(0, 0);
     }
     100% {
-        transform: scale(1.2) translate(-5%, -5%);
+        transform: scale(1.15) translate(-3%, -3%);
     }
 }
 
-/* ======================================================= */
-/* LIENS DE RETOUR ET CTA */
-/* ======================================================= */
-.return-home {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 50px;
-    padding: 12px 25px;
-    background-color: #0378A6;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: background-color 0.3s, transform 0.3s;
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,168,232,0.85) 0%, rgba(0,71,171,0.9) 100%);
 }
 
-.return-home:hover {
-    background-color: #4F9BCC;
-    transform: translateY(-2px);
+/* Particules flottantes */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin: 50px auto 20px auto;
-    padding: 18px 40px;
-    background-color: #4F9BCC;
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float-particle 15s infinite ease-in-out;
+}
+
+@keyframes float-particle {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+    }
+}
+
+.hero-prelevement-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
     color: white;
-    text-decoration: none;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    padding: 0 2rem;
+    animation: fadeInUp 1s ease-out;
 }
 
-.cta-button:hover {
-    background-color: #0378A6;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-icon {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.hero-prelevement h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.hero-prelevement p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    opacity: 0.95;
+    margin-bottom: 3rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1.1rem 2.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: white;
+    color: var(--water-blue);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid white;
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
 }
 
-.cta-wrapper {
+/* ============================================ */
+/* SECTION INTRO */
+/* ============================================ */
+.intro-section {
+    padding: 8rem 2rem;
+    background: white;
+    position: relative;
+    margin-top: -100px;
+    z-index: 20;
+}
+
+.intro-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 30px;
+    padding: 4rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0,168,232,0.1);
+}
+
+.intro-card h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--dark);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.intro-card p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: #64748B;
     text-align: center;
 }
 
-/* ======================================================= */
-/* FOOTER */
-/* ======================================================= */
-footer {
-    background-color: #0378A6;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 30px;
+/* ============================================ */
+/* KEY POINTS GRID */
+/* ============================================ */
+.key-points-section {
+    padding: 8rem 2rem;
+    background: var(--light);
 }
 
-.footer-bottom {
-    padding: 15px 0;
-    text-align: center;
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.footer-bottom p {
-    font-size: 0.9rem;
+.section-header {
     text-align: center;
-    color: #ccc;
-    margin: 5px 0;
+    max-width: 800px;
+    margin: 0 auto 5rem;
 }
 
-.developer-credit {
+.section-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #00A8E8 0%, #0066CC 100%);
+    color: white;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
     font-size: 0.8rem;
-    color: #aaa;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
 }
 
-/* ======================================================= */
-/* BOUTON RETOUR EN HAUT */
-/* ======================================================= */
-#myBtn {
-    display: none; 
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99; 
-    border: none;
-    outline: none;
-    background-color: #0378A6; 
-    color: white; 
-    cursor: pointer;
-    padding: 15px;
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #64748B;
+    font-style: italic;
+}
+
+.key-points-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.key-point-card {
+    background: white;
+    border-radius: 30px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-sm);
+}
+
+.key-point-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--water-blue) 0%, var(--accent) 100%);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.key-point-card:hover::before {
+    transform: scaleX(1);
+}
+
+.key-point-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0,168,232,0.2);
+}
+
+.key-point-icon {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, rgba(0,168,232,0.1) 0%, rgba(0,217,255,0.1) 100%);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--water-blue);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.key-point-card:hover .key-point-icon {
+    background: linear-gradient(135deg, var(--water-blue) 0%, var(--accent) 100%);
+    color: white;
+    transform: rotate(5deg) scale(1.05);
+}
+
+.key-point-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.key-point-card p {
+    color: #64748B;
+    line-height: 1.8;
+}
+
+/* ============================================ */
+/* ENGAGEMENT SECTION */
+/* ============================================ */
+.engagement-section {
+    padding: 6rem 2rem;
+    background: white;
+}
+
+.engagement-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.engagement-content p {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: #64748B;
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+
+/* ============================================ */
+/* CTA SECTION */
+/* ============================================ */
+.cta-section {
+    padding: 8rem 2rem;
+    background: var(--gradient-hero);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
     border-radius: 50%;
-    font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s, transform 0.3s;
 }
 
-#myBtn:hover {
-    background-color: #4F9BCC;
-    transform: scale(1.1);
+.cta-content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    color: white;
 }
 
-/* ======================================================= */
-/* MEDIA QUERIES - RESPONSIVE */
-/* ======================================================= */
-@media (max-width: 992px) {
-    .container {
-        margin: 30px auto;
-    }
-    
-    section {
-        padding: 40px 30px;
-    }
-    
-    h2 {
-        font-size: 2.3rem;
-        margin-bottom: 35px;
-    }
-    
-    h3 {
-        font-size: 1.7rem;
-    }
-    
-    .hero-banner {
-        height: 250px;
-    }
-    
-    .banner-title {
-        font-size: 2.3rem;
-    }
-    
-    .key-points {
-        gap: 25px;
+.cta-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    margin-bottom: 3rem;
+}
+
+/* ============================================ */
+/* FOOTER */
+/* ============================================ */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.5rem 0;
+}
+
+/* ============================================ */
+/* SCROLL TO TOP */
+/* ============================================ */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--water-blue) 0%, var(--accent) 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 9998;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    transform: translateY(-8px);
+}
+
+/* ============================================ */
+/* SCROLL ANIMATIONS */
+/* ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
+@media (max-width: 1024px) {
+    .key-points-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-        margin: 20px auto;
+    .back-to-services {
+        top: 20px;
+        left: 20px;
     }
     
-    section {
-        padding: 30px 20px;
+    .btn-back {
+        padding: 0.8rem 1.4rem;
+        font-size: 0.85rem;
     }
     
-    .key-points {
-        flex-direction: column;
-        gap: 20px;
+    .hero-prelevement h1 {
+        font-size: 2.5rem;
     }
     
-    .key-point {
-        padding: 25px;
-    }
-    
-    .key-point strong {
-        font-size: 1.2rem;
-    }
-    
-    .hero-banner {
-        height: 200px;
-    }
-    
-    .banner-title {
-        font-size: 1.8rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-    
-    h3 {
-        font-size: 1.5rem;
-    }
-    
-    p {
-        font-size: 1rem;
-        text-align: left;
-    }
-    
-    .cta-button {
-        padding: 15px 30px;
+    .hero-prelevement p {
         font-size: 1.1rem;
     }
     
-    .return-home {
-        padding: 10px 20px;
-        font-size: 0.95rem;
+    .hero-buttons {
+        flex-direction: column;
     }
     
-    #myBtn {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px;
-        font-size: 16px;
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .intro-card {
+        padding: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .key-points-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-content h2 {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-banner {
-        height: 150px;
+    .btn-back {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+        gap: 0.5rem;
     }
     
-    .banner-title {
-        font-size: 1.4rem;
+    .hero-prelevement h1 {
+        font-size: 2rem;
     }
     
-    h2 {
-        font-size: 1.7rem;
+    .hero-icon {
+        font-size: 3.5rem;
     }
     
-    h3 {
-        font-size: 1.3rem;
+    .section-title {
+        font-size: 1.8rem;
     }
     
-    section {
-        padding: 20px 15px;
-    }
-    
-    .key-point {
-        padding: 20px;
-    }
-    
-    .key-point strong {
-        font-size: 1.1rem;
-    }
-    
-    .cta-button {
-        padding: 12px 25px;
-        font-size: 1rem;
+    .key-point-card {
+        padding: 2rem;
     }
 }
     </style>
 </head>
 <body>
-
-    <div class="hero-banner"> 
-        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200" alt="Technicien effectuant un prélèvement sur site">
-        <h1 class="banner-title">Maîtriser le Prélèvement : La Première Étape de la Fiabilité</h1>
+    <!-- BOUTON RETOUR SERVICES -->
+    <div class="back-to-services">
+        <a href="services.html" class="btn-back">
+            <i class="fas fa-arrow-left"></i>
+            <span>Retour Services</span>
+        </a>
     </div>
 
-    <main>
+    <!-- HERO SECTION -->
+    <section class="hero-prelevement">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- Particules -->
+        <div class="particles" id="particles"></div>
+        
+        <div class="hero-prelevement-content">
+            <div class="hero-icon">🧪</div>
+            <h1>Maîtriser le Prélèvement<br>La Première Étape de la Fiabilité</h1>
+            <p>
+                La qualité d'une analyse commence par la rigueur du prélèvement. 
+                Notre équipe dédiée se rend directement sur votre site avec expertise et professionnalisme.
+            </p>
+            <div class="hero-buttons">
+                <a href="#approach" class="btn btn-primary">
+                    <i class="fas fa-microscope"></i> Notre Approche
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fas fa-calendar-check"></i> Planifier un Prélèvement
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="intro-section reveal">
+        <div class="intro-card">
+            <h2>Un Prélèvement Méticuleux pour des Résultats Fiables</h2>
+            <p>
+                La qualité d'une analyse commence par la rigueur du prélèvement. Chez LPA, nous savons qu'un échantillonnage correct est indispensable pour obtenir des résultats fiables. C'est pourquoi une équipe dédiée se rend directement sur votre site pour garantir la validité de chaque étape du processus analytique.
+            </p>
+        </div>
+    </section>
+
+    <!-- KEY POINTS SECTION -->
+    <section class="key-points-section" id="approach">
         <div class="container">
-            <a href="services.html" class="return-home">
-                <i class="fas fa-arrow-left"></i> Retour à Nos Services
-            </a>
-
-            <section id="prelevement">
-                <h2>Un Prélèvement Méticuleux pour des Résultats Fiables</h2>
-                <p style="text-align: center; font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 40px;">
-                    La qualité d'une analyse commence par la rigueur du prélèvement. Chez LPA, nous savons qu'un échantillonnage correct est indispensable pour obtenir des résultats fiables. C'est pourquoi une équipe dédiée se rend directement sur votre site.
+            <div class="section-header">
+                <span class="section-tag">Expertise Terrain</span>
+                <h2 class="section-title">Notre Approche : Expertise, Équipement et Planification</h2>
+                <p class="section-subtitle">
+                    Notre équipe spécialisée procède aux échantillonnages selon un planning préalablement établi avec vous, assurant une intervention qui respecte vos contraintes opérationnelles.
                 </p>
-                
-                <hr>
-
-                <h3>Notre Approche : Expertise, Équipement et Planification</h3>
-                
-                <p style="text-align: center; font-style: italic; color: #555;">Notre équipe spécialisée procède aux échantillonnages selon un planning préalablement établi avec vous, assurant une intervention qui respecte vos contraintes opérationnelles. Chaque étape, de la collecte au transport, est régie par des protocoles stricts pour préserver l'intégrité de l'échantillon.</p>
-
-                <div class="key-points">
-                    <div class="key-point">
-                        <strong><i class="fas fa-map-marker-alt"></i> Échantillonnage Sur Site</strong>
-                        <p>Notre équipe se déplace directement dans vos locaux ou sur le terrain pour un prélèvement conforme aux normes.</p>
+            </div>
+            
+            <div class="key-points-grid">
+                <div class="key-point-card reveal">
+                    <div class="key-point-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <div class="key-point">
-                        <strong><i class="fas fa-microscope"></i> Appareils de Terrain Spécialisés</strong>
-                        <p>Nous utilisons des équipements de pointe comme le multiparamètre et le turbidimètre pour des mesures immédiates et précises.</p>
-                    </div>
-                    <div class="key-point">
-                        <strong><i class="fas fa-truck"></i> Transport et Traitement Optimal</strong>
-                        <p>Nos véhicules adaptés garantissent des conditions de transport optimales (chaîne du froid, sécurité) jusqu'à l'arrivée au laboratoire.</p>
-                    </div>
-                </div>
-                
-                <p style="margin-top: 50px; text-align: center; font-style: italic; color: #555;">
-                    Nous nous engageons à ce que chaque échantillon soit collecté, transporté et traité avec le plus grand soin pour garantir la validité de l'ensemble de l'analyse.
-                </p>
-
-                <div class="cta-wrapper">
-                    <a href="contact.html" class="cta-button">
-                        <i class="fas fa-calendar-check"></i> Planifier un Prélèvement sur Site
-                    </a>
+                    <h3>Échantillonnage Sur Site</h3>
+                    <p>
+                        Notre équipe se déplace directement dans vos locaux ou sur le terrain pour un prélèvement conforme aux normes. Chaque intervention est planifiée selon vos contraintes opérationnelles.
+                    </p>
                 </div>
 
-            </section>
+                <div class="key-point-card reveal">
+                    <div class="key-point-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Appareils de Terrain Spécialisés</h3>
+                    <p>
+                        Nous utilisons des équipements de pointe comme le multiparamètre et le turbidimètre pour des mesures immédiates et précises directement sur place.
+                    </p>
+                </div>
+
+                <div class="key-point-card reveal">
+                    <div class="key-point-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Transport et Traitement Optimal</h3>
+                    <p>
+                        Nos véhicules adaptés garantissent des conditions de transport optimales (chaîne du froid, sécurité) jusqu'à l'arrivée au laboratoire pour préserver l'intégrité des échantillons.
+                    </p>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
+    <!-- ENGAGEMENT SECTION -->
+    <section class="engagement-section reveal">
+        <div class="engagement-content">
+            <p>
+                Nous nous engageons à ce que chaque échantillon soit collecté, transporté et traité avec le plus grand soin pour garantir la validité de l'ensemble de l'analyse. Chaque étape, de la collecte au transport, est régie par des protocoles stricts.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section reveal">
+        <div class="cta-content">
+            <h2>Planifiez Votre Prélèvement Aujourd'hui</h2>
+            <p>
+                Faites confiance à notre expertise pour un échantillonnage rigoureux et conforme. 
+                Notre équipe est prête à intervenir sur votre site.
+            </p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-calendar-check"></i> Planifier un Prélèvement
+                </a>
+                <a href="tel:+2250707201696" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> 07 07 20 16 96
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-bottom">
-            <p class="developer-credit">Copyright &copy; 2025 LPA. Tous droits réservés.</p>
-            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
-        </div>
+        <p>&copy; 2025 LPA - Laboratoire de Contrôle Qualité. Tous droits réservés.</p>
+        <p>Site développé par <strong>Jonathan N'GUETTIA</strong></p>
     </footer>
 
-    <button onclick="topFunction()" id="myBtn" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
-        // Bouton retour en haut
-        let mybutton = document.getElementById("myBtn");
+// ============================================
+// CRÉATION DES PARTICULES DYNAMIQUES
+// ============================================
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 15;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 40 + 10;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 10 + 10;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${left}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
 
-        window.onscroll = function() {
-            scrollFunction()
-        };
+createParticles();
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
+// ============================================
+// SCROLL TO TOP
+// ============================================
+const scrollTop = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollTop.classList.add('visible');
+    } else {
+        scrollTop.classList.remove('visible');
+    }
+});
+
+scrollTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ============================================
+// SCROLL REVEAL ANIMATIONS
+// ============================================
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+            element.classList.add('active');
         }
+    });
+}
 
-        function topFunction() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// ============================================
+// SMOOTH SCROLL
+// ============================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        
+        if (target) {
+            const offsetTop = target.offsetTop - 80;
+            
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
         }
+    });
+});
     </script>
 </body>
 </html>
