@@ -262,7 +262,7 @@ header.scrolled {
 }
 
 .hero-image.active {
-    opacity: 0.25;
+    opacity: 0.35;
     transform: scale(1.1);
 }
 
@@ -273,9 +273,9 @@ header.scrolled {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(0,217,255,0.2) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255,107,53,0.2) 0%, transparent 50%),
-        linear-gradient(135deg, rgba(0,71,171,0.92) 0%, rgba(0,102,204,0.88) 100%);
+        radial-gradient(circle at 20% 50%, rgba(0,217,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,107,53,0.1) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(0,71,171,0.75) 0%, rgba(0,102,204,0.70) 100%);
     z-index: 1;
 }
 
@@ -458,16 +458,15 @@ header.scrolled {
 .hero-stat {
     text-align: center;
     padding: 1.8rem;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(15px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     transition: var(--transition-bounce);
 }
 
 .hero-stat:hover {
     transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -1241,7 +1240,7 @@ footer {
 
     <!-- HERO SECTION -->
     <section class="hero-section">
-        <!-- Carrousel d'images amélioré -->
+        <!-- Carrousel d'images -->
         <div class="hero-carousel" id="hero-carousel">
             <div class="hero-image active" style="background-image: url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=2000&q=90');"></div>
             <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=2000&q=90');"></div>
@@ -1435,7 +1434,8 @@ footer {
         <div class="partners-title">Ils nous font confiance</div>
         <div class="partners-slider">
             <div class="partners-track" id="partners-track">
-                    <img src="sodeci.jpeg" alt="SODECI" class="partner-logo">
+                <img src="agrifor.webp" alt="Agrifor" class="partner-logo">
+                <img src="sodeci.jpeg" alt="SODECI" class="partner-logo">
                 <img src="foraci.webp" alt="FORACI" class="partner-logo">
                 <img src="foraco.webp" alt="FORACO" class="partner-logo">
             </div>
