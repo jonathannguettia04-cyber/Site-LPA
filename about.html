@@ -1,835 +1,1015 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Meta tags de base -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos | LPA - Excellence en Contrôle Qualité</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ==================== SÉCURITÉ HTTP HEADERS ==================== -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- ==================== SEO ==================== -->
+    <title>À Propos de LPA | 15 Ans d'Excellence en Analyse Laboratoire - Côte d'Ivoire</title>
+    <meta name="description" content="Découvrez l'histoire de LPA, laboratoire d'analyse agréé depuis 2009. Notre mission, nos valeurs et notre équipe d'experts au service de la qualité en Côte d'Ivoire.">
+    <meta name="keywords" content="LPA histoire, laboratoire Abidjan équipe, mission LPA, valeurs laboratoire analyse, expertise contrôle qualité, agrément laboratoire CI">
+    <meta name="author" content="LPA - Laboratoire Privé d'Analyse">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.lpa-ci.com/about.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lpa-ci.com/about.html">
+    <meta property="og:title" content="À Propos de LPA | 15 Ans d'Excellence en Analyse">
+    <meta property="og:description" content="Découvrez l'histoire, la mission et l'équipe du laboratoire LPA, leader en contrôle qualité en Côte d'Ivoire depuis 2009.">
+    <meta property="og:image" content="https://www.lpa-ci.com/assets/images/about-og.jpg">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="À Propos de LPA | Excellence en Analyse Laboratoire">
+    <meta name="twitter:description" content="15 ans d'expertise en contrôle qualité et analyses certifiées en Côte d'Ivoire.">
+    <meta name="twitter:image" content="https://www.lpa-ci.com/assets/images/about-twitter.jpg">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0047AB">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "MedicalBusiness",
+        "@id": "https://www.lpa-ci.com/#organization",
+        "name": "LPA - Laboratoire Privé d'Analyse",
+        "foundingDate": "2009",
+        "description": "Laboratoire privé d'analyse agréé, spécialisé dans le contrôle qualité et la sécurité depuis 15 ans",
+        "url": "https://www.lpa-ci.com",
+        "logo": "https://www.lpa-ci.com/assets/images/logo.png",
+        "email": "laboratoire1lpa@gmail.com",
+        "telephone": "+225-07-07-20-16-96",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "21 BP 259",
+          "addressLocality": "Abidjan",
+          "postalCode": "21",
+          "addressCountry": "CI"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Konan Kouassi",
+          "jobTitle": "Fondateur et Directeur"
+        },
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "value": 15
+        },
+        "slogan": "Excellence, Rigueur, Confiance"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://www.lpa-ci.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "À Propos",
+            "item": "https://www.lpa-ci.com/about.html"
+          }
+        ]
+      }
+    }
+    </script>
     
     <style>
-/* ============================================ */
-/* VARIABLES & RESET */
-/* ============================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary: #0047AB;
-    --primary-dark: #003380;
-    --secondary: #FF6B35;
-    --accent: #00D9FF;
-    --success: #10B981;
-    --dark: #0F172A;
-    --light: #F8FAFC;
-    --white: #FFFFFF;
-    --gradient-hero: linear-gradient(135deg, #0047AB 0%, #0066CC 50%, #0088FF 100%);
-    --gradient-card: linear-gradient(135deg, rgba(0,71,171,0.05) 0%, rgba(0,217,255,0.05) 100%);
-    --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
-    --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
-    --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
-    --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
-    --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* ============================================ */
-/* HEADER (réutilisé de index.html) */
-/* ============================================ */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(30px) saturate(180%);
-    border-bottom: 1px solid rgba(0,71,171,0.1);
-    transition: var(--transition-base);
-    padding: 0;
-}
-
-header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: var(--shadow-md);
-}
-
-.header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-container { display: flex; align-items: center; gap: 1rem; }
-.logo-container img { height: 60px; cursor: pointer; }
-
-.nav-menu { display: flex; gap: 3rem; list-style: none; }
-
-.nav-menu a {
-    color: var(--dark); text-decoration: none; font-weight: 600;
-    font-size: 0.95rem; position: relative; transition: var(--transition-base);
-    padding: 0.5rem 0;
-
-}
-
-.nav-menu {
-    display: flex;
-    gap: 3rem;
-    list-style: none;
-}
-
-.nav-menu a {
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    position: relative;
-    transition: var(--transition-base);
-}
-
-.nav-menu a::before {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: var(--gradient-accent);
-    transition: width 0.3s ease;
-    border-radius: 2px;
-}
-
-.nav-menu a:hover::before,
-.nav-menu a.active::before {
-    width: 100%;
-}
-
-.header-cta {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.btn-header {
-    padding: 0.9rem 2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: var(--transition-base);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.95rem;
-}
-
-.btn-header-primary {
-    background: var(--gradient-accent);
-    color: white;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-}
-
-.btn-header-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-}
-
-.hamburger {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.6rem;
-    color: var(--primary);
-    cursor: pointer;
-}
-
-/* ============================================ */
-/* PAGE HERO */
-/* ============================================ */
-.page-hero {
-    position: relative;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-hero);
-    overflow: hidden;
-    padding-top: 100px;
-}
-
-.hero-pattern {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.1;
-    background-image: 
-        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
-}
-
-.hero-circles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.circle-1 {
-    width: 400px;
-    height: 400px;
-    top: -200px;
-    right: -100px;
-}
-
-.circle-2 {
-    width: 300px;
-    height: 300px;
-    bottom: -150px;
-    left: -50px;
-}
-
-.page-hero-content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    color: white;
-    max-width: 900px;
-    padding: 0 2rem;
-    animation: fadeInUp 1s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.page-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 0.7rem 1.5rem;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-}
-
-.page-hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 4rem;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    letter-spacing: -2px;
-}
-
-.page-hero p {
-    font-size: 1.4rem;
-    line-height: 1.8;
-    opacity: 0.95;
-    margin-bottom: 3rem;
-}
-
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.hero-stat {
-    text-align: center;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.hero-stat-number {
-    font-size: 2.5rem;
-    font-weight: 900;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.hero-stat-label {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-/* ============================================ */
-/* SECTIONS */
-/* ============================================ */
-.section {
-    padding: 8rem 2rem;
-    position: relative;
-}
-
-.section-white {
-    background: white;
-}
-
-.section-gray {
-    background: var(--light);
-}
-
-.section-dark {
-    background: var(--dark);
-    color: white;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 5rem;
-}
-
-.section-tag {
-    display: inline-block;
-    background: var(--gradient-accent);
-    color: white;
-    padding: 0.6rem 1.8rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 1.5rem;
-}
-
-.section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-    letter-spacing: -1px;
-}
-
-.section-dark .section-title {
-    color: white;
-}
-
-.section-description {
-    font-size: 1.2rem;
-    color: #64748B;
-    line-height: 1.8;
-}
-
-.section-dark .section-description {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* ============================================ */
-/* VISION & MISSION CARDS */
-/* ============================================ */
-.vision-mission-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-}
-
-.vm-card {
-    background: white;
-    border-radius: 30px;
-    padding: 3rem;
-    box-shadow: var(--shadow-md);
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition-base);
-}
-
-.vm-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: var(--gradient-hero);
-    transform: scaleX(0);
-    transition: transform 0.5s ease;
-}
-
-.vm-card:hover::before {
-    transform: scaleX(1);
-}
-
-.vm-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-}
-
-.vm-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--gradient-card);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
-.vm-card h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 1rem;
-}
-
-.vm-card p {
-    color: #64748B;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-.vm-list {
-    list-style: none;
-    padding: 0;
-}
-
-.vm-list li {
-    padding: 0.8rem 0;
-    padding-left: 2rem;
-    position: relative;
-    color: #64748B;
-}
-
-.vm-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--success);
-    font-weight: 900;
-    font-size: 1.2rem;
-}
-
-/* ============================================ */
-/* VALUES GRID */
-/* ============================================ */
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    margin-top: 4rem;
-}
-
-.value-card {
-    background: var(--gradient-card);
-    border-radius: 25px;
-    padding: 2.5rem;
-    text-align: center;
-    transition: var(--transition-base);
-    border: 2px solid transparent;
-}
-
-.value-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    background: white;
-    box-shadow: var(--shadow-lg);
-}
-
-.value-icon {
-    width: 70px;
-    height: 70px;
-    background: var(--gradient-hero);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 2rem;
-    margin: 0 auto 1.5rem;
-}
-
-.value-card h4 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 1rem;
-}
-
-.value-card p {
-    color: #64748B;
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-/* ============================================ */
-/* LEADERSHIP SECTION */
-/* ============================================ */
-.leader-card {
-    background: white;
-    border-radius: 30px;
-    padding: 4rem;
-    box-shadow: var(--shadow-lg);
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.leader-image {
-    position: relative;
-}
-
-.leader-image img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
-}
-
-.leader-badge {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gradient-accent);
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    box-shadow: var(--shadow-md);
-}
-
-.leader-content h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-}
-
-.leader-title {
-    color: var(--primary);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-}
-
-.leader-quote {
-    background: var(--gradient-card);
-    padding: 2rem;
-    border-radius: 15px;
-    border-left: 5px solid var(--primary);
-    font-style: italic;
-    color: #64748B;
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.leader-quote::before {
-    content: '"';
-    font-size: 4rem;
-    color: var(--primary);
-    opacity: 0.2;
-    position: absolute;
-    top: -10px;
-    left: 10px;
-}
-
-.leader-bio {
-    color: #64748B;
-    line-height: 1.8;
-}
-
-/* ============================================ */
-/* TIMELINE */
-/* ============================================ */
-.timeline {
-    position: relative;
-    max-width: 1000px;
-    margin: 4rem auto 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--gradient-hero);
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
-}
-
-.timeline-item:nth-child(odd) {
-    flex-direction: row;
-}
-
-.timeline-item:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.timeline-content {
-    width: 45%;
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition-base);
-}
-
-.timeline-content:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
-}
-
-.timeline-dot {
-    width: 20px;
-    height: 20px;
-    background: var(--secondary);
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 4px solid white;
-    box-shadow: 0 0 0 4px var(--primary);
-}
-
-.timeline-year {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-}
-
-.timeline-text {
-    color: #64748B;
-    line-height: 1.7;
-}
-
-/* ============================================ */
-/* SCROLL ANIMATIONS */
-/* ============================================ */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ============================================ */
-/* FOOTER */
-/* ============================================ */
-footer {
-    background: var(--dark);
-    color: white;
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-content p {
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0.5rem 0;
-}
-
-/* ============================================ */
-/* SCROLL TO TOP */
-/* ============================================ */
-.scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 55px;
-    height: 55px;
-    background: var(--gradient-accent);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: var(--shadow-md);
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition-base);
-    z-index: 9998;
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top:hover {
-    transform: translateY(-8px);
-}
-
-/* ============================================ */
-/* RESPONSIVE */
-/* ============================================ */
-@media (max-width: 1024px) {
-    .vision-mission-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .leader-card {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-    
-    .leader-image {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        top: 85px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 85px);
-        background: white;
-        flex-direction: column;
-        padding: 3rem 2rem;
-        gap: 0;
-        box-shadow: var(--shadow-lg);
-        transition: left 0.4s ease;
-    }
-    
-    .nav-menu.open {
-        left: 0;
-    }
-    
-    .nav-menu li {
-        padding: 1.5rem 0;
-        border-bottom: 1px solid rgba(0,71,171,0.1);
-    }
-    
-    .header-cta {
-        display: none;
-    }
-    
-    .hamburger {
-        display: block;
-    }
-    
-    .page-hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .page-hero p {
-        font-size: 1.1rem;
-    }
-    
-    .hero-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .section-title {
-        font-size: 2.2rem;
-    }
-    
-    .values-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .timeline::before {
-        left: 20px;
-    }
-    
-    .timeline-item {
-        flex-direction: row !important;
-    }
-    
-    .timeline-content {
-        width: calc(100% - 60px);
-        margin-left: 60px;
-    }
-    
-    .timeline-dot {
-        left: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-hero h1 {
-        font-size: 2rem;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .leader-card {
-        padding: 2rem;
-    }
-}
+        /* ==================== VARIABLES CSS ==================== */
+        :root {
+            --primary: #0047AB;
+            --primary-dark: #003380;
+            --primary-light: #0066CC;
+            --secondary: #FF6B35;
+            --accent: #00D9FF;
+            --success: #10B981;
+            --dark: #0F172A;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-300: #d1d5db;
+            --gray-100: #f3f4f6;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            
+            /* Gradients */
+            --gradient-hero: linear-gradient(135deg, #0047AB 0%, #0066CC 50%, #0088FF 100%);
+            --gradient-card: linear-gradient(135deg, rgba(0,71,171,0.05) 0%, rgba(0,217,255,0.05) 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
+            --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
+            --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* Transitions */
+            --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s ease;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-full: 9999px;
+        }
+        
+        /* ==================== RESET & BASE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* ==================== TYPOGRAPHY ==================== */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+        
+        /* ==================== HEADER ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border-bottom: 1px solid rgba(0,71,171,0.1);
+            transition: var(--transition-base);
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-hero);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 900;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition-base);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+        
+        .nav-menu a:hover::before,
+        .nav-menu a.active::before {
+            width: 100%;
+        }
+        
+        .header-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn-header {
+            padding: 0.9rem 2rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+        }
+        
+        .btn-header-primary {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-header-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* ==================== PAGE HERO ==================== */
+        .page-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            overflow: hidden;
+            padding-top: 100px;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
+        }
+        
+        .hero-circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+        
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            left: -50px;
+            animation-delay: -5s;
+        }
+        
+        .page-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .page-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .page-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            color: var(--white);
+        }
+        
+        .page-hero p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* ==================== SECTIONS ==================== */
+        .section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .section-white {
+            background: var(--white);
+        }
+        
+        .section-light {
+            background: var(--light);
+        }
+        
+        .section-dark {
+            background: var(--dark);
+            color: var(--white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: linear-gradient(135deg, rgba(0, 71, 171, 0.1), rgba(0, 217, 255, 0.1));
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .section-dark .section-title {
+            color: var(--white);
+        }
+        
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+        
+        .section-dark .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* ==================== VISION/MISSION CARDS ==================== */
+        .vmv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .vmv-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vmv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-hero);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .vmv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .vmv-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .vmv-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-lg);
+            background: var(--gradient-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .vmv-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .vmv-card p {
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+        
+        /* ==================== STATS GRID ==================== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--gray-600);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* ==================== TEAM SECTION ==================== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-image {
+            width: 100%;
+            height: 300px;
+            background: var(--gradient-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--primary);
+        }
+        
+        .team-content {
+            padding: 2rem;
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .team-bio {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+        
+        /* ==================== TIMELINE ==================== */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient-hero);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: calc(50% + 2rem);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: calc(50% + 2rem);
+        }
+        
+        .timeline-year {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-text {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+        
+        .timeline-text strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px rgba(0, 71, 171, 0.2);
+            z-index: 10;
+        }
+        
+        /* ==================== VALUES LIST ==================== */
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+        
+        .value-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .value-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .value-content p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-content p {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-content strong {
+            color: var(--white);
+        }
+        
+        /* ==================== SCROLL TO TOP ==================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-hero);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-base);
+            z-index: 999;
+        }
+        
+        .scroll-top.visible {
+            display: flex;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(20px, -20px);
+            }
+            50% {
+                transform: translate(-20px, 20px);
+            }
+            75% {
+                transform: translate(20px, 20px);
+            }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+            }
+            
+            .timeline-item .timeline-content {
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-dot {
+                left: 30px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--white);
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition-base);
+                pointer-events: none;
+                gap: 1rem;
+            }
+            
+            .nav-menu.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            
+            .page-hero {
+                min-height: 60vh;
+                padding-top: 80px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .vmv-grid,
+            .stats-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .timeline-item .timeline-content {
+                margin-left: 40px !important;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-dot {
+                left: 20px !important;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* ==================== ACCESSIBILITY ==================== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        /* ==================== PRINT ==================== */
+        @media print {
+            header,
+            .scroll-top,
+            .hamburger {
+                display: none !important;
+            }
+            
+            body {
+                color: #000;
+                background: #fff;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
-        <header id="header">
+    <!-- ==================== HEADER ==================== -->
+    <header id="header">
         <div class="header-container">
-            <div class="logo-container">
-                <img src="LOGO LPA.jpg" alt="Logo LPA">
-            </div>
-            <nav>
+            <a href="index.html" class="logo-container" aria-label="LPA - Retour à l'accueil">
+                <div class="logo-icon" aria-hidden="true">LPA</div>
+                <span class="logo-text">LPA Laboratoire</span>
+            </a>
+            
+            <nav role="navigation" aria-label="Navigation principale">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="about.html" class="active">À Propos</a></li>
@@ -840,183 +1020,187 @@ footer {
             
             <div class="header-cta">
                 <a href="contact.html" class="btn-header btn-header-primary">
-                    Devis Gratuit
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Contactez-nous
                 </a>
+                <button class="hamburger" id="hamburger" aria-label="Menu de navigation" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
             </div>
-            
-            <button class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </header>
 
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-        <div class="hero-pattern"></div>
-        <div class="hero-circles">
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero" role="banner">
+        <div class="hero-pattern" aria-hidden="true"></div>
+        <div class="hero-circles" aria-hidden="true">
             <div class="circle circle-1"></div>
             <div class="circle circle-2"></div>
         </div>
         
         <div class="page-hero-content">
             <div class="page-hero-badge">
-                <i class="fas fa-award"></i>
-                <span>Agrément N° 012-MCI/CAB du 27-01-2021</span>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <span>15 Ans d'Excellence</span>
             </div>
-            
-            <h1>L'Excellence et la Rigueur<br>au Service de la Qualité</h1>
-            
+            <h1>Notre Histoire, Votre Garantie</h1>
             <p>
-                Analyses fiables, Traitements garantis. Votre partenaire qualité agréé depuis 2009.
+                Depuis 2009, LPA incarne l'excellence en matière d'analyses et de contrôle qualité. 
+                Découvrez notre parcours, nos valeurs et l'équipe qui fait notre force.
             </p>
-            
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="hero-stat-number">ISO 17025</span>
-                    <span class="hero-stat-label">En cours</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">100%</span>
-                    <span class="hero-stat-label">Conformité</span>
-                </div>
-                <div class="hero-stat">
-                    <span class="hero-stat-number">15+</span>
-                    <span class="hero-stat-label">Années d'expertise</span>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- VISION & MISSION -->
-    <section class="section section-white reveal">
+    <!-- ==================== VISION MISSION VALUES ==================== -->
+    <section class="section section-light">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Notre ADN</span>
-                <h2 class="section-title">Vision & Mission</h2>
+                <span class="section-tag">Nos Fondements</span>
+                <h2 class="section-title">Vision, Mission & Valeurs</h2>
                 <p class="section-description">
-                    Construire l'excellence africaine en contrôle qualité et traitement d'eau
+                    Ce qui nous guide chaque jour dans notre quête d'excellence
                 </p>
             </div>
             
-            <div class="vision-mission-grid">
-                <div class="vm-card reveal">
-                    <div class="vm-icon">🎯</div>
+            <div class="vmv-grid">
+                <article class="vmv-card reveal">
+                    <div class="vmv-icon" aria-hidden="true">🎯</div>
                     <h3>Notre Vision</h3>
                     <p>
-                        Faire de nos clients les <strong>leaders incontestés</strong> de leurs domaines. 
-                        Nous ne visons pas seulement l'analyse, mais le <strong>partenariat stratégique</strong> 
-                        pour une amélioration continue de la qualité.
+                        Devenir le laboratoire de référence en Afrique de l'Ouest, reconnu pour son excellence 
+                        technique, sa fiabilité et son engagement envers la santé publique et la protection de 
+                        l'environnement.
                     </p>
-                    <p>
-                        Notre ambition : devenir la <strong>référence ouest-africaine</strong> en matière de 
-                        sécurité sanitaire et environnementale.
-                    </p>
-                </div>
-
-                <div class="vm-card reveal">
-                    <div class="vm-icon">🚀</div>
+                </article>
+                
+                <article class="vmv-card reveal">
+                    <div class="vmv-icon" aria-hidden="true">🚀</div>
                     <h3>Notre Mission</h3>
                     <p>
-                        Proposer des solutions et services d'<strong>excellence conformes</strong> à vos attentes, 
-                        à des <strong>prix imbattables</strong>. Nous délivrons des résultats précis et rapides, 
-                        essentiels pour la conformité réglementaire.
+                        Garantir la sécurité sanitaire et environnementale par des analyses de pointe, tout en 
+                        accompagnant nos clients dans leur démarche qualité avec expertise, réactivité et 
+                        transparence.
                     </p>
-                    <ul class="vm-list">
-                        <li>Agrément Officiel N° 012-MCI/CAB</li>
-                        <li>Démarche ISO/CEI 17025:2017</li>
-                        <li>Équipements de pointe</li>
-                        <li>Expertise reconnue</li>
-                    </ul>
-                </div>
+                </article>
+                
+                <article class="vmv-card reveal">
+                    <div class="vmv-icon" aria-hidden="true">💎</div>
+                    <h3>Nos Valeurs</h3>
+                    <p>
+                        <strong>Excellence :</strong> Rigueur scientifique irréprochable<br>
+                        <strong>Intégrité :</strong> Résultats fiables et transparents<br>
+                        <strong>Innovation :</strong> Équipements et méthodes de pointe<br>
+                        <strong>Service :</strong> Accompagnement personnalisé
+                    </p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- VALUES -->
-    <section class="section section-gray reveal">
+    <!-- ==================== STATS ==================== -->
+    <section class="section section-white">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Nos Piliers</span>
-                <h2 class="section-title">Sécurité et Expertise</h2>
-            </div>
-            
-            <div class="values-grid">
-                <div class="value-card reveal">
-                    <div class="value-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h4>Contrôle Qualité</h4>
-                    <p>
-                        Analyses physico-chimiques, microbiologiques et environnementales selon 
-                        normes OMS 2017, AFNOR, ISO et CODINORM.
-                    </p>
-                </div>
-
-                <div class="value-card reveal">
-                    <div class="value-icon">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <h4>Traitement d'Eau</h4>
-                    <p>
-                        Solutions complètes de potabilisation, désinfection et traitement d'eaux usées 
-                        conçues sur mesure.
-                    </p>
-                </div>
-
-                <div class="value-card reveal">
-                    <div class="value-icon">
-                        <i class="fas fa-microscope"></i>
-                    </div>
-                    <h4>Technologie de Pointe</h4>
-                    <p>
-                        Laboratoire équipé d'instruments de dernière génération, notamment le 
-                        Spectrophotomètre DR 1900.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LEADERSHIP -->
-    <section class="section section-dark reveal">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Leadership</span>
-                <h2 class="section-title">Les Garants de la Qualité</h2>
+                <span class="section-tag">Nos Chiffres</span>
+                <h2 class="section-title">L'Excellence en Chiffres</h2>
                 <p class="section-description">
-                    Une équipe dirigeante expérimentée et passionnée
+                    Des résultats concrets qui témoignent de notre expertise
                 </p>
             </div>
             
-            <div class="leader-card reveal">
-                <div class="leader-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect fill='%230047AB' width='400' height='500'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' font-size='120' fill='white'%3EKK%3C/text%3E%3C/svg%3E" alt="M. KONAN KOUASSI">
-                    <div class="leader-badge">Fondateur & PDG</div>
+            <div class="stats-grid">
+                <div class="stat-card reveal" role="group" aria-label="Statistique">
+                    <div class="stat-number" aria-label="15 ans">15+</div>
+                    <div class="stat-label">Années d'Expérience</div>
                 </div>
                 
-                <div class="leader-content">
-                    <h3>M. KONAN KOUASSI</h3>
-                    <p class="leader-title">Chimiste & Visionnaire</p>
-                    
-                    <div class="leader-quote">
-                        La qualité n'est pas un acte, c'est une habitude. Cette conviction guide chaque membre 
-                        de notre équipe. Notre mission est de bâtir la confiance et d'assurer un environnement 
-                        et des aliments plus sûrs pour nos communautés.
-                    </div>
-                    
-                    <p class="leader-bio">
-                        M. Konan Kouassi est le visionnaire de LPA. Fort d'une expertise reconnue en chimie, 
-                        il a fondé LPA avec la conviction que l'excellence analytique est la clé du développement 
-                        durable. Il est soutenu par une équipe technique qui veille à l'application rigoureuse 
-                        des protocoles scientifiques sur le terrain, assurant une chaîne de valeur irréprochable.
-                    </p>
+                <div class="stat-card reveal" role="group" aria-label="Statistique">
+                    <div class="stat-number" aria-label="Plus de 10000">10K+</div>
+                    <div class="stat-label">Analyses Réalisées</div>
+                </div>
+                
+                <div class="stat-card reveal" role="group" aria-label="Statistique">
+                    <div class="stat-number" aria-label="Plus de 500">500+</div>
+                    <div class="stat-label">Clients Satisfaits</div>
+                </div>
+                
+                <div class="stat-card reveal" role="group" aria-label="Statistique">
+                    <div class="stat-number" aria-label="98 pourcent">98%</div>
+                    <div class="stat-label">Taux de Satisfaction</div>
+                </div>
+                
+                <div class="stat-card reveal" role="group" aria-label="Statistique">
+                    <div class="stat-number" aria-label="24 à 48 heures">24-48h</div>
+                    <div class="stat-label">Délai Moyen</div>
+                </div>
+                
+                <div class="stat-card reveal" role="group" aria-label="Statistique">
+                    <div class="stat-number" aria-label="100 pourcent">100%</div>
+                    <div class="stat-label">Conformité ISO</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TIMELINE (HISTOIRE) -->
-    <section class="section section-white reveal">
+    <!-- ==================== TEAM ==================== -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Notre Équipe</span>
+                <h2 class="section-title">Des Experts à Votre Service</h2>
+                <p class="section-description">
+                    Une équipe pluridisciplinaire de professionnels passionnés et qualifiés
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <article class="team-card reveal">
+                    <div class="team-image" aria-hidden="true">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">M. Konan Kouassi</h3>
+                        <p class="team-role">Fondateur & Directeur</p>
+                        <p class="team-bio">
+                            Visionnaire de LPA, expert en chimie avec plus de 20 ans d'expérience. 
+                            Il a fondé LPA avec la conviction que l'excellence analytique est la clé 
+                            du développement durable.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="team-card reveal">
+                    <div class="team-image" aria-hidden="true">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Équipe Technique</h3>
+                        <p class="team-role">Chimistes & Biologistes</p>
+                        <p class="team-bio">
+                            Une équipe de 10+ techniciens qualifiés qui veillent à l'application rigoureuse 
+                            des protocoles scientifiques, assurant une chaîne de valeur irréprochable.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="team-card reveal">
+                    <div class="team-image" aria-hidden="true">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Service Qualité</h3>
+                        <p class="team-role">Contrôle & Assurance</p>
+                        <p class="team-bio">
+                            Garants de nos standards élevés, notre équipe qualité assure la conformité 
+                            de tous nos processus aux normes internationales les plus strictes.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TIMELINE ==================== -->
+    <section class="section section-white">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Notre Parcours</span>
@@ -1027,65 +1211,70 @@ footer {
             </div>
             
             <div class="timeline">
-                <div class="timeline-item reveal">
+                <article class="timeline-item reveal">
                     <div class="timeline-content">
                         <div class="timeline-year">2009</div>
                         <p class="timeline-text">
-                            <strong>Création de LPA</strong><br>
-                            Lancement du laboratoire avec une vision claire : devenir la référence en contrôle qualité en Côte d'Ivoire.
+                            <strong>Création de LPA</strong>
+                            Lancement du laboratoire avec une vision claire : devenir la référence en 
+                            contrôle qualité en Côte d'Ivoire.
                         </p>
                     </div>
-                    <div class="timeline-dot"></div>
-                </div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                </article>
                 
-                <div class="timeline-item reveal">
+                <article class="timeline-item reveal">
                     <div class="timeline-content">
                         <div class="timeline-year">2015</div>
                         <p class="timeline-text">
-                            <strong>Extension des Services</strong><br>
-                            Ajout du traitement d'eau et acquisition d'équipements de pointe pour analyses avancées.
+                            <strong>Extension des Services</strong>
+                            Ajout du traitement d'eau et acquisition d'équipements de pointe pour 
+                            analyses avancées.
                         </p>
                     </div>
-                    <div class="timeline-dot"></div>
-                </div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                </article>
                 
-                <div class="timeline-item reveal">
+                <article class="timeline-item reveal">
                     <div class="timeline-content">
                         <div class="timeline-year">2021</div>
                         <p class="timeline-text">
-                            <strong>Agrément Officiel</strong><br>
-                            Obtention de l'agrément N° 012-MCI/CAB, reconnaissance de notre expertise par les autorités.
+                            <strong>Agrément Officiel</strong>
+                            Obtention de l'agrément N° 012-MCI/CAB, reconnaissance de notre expertise 
+                            par les autorités.
                         </p>
                     </div>
-                    <div class="timeline-dot"></div>
-                </div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                </article>
                 
-                <div class="timeline-item reveal">
+                <article class="timeline-item reveal">
                     <div class="timeline-content">
                         <div class="timeline-year">2024</div>
                         <p class="timeline-text">
-                            <strong>Démarche ISO 17025</strong><br>
-                            Engagement dans le processus d'accréditation internationale pour garantir les plus hauts standards.
+                            <strong>Démarche ISO 17025</strong>
+                            Engagement dans le processus d'accréditation internationale pour garantir 
+                            les plus hauts standards.
                         </p>
                     </div>
-                    <div class="timeline-dot"></div>
-                </div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                </article>
                 
-                <div class="timeline-item reveal">
+                <article class="timeline-item reveal">
                     <div class="timeline-content">
                         <div class="timeline-year">2025</div>
                         <p class="timeline-text">
-                            <strong>Leader Ouest-Africain</strong><br>
-                            Plus de 500 clients satisfaits et 10 000+ analyses réalisées. Cap sur l'expansion régionale.
+                            <strong>Leader Ouest-Africain</strong>
+                            Plus de 500 clients satisfaits et 10 000+ analyses réalisées. Cap sur 
+                            l'expansion régionale.
                         </p>
                     </div>
-                    <div class="timeline-dot"></div>
-                </div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- CTA SECTION -->
+    <!-- ==================== CTA SECTION ==================== -->
     <section class="section section-dark">
         <div class="container">
             <div class="section-header">
@@ -1097,173 +1286,162 @@ footer {
             
             <div style="text-align: center; margin-top: 3rem;">
                 <a href="contact.html" class="btn-header btn-header-primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;">
-                    <i class="fas fa-envelope"></i> Contactez-nous Maintenant
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Contactez-nous Maintenant
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ==================== FOOTER ==================== -->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 LPA - Laboratoire de Contrôle Qualité. Tous droits réservés.</p>
-            <p>Site développé par <strong>Jonathan N'GUETTIA</strong></p>
+            <p>&copy; 2025 LPA - Laboratoire Privé d'Analyse. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <!-- SCROLL TO TOP -->
-    <button class="scroll-top" id="scroll-top">
-        <i class="fas fa-arrow-up"></i>
+    <!-- ==================== SCROLL TO TOP ==================== -->
+    <button class="scroll-top" id="scroll-top" aria-label="Retour en haut de la page">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-// ============================================
-// HEADER SCROLL EFFECT
-// ============================================
-window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    const scrollTop = document.getElementById('scroll-top');
-    
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-        scrollTop.classList.add('visible');
-    } else {
-        header.classList.remove('scrolled');
-        scrollTop.classList.remove('visible');
-    }
-});
-
-// ============================================
-// HAMBURGER MENU
-// ============================================
-document.getElementById('hamburger').addEventListener('click', function() {
-    const navMenu = document.getElementById('nav-menu');
-    const icon = this.querySelector('i');
-    
-    navMenu.classList.toggle('open');
-    
-    if (navMenu.classList.contains('open')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
-
-// Fermer le menu au clic sur un lien
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        const navMenu = document.getElementById('nav-menu');
+        'use strict';
+        
+        // ==================== CONFIGURATION ====================
+        const CONFIG = {
+            scrollThreshold: 100,
+            debounceDelay: 250
+        };
+        
+        // ==================== UTILITAIRES ====================
+        const debounce = (func, delay) => {
+            let timeoutId;
+            return function (...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => func.apply(this, args), delay);
+            };
+        };
+        
+        // ==================== HEADER SCROLL EFFECT ====================
+        const header = document.getElementById('header');
+        const scrollTop = document.getElementById('scroll-top');
+        
+        window.addEventListener('scroll', debounce(() => {
+            if (window.scrollY > CONFIG.scrollThreshold) {
+                header.classList.add('scrolled');
+                scrollTop.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                scrollTop.classList.remove('visible');
+            }
+        }, CONFIG.debounceDelay));
+        
+        // ==================== HAMBURGER MENU ====================
         const hamburger = document.getElementById('hamburger');
-        const icon = hamburger.querySelector('i');
+        const navMenu = document.getElementById('nav-menu');
         
-        if (navMenu.classList.contains('open')) {
-            navMenu.classList.remove('open');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-});
-
-// ============================================
-// SCROLL TO TOP
-// ============================================
-document.getElementById('scroll-top').addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// ============================================
-// SCROLL REVEAL ANIMATIONS
-// ============================================
-function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-    
-    reveals.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (elementTop < windowHeight - 100) {
-            element.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// ============================================
-// SMOOTH SCROLL
-// ============================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
+        hamburger.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            const isOpen = navMenu.classList.contains('open');
             
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// ============================================
-// ACTIVE LINK ON SCROLL
-// ============================================
-function setActiveLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current) && current !== '') {
-            link.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', setActiveLink);
-
-// ============================================
-// LAZY LOAD ANIMATIONS (Performance)
-// ============================================
-if ('IntersectionObserver' in window) {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
+            navMenu.classList.toggle('open');
+            this.setAttribute('aria-expanded', !isOpen);
+            
+            if (navMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         });
-    }, observerOptions);
-    
-    document.querySelectorAll('.reveal').forEach(element => {
-        observer.observe(element);
-    });
-}
+        
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('open')) {
+                    navMenu.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // ==================== SCROLL TO TOP ====================
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // ==================== SCROLL REVEAL ANIMATIONS ====================
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', debounce(revealOnScroll, CONFIG.debounceDelay));
+        window.addEventListener('load', revealOnScroll);
+        
+        // ==================== SMOOTH SCROLL ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ==================== INTERSECTION OBSERVER (Performance) ====================
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.reveal').forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        // ==================== ERROR HANDLING ====================
+        window.addEventListener('error', (e) => {
+            console.error('Erreur JavaScript:', e.error);
+        });
+        
+        // ==================== LOG ====================
+        console.log('✅ Page À Propos LPA chargée avec succès');
+        console.log('🔒 Sécurité: Activée');
+        console.log('🎯 SEO: Optimisé');
     </script>
 </body>
 </html>

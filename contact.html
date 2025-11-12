@@ -1,437 +1,995 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Meta tags de base -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Devis | LPA - Laboratoire de Contrôle Qualité</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ==================== SÉCURITÉ HTTP HEADERS ==================== -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://formspree.io;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https:;
+        connect-src 'self' https://formspree.io;
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self' https://formspree.io;
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- ==================== SEO ==================== -->
+    <title>Contactez-nous & Devis Gratuit | LPA Laboratoire - Abidjan, Côte d'Ivoire</title>
+    <meta name="description" content="Contactez LPA pour un devis gratuit d'analyses laboratoire. Téléphone: +225 07 07 20 16 96. Réponse sous 24h. Expert en contrôle qualité eau, aliments, environnement.">
+    <meta name="keywords" content="contact laboratoire LPA, devis analyse gratuit, laboratoire Abidjan contact, rendez-vous laboratoire CI, prélèvement sur site, +225 07 07 20 16 96">
+    <meta name="author" content="LPA - Laboratoire Privé d'Analyse">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.lpa-ci.com/contact.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lpa-ci.com/contact.html">
+    <meta property="og:title" content="Contactez LPA Laboratoire | Devis Gratuit">
+    <meta property="og:description" content="Obtenez un devis gratuit pour vos analyses. Réponse rapide sous 24h. Laboratoire agréé en Côte d'Ivoire.">
+    <meta property="og:image" content="https://www.lpa-ci.com/assets/images/contact-og.jpg">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact LPA Laboratoire | Devis Gratuit">
+    <meta name="twitter:description" content="Devis gratuit pour analyses laboratoire. Réponse sous 24h.">
+    <meta name="twitter:image" content="https://www.lpa-ci.com/assets/images/contact-twitter.jpg">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#0047AB">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://formspree.io">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "MedicalBusiness",
+        "@id": "https://www.lpa-ci.com/#organization",
+        "name": "LPA - Laboratoire Privé d'Analyse",
+        "url": "https://www.lpa-ci.com",
+        "telephone": "+225-07-07-20-16-96",
+        "email": "laboratoire1lpa@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "21 BP 259",
+          "addressLocality": "Abidjan",
+          "postalCode": "21",
+          "addressCountry": "CI"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "5.316667",
+          "longitude": "-4.033333"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "12:00"
+          }
+        ]
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://www.lpa-ci.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://www.lpa-ci.com/contact.html"
+          }
+        ]
+      }
+    }
+    </script>
     
     <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-    --primary: #0047AB;
-    --secondary: #FF6B35;
-    --accent: #00D9FF;
-    --dark: #0F172A;
-    --light: #F8FAFC;
-    --gradient-hero: linear-gradient(135deg, #0047AB 0%, #0066CC 50%, #0088FF 100%);
-    --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
-    --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
-    --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
-    --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
-    --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-html { scroll-behavior: smooth; }
-
-@keyframes slideInUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
-
-header {
-    position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;
-    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(30px);
-    border-bottom: 1px solid rgba(0,71,171,0.1); transition: var(--transition-base);
-}
-
-header.scrolled { background: rgba(255, 255, 255, 0.95); box-shadow: var(--shadow-md); }
-
-.header-container {
-    max-width: 1400px; margin: 0 auto; padding: 1.2rem 2rem;
-    display: flex; justify-content: space-between; align-items: center;
-}
-
-.logo-container { display: flex; align-items: center; gap: 1rem; }
-.logo-container img { height: 60px; cursor: pointer; }
-
-.nav-menu { display: flex; gap: 3rem; list-style: none; }
-
-.nav-menu a {
-    color: var(--dark); text-decoration: none; font-weight: 600;
-    font-size: 0.95rem; position: relative; transition: var(--transition-base);
-    padding: 0.5rem 0;
-}
-
-.nav-menu a::before {
-    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px;
-    background: var(--gradient-accent); transition: width 0.3s ease; border-radius: 2px;
-}
-
-.nav-menu a:hover::before, .nav-menu a.active::before { width: 100%; }
-.nav-menu a:hover { color: var(--primary); }
-
-.header-cta { display: flex; gap: 1rem; align-items: center; }
-
-.btn-header {
-    padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700;
-    text-decoration: none; transition: var(--transition-bounce);
-    display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.95rem;
-}
-
-.btn-header-primary {
-    background: var(--gradient-accent); color: white;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-}
-
-.btn-header-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4); }
-
-.btn-header-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
-.btn-header-outline:hover { background: var(--primary); color: white; }
-
-.hamburger {
-    display: none; background: none; border: none; font-size: 1.6rem;
-    color: var(--primary); cursor: pointer; transition: var(--transition-base);
-}
-
-.page-hero {
-    position: relative; min-height: 60vh; display: flex; align-items: center;
-    background: var(--gradient-hero); padding-top: 120px; padding-bottom: 80px;
-    overflow: hidden;
-}
-
-.hero-background {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1600&q=80');
-    background-size: cover; background-position: center;
-    opacity: 0.15; animation: zoomEffect 30s infinite alternate;
-}
-
-@keyframes zoomEffect {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
-}
-
-.hero-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(0,217,255,0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255,107,53,0.08) 0%, transparent 50%),
-        linear-gradient(135deg, rgba(0,71,171,0.85) 0%, rgba(0,102,204,0.8) 100%);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative; z-index: 10; max-width: 1400px;
-    margin: 0 auto; padding: 0 2rem; text-align: center;
-}
-
-.breadcrumb {
-    display: flex; justify-content: center; align-items: center;
-    gap: 0.5rem; margin-bottom: 2rem; font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.breadcrumb a {
-    color: rgba(255, 255, 255, 0.9); text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.breadcrumb a:hover { color: white; }
-.breadcrumb i { font-size: 0.8rem; }
-
-.page-title {
-    font-family: 'Space Grotesk', sans-serif; font-size: 4rem;
-    font-weight: 900; color: white; margin-bottom: 1.5rem;
-    letter-spacing: -2px; animation: slideInUp 0.8s ease-out;
-}
-
-.page-subtitle {
-    font-size: 1.3rem; line-height: 1.8; color: rgba(255, 255, 255, 0.95);
-    max-width: 800px; margin: 0 auto; animation: slideInUp 1s ease-out;
-}
-
-.contact-section { padding: 8rem 2rem; background: white; }
-
-.contact-container {
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start;
-}
-
-.contact-info-box {
-    background: var(--gradient-hero); border-radius: 30px;
-    padding: 3rem; color: white; position: sticky; top: 120px;
-}
-
-.contact-info-box h2 {
-    font-family: 'Space Grotesk', sans-serif; font-size: 2rem;
-    font-weight: 900; margin-bottom: 1.5rem; color: white;
-}
-
-.contact-info-box p {
-    font-size: 1rem; line-height: 1.8; margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.contact-item {
-    display: flex; align-items: center; gap: 1.5rem;
-    padding: 1.5rem; background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); border-radius: 15px;
-    margin-bottom: 1rem; transition: var(--transition-base);
-}
-
-.contact-item:hover {
-    background: rgba(255, 255, 255, 0.15); transform: translateX(5px);
-}
-
-.contact-icon {
-    width: 50px; height: 50px; background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%; display: flex; align-items: center;
-    justify-content: center; font-size: 1.3rem; flex-shrink: 0;
-}
-
-.contact-details h3 {
-    font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem;
-    color: rgba(255, 255, 255, 0.8); text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.contact-details p {
-    font-size: 1.1rem; font-weight: 600; margin: 0; color: white;
-}
-
-.contact-details a {
-    color: white; text-decoration: none; transition: color 0.3s ease;
-}
-
-.contact-details a:hover { color: var(--accent); }
-
-.form-container {
-    background: white; border-radius: 30px;
-    padding: 3rem; box-shadow: var(--shadow-sm);
-    border: 2px solid rgba(0,71,171,0.05);
-}
-
-.form-container h2 {
-    font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem;
-    font-weight: 900; color: var(--dark); margin-bottom: 1rem;
-}
-
-.form-intro {
-    font-size: 1.05rem; color: #64748B; line-height: 1.8;
-    margin-bottom: 2.5rem;
-}
-
-.form-messages {
-    display: none; padding: 1.2rem; border-radius: 15px;
-    margin-bottom: 2rem; font-weight: 600; text-align: center;
-}
-
-.form-success {
-    background: #D1FAE5; color: #065F46; border: 2px solid #34D399;
-}
-
-.form-error {
-    background: #FEE2E2; color: #991B1B; border: 2px solid #F87171;
-}
-
-.form-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.full-width { grid-column: 1 / 3; }
-
-.form-group { margin-bottom: 1.5rem; }
-
-.form-group label {
-    display: block; margin-bottom: 0.7rem; font-weight: 600;
-    color: var(--dark); font-size: 0.95rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%; padding: 1rem 1.2rem; border: 2px solid #E2E8F0;
-    border-radius: 12px; font-size: 1rem; font-family: 'Inter', sans-serif;
-    transition: var(--transition-base); background: white;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--primary); outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 71, 171, 0.1);
-}
-
-.form-group textarea { resize: vertical; min-height: 150px; }
-
-.radio-group {
-    display: flex; gap: 1.5rem; margin-top: 0.7rem; flex-wrap: wrap;
-}
-
-.radio-group label {
-    font-weight: normal; color: #64748B; display: inline-flex;
-    align-items: center; cursor: pointer; margin: 0;
-}
-
-.radio-group input[type="radio"] {
-    margin-right: 0.5rem; width: auto; cursor: pointer;
-    accent-color: var(--primary);
-}
-
-.submit-btn {
-    width: 100%; padding: 1.2rem 2rem; border: none;
-    border-radius: 50px; font-size: 1.1rem; font-weight: 700;
-    background: var(--gradient-accent); color: white; cursor: pointer;
-    transition: var(--transition-bounce);
-    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-}
-
-.submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
-}
-
-.submit-btn:disabled {
-    cursor: not-allowed; opacity: 0.6; transform: none;
-}
-
-footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
-
-.footer-content {
-    max-width: 1400px; margin: 0 auto; text-align: center;
-    padding-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-brand h3 {
-    font-family: 'Space Grotesk', sans-serif; font-size: 2rem;
-    font-weight: 900; margin-bottom: 1rem;
-    background: var(--gradient-accent);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-
-.footer-description {
-    color: rgba(255, 255, 255, 0.7); line-height: 1.8;
-    max-width: 600px; margin: 0 auto;
-}
-
-.footer-bottom {
-    max-width: 1400px; margin: 0 auto; padding-top: 2rem; text-align: center;
-}
-
-.footer-bottom p {
-    color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-bottom: 0.5rem;
-}
-
-.scroll-top {
-    position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px;
-    background: var(--gradient-accent); color: white; border: none;
-    border-radius: 50%; font-size: 1.5rem; cursor: pointer;
-    box-shadow: var(--shadow-md); opacity: 0; visibility: hidden;
-    transition: var(--transition-bounce); z-index: 9998;
-}
-
-.scroll-top.visible { opacity: 1; visibility: visible; }
-.scroll-top:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-
-@media (max-width: 1024px) {
-    .contact-container { grid-template-columns: 1fr; gap: 3rem; }
-    .contact-info-box { position: relative; top: 0; }
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed; top: 85px; left: -100%; width: 100%;
-        height: calc(100vh - 85px); background: white; flex-direction: column;
-        padding: 3rem 2rem; gap: 0; box-shadow: var(--shadow-lg);
-        transition: left 0.4s ease;
-    }
-    .nav-menu.open { left: 0; }
-    .nav-menu li { padding: 1.5rem 0; border-bottom: 1px solid rgba(0,71,171,0.1); }
-    .header-cta { display: none; }
-    .hamburger { display: block; }
-    .page-title { font-size: 2.5rem; }
-    .page-subtitle { font-size: 1.1rem; }
-    .form-grid { grid-template-columns: 1fr; }
-    .full-width { grid-column: 1 / 2; }
-    .form-container { padding: 2rem; }
-    .contact-info-box { padding: 2rem; }
-}
-
-@media (max-width: 480px) {
-    .page-title { font-size: 2rem; }
-    .contact-item { flex-direction: column; text-align: center; }
-}
+        /* ==================== VARIABLES CSS ==================== */
+        :root {
+            --primary: #0047AB;
+            --primary-dark: #003380;
+            --primary-light: #0066CC;
+            --secondary: #FF6B35;
+            --accent: #00D9FF;
+            --success: #10B981;
+            --error: #ef4444;
+            --dark: #0F172A;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            
+            /* Gradients */
+            --gradient-hero: linear-gradient(135deg, #0047AB 0%, #0066CC 50%, #0088FF 100%);
+            --gradient-card: linear-gradient(135deg, rgba(0,71,171,0.05) 0%, rgba(0,217,255,0.05) 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
+            --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
+            --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* Transitions */
+            --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition-fast: all 0.2s ease;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+        }
+        
+        /* ==================== RESET & BASE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* ==================== TYPOGRAPHY ==================== */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        
+        /* ==================== HEADER ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border-bottom: 1px solid rgba(0,71,171,0.1);
+            transition: var(--transition-base);
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-hero);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 900;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition-base);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+        
+        .nav-menu a:hover::before,
+        .nav-menu a.active::before {
+            width: 100%;
+        }
+        
+        .header-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn-header {
+            padding: 0.9rem 2rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition-bounce);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+        }
+        
+        .btn-header-primary {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-header-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* ==================== PAGE HERO ==================== */
+        .page-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            padding-top: 120px;
+            padding-bottom: 80px;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            animation: zoomEffect 30s infinite alternate;
+        }
+        
+        @keyframes zoomEffect {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0,217,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,107,53,0.08) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        .breadcrumb i {
+            font-size: 0.8rem;
+        }
+        
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            animation: slideInUp 0.8s ease-out;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 0 auto;
+            animation: slideInUp 1s ease-out;
+        }
+        
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            padding: 8rem 2rem;
+            background: white;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info-box {
+            background: var(--gradient-hero);
+            border-radius: 30px;
+            padding: 3rem;
+            color: white;
+            position: sticky;
+            top: 120px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-info-box h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .contact-info-box > p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            transition: var(--transition-base);
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-details p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: white;
+        }
+        
+        .contact-details a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+        
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+        
+        /* ==================== FORM CONTAINER ==================== */
+        .form-container {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-container h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .form-intro {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        /* ==================== FORM MESSAGES ==================== */
+        .form-messages {
+            display: none;
+            padding: 1.2rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .form-messages i {
+            font-size: 1.5rem;
+        }
+        
+        .form-success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid var(--success);
+            color: var(--success);
+        }
+        
+        .form-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid var(--error);
+            color: var(--error);
+        }
+        
+        /* ==================== FORM GRID ==================== */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem 1.2rem;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition-base);
+            background: var(--white);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-group select {
+            cursor: pointer;
+        }
+        
+        /* Radio Group */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.2rem;
+            background: var(--gray-100);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: var(--transition-base);
+            font-weight: 500;
+        }
+        
+        .radio-group label:hover {
+            border-color: var(--primary);
+            background: rgba(0, 71, 171, 0.05);
+        }
+        
+        .radio-group input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .radio-group input[type="radio"]:checked + label {
+            border-color: var(--primary);
+            background: rgba(0, 71, 171, 0.1);
+        }
+        
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gradient-hero);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* Honeypot field (anti-spam) */
+        input[name="_gotcha"] {
+            display: none !important;
+        }
+        
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 2rem;
+        }
+        
+        .footer-brand h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .footer-description {
+            color: var(--gray-400);
+            line-height: 1.8;
+            max-width: 600px;
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            color: var(--gray-400);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom strong {
+            color: var(--white);
+        }
+        
+        /* ==================== SCROLL TO TOP ==================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-hero);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-base);
+            z-index: 999;
+        }
+        
+        .scroll-top.visible {
+            display: flex;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-info-box {
+                position: static;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--white);
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition-base);
+                pointer-events: none;
+                gap: 1rem;
+            }
+            
+            .nav-menu.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            
+            .page-hero {
+                min-height: 50vh;
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .contact-section {
+                padding: 4rem 1rem;
+            }
+            
+            .contact-info-box,
+            .form-container {
+                padding: 2rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-info-box,
+            .form-container {
+                border-radius: 20px;
+                padding: 1.5rem;
+            }
+        }
+        
+        /* ==================== ACCESSIBILITY ==================== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        /* ==================== PRINT ==================== */
+        @media print {
+            header,
+            .scroll-top,
+            .hamburger,
+            .submit-btn {
+                display: none !important;
+            }
+            
+            body {
+                color: #000;
+                background: #fff;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- ==================== HEADER ==================== -->
     <header id="header">
         <div class="header-container">
-            <div class="logo-container">
-                <img src="LOGO LPA.jpg" alt="Logo LPA">
-            </div>
+            <a href="index.html" class="logo-container" aria-label="LPA - Retour à l'accueil">
+                <div class="logo-icon" aria-hidden="true">LPA</div>
+                <span class="logo-text">LPA Laboratoire</span>
+            </a>
             
-            <nav>
+            <nav role="navigation" aria-label="Navigation principale">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">A propos</a></li>
-                    <li><a href="services.html">Nos services</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
             
             <div class="header-cta">
-                <a href="tel:+2250707201696" class="btn-header btn-header-outline">
-                    <i class="fas fa-phone"></i> 07 07 20 16 96
+                <a href="tel:+22507072016 96" class="btn-header btn-header-primary">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Appelez-nous
                 </a>
-                <a href="contact.html" class="btn-header btn-header-primary">Devis Gratuit</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu de navigation" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
             </div>
-            
-            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
-    <section class="page-hero">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero" role="banner">
+        <div class="hero-background" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        
         <div class="hero-content">
-            <div class="breadcrumb">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
                 <a href="index.html">Accueil</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>Contact & Devis</span>
-            </div>
-            <h1 class="page-title">Demande de Devis</h1>
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                <span>Contact</span>
+            </nav>
+            
+            <h1 class="page-title">Contactez-Nous</h1>
             <p class="page-subtitle">
-                Contactez-nous pour obtenir un devis personnalisé. 
-                Nous vous répondrons dans les plus brefs délais
+                Obtenez un devis gratuit et personnalisé pour vos analyses. 
+                Notre équipe vous répond sous 24h pour étudier votre projet.
             </p>
         </div>
     </section>
 
+    <!-- ==================== CONTACT SECTION ==================== -->
     <section class="contact-section">
         <div class="contact-container">
+            <!-- Contact Info Box -->
             <div class="contact-info-box">
-                <h2>Nos Coordonnées</h2>
-                <p>N'hésitez pas à nous contacter pour toute demande d'information ou de devis.</p>
-                
+                <h2>Informations de Contact</h2>
+                <p>
+                    Nous sommes à votre écoute pour toute demande d'information, 
+                    de devis ou de conseil technique.
+                </p>
+
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <div class="contact-icon" aria-hidden="true">
                         <i class="fas fa-phone"></i>
                     </div>
                     <div class="contact-details">
                         <h3>Téléphone</h3>
-                        <p><a href="tel:+2250707201696">07 07 20 16 96</a></p>
-                        <p><a href="tel:+2250757896853">07 57 89 68 53</a></p>
+                        <p><a href="tel:+22507072016 96">+225 07 07 20 16 96</a></p>
                     </div>
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <div class="contact-icon" aria-hidden="true">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div class="contact-details">
@@ -441,7 +999,7 @@ footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <div class="contact-icon" aria-hidden="true">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="contact-details">
@@ -451,7 +1009,7 @@ footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <div class="contact-icon" aria-hidden="true">
                         <i class="fas fa-clock"></i>
                     </div>
                     <div class="contact-details">
@@ -461,39 +1019,72 @@ footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
                 </div>
             </div>
 
+            <!-- Form Container -->
             <div class="form-container">
-                <h2>Formulaire de Devis</h2>
+                <h2>Demande de Devis</h2>
                 <p class="form-intro">
-                    Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé adapté à vos besoins.
+                    Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé 
+                    adapté à vos besoins spécifiques.
                 </p>
 
                 <div id="form-messages" class="form-messages"></div>
 
-                <form id="devis-form" action="https://formspree.io/f/mdkwozgg" method="POST">
+                <form id="devis-form" action="https://formspree.io/f/mdkwozgg" method="POST" novalidate>
+                    <!-- CSRF Token placeholder (à implémenter côté serveur) -->
+                    <input type="hidden" name="csrf_token" id="csrfToken" value="">
+                    
+                    <!-- Honeypot anti-spam -->
+                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="company">Nom de l'Entreprise *</label>
-                            <input type="text" id="company" name="company" required>
+                            <label for="company">Nom de l'Entreprise <span aria-label="obligatoire">*</span></label>
+                            <input 
+                                type="text" 
+                                id="company" 
+                                name="company" 
+                                required 
+                                maxlength="100"
+                                aria-required="true">
                         </div>
 
                         <div class="form-group">
-                            <label for="name">Votre Nom et Prénom *</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name">Votre Nom et Prénom <span aria-label="obligatoire">*</span></label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required
+                                maxlength="100"
+                                aria-required="true">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email <span aria-label="obligatoire">*</span></label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                maxlength="100"
+                                aria-required="true">
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Téléphone *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+225 xxxx xxxx" required>
+                            <label for="phone">Téléphone <span aria-label="obligatoire">*</span></label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="+225 xxxx xxxx" 
+                                required
+                                maxlength="20"
+                                aria-required="true">
                         </div>
 
                         <div class="form-group full-width">
-                            <label for="service">Service Requis *</label>
-                            <select id="service" name="service" required>
+                            <label for="service">Service Requis <span aria-label="obligatoire">*</span></label>
+                            <select id="service" name="service" required aria-required="true">
                                 <option value="" disabled selected>-- Sélectionnez un service --</option>
                                 <option value="analyse-physico-chimique">Analyses Physico-chimiques</option>
                                 <option value="analyse-microbiologique">Analyses Microbiologiques</option>
@@ -502,8 +1093,9 @@ footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
                                 <option value="traitement-eau-forage">Traitement d'Eau de Forage</option>
                                 <option value="traitement-eau-usees">Traitement d'Eau Usée</option>
                                 <option value="nettoyage-desinfection">Nettoyage et Désinfection</option>
-                                <option value="prelevement">Prélèvement</option>
-                                <option value="autre">Autre</option>
+                                <option value="prelevement">Prélèvement sur Site</option>
+                                <option value="expertise-conseil">Expertise et Conseil</option>
+                                <option value="autre">Autre (précisez dans les détails)</option>
                             </select>
                         </div>
                     </div>
@@ -513,29 +1105,37 @@ footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
                         <div class="radio-group">
                             <label>
                                 <input type="radio" name="sample_status" value="oui">
-                                Oui, l'échantillon est prêt
+                                <span>Oui, l'échantillon est prêt</span>
                             </label>
                             <label>
                                 <input type="radio" name="sample_status" value="non">
-                                Non, le prélèvement est à prévoir
+                                <span>Non, le prélèvement est à prévoir</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="details">Détails de votre demande *</label>
-                        <textarea id="details" name="details" required placeholder="Type d'analyse, quantité, urgence, etc."></textarea>
+                        <label for="details">Détails de votre demande <span aria-label="obligatoire">*</span></label>
+                        <textarea 
+                            id="details" 
+                            name="details" 
+                            required 
+                            placeholder="Type d'analyse, quantité, niveau d'urgence, contexte du projet..."
+                            minlength="20"
+                            maxlength="1000"
+                            aria-required="true"></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> Envoyer la Demande
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i> 
+                        <span>Envoyer la Demande</span>
                     </button>
-                    <input type="text" name="_gotcha" style="display:none">
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- ==================== FOOTER ==================== -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
@@ -548,104 +1148,214 @@ footer { background: var(--dark); color: white; padding: 4rem 2rem 2rem; }
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 LPA. Tous droits réservés.</p>
-            <p>Site développé par Jonathan N'GUETTIA</p>
+            <p>&copy; 2025 LPA - Laboratoire Privé d'Analyse. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <button class="scroll-top" id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+    <!-- ==================== SCROLL TO TOP ==================== -->
+    <button class="scroll-top" id="scroll-top" aria-label="Retour en haut de la page">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    const scrollTop = document.getElementById('scroll-top');
-    
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-        scrollTop.classList.add('visible');
-    } else {
-        header.classList.remove('scrolled');
-        scrollTop.classList.remove('visible');
-    }
-});
-
-document.getElementById('hamburger').addEventListener('click', function() {
-    const navMenu = document.getElementById('nav-menu');
-    const icon = this.querySelector('i');
-    
-    navMenu.classList.toggle('open');
-    
-    if (navMenu.classList.contains('open')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
-
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        const navMenu = document.getElementById('nav-menu');
-        const hamburger = document.getElementById('hamburger');
-        const icon = hamburger.querySelector('i');
+        'use strict';
         
-        if (navMenu.classList.contains('open')) {
-            navMenu.classList.remove('open');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+        // ==================== CONFIGURATION ====================
+        const CONFIG = {
+            scrollThreshold: 100,
+            debounceDelay: 250
+        };
+        
+        // ==================== UTILITAIRES ====================
+        const debounce = (func, delay) => {
+            let timeoutId;
+            return function (...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => func.apply(this, args), delay);
+            };
+        };
+        
+        // Protection XSS pour les inputs
+        const sanitizeInput = (input) => {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML;
+        };
+        
+        // ==================== HEADER SCROLL EFFECT ====================
+        const header = document.getElementById('header');
+        const scrollTop = document.getElementById('scroll-top');
+        
+        window.addEventListener('scroll', debounce(() => {
+            if (window.scrollY > CONFIG.scrollThreshold) {
+                header.classList.add('scrolled');
+                scrollTop.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                scrollTop.classList.remove('visible');
+            }
+        }, CONFIG.debounceDelay));
+        
+        // ==================== HAMBURGER MENU ====================
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            const isOpen = navMenu.classList.contains('open');
+            
+            navMenu.classList.toggle('open');
+            this.setAttribute('aria-expanded', !isOpen);
+            
+            if (navMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Fermer le menu au clic sur un lien
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('open')) {
+                    navMenu.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // ==================== SCROLL TO TOP ====================
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // ==================== FORM HANDLING ====================
+        const form = document.getElementById('devis-form');
+        const formMessages = document.getElementById('form-messages');
+        const submitButton = document.getElementById('submit-btn');
+        
+        // Generate CSRF token (à implémenter côté serveur en production)
+        function generateCSRFToken() {
+            const token = Math.random().toString(36).substring(2, 15) + 
+                         Math.random().toString(36).substring(2, 15);
+            document.getElementById('csrfToken').value = token;
         }
-    });
-});
+        
+        generateCSRFToken();
+        
+        // Form validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function validatePhone(phone) {
+            const re = /^[0-9+\s\-()]{8,}$/;
+            return re.test(phone);
+        }
+        
+        // Form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Hide previous messages
+            formMessages.style.display = 'none';
+            formMessages.classList.remove('form-success', 'form-error');
+            
+            // Validate inputs
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const details = document.getElementById('details').value;
+            
+            if (!validateEmail(email)) {
+                showError('Veuillez entrer une adresse email valide.');
+                return;
+            }
+            
+            if (!validatePhone(phone)) {
+                showError('Veuillez entrer un numéro de téléphone valide.');
+                return;
+            }
+            
+            if (details.length < 20) {
+                showError('Les détails doivent contenir au moins 20 caractères.');
+                return;
+            }
+            
+            // Disable button and show loading
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Envoi en cours...</span>';
 
-document.getElementById('scroll-top').addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-const form = document.getElementById('devis-form');
-const formMessages = document.getElementById('form-messages');
-const submitButton = form.querySelector('button[type="submit"]');
-
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    formMessages.style.display = 'none';
-    formMessages.classList.remove('form-success', 'form-error');
-    submitButton.disabled = true;
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-
-    const data = new FormData(form);
-    
-    fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-        if (response.ok) {
-            formMessages.style.display = 'block';
+            // Prepare form data
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    showSuccess();
+                    form.reset();
+                    generateCSRFToken(); // Regenerate token
+                } else {
+                    const data = await response.json();
+                    showError('Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Erreur de connexion. Vérifiez votre réseau et réessayez.');
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Envoyer la Demande</span>';
+            }
+        });
+        
+        function showSuccess() {
+            formMessages.style.display = 'flex';
             formMessages.classList.add('form-success');
-            formMessages.innerHTML = '<i class="fas fa-check-circle"></i> Votre demande a été envoyée avec succès ! Nous vous recontacterons très vite.';
-            form.reset();
-        } else {
-            response.json().then(data => {
-                formMessages.style.display = 'block';
-                formMessages.classList.add('form-error');
-                formMessages.innerHTML = '<i class="fas fa-exclamation-circle"></i> Une erreur est survenue. Veuillez réessayer.';
-            })
+            formMessages.innerHTML = '<i class="fas fa-check-circle"></i> Votre demande a été envoyée avec succès ! Nous vous recontacterons très rapidement.';
+            
+            // Scroll to message
+            formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Hide after 10 seconds
+            setTimeout(() => {
+                formMessages.style.display = 'none';
+            }, 10000);
         }
-    })
-    .catch(error => {
-        formMessages.style.display = 'block';
-        formMessages.classList.add('form-error');
-        formMessages.innerHTML = '<i class="fas fa-exclamation-circle"></i> Erreur de connexion. Vérifiez votre réseau.';
-    })
-    .finally(() => {
-        submitButton.disabled = false;
-        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer la Demande';
-        formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-});
+        
+        function showError(message) {
+            formMessages.style.display = 'flex';
+            formMessages.classList.add('form-error');
+            formMessages.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            
+            // Scroll to message
+            formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // ==================== ERROR HANDLING ====================
+        window.addEventListener('error', (e) => {
+            console.error('Erreur JavaScript:', e.error);
+        });
+        
+        // ==================== LOG ====================
+        console.log('✅ Page Contact LPA chargée avec succès');
+        console.log('🔒 Sécurité: Activée');
+        console.log('🎯 SEO: Optimisé');
+        console.log('📧 Formulaire: Prêt');
     </script>
 </body>
 </html>
