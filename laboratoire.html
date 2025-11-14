@@ -1,839 +1,1114 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Meta tags de base -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratoire | LPA - Excellence Scientifique</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- ==================== SÉCURITÉ HTTP HEADERS ==================== -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- ==================== SEO ==================== -->
+    <title>Laboratoire d'Analyse | LPA - Analyses Physicochimiques & Microbiologiques</title>
+    <meta name="description" content="Laboratoire d'analyse certifié LPA : analyses physicochimiques, microbiologiques, contrôle qualité eau et aliments. Équipements de pointe, résultats fiables sous 24-48h.">
+    <meta name="keywords" content="laboratoire analyse Abidjan, analyses physicochimiques, analyses microbiologiques, contrôle qualité laboratoire, analyse eau aliments, laboratoire certifié CI">
+    <meta name="author" content="LPA - Laboratoire Privé d'Analyse">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.lpa-ci.com/laboratoire.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lpa-ci.com/laboratoire.html">
+    <meta property="og:title" content="Laboratoire d'Analyse LPA | Excellence Scientifique">
+    <meta property="og:description" content="Analyses certifiées : physicochimiques, microbiologiques, contrôle qualité. Laboratoire agréé avec équipements de pointe.">
+    <meta property="og:image" content="https://www.lpa-ci.com/assets/images/laboratoire-og.jpg">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#6366F1">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Laboratory Analysis Services",
+      "name": "Laboratoire d'Analyse",
+      "description": "Analyses physicochimiques et microbiologiques pour contrôle qualité eau et aliments",
+      "provider": {
+        "@type": "MedicalBusiness",
+        "@id": "https://www.lpa-ci.com/#organization"
+      },
+      "areaServed": "Côte d'Ivoire",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://www.lpa-ci.com/contact.html",
+        "servicePhone": "+225-07-07-20-16-96"
+      }
+    }
+    </script>
     
     <style>
-/* ============================================ */
-/* VARIABLES & RESET */
-/* ============================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary: #0047AB;
-    --secondary: #FF6B35;
-    --accent: #00D9FF;
-    --success: #10B981;
-    --dark: #0F172A;
-    --light: #F8FAFC;
-    --lab-purple: #6366F1;
-    --lab-blue: #0078D4;
-    --gradient-hero: linear-gradient(135deg, #6366F1 0%, #0078D4 50%, #0047AB 100%);
-    --gradient-card: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(0,120,212,0.05) 100%);
-    --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
-    --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
-    --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* ============================================ */
-/* BOUTON RETOUR SERVICES */
-/* ============================================ */
-.back-to-services {
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    z-index: 9999;
-    animation: fadeInLeft 0.8s ease-out;
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.btn-back {
-    background: white;
-    color: var(--lab-blue);
-    padding: 1rem 1.8rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
-    border: 2px solid transparent;
-}
-
-.btn-back:hover {
-    background: var(--lab-blue);
-    color: white;
-    transform: translateX(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--lab-blue);
-}
-
-.btn-back i {
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
-}
-
-.btn-back:hover i {
-    transform: translateX(-3px);
-}
-
-/* ============================================ */
-/* HERO SECTION */
-/* ============================================ */
-.hero-lab {
-    position: relative;
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-hero);
-    overflow: hidden;
-}
-
-.hero-lab::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-    opacity: 0.5;
-}
-
-.particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    animation: float-particle 15s infinite ease-in-out;
-}
-
-@keyframes float-particle {
-    0%, 100% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translate(100px, -100vh) scale(0.5);
-        opacity: 0;
-    }
-}
-
-.hero-lab-content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    color: white;
-    max-width: 1100px;
-    padding: 0 2rem;
-    animation: fadeInUp 1s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-icon {
-    font-size: 5rem;
-    margin-bottom: 2rem;
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.hero-lab h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 4rem;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    letter-spacing: -2px;
-}
-
-.hero-lab p {
-    font-size: 1.4rem;
-    line-height: 1.8;
-    opacity: 0.95;
-    margin-bottom: 3rem;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 1.1rem 2.8rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    text-decoration: none;
-    transition: var(--transition);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: white;
-    color: var(--lab-blue);
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
-}
-
-/* ============================================ */
-/* MISSION SECTION */
-/* ============================================ */
-.mission-section {
-    padding: 8rem 2rem;
-    background: white;
-    position: relative;
-    margin-top: -100px;
-    z-index: 20;
-}
-
-.mission-card {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 30px;
-    padding: 4rem;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(99,102,241,0.1);
-}
-
-.mission-card h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: var(--dark);
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.mission-card p {
-    font-size: 1.2rem;
-    line-height: 1.9;
-    color: #64748B;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-/* ============================================ */
-/* ANALYSES SECTION */
-/* ============================================ */
-.analyses-section {
-    padding: 8rem 2rem;
-    background: var(--light);
-}
-
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 5rem;
-}
-
-.section-tag {
-    display: inline-block;
-    background: linear-gradient(135deg, #6366F1 0%, #0078D4 100%);
-    color: white;
-    padding: 0.6rem 1.8rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 1.5rem;
-}
-
-.section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--dark);
-    margin-bottom: 1.5rem;
-}
-
-.analyses-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    margin-bottom: 5rem;
-}
-
-.analysis-card {
-    background: white;
-    border-radius: 30px;
-    padding: 3rem;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
-    border: 2px solid transparent;
-    box-shadow: var(--shadow-sm);
-}
-
-.analysis-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, var(--lab-purple) 0%, var(--lab-blue) 100%);
-    transform: scaleX(0);
-    transition: transform 0.5s ease;
-}
-
-.analysis-card:hover::before {
-    transform: scaleX(1);
-}
-
-.analysis-card:hover {
-    transform: translateY(-15px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(99,102,241,0.2);
-}
-
-.analysis-icon {
-    width: 90px;
-    height: 90px;
-    background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(0,120,212,0.1) 100%);
-    border-radius: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: var(--lab-purple);
-    margin-bottom: 2rem;
-    transition: var(--transition);
-}
-
-.analysis-card:hover .analysis-icon {
-    background: linear-gradient(135deg, var(--lab-purple) 0%, var(--lab-blue) 100%);
-    color: white;
-    transform: rotate(5deg) scale(1.05);
-}
-
-.analysis-card h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 1rem;
-}
-
-.analysis-card p {
-    color: #64748B;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-}
-
-.analysis-list {
-    list-style: none;
-    padding: 0;
-}
-
-.analysis-list li {
-    padding: 0.8rem 0;
-    padding-left: 2rem;
-    position: relative;
-    color: #64748B;
-    border-bottom: 1px solid rgba(99,102,241,0.1);
-}
-
-.analysis-list li:last-child {
-    border-bottom: none;
-}
-
-.analysis-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--success);
-    font-weight: 900;
-    font-size: 1.2rem;
-}
-
-/* ============================================ */
-/* EQUIPEMENTS SECTION */
-/* ============================================ */
-.equipments-section {
-    padding: 8rem 2rem;
-    background: white;
-}
-
-.equipment-intro {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 4rem;
-    font-style: italic;
-    color: #64748B;
-    font-size: 1.2rem;
-}
-
-.equipments-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-}
-
-.equipment-card {
-    background: var(--gradient-card);
-    border-radius: 30px;
-    padding: 3rem;
-    text-align: center;
-    transition: var(--transition);
-    border: 2px solid transparent;
-}
-
-.equipment-card:hover {
-    background: white;
-    box-shadow: var(--shadow-md);
-    border-color: rgba(99,102,241,0.2);
-    transform: translateY(-10px);
-}
-
-.equipment-card h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--lab-blue);
-    margin-bottom: 1.5rem;
-}
-
-.equipment-card p {
-    color: #64748B;
-    line-height: 1.8;
-    font-size: 1.1rem;
-}
-
-/* ============================================ */
-/* FOOTER */
-/* ============================================ */
-footer {
-    background: var(--dark);
-    color: white;
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-footer p {
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0.5rem 0;
-}
-
-/* ============================================ */
-/* SCROLL TO TOP */
-/* ============================================ */
-.scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, var(--lab-purple) 0%, var(--lab-blue) 100%);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: var(--shadow-md);
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-    z-index: 9998;
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top:hover {
-    transform: translateY(-8px);
-}
-
-/* ============================================ */
-/* SCROLL ANIMATIONS */
-/* ============================================ */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ============================================ */
-/* RESPONSIVE */
-/* ============================================ */
-@media (max-width: 1024px) {
-    .analyses-grid,
-    .equipments-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .back-to-services {
-        top: 20px;
-        left: 20px;
-    }
-    
-    .btn-back {
-        padding: 0.8rem 1.4rem;
-        font-size: 0.85rem;
-    }
-    
-    .hero-lab h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-lab p {
-        font-size: 1.1rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .mission-card {
-        padding: 2rem;
-    }
-    
-    .mission-card h2 {
-        font-size: 2rem;
-    }
-    
-    .section-title {
-        font-size: 2.2rem;
-    }
-    
-    .analysis-card,
-    .equipment-card {
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .btn-back {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.8rem;
-        gap: 0.5rem;
-    }
-    
-    .hero-lab h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-icon {
-        font-size: 3.5rem;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .mission-card h2 {
-        font-size: 1.7rem;
-    }
-}
+        /* ==================== VARIABLES CSS ==================== */
+        :root {
+            --primary: #0047AB;
+            --secondary: #FF6B35;
+            --accent: #00D9FF;
+            --success: #10B981;
+            --dark: #0F172A;
+            --gray-600: #4b5563;
+            --gray-300: #d1d5db;
+            --gray-100: #f3f4f6;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --lab-purple: #6366F1;
+            --lab-blue: #0078D4;
+            
+            /* Gradients spécifiques au labo */
+            --gradient-hero: linear-gradient(135deg, #6366F1 0%, #0078D4 50%, #0047AB 100%);
+            --gradient-card: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(0,120,212,0.05) 100%);
+            
+            --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
+            --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
+            --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+        }
+        
+        /* ==================== RESET & BASE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* ==================== BOUTON RETOUR ==================== */
+        .back-to-services {
+            position: fixed;
+            top: 100px;
+            left: 2rem;
+            z-index: 999;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .btn-back {
+            background: white;
+            color: var(--lab-blue);
+            padding: 1rem 1.8rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border: 2px solid transparent;
+        }
+        
+        .btn-back:hover {
+            background: var(--lab-blue);
+            color: white;
+            transform: translateX(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-back i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-back:hover i {
+            transform: translateX(-3px);
+        }
+        
+        /* ==================== HEADER ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(0,71,171,0.1);
+            transition: var(--transition-base);
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-hero);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition-base);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #FF6B35, #FF8C42);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+        
+        .nav-menu a:hover::before,
+        .nav-menu a.active::before {
+            width: 100%;
+        }
+        
+        .header-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn-header {
+            padding: 0.9rem 2rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition-bounce);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+        }
+        
+        .btn-header-primary {
+            background: linear-gradient(135deg, #FF6B35, #FF8C42);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-header-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* ==================== HERO ==================== */
+        .service-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            padding-top: 120px;
+            padding-bottom: 80px;
+            overflow: hidden;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 35px,
+                rgba(255,255,255,.1) 35px,
+                rgba(255,255,255,.1) 70px
+            );
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .service-hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .service-hero p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-full);
+        }
+        
+        .hero-feature i {
+            font-size: 1.5rem;
+        }
+        
+        /* ==================== SECTIONS ==================== */
+        .section {
+            padding: 6rem 2rem;
+        }
+        
+        .section-white {
+            background: white;
+        }
+        
+        .section-light {
+            background: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--gradient-card);
+            color: var(--lab-purple);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+        
+        /* ==================== ANALYSES GRID ==================== */
+        .analyses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .analysis-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+            border: 2px solid transparent;
+        }
+        
+        .analysis-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--lab-purple);
+        }
+        
+        .analysis-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-xl);
+            background: var(--gradient-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--lab-purple);
+            margin-bottom: 1.5rem;
+        }
+        
+        .analysis-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .analysis-card p {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .analysis-list {
+            list-style: none;
+        }
+        
+        .analysis-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray-600);
+        }
+        
+        .analysis-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            background: var(--gradient-hero);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+        
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta {
+            padding: 1.2rem 2.5rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+            transition: var(--transition-base);
+        }
+        
+        .btn-cta-white {
+            background: white;
+            color: var(--lab-purple);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-cta-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-cta-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-cta-outline:hover {
+            background: white;
+            color: var(--lab-purple);
+        }
+        
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 2rem;
+        }
+        
+        .footer-brand h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            max-width: 600px;
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* ==================== SCROLL TO TOP ==================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-hero);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-base);
+            z-index: 999;
+        }
+        
+        .scroll-top.visible {
+            display: flex;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .back-to-services {
+                top: 80px;
+                left: 1rem;
+            }
+            
+            .header-container {
+                padding: 1rem;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: white;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition-base);
+                pointer-events: none;
+                gap: 1rem;
+            }
+            
+            .nav-menu.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            
+            .service-hero {
+                min-height: 60vh;
+                padding-top: 100px;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 4rem 1rem;
+            }
+            
+            .analyses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-cta {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* ==================== ACCESSIBILITY ==================== */
+        *:focus-visible {
+            outline: 2px solid var(--lab-purple);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
-    <!-- BOUTON RETOUR SERVICES -->
+    <!-- ==================== BOUTON RETOUR ==================== -->
     <div class="back-to-services">
         <a href="services.html" class="btn-back">
-            <i class="fas fa-arrow-left"></i>
-            <span>Retour Services</span>
+            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+            <span>Retour aux Services</span>
         </a>
     </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero-lab">
-        <div class="particles" id="particles"></div>
+    <!-- ==================== HEADER ==================== -->
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-container" aria-label="LPA - Retour à l'accueil">
+                <div class="logo-icon" aria-hidden="true">LPA</div>
+                <span class="logo-text">LPA</span>
+            </a>
+            
+            <nav role="navigation" aria-label="Navigation principale">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="contact.html" class="btn-header btn-header-primary">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Devis Gratuit
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="service-hero" role="banner">
+        <div class="hero-pattern" aria-hidden="true"></div>
         
-        <div class="hero-lab-content">
-            <div class="hero-icon">🥼</div>
-            <h1>L'Excellence Scientifique<br>Notre Laboratoire à Votre Service</h1>
+        <div class="hero-content">
+            <div class="service-badge">
+                <i class="fas fa-flask" aria-hidden="true"></i>
+                <span>Service Premium</span>
+            </div>
+            
+            <h1>Laboratoire d'Analyse</h1>
             <p>
-                Équipements de pointe, expertise certifiée et engagement total 
-                pour la précision et la fiabilité de toutes nos analyses.
+                Excellence scientifique et précision absolue pour vos analyses physicochimiques 
+                et microbiologiques. Équipements de pointe, équipe expérimentée, résultats certifiés.
             </p>
-            <div class="hero-buttons">
-                <a href="#analyses" class="btn btn-primary">
-                    <i class="fas fa-flask"></i> Découvrir nos Analyses
+            
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-check-circle" aria-hidden="true"></i>
+                    <span>Certifié ISO 17025</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-clock" aria-hidden="true"></i>
+                    <span>Résultats 24-48h</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-microscope" aria-hidden="true"></i>
+                    <span>Équipements High-Tech</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ANALYSES SECTION ==================== -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nos Expertises</span>
+                <h2 class="section-title">Types d'Analyses Proposées</h2>
+                <p class="section-description">
+                    Un large éventail d'analyses pour répondre à tous vos besoins de contrôle qualité 
+                    et de conformité réglementaire.
+                </p>
+            </div>
+            
+            <div class="analyses-grid">
+                <!-- Analyses Physicochimiques -->
+                <article class="analysis-card reveal">
+                    <div class="analysis-icon" aria-hidden="true">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Analyses Physicochimiques</h3>
+                    <p>
+                        Détermination précise des caractéristiques physiques et chimiques de vos échantillons.
+                    </p>
+                    <ul class="analysis-list">
+                        <li>pH, conductivité, turbidité</li>
+                        <li>Métaux lourds (Pb, Cd, Hg, As)</li>
+                        <li>Ions majeurs (chlorures, sulfates)</li>
+                        <li>Matières organiques (DCO, DBO5)</li>
+                        <li>Résidus secs et MES</li>
+                        <li>Composition nutritionnelle</li>
+                    </ul>
+                </article>
+
+                <!-- Analyses Microbiologiques -->
+                <article class="analysis-card reveal">
+                    <div class="analysis-icon" aria-hidden="true">
+                        <i class="fas fa-bacteria"></i>
+                    </div>
+                    <h3>Analyses Microbiologiques</h3>
+                    <p>
+                        Détection et dénombrement des micro-organismes pour garantir la sécurité sanitaire.
+                    </p>
+                    <ul class="analysis-list">
+                        <li>Coliformes totaux et fécaux</li>
+                        <li>E. coli, Salmonella</li>
+                        <li>Staphylocoques, Streptocoques</li>
+                        <li>Levures et moisissures</li>
+                        <li>Bactéries aérobies totales</li>
+                        <li>Tests de stérilité</li>
+                    </ul>
+                </article>
+
+                <!-- Contrôle Conformité -->
+                <article class="analysis-card reveal">
+                    <div class="analysis-icon" aria-hidden="true">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Contrôle de Conformité</h3>
+                    <p>
+                        Vérification de la conformité aux normes nationales et internationales en vigueur.
+                    </p>
+                    <ul class="analysis-list">
+                        <li>Normes OMS eau potable</li>
+                        <li>Normes Codex Alimentarius</li>
+                        <li>Normes ISO 17025</li>
+                        <li>Réglementation ivoirienne</li>
+                        <li>Standards européens</li>
+                        <li>Certification produits</li>
+                    </ul>
+                </article>
+
+                <!-- Analyses Environnementales -->
+                <article class="analysis-card reveal">
+                    <div class="analysis-icon" aria-hidden="true">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Analyses Environnementales</h3>
+                    <p>
+                        Évaluation de la qualité environnementale pour une gestion durable des ressources.
+                    </p>
+                    <ul class="analysis-list">
+                        <li>Qualité des sols</li>
+                        <li>Analyse des eaux usées</li>
+                        <li>Pollution atmosphérique</li>
+                        <li>Contamination des sites</li>
+                        <li>Études d'impact</li>
+                        <li>Diagnostic environnemental</li>
+                    </ul>
+                </article>
+
+                <!-- Analyses Alimentaires -->
+                <article class="analysis-card reveal">
+                    <div class="analysis-icon" aria-hidden="true">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Analyses Alimentaires</h3>
+                    <p>
+                        Contrôle qualité complet des produits alimentaires et boissons.
+                    </p>
+                    <ul class="analysis-list">
+                        <li>Composition nutritionnelle</li>
+                        <li>Additifs alimentaires</li>
+                        <li>Contaminants chimiques</li>
+                        <li>Pesticides et résidus</li>
+                        <li>Allergènes</li>
+                        <li>Tests organoleptiques</li>
+                    </ul>
+                </article>
+
+                <!-- Analyses Rapides -->
+                <article class="analysis-card reveal">
+                    <div class="analysis-icon" aria-hidden="true">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Analyses Express</h3>
+                    <p>
+                        Tests rapides sur site pour des résultats immédiats en cas d'urgence.
+                    </p>
+                    <ul class="analysis-list">
+                        <li>Tests de terrain</li>
+                        <li>Kits de détection rapide</li>
+                        <li>Résultats sous 2-4h</li>
+                        <li>Intervention d'urgence</li>
+                        <li>Validation in situ</li>
+                        <li>Screening préliminaire</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Besoin d'Analyses Certifiées ?</h2>
+            <p>
+                Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques 
+                et obtenir un devis personnalisé gratuit.
+            </p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-cta btn-cta-white">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <span>Demander un Devis</span>
+                </a>
+                <a href="tel:+22507072016 96" class="btn-cta btn-cta-outline">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
+                    <span>07 07 20 16 96</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- MISSION SECTION -->
-    <section class="mission-section reveal">
-        <div class="mission-card">
-            <h2>Notre Mission : Votre Conformité Totale</h2>
-            <p>
-                Chez LPA, notre laboratoire est le pilier de notre engagement envers la qualité. 
-                Nous sommes spécialisés dans le contrôle de la qualité et de la conformité 
-                des produits, des denrées alimentaires et des échantillons environnementaux.
-            </p>
-            <p>
-                Notre mission est d'accompagner nos clients vers la conformité totale en fournissant 
-                des services d'analyse certifiés, conformes aux normes et standards internationaux 
-                et nationaux, tout en maintenant une totale transparence et intégrité.
-            </p>
-        </div>
-    </section>
-
-    <!-- ANALYSES SECTION -->
-    <section class="analyses-section" id="analyses">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Expertise Scientifique</span>
-                <h2 class="section-title">Nos Domaines d'Analyse Détaillés</h2>
-            </div>
-            
-            <div class="analyses-grid">
-                <div class="analysis-card reveal">
-                    <div class="analysis-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Analyses Physico-chimiques</h3>
-                    <p>
-                        Mesure des caractéristiques fondamentales des échantillons 
-                        (eaux, produits, matières premières) :
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Température, pH (potentiel hydrogène)</li>
-                        <li>Turbidité (clarté), Conductivité (pureté)</li>
-                        <li>Dureté totale (calcium et magnésium)</li>
-                        <li>Métaux lourds (Plomb, Cadmium, Arsenic)</li>
-                        <li>Teneur en chlore libre et total, Fluorures</li>
-                        <li>Ammonium, Nitrites et Nitrates</li>
-                        <li>Humidité, matières grasses, protéines, cendres</li>
-                    </ul>
-                </div>
-
-                <div class="analysis-card reveal">
-                    <div class="analysis-icon">
-                        <i class="fas fa-bacteria"></i>
-                    </div>
-                    <h3>Analyses Microbiologiques</h3>
-                    <p>
-                        Identification et quantification des micro-organismes 
-                        potentiellement dangereux ou indicateurs de contamination :
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Coliformes totaux et Fécaux</li>
-                        <li>Escherichia coli (E. coli)</li>
-                        <li>Entérocoques intestinaux</li>
-                        <li>Clostridium perfringens et Bacillus Cereus</li>
-                        <li>Germes aérobies à 22 °C et 36 °C (Flore Totale)</li>
-                        <li>Recherche de Salmonella et Listeria</li>
-                        <li>Staphylocoques pathogènes, Levures et Moisissures</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EQUIPEMENTS SECTION -->
-    <section class="equipments-section reveal">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Technologies de Pointe</span>
-                <h2 class="section-title">Nos Équipements Clés</h2>
-            </div>
-            
-            <p class="equipment-intro">
-                La fiabilité de nos résultats repose sur l'utilisation d'équipements 
-                étalonnés de marques reconnues internationalement.
-            </p>
-            
-            <div class="equipments-grid">
-                <div class="equipment-card reveal">
-                    <h3>⚗️ Équipements Chimiques</h3>
-                    <p>
-                        Spectrophotomètre d'absorption atomique (pour métaux lourds), 
-                        Spectromètre UV-Visible, Chromatographes Liquide et Gazeux (HPLC/GC) 
-                        pour les contaminants organiques, pH-mètres de haute précision.
-                    </p>
-                </div>
-
-                <div class="equipment-card reveal">
-                    <h3>🦠 Équipements Microbiologiques</h3>
-                    <p>
-                        Autoclaves et Étuves de culture, Hottes à Flux Laminaire 
-                        (sécurité et stérilité), Compteur de colonies automatique, 
-                        Systèmes de filtration sous vide pour les analyses d'eau.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
+    <!-- ==================== FOOTER ==================== -->
     <footer>
-        <p>&copy; 2025 LPA - Laboratoire de Contrôle Qualité. Tous droits réservés.</p>
-        <p>Site développé par <strong>Jonathan N'GUETTIA</strong></p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>LPA</h3>
+                <p class="footer-description">
+                    Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. 
+                    Votre partenaire de confiance pour la conformité et l'excellence.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 LPA - Laboratoire Privé d'Analyse. Tous droits réservés.</p>
+            <p>Agrément N° 012-MCI/CAB du 27-01-2021</p>
+            <p>Site développé par <strong>Jonathan N'GUETTIA</strong></p>
+        </div>
     </footer>
 
-    <!-- SCROLL TO TOP -->
-    <button class="scroll-top" id="scroll-top">
-        <i class="fas fa-arrow-up"></i>
+    <!-- ==================== SCROLL TO TOP ==================== -->
+    <button class="scroll-top" id="scroll-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-// ============================================
-// CRÉATION DES PARTICULES
-// ============================================
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 30;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
+        'use strict';
         
-        const left = Math.random() * 100;
-        const delay = Math.random() * 15;
-        const duration = Math.random() * 10 + 10;
+        const CONFIG = {
+            scrollThreshold: 100,
+            debounceDelay: 250
+        };
         
-        particle.style.left = `${left}%`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
+        const debounce = (func, delay) => {
+            let timeoutId;
+            return function (...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => func.apply(this, args), delay);
+            };
+        };
         
-        particlesContainer.appendChild(particle);
-    }
-}
-
-createParticles();
-
-// ============================================
-// SCROLL TO TOP
-// ============================================
-const scrollTop = document.getElementById('scroll-top');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollTop.classList.add('visible');
-    } else {
-        scrollTop.classList.remove('visible');
-    }
-});
-
-scrollTop.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// ============================================
-// SCROLL REVEAL ANIMATIONS
-// ============================================
-function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-    
-    reveals.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+        const header = document.getElementById('header');
+        const scrollTop = document.getElementById('scroll-top');
         
-        if (elementTop < windowHeight - 100) {
-            element.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// ============================================
-// SMOOTH SCROLL
-// ============================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        window.addEventListener('scroll', debounce(() => {
+            if (window.scrollY > CONFIG.scrollThreshold) {
+                header.classList.add('scrolled');
+                scrollTop.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                scrollTop.classList.remove('visible');
+            }
+        }, CONFIG.debounceDelay));
         
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            const isOpen = navMenu.classList.contains('open');
+            navMenu.classList.toggle('open');
+            this.setAttribute('aria-expanded', !isOpen);
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('open')) {
+                    navMenu.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
             });
         }
-    });
-});
+        
+        window.addEventListener('scroll', debounce(revealOnScroll, CONFIG.debounceDelay));
+        window.addEventListener('load', revealOnScroll);
+        
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+        
+        window.addEventListener('error', (e) => {
+            console.error('Erreur JavaScript:', e.error);
+        });
+        
+        console.log('✅ Page Laboratoire LPA chargée');
     </script>
 </body>
 </html>
