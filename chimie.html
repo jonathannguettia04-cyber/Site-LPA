@@ -1,1114 +1,477 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Meta tags de base -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <!-- ==================== SÉCURITÉ HTTP HEADERS ==================== -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-        img-src 'self' data: https:;
-        connect-src 'self';
-        frame-ancestors 'none';
-        base-uri 'self';
-        form-action 'self';
-    ">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    
-    <!-- ==================== SEO ==================== -->
-    <title>Expertise et Conseil | LPA - Consultance Technique & Certification ISO</title>
-    <meta name="description" content="Consultance technique, développement de méthodes analytiques, assistance ISO/CEI 17025, formation personnel. Expertise scientifique pour votre laboratoire.">
-    <meta name="keywords" content="consultance laboratoire Abidjan, expertise technique, ISO 17025, développement méthodes, formation analyse, LPA Côte d'Ivoire">
-    <meta name="author" content="LPA - Laboratoire Privé d'Analyse">
+
+    <!-- SEO Primaire -->
+    <title>Chimie Industrielle — Analyses & Contrôle Qualité | LPA — Abidjan</title>
+    <meta name="description" content="Analyses chimiques industrielles à Abidjan : caractérisation de produits, contrôle peintures et plastiques, détection COV et métaux lourds. LPA, laboratoire agréé CI.">
+    <meta name="keywords" content="analyse chimie industrielle Abidjan, contrôle qualité peinture CI, COV métaux lourds laboratoire, analyse plastique caoutchouc Côte d'Ivoire">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.lpa-ci.com/laboratoire.html">
-    
+    <meta name="author" content="LPA — Laboratoire Privé d'Analyse">
+    <link rel="canonical" href="https://www.lpa-ci.com/chimie.html">
+    <meta http-equiv="Content-Language" content="fr">
+    <meta name="geo.region" content="CI">
+    <meta name="geo.placename" content="Abidjan">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.lpa-ci.com/laboratoire.html">
-    <meta property="og:title" content="Laboratoire d'Analyse LPA | Excellence Scientifique">
-    <meta property="og:description" content="Analyses certifiées : physicochimiques, microbiologiques, contrôle qualité. Laboratoire agréé avec équipements de pointe.">
-    <meta property="og:image" content="https://www.lpa-ci.com/assets/images/laboratoire-og.jpg">
-    
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    <meta name="theme-color" content="#6366F1">
-    
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
-          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-    <!-- Schema.org -->
+    <meta property="og:title" content="Chimie Industrielle — Analyses & Contrôle Qualité | LPA — Abidjan">
+    <meta property="og:description" content="Analyses chimiques industrielles : caractérisation, contaminants, COV, peintures, plastiques. LPA Abidjan.">
+    <meta property="og:url" content="https://www.lpa-ci.com/chimie.html">
+    <meta property="og:site_name" content="LPA — Laboratoire Privé d'Analyse">
+    <meta property="og:image" content="https://www.lpa-ci.com/LOGO LPA.jpg">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chimie Industrielle | LPA — Abidjan">
+    <meta name="twitter:description" content="Analyses chimiques industrielles certifiées ISO. LPA Abidjan.">
+    <meta name="twitter:image" content="https://www.lpa-ci.com/LOGO LPA.jpg">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Laboratory Analysis Services",
-      "name": "Laboratoire d'Analyse",
-      "description": "Analyses physicochimiques et microbiologiques pour contrôle qualité eau et aliments",
+      "name": "Analyses Chimie Industrielle",
+      "url": "https://www.lpa-ci.com/chimie.html",
+      "description": "Analyses chimiques industrielles : caractérisation de produits, contrôle peintures et plastiques, détection de contaminants et COV. LPA Abidjan.",
       "provider": {
-        "@type": "MedicalBusiness",
-        "@id": "https://www.lpa-ci.com/#organization"
+        "@type": "Organization",
+        "name": "LPA — Laboratoire Privé d'Analyse",
+        "url": "https://www.lpa-ci.com"
       },
-      "areaServed": "Côte d'Ivoire",
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": "https://www.lpa-ci.com/contact.html",
-        "servicePhone": "+225-07-07-20-16-96"
-      }
+      "areaServed": { "@type": "Country", "name": "Côte d'Ivoire" }
     }
     </script>
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
-        /* ==================== VARIABLES CSS ==================== */
         :root {
-            --primary: #0047AB;
-            --secondary: #FF6B35;
-            --accent: #00D9FF;
-            --success: #10B981;
-            --dark: #0F172A;
-            --gray-600: #4b5563;
-            --gray-300: #d1d5db;
-            --gray-100: #f3f4f6;
-            --light: #F8FAFC;
-            --white: #FFFFFF;
-            --lab-purple: #6366F1;
-            --lab-blue: #0078D4;
-            
-            /* Gradients spécifiques au labo */
-            --gradient-hero: linear-gradient(135deg, #6366F1 0%, #0078D4 50%, #0047AB 100%);
-            --gradient-card: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(0,120,212,0.05) 100%);
-            
-            --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
-            --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
-            --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
-            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            
-            --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            --radius-2xl: 1.5rem;
-            --radius-full: 9999px;
-        }
-        
-        /* ==================== RESET & BASE ==================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        /* ==================== BOUTON RETOUR ==================== */
-        .back-to-services {
-            position: fixed;
-            top: 100px;
-            left: 2rem;
-            z-index: 999;
-            animation: fadeInLeft 0.8s ease-out;
-        }
-        
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .btn-back {
-            background: white;
-            color: var(--lab-blue);
-            padding: 1rem 1.8rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition-base);
-            border: 2px solid transparent;
-        }
-        
-        .btn-back:hover {
-            background: var(--lab-blue);
-            color: white;
-            transform: translateX(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-back i {
-            transition: transform 0.3s ease;
-        }
-        
-        .btn-back:hover i {
-            transform: translateX(-3px);
-        }
-        
-        /* ==================== HEADER ==================== */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(0,71,171,0.1);
-            transition: var(--transition-base);
-        }
-        
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-        
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-hero);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 900;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .logo-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--primary);
-        }
-        
-        .nav-menu {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-            align-items: center;
-        }
-        
-        .nav-menu a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            position: relative;
-            transition: var(--transition-base);
-            padding: 0.5rem 0;
-        }
-        
-        .nav-menu a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(135deg, #FF6B35, #FF8C42);
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-        
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            color: var(--primary);
-        }
-        
-        .nav-menu a:hover::before,
-        .nav-menu a.active::before {
-            width: 100%;
-        }
-        
-        .header-cta {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        
-        .btn-header {
-            padding: 0.9rem 2rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition-bounce);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 0.95rem;
-        }
-        
-        .btn-header-primary {
-            background: linear-gradient(135deg, #FF6B35, #FF8C42);
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-        
-        .btn-header-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-        }
-        
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.6rem;
-            color: var(--primary);
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        /* ==================== HERO ==================== */
-        .service-hero {
-            position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            background: var(--gradient-hero);
-            padding-top: 120px;
-            padding-bottom: 80px;
-            overflow: hidden;
-        }
-        
-        .hero-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background-image: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 35px,
-                rgba(255,255,255,.1) 35px,
-                rgba(255,255,255,.1) 70px
-            );
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            text-align: center;
-            color: white;
-        }
-        
-        .service-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.7rem 1.5rem;
-            border-radius: var(--radius-full);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-        
-        .service-hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .service-hero p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            opacity: 0.95;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .hero-features {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1.2s ease-out;
-        }
-        
-        .hero-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem 1.5rem;
-            border-radius: var(--radius-full);
-        }
-        
-        .hero-feature i {
-            font-size: 1.5rem;
-        }
-        
-        /* ==================== SECTIONS ==================== */
-        .section {
-            padding: 6rem 2rem;
-        }
-        
-        .section-white {
-            background: white;
-        }
-        
-        .section-light {
-            background: var(--light);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-        
-        .section-tag {
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            background: var(--gradient-card);
-            color: var(--lab-purple);
-            border-radius: var(--radius-full);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-        
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .section-description {
-            font-size: 1.2rem;
-            color: var(--gray-600);
-            line-height: 1.8;
-        }
-        
-        /* ==================== ANALYSES GRID ==================== */
-        .analyses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .analysis-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius-2xl);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition-base);
-            border: 2px solid transparent;
-        }
-        
-        .analysis-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--lab-purple);
-        }
-        
-        .analysis-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: var(--radius-xl);
-            background: var(--gradient-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--lab-purple);
-            margin-bottom: 1.5rem;
-        }
-        
-        .analysis-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .analysis-card p {
-            color: var(--gray-600);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        
-        .analysis-list {
-            list-style: none;
-        }
-        
-        .analysis-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--gray-600);
-        }
-        
-        .analysis-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 700;
-        }
-        
-        /* ==================== CTA SECTION ==================== */
-        .cta-section {
-            background: var(--gradient-hero);
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
-        
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn-cta {
-            padding: 1.2rem 2.5rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.1rem;
-            transition: var(--transition-base);
-        }
-        
-        .btn-cta-white {
-            background: white;
-            color: var(--lab-purple);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .btn-cta-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-cta-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-cta-outline:hover {
-            background: white;
-            color: var(--lab-purple);
-        }
-        
-        /* ==================== FOOTER ==================== */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 2rem 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto 2rem;
-        }
-        
-        .footer-brand h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-description {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
-            max-width: 600px;
-        }
-        
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-        
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        /* ==================== SCROLL TO TOP ==================== */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-hero);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition-base);
-            z-index: 999;
-        }
-        
-        .scroll-top.visible {
-            display: flex;
-        }
-        
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        /* ==================== ANIMATIONS ==================== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* ==================== RESPONSIVE ==================== */
-        @media (max-width: 768px) {
-            .back-to-services {
-                top: 80px;
-                left: 1rem;
-            }
-            
-            .header-container {
-                padding: 1rem;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: white;
-                padding: 2rem;
-                box-shadow: var(--shadow-lg);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: var(--transition-base);
-                pointer-events: none;
-                gap: 1rem;
-            }
-            
-            .nav-menu.open {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: all;
-            }
-            
-            .service-hero {
-                min-height: 60vh;
-                padding-top: 100px;
-            }
-            
-            .hero-features {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .section {
-                padding: 4rem 1rem;
-            }
-            
-            .analyses-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-            }
-            
-            .btn-cta {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-        
-        /* ==================== ACCESSIBILITY ==================== */
-        *:focus-visible {
-            outline: 2px solid var(--lab-purple);
-            outline-offset: 2px;
+            --blue:#0047AB; --blue-dark:#003A75; --blue-mid:#0078D4;
+            --cyan:#00D9FF; --green:#8BC34A; --dark:#1A1A2E; --gray:#4B5563;
+            --light:#F4F7FB; --white:#FFFFFF;
+            --shadow-sm:0 2px 12px rgba(0,71,171,.08);
+            --shadow-md:0 8px 32px rgba(0,71,171,.13);
+            --t:all .4s cubic-bezier(.4,0,.2,1);
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'Inter',sans-serif;background:var(--white);color:var(--dark);line-height:1.7;overflow-x:hidden;}
+        img{display:block;max-width:100%;}
+        a{text-decoration:none;}
+
+        /* HERO */
+        .hero{background:linear-gradient(135deg,#1A1A2E 0%,#003A75 50%,#0047AB 100%);padding:4rem 2rem 5rem;position:relative;overflow:hidden;}
+        .hero::before{content:'';position:absolute;width:500px;height:500px;border:2px solid rgba(255,255,255,.06);border-radius:50%;top:-200px;right:-150px;}
+        .hero::after{content:'';position:absolute;width:300px;height:300px;border:2px solid rgba(255,255,255,.05);border-radius:50%;bottom:-120px;left:-80px;}
+        .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;}
+        .back-btn{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:white;padding:.6rem 1.4rem;border-radius:6px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;transition:var(--t);margin-bottom:2.5rem;}
+        .back-btn:hover{background:rgba(255,255,255,.22);transform:translateX(-3px);}
+        .hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:900;color:white;text-transform:uppercase;line-height:1;letter-spacing:-3px;margin-bottom:1.2rem;}
+        .hero h1 span{color:var(--cyan);}
+        .hero-sub{color:rgba(255,255,255,.7);font-size:1.05rem;max-width:600px;line-height:1.75;}
+        .hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);padding:.4rem 1rem;border-radius:4px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:1.5rem;}
+
+        /* INTRO BANNER */
+        .intro-banner{background:var(--light);border-bottom:1px solid rgba(0,71,171,.08);}
+        .intro-banner-inner{max-width:1200px;margin:0 auto;padding:2.5rem 2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;}
+        .ib-card{background:white;border-radius:12px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;box-shadow:var(--shadow-sm);transition:var(--t);}
+        .ib-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+        .ib-icon{width:44px;height:44px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;background:linear-gradient(135deg,var(--blue),var(--blue-mid));}
+        .ib-card h3{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:900;color:var(--blue-dark);text-transform:uppercase;letter-spacing:.3px;margin-bottom:.3rem;}
+        .ib-card p{font-size:.85rem;color:var(--gray);line-height:1.65;}
+
+        /* HELPERS */
+        .section-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--blue-mid);margin-bottom:.8rem;}
+        .section-label::before{content:'';display:block;width:24px;height:2px;background:var(--cyan);}
+        .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:var(--blue-dark);text-transform:uppercase;line-height:1.15;margin-bottom:1.2rem;}
+        .section-text{font-size:1rem;color:var(--gray);line-height:1.9;margin-bottom:1rem;}
+        .section-text strong{color:var(--blue);}
+
+        /* INTRO */
+        .intro-section{padding:5rem 0;background:var(--white);}
+        .intro-container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+
+        /* 4 BLOCS */
+        .analyses-section{padding:5rem 0;background:var(--light);}
+        .analyses-container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+        .analyses-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:2.5rem;}
+        .analyse-card{background:white;border-radius:16px;padding:2rem 1.8rem;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:var(--t);}
+        .analyse-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+        .analyse-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);}
+        .analyse-card:hover::before{transform:scaleX(1);}
+        .analyse-card:nth-child(2)::before{background:linear-gradient(90deg,#0078D4,#00D9FF);}
+        .analyse-card:nth-child(3)::before{background:linear-gradient(90deg,#8BC34A,#558B2F);}
+        .analyse-card:nth-child(4)::before{background:linear-gradient(90deg,#FF6B35,#F57C00);}
+        .card-head{display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem;}
+        .card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.2rem;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--blue-mid));}
+        .analyse-card:nth-child(2) .card-icon{background:linear-gradient(135deg,#0078D4,#00D9FF);}
+        .analyse-card:nth-child(3) .card-icon{background:linear-gradient(135deg,#8BC34A,#558B2F);}
+        .analyse-card:nth-child(4) .card-icon{background:linear-gradient(135deg,#FF6B35,#F57C00);}
+        .card-head h3{font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:900;color:var(--blue-dark);text-transform:uppercase;letter-spacing:.2px;}
+        .analyse-card > .card-intro{font-size:.9rem;color:var(--gray);line-height:1.75;margin-bottom:1.1rem;font-style:italic;}
+        .check-list{list-style:none;}
+        .check-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.9rem;color:var(--gray);line-height:1.6;padding:.35rem 0;border-bottom:1px solid rgba(0,71,171,.06);}
+        .check-list li:last-child{border-bottom:none;}
+        .check-list li i{font-size:.8rem;margin-top:.22rem;flex-shrink:0;color:var(--blue);}
+        .analyse-card:nth-child(2) .check-list li i{color:#0078D4;}
+        .analyse-card:nth-child(3) .check-list li i{color:#558B2F;}
+        .analyse-card:nth-child(4) .check-list li i{color:#F57C00;}
+
+        /* SECTEURS */
+        .secteurs-section{padding:5rem 0;background:var(--white);}
+        .secteurs-container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+        .secteurs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem;}
+        .secteur-card{background:var(--light);border-radius:12px;padding:1.8rem 1.4rem;text-align:center;border:1px solid rgba(0,71,171,.08);transition:var(--t);position:relative;overflow:hidden;}
+        .secteur-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));}
+        .secteur-card:nth-child(2)::after{background:linear-gradient(90deg,#0078D4,#00D9FF);}
+        .secteur-card:nth-child(3)::after{background:linear-gradient(90deg,#8BC34A,#558B2F);}
+        .secteur-card:nth-child(4)::after{background:linear-gradient(90deg,#FF6B35,#F57C00);}
+        .secteur-card:hover{background:white;box-shadow:var(--shadow-md);transform:translateY(-5px);}
+        .secteur-icon{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;margin:0 auto 1rem;background:linear-gradient(135deg,var(--blue),var(--blue-mid));}
+        .secteur-card:nth-child(2) .secteur-icon{background:linear-gradient(135deg,#0078D4,#00D9FF);}
+        .secteur-card:nth-child(3) .secteur-icon{background:linear-gradient(135deg,#8BC34A,#558B2F);}
+        .secteur-card:nth-child(4) .secteur-icon{background:linear-gradient(135deg,#FF6B35,#F57C00);}
+        .secteur-card h4{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:900;color:var(--blue-dark);text-transform:uppercase;letter-spacing:.3px;margin-bottom:.4rem;}
+        .secteur-card p{font-size:.82rem;color:var(--gray);line-height:1.65;}
+
+        /* ÉQUIPEMENTS */
+        .equip-section{padding:4.5rem 0;background:var(--light);}
+        .equip-container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+        .equip-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+        .equip-card{background:white;border-radius:14px;padding:1.8rem 1.5rem;box-shadow:var(--shadow-sm);display:flex;align-items:flex-start;gap:1rem;transition:var(--t);}
+        .equip-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+        .equip-icon{width:44px;height:44px;flex-shrink:0;border-radius:11px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;background:linear-gradient(135deg,var(--blue),var(--blue-mid));}
+        .equip-card:nth-child(2) .equip-icon{background:linear-gradient(135deg,#0078D4,#00D9FF);}
+        .equip-card:nth-child(3) .equip-icon{background:linear-gradient(135deg,#8BC34A,#558B2F);}
+        .equip-card h3{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:900;color:var(--blue-dark);text-transform:uppercase;letter-spacing:.2px;margin-bottom:.4rem;}
+        .equip-card p{font-size:.85rem;color:var(--gray);line-height:1.7;}
+
+        /* CTA */
+        .cta-section{background:linear-gradient(135deg,#1A1A2E,var(--blue-dark));padding:4rem 2rem;text-align:center;position:relative;overflow:hidden;}
+        .cta-section::before{content:'';position:absolute;width:400px;height:400px;background:rgba(255,255,255,.04);border-radius:50%;top:-150px;right:-100px;}
+        .cta-inner{position:relative;z-index:1;max-width:600px;margin:0 auto;}
+        .cta-inner h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:white;text-transform:uppercase;margin-bottom:.8rem;}
+        .cta-inner p{color:rgba(255,255,255,.75);font-size:1rem;margin-bottom:2rem;}
+        .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+        .cta-btn-primary{background:white;color:var(--blue);padding:.9rem 2.2rem;border-radius:8px;font-weight:800;font-size:.95rem;text-transform:uppercase;letter-spacing:.5px;transition:var(--t);}
+        .cta-btn-primary:hover{background:var(--light);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.2);}
+        .cta-btn-secondary{background:transparent;color:white;padding:.9rem 2.2rem;border-radius:8px;font-weight:700;font-size:.95rem;text-transform:uppercase;letter-spacing:.5px;border:2px solid rgba(255,255,255,.4);transition:var(--t);}
+        .cta-btn-secondary:hover{background:rgba(255,255,255,.1);border-color:white;transform:translateY(-3px);}
+
+        /* FOOTER */
+        footer{background:var(--dark);padding:3.5rem 0 0;}
+        .footer-content{max-width:1400px;margin:0 auto;padding:0 2rem 2.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:2.5rem;}
+        .footer-section h3{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:800;color:white;text-transform:uppercase;letter-spacing:1px;margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:2px solid var(--blue);display:inline-block;}
+        .footer-description{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.8;margin-bottom:1.2rem;}
+        .social-links{display:flex;gap:.7rem;}
+        .social-link{width:34px;height:34px;background:rgba(255,255,255,.1);border-radius:7px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;transition:var(--t);}
+        .social-link:hover{background:var(--blue);transform:translateY(-2px);}
+        .footer-links{list-style:none;}
+        .footer-links li{margin-bottom:.7rem;}
+        .footer-links a{color:rgba(255,255,255,.7);font-size:.9rem;transition:var(--t);}
+        .footer-links a:hover{color:white;padding-left:4px;}
+        .foot-contact{list-style:none;}
+        .foot-contact li{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:.9rem;color:rgba(255,255,255,.7);font-size:.9rem;}
+        .foot-contact i{color:var(--cyan);font-size:.9rem;margin-top:.2rem;}
+        .foot-contact a{color:rgba(255,255,255,.7);transition:var(--t);}
+        .foot-contact a:hover{color:white;}
+        .footer-bottom{max-width:1400px;margin:0 auto;padding:1.2rem 2rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+        .footer-bottom p{color:rgba(255,255,255,.5);font-size:.85rem;}
+
+        /* FLOTTANTS */
+        .whatsapp-btn{position:fixed;bottom:2rem;left:2rem;width:56px;height:56px;background:#25D366;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:998;transition:var(--t);animation:pulse 2s infinite;}
+        @keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4);transform:scale(1);}50%{box-shadow:0 4px 30px rgba(37,211,102,.7);transform:scale(1.05);}}
+        .whatsapp-btn:hover{transform:scale(1.1);}
+        .scroll-top{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;background:var(--blue);color:white;border:none;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:var(--shadow-md);transition:var(--t);z-index:999;}
+        .scroll-top.visible{display:flex;}
+        .scroll-top:hover{transform:translateY(-4px);background:var(--blue-dark);}
+
+        /* REVEAL */
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+        .reveal.visible{opacity:1;transform:none;}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .intro-banner-inner{grid-template-columns:1fr;}
+            .analyses-grid{grid-template-columns:1fr;}
+            .secteurs-grid{grid-template-columns:1fr 1fr;}
+            .equip-grid{grid-template-columns:1fr 1fr;}
+            .footer-content{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:768px){
+            .secteurs-grid{grid-template-columns:1fr 1fr;}
+            .equip-grid{grid-template-columns:1fr;}
+            .footer-content{grid-template-columns:1fr;}
+            .footer-bottom{flex-direction:column;text-align:center;}
+            .cta-btns{flex-direction:column;align-items:center;}
         }
     </style>
 </head>
 <body>
-    <!-- ==================== BOUTON RETOUR ==================== -->
-    <div class="back-to-services">
-        <a href="services.html" class="btn-back">
-            <i class="fas fa-arrow-left" aria-hidden="true"></i>
-            <span>Retour aux Services</span>
+
+<!-- HERO SIMPLE -->
+<section class="hero">
+    <div class="hero-inner">
+        <a href="services.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Retour aux Services
         </a>
+        <h1>Chimie<br><span>Indus</span>-<br>trielle</h1>
+        <p class="hero-sub">Caractérisation de produits, contrôle qualité, détection de contaminants et optimisation de formulations chimiques. Précision analytique au service de votre industrie.</p>
+        <div class="hero-tag"><i class="fas fa-flask"></i>&nbsp; Service LPA</div>
     </div>
+</section>
 
-    <!-- ==================== HEADER ==================== -->
-    <header id="header">
-        <div class="header-container">
-            <a href="index.html" class="logo-container" aria-label="LPA - Retour à l'accueil">
-                <div class="logo-icon" aria-hidden="true">LPA</div>
-                <span class="logo-text">LPA</span>
-            </a>
-            
-            <nav role="navigation" aria-label="Navigation principale">
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">À Propos</a></li>
-                    <li><a href="services.html" class="active">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+<!-- INTRO BANNER -->
+<div class="intro-banner">
+    <div class="intro-banner-inner">
+        <div class="ib-card reveal">
+            <div class="ib-icon"><i class="fas fa-cogs"></i></div>
+            <div>
+                <h3>Précision Analytique</h3>
+                <p>Instruments calibrés de dernière génération pour des mesures physico-chimiques fiables et reproductibles.</p>
+            </div>
+        </div>
+        <div class="ib-card reveal" style="transition-delay:.06s">
+            <div class="ib-icon" style="background:linear-gradient(135deg,#0078D4,#00D9FF)"><i class="fas fa-certificate"></i></div>
+            <div>
+                <h3>Conformité aux Normes</h3>
+                <p>Analyses réalisées selon les normes ISO et réglementations nationales et standards internationaux en vigueur.</p>
+            </div>
+        </div>
+        <div class="ib-card reveal" style="transition-delay:.12s">
+            <div class="ib-icon" style="background:linear-gradient(135deg,#8BC34A,#558B2F)"><i class="fas fa-lightbulb"></i></div>
+            <div>
+                <h3>Conseil & Optimisation</h3>
+                <p>Nos experts chimistes vous accompagnent pour améliorer vos formulations et résoudre vos problèmes de production.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- INTRO TEXTE -->
+<section class="intro-section">
+    <div class="intro-container reveal">
+        <div class="section-label"><i class="fas fa-atom"></i> Notre expertise</div>
+        <h2 class="section-title">Maîtrise et Performance :<br>L'Expertise Chimique au Service de Votre Innovation</h2>
+        <p class="section-text">Dans un secteur où la <strong>précision est primordiale</strong>, la qualité de vos produits chimiques ne peut pas être laissée au hasard. LPA vous propose des services d'analyse de pointe pour maîtriser la qualité et la performance de vos produits.</p>
+        <p class="section-text">De la <strong>matière première au produit fini</strong>, nous intervenons à chaque étape critique de votre chaîne industrielle : caractérisation, contrôle qualité, détection de contaminants et <strong>optimisation de formulations</strong> chimiques.</p>
+    </div>
+</section>
+
+<!-- 4 BLOCS -->
+<section class="analyses-section">
+    <div class="analyses-container">
+        <div class="reveal">
+            <div class="section-label"><i class="fas fa-flask"></i> Nos analyses détaillées</div>
+            <h2 class="section-title">Des Analyses Critiques pour l'Industrie</h2>
+        </div>
+        <div class="analyses-grid">
+
+            <div class="analyse-card reveal" style="transition-delay:.05s">
+                <div class="card-head">
+                    <div class="card-icon"><i class="fas fa-vial"></i></div>
+                    <h3>Caractérisation de Produits</h3>
+                </div>
+                <p class="card-intro">Détermination des propriétés physiques et chimiques pour garantir la conformité de vos formulations.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-flask"></i>pH, viscosité et densité</li>
+                    <li><i class="fas fa-flask"></i>Point d'éclair et température de fusion</li>
+                    <li><i class="fas fa-flask"></i>Composition élémentaire</li>
+                    <li><i class="fas fa-flask"></i>Essais de performance et de stabilité</li>
                 </ul>
-            </nav>
-            
-            <div class="header-cta">
-                <a href="contact.html" class="btn-header btn-header-primary">
-                    <i class="fas fa-envelope" aria-hidden="true"></i> Devis Gratuit
-                </a>
-                <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </button>
             </div>
-        </div>
-    </header>
 
-    <!-- ==================== HERO ==================== -->
-    <section class="service-hero" role="banner">
-        <div class="hero-pattern" aria-hidden="true"></div>
-        
-        <div class="hero-content">
-            <div class="service-badge">
-                <i class="fas fa-flask" aria-hidden="true"></i>
-                <span>Service Premium</span>
-            </div>
-            
-            <h1>Expertise et Conseil</h1>
-            <p>
-                Consultance technique, développement de méthodes analytiques spécifiques et assistance 
-                pour la mise en place de démarches qualité (ISO/CEI 17025). Votre partenaire expertise.
-            </p>
-            
-            <div class="hero-features">
-                <div class="hero-feature">
-                    <i class="fas fa-check-circle" aria-hidden="true"></i>
-                    <span>Experts Certifiés</span>
+            <div class="analyse-card reveal" style="transition-delay:.1s">
+                <div class="card-head">
+                    <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>Contrôle de Conformité & Qualité</h3>
                 </div>
-                <div class="hero-feature">
-                    <i class="fas fa-certificate" aria-hidden="true"></i>
-                    <span>Accompagnement ISO</span>
+                <p class="card-intro">Vérification que vos produits respectent les normes et spécifications techniques du secteur.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-flask"></i>Pureté des matières premières</li>
+                    <li><i class="fas fa-flask"></i>Qualité des peintures, vernis et revêtements</li>
+                    <li><i class="fas fa-flask"></i>Validation plastique et caoutchouc</li>
+                    <li><i class="fas fa-flask"></i>Application des normes ISO en vigueur</li>
+                </ul>
+            </div>
+
+            <div class="analyse-card reveal" style="transition-delay:.15s">
+                <div class="card-head">
+                    <div class="card-icon"><i class="fas fa-biohazard"></i></div>
+                    <h3>Détection & Quantification de Contaminants</h3>
                 </div>
-                <div class="hero-feature">
-                    <i class="fas fa-user-tie" aria-hidden="true"></i>
-                    <span>Consultance Sur Mesure</span>
+                <p class="card-intro">Identification des impuretés pouvant compromettre la sécurité ou la qualité de vos produits.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-flask"></i>Métaux lourds et résidus toxiques</li>
+                    <li><i class="fas fa-flask"></i>COV — Composés Organiques Volatils</li>
+                    <li><i class="fas fa-flask"></i>Solvants et résidus de production</li>
+                    <li><i class="fas fa-flask"></i>Spectrophotomètre DR 1900 (Hach)</li>
+                </ul>
+            </div>
+
+            <div class="analyse-card reveal" style="transition-delay:.2s">
+                <div class="card-head">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Diagnostic & Optimisation</h3>
+                </div>
+                <p class="card-intro">Amélioration de vos processus industriels et résolution des problèmes de production.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-flask"></i>Analyse des défaillances et causes profondes</li>
+                    <li><i class="fas fa-flask"></i>Optimisation des formulations chimiques</li>
+                    <li><i class="fas fa-flask"></i>Durabilité et résistance des matériaux</li>
+                    <li><i class="fas fa-flask"></i>Conseil pour la certification qualité</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SECTEURS -->
+<section class="secteurs-section">
+    <div class="secteurs-container">
+        <div class="reveal">
+            <div class="section-label"><i class="fas fa-industry"></i> Champs d'application</div>
+            <h2 class="section-title">Secteurs Industriels Couverts</h2>
+        </div>
+        <div class="secteurs-grid">
+            <div class="secteur-card reveal" style="transition-delay:.05s">
+                <div class="secteur-icon"><i class="fas fa-paint-roller"></i></div>
+                <h4>Peintures & Revêtements</h4>
+                <p>Contrôle des formulations, viscosité, adhérence, tenue UV et conformité des peintures industrielles.</p>
+            </div>
+            <div class="secteur-card reveal" style="transition-delay:.1s">
+                <div class="secteur-icon"><i class="fas fa-cubes"></i></div>
+                <h4>Plastique & Caoutchouc</h4>
+                <p>Analyse des polymères, additifs, résistance thermique et mécanique des matières plastiques et élastomères.</p>
+            </div>
+            <div class="secteur-card reveal" style="transition-delay:.15s">
+                <div class="secteur-icon"><i class="fas fa-oil-can"></i></div>
+                <h4>Lubrifiants & Huiles</h4>
+                <p>Caractérisation des huiles industrielles, viscosité cinématique, point d'éclair et détection de contaminations.</p>
+            </div>
+            <div class="secteur-card reveal" style="transition-delay:.2s">
+                <div class="secteur-icon"><i class="fas fa-recycle"></i></div>
+                <h4>Déchets & Environnement</h4>
+                <p>Analyse des effluents industriels, caractérisation des déchets chimiques avant traitement ou rejet conforme.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ÉQUIPEMENTS -->
+<section class="equip-section">
+    <div class="equip-container">
+        <div class="reveal">
+            <div class="section-label"><i class="fas fa-tools"></i> Nos instruments</div>
+            <h2 class="section-title">Équipements Analytiques Clés</h2>
+        </div>
+        <div class="equip-grid">
+            <div class="equip-card reveal" style="transition-delay:.05s">
+                <div class="equip-icon"><i class="fas fa-wave-square"></i></div>
+                <div>
+                    <h3>Spectrophotomètre DR 1900</h3>
+                    <p>Analyse colorimétrique pour la détection et quantification précise des contaminants et polluants chimiques.</p>
+                </div>
+            </div>
+            <div class="equip-card reveal" style="transition-delay:.1s">
+                <div class="equip-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <div>
+                    <h3>Viscosimètre & Densimètre</h3>
+                    <p>Mesure précise de la viscosité dynamique, cinématique et de la densité des fluides industriels.</p>
+                </div>
+            </div>
+            <div class="equip-card reveal" style="transition-delay:.15s">
+                <div class="equip-icon"><i class="fas fa-atom"></i></div>
+                <div>
+                    <h3>HPLC / Chromatographe</h3>
+                    <p>Séparation et identification des composés organiques, solvants et résidus dans vos matrices chimiques.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- ==================== ANALYSES SECTION ==================== -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Nos Expertises</span>
-                <h2 class="section-title">Types d'Analyses Proposées</h2>
-                <p class="section-description">
-                    Un large éventail d'analyses pour répondre à tous vos besoins de contrôle qualité 
-                    et de conformité réglementaire.
-                </p>
-            </div>
-            
-            <div class="analyses-grid">
-                <!-- Analyses Physicochimiques -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <h3>Analyses Physicochimiques</h3>
-                    <p>
-                        Détermination précise des caractéristiques physiques et chimiques de vos échantillons.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>pH, conductivité, turbidité</li>
-                        <li>Métaux lourds (Pb, Cd, Hg, As)</li>
-                        <li>Ions majeurs (chlorures, sulfates)</li>
-                        <li>Matières organiques (DCO, DBO5)</li>
-                        <li>Résidus secs et MES</li>
-                        <li>Composition nutritionnelle</li>
-                    </ul>
-                </article>
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-inner reveal">
+        <h2>Un Partenariat d'Analyse Chimique</h2>
+        <p>Nous validons vos processus, optimisons la qualité de vos produits et vous accompagnons dans le respect des standards les plus exigeants de l'industrie chimique.</p>
+        <div class="cta-btns">
+            <a href="contact.html" class="cta-btn-primary">Demander un Devis</a>
+            <a href="services.html" class="cta-btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Retour aux Services</a>
+        </div>
+    </div>
+</section>
 
-                <!-- Analyses Microbiologiques -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-bacteria"></i>
-                    </div>
-                    <h3>Analyses Microbiologiques</h3>
-                    <p>
-                        Détection et dénombrement des micro-organismes pour garantir la sécurité sanitaire.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Coliformes totaux et fécaux</li>
-                        <li>E. coli, Salmonella</li>
-                        <li>Staphylocoques, Streptocoques</li>
-                        <li>Levures et moisissures</li>
-                        <li>Bactéries aérobies totales</li>
-                        <li>Tests de stérilité</li>
-                    </ul>
-                </article>
-
-                <!-- Contrôle Conformité -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Contrôle de Conformité</h3>
-                    <p>
-                        Vérification de la conformité aux normes nationales et internationales en vigueur.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Normes OMS eau potable</li>
-                        <li>Normes Codex Alimentarius</li>
-                        <li>Normes ISO 17025</li>
-                        <li>Réglementation ivoirienne</li>
-                        <li>Standards européens</li>
-                        <li>Certification produits</li>
-                    </ul>
-                </article>
-
-                <!-- Analyses Environnementales -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Analyses Environnementales</h3>
-                    <p>
-                        Évaluation de la qualité environnementale pour une gestion durable des ressources.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Qualité des sols</li>
-                        <li>Analyse des eaux usées</li>
-                        <li>Pollution atmosphérique</li>
-                        <li>Contamination des sites</li>
-                        <li>Études d'impact</li>
-                        <li>Diagnostic environnemental</li>
-                    </ul>
-                </article>
-
-                <!-- Analyses Alimentaires -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3>Analyses Alimentaires</h3>
-                    <p>
-                        Contrôle qualité complet des produits alimentaires et boissons.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Composition nutritionnelle</li>
-                        <li>Additifs alimentaires</li>
-                        <li>Contaminants chimiques</li>
-                        <li>Pesticides et résidus</li>
-                        <li>Allergènes</li>
-                        <li>Tests organoleptiques</li>
-                    </ul>
-                </article>
-
-                <!-- Analyses Rapides -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Analyses Express</h3>
-                    <p>
-                        Tests rapides sur site pour des résultats immédiats en cas d'urgence.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Tests de terrain</li>
-                        <li>Kits de détection rapide</li>
-                        <li>Résultats sous 2-4h</li>
-                        <li>Intervention d'urgence</li>
-                        <li>Validation in situ</li>
-                        <li>Screening préliminaire</li>
-                    </ul>
-                </article>
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>LPA</h3>
+            <p class="footer-description">Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. Votre partenaire de confiance pour la conformité.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-    </section>
-
-    <!-- ==================== CTA SECTION ==================== -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Besoin d'Analyses Certifiées ?</h2>
-            <p>
-                Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques 
-                et obtenir un devis personnalisé gratuit.
-            </p>
-            <div class="cta-buttons">
-                <a href="contact.html" class="btn-cta btn-cta-white">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <span>Demander un Devis</span>
-                </a>
-                <a href="tel:+22507072016 96" class="btn-cta btn-cta-outline">
-                    <i class="fas fa-phone" aria-hidden="true"></i>
-                    <span>07 07 20 16 96</span>
-                </a>
-            </div>
+        <div class="footer-section">
+            <h3>Navigation</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
-    </section>
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>LPA</h3>
-                <p class="footer-description">
-                    Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. 
-                    Votre partenaire de confiance pour la conformité et l'excellence.
-                </p>
-            </div>
+        <div class="footer-section">
+            <h3>Nos Services</h3>
+            <ul class="footer-links">
+                <li><a href="agro-alimentaire.html">Agroalimentaire</a></li>
+                <li><a href="analyse-eau.html">Analyse de l'Eau</a></li>
+                <li><a href="prelevement.html">Prélèvements</a></li>
+                <li><a href="chimie.html">Chimie Industrielle</a></li>
+                <li><a href="laboratoire.html">Laboratoire Général</a></li>
+            </ul>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 LPA - Laboratoire Privé d'Analyse. Tous droits réservés.</p>
-            <p>Agrément N° 012-MCI/CAB du 27-01-2021</p>
-            <p>Site développé par <strong>Jonathan N'GUETTIA</strong></p>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <ul class="foot-contact">
+                <li><i class="fas fa-map-marker-alt"></i><span>Abidjan, Côte d'Ivoire</span></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+2250787652368">+225 07 87 65 23 68</a></li>
+                <li><i class="fas fa-envelope"></i><a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></li>
+                <li><i class="fas fa-clock"></i><span>Lun–Ven : 8h–17h30</span></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 LPA — Laboratoire Privé d'Analyse. Tous droits réservés.</p>
+        <p> <strong></strong></p>
+    </div>
+</footer>
 
-    <!-- ==================== SCROLL TO TOP ==================== -->
-    <button class="scroll-top" id="scroll-top" aria-label="Retour en haut">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </button>
+<a href="https://wa.me/2250787652368" class="whatsapp-btn" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<button class="scroll-top" id="scroll-top"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- ==================== JAVASCRIPT ==================== -->
-    <script>
-        'use strict';
-        
-        const CONFIG = {
-            scrollThreshold: 100,
-            debounceDelay: 250
-        };
-        
-        const debounce = (func, delay) => {
-            let timeoutId;
-            return function (...args) {
-                clearTimeout(timeoutId);
-                timeoutId = setTimeout(() => func.apply(this, args), delay);
-            };
-        };
-        
-        const header = document.getElementById('header');
-        const scrollTop = document.getElementById('scroll-top');
-        
-        window.addEventListener('scroll', debounce(() => {
-            if (window.scrollY > CONFIG.scrollThreshold) {
-                header.classList.add('scrolled');
-                scrollTop.classList.add('visible');
-            } else {
-                header.classList.remove('scrolled');
-                scrollTop.classList.remove('visible');
-            }
-        }, CONFIG.debounceDelay));
-        
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        
-        hamburger.addEventListener('click', function() {
-            const icon = this.querySelector('i');
-            const isOpen = navMenu.classList.contains('open');
-            navMenu.classList.toggle('open');
-            this.setAttribute('aria-expanded', !isOpen);
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-        
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu.classList.contains('open')) {
-                    navMenu.classList.remove('open');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                    const icon = hamburger.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        });
-        
-        scrollTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', debounce(revealOnScroll, CONFIG.debounceDelay));
-        window.addEventListener('load', revealOnScroll);
-        
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-            
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
-        
-        window.addEventListener('error', (e) => {
-            console.error('Erreur JavaScript:', e.error);
-        });
-        
-        console.log('✅ Page Laboratoire LPA chargée');
-    </script>
+<script>
+const scrollTop = document.getElementById('scroll-top');
+scrollTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+window.addEventListener('scroll', () => scrollTop.classList.toggle('visible', window.scrollY > 100));
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

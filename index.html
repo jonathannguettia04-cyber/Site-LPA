@@ -1,116 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Meta tags de base -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- ==================== SÉCURITÉ HTTP HEADERS ==================== -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-        img-src 'self' data: https:;
-        connect-src 'self';
-        frame-ancestors 'none';
-        base-uri 'self';
-        form-action 'self';
-    ">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    
-    <!-- ==================== SEO ==================== -->
+    <!-- SEO -->
     <title>LPA - Laboratoire Privé d'Analyse | Contrôle Qualité Certifié Côte d'Ivoire</title>
-    <meta name="description" content="LPA, laboratoire agréé en Côte d'Ivoire. Analyses physicochimiques, microbiologiques, traitement des eaux. Résultats rapides et fiables. Devis gratuit sous 24h.">
-    <meta name="keywords" content="laboratoire analyse Abidjan, LPA Côte d'Ivoire, analyses eau, contrôle qualité, laboratoire agréé CI, analyses microbiologiques">
+    <meta name="description" content="LPA, laboratoire agréé N°012-MCI/CAB en Côte d'Ivoire. Analyses physicochimiques, microbiologiques et traitement des eaux à Abidjan. Résultats rapides et fiables.">
+    <meta name="keywords" content="laboratoire analyse Abidjan, LPA Côte d'Ivoire, analyses eau, contrôle qualité, analyses microbiologiques, traitement eau potable Abidjan">
     <meta name="author" content="LPA - Laboratoire Privé d'Analyse">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.lpa-ci.com/">
-    
-    <!-- Open Graph -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://lpa-laboratoire.ci/">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.lpa-ci.com/">
-    <meta property="og:title" content="Laboratoire d'Analyse LPA | Excellence Scientifique">
-    <meta property="og:description" content="Analyses certifiées : physicochimiques, microbiologiques, contrôle qualité. Laboratoire agréé avec équipements de pointe.">
-    <meta property="og:image" content="https://www.lpa-ci.com/assets/images/laboratoire-og.jpg">
-    
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    <meta name="theme-color" content="#6366F1">
-    
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta property="og:url" content="https://lpa-laboratoire.ci/">
+    <meta property="og:title" content="LPA - Laboratoire Privé d'Analyse | Côte d'Ivoire">
+    <meta property="og:description" content="Laboratoire agréé N°012-MCI/CAB à Abidjan. Analyses physicochimiques, microbiologiques, traitement des eaux.">
+    <meta property="og:image" content="https://lpa-laboratoire.ci/Equipe%20LPA.jpeg">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:site_name" content="LPA Laboratoire Privé d'Analyse">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LPA - Laboratoire Privé d'Analyse | Côte d'Ivoire">
+    <meta name="twitter:description" content="Laboratoire agréé à Abidjan. Analyses eau, agroalimentaire, microbiologie.">
+    <meta name="twitter:image" content="https://lpa-laboratoire.ci/Equipe%20LPA.jpeg">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"LPA - Laboratoire Privé d'Analyse","url":"https://lpa-laboratoire.ci/","telephone":"+22507876523","address":{"@type":"PostalAddress","addressLocality":"Abidjan","addressCountry":"CI"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"12:00"}]}</script>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
-          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Laboratory Analysis Services",
-      "name": "Laboratoire d'Analyse",
-      "description": "Analyses physicochimiques et microbiologiques pour contrôle qualité eau et aliments",
-      "provider": {
-        "@type": "MedicalBusiness",
-        "@id": "https://www.lpa-ci.com/#organization"
-      },
-      "areaServed": "Côte d'Ivoire",
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": "https://www.lpa-ci.com/contact.html",
-        "servicePhone": "+225-07-07-20-16-96"
-      }
-    }
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
-        /* ==================== VARIABLES CSS ==================== */
+        /* ==================== VARIABLES ==================== */
         :root {
-            --primary: #0047AB;
-            --secondary: #FF6B35;
-            --accent: #00D9FF;
-            --success: #10B981;
-            --dark: #0F172A;
-            --gray-600: #4b5563;
-            --gray-300: #d1d5db;
-            --gray-100: #f3f4f6;
-            --gray-400: #9ca3af;
+            --primary-blue: #0047AB;
+            --secondary-blue: #0078D4;
+            --accent-cyan: #00D9FF;
+            --accent-green: #8BC34A;
+            --dark-blue: #003A75;
+            --dark: #1A1A2E;
+            --gray-600: #4B5563;
+            --gray-300: #D1D5DB;
             --light: #F8FAFC;
             --white: #FFFFFF;
-            --lab-purple: #6366F1;
-            --lab-blue: #0078D4;
-            
-            /* Gradients spécifiques au labo */
-            --gradient-hero: linear-gradient(135deg, #6366F1 0%, #0078D4 50%, #0047AB 100%);
-            --gradient-card: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(0,120,212,0.05) 100%);
             
             --shadow-sm: 0 2px 10px rgba(0,71,171,0.08);
             --shadow-md: 0 8px 30px rgba(0,71,171,0.12);
             --shadow-lg: 0 20px 60px rgba(0,71,171,0.15);
-            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             
-            --transition-base: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            --radius-2xl: 1.5rem;
-            --radius-full: 9999px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        /* ==================== RESET & BASE ==================== */
+        /* ==================== RESET ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -124,62 +69,10 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--light);
+            background: var(--white);
             color: var(--dark);
             line-height: 1.7;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        /* ==================== BOUTON RETOUR ==================== */
-        .back-to-services {
-            position: fixed;
-            top: 100px;
-            left: 2rem;
-            z-index: 999;
-            animation: fadeInLeft 0.8s ease-out;
-        }
-        
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .btn-back {
-            background: white;
-            color: var(--lab-blue);
-            padding: 1rem 1.8rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition-base);
-            border: 2px solid transparent;
-        }
-        
-        .btn-back:hover {
-            background: var(--lab-blue);
-            color: white;
-            transform: translateX(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-back i {
-            transition: transform 0.3s ease;
-        }
-        
-        .btn-back:hover i {
-            transform: translateX(-3px);
         }
         
         /* ==================== HEADER ==================== */
@@ -189,123 +82,113 @@
             left: 0;
             width: 100%;
             z-index: 9999;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-bottom: 1px solid rgba(0,71,171,0.1);
-            transition: var(--transition-base);
-        }
-        
-        header.scrolled {
             background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,71,171,0.1);
+            box-shadow: var(--shadow-sm);
         }
         
         .header-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        .logo-container {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             text-decoration: none;
-            transition: var(--transition-base);
-        }
-        
-        .logo-container:hover {
-            transform: scale(1.05);
         }
         
         .logo-icon {
             width: 50px;
             height: 50px;
-            border-radius: var(--radius-xl);
-            background: var(--gradient-hero);
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 900;
             font-size: 1.3rem;
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .logo-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.6rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
             font-weight: 900;
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-blue);
         }
         
-        .nav-menu {
+        nav ul {
             display: flex;
             list-style: none;
             gap: 2.5rem;
             align-items: center;
         }
         
-        .nav-menu a {
+        nav a {
             color: var(--dark);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: var(--transition-base);
-            position: relative;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
         }
         
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--lab-purple);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-menu a:hover::after,
-        .nav-menu a.active::after {
-            width: 100%;
+        nav a:hover,
+        nav a.active {
+            color: var(--primary-blue);
         }
         
         .header-cta {
             display: flex;
-            align-items: center;
             gap: 1rem;
+            align-items: center;
         }
         
-        .btn-header {
-            padding: 0.8rem 1.6rem;
-            border-radius: var(--radius-full);
+        .btn-contact {
+            background: var(--accent-green);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
             font-weight: 700;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            transition: var(--transition-base);
-            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
         }
         
-        .btn-header-primary {
-            background: var(--lab-purple);
-            color: white;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-        }
-        
-        .btn-header-primary:hover {
-            background: var(--lab-blue);
+        .btn-contact:hover {
+            background: #7CB342;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-fb {
+            width: 40px;
+            height: 40px;
+            background: #E8EAF6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .btn-fb:hover {
+            background: var(--primary-blue);
+            color: white;
         }
         
         .hamburger {
@@ -315,612 +198,359 @@
             font-size: 1.5rem;
             color: var(--dark);
             cursor: pointer;
-            padding: 0.5rem;
         }
         
-        /* ==================== HERO SECTION MODERNE ==================== */
-        .service-hero {
-            min-height: 90vh;
-            background: linear-gradient(135deg, #E0F2FE 0%, #DBEAFE 50%, #E0E7FF 100%);
-            padding-top: 100px;
-            padding-bottom: 4rem;
+        /* ==================== HERO SECTION ==================== */
+        .hero {
             position: relative;
+            height: 100vh;
+            min-height: 700px;
+            background: url('Equipe LPA.jpeg') center/cover no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
         
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            min-height: 80vh;
-        }
-        
-        .hero-left {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .service-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--radius-full);
-            margin-bottom: 2rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--lab-purple);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-        
-        .hero-left h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            color: var(--dark);
-        }
-        
-        .hero-highlight {
-            color: var(--lab-purple);
-        }
-        
-        .hero-highlight-yellow {
-            color: #F59E0B;
-        }
-        
-        .hero-left p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--gray-600);
-            margin-bottom: 2.5rem;
-            max-width: 550px;
-        }
-        
-        .hero-cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn-hero-primary {
-            background: var(--lab-purple);
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.1rem;
-            transition: var(--transition-base);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-        }
-        
-        .btn-hero-primary:hover {
-            background: var(--lab-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.4);
-        }
-        
-        .btn-hero-secondary {
-            background: white;
-            color: var(--lab-purple);
-            padding: 1.2rem 2.5rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.1rem;
-            transition: var(--transition-base);
-            border: 2px solid var(--lab-purple);
-        }
-        
-        .btn-hero-secondary:hover {
-            background: var(--lab-purple);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .hero-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-        
-        .hero-feature {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: white;
-            padding: 1.2rem 1.5rem;
-            border-radius: var(--radius-xl);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            transition: var(--transition-base);
-        }
-        
-        .hero-feature:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        
-        .hero-feature-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: var(--radius-lg);
-            background: var(--gradient-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--lab-purple);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .hero-feature-text {
-            flex: 1;
-        }
-        
-        .hero-feature-text h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.2rem;
-        }
-        
-        .hero-feature-text p {
-            font-size: 0.85rem;
-            color: var(--gray-600);
-            margin: 0;
-        }
-        
-        .hero-right {
-            position: relative;
-            height: 100%;
-            min-height: 500px;
-        }
-        
-        .hero-image-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: var(--radius-2xl);
-        }
-        
-        .hero-floating-card {
-            position: absolute;
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--radius-xl);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            animation: floatAnimation 3s ease-in-out infinite;
-        }
-        
-        @keyframes floatAnimation {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .floating-card-1 {
-            top: 10%;
-            right: -10%;
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            color: white;
-        }
-        
-        .floating-card-2 {
-            bottom: 10%;
-            left: -10%;
-            animation-delay: 1s;
-        }
-        
-        .floating-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: var(--radius-lg);
-            background: rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-        
-        .floating-card-2 .floating-icon {
-            background: var(--gradient-card);
-            color: var(--lab-purple);
-        }
-        
-        .floating-card-content h4 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-        
-        .floating-card-content p {
-            font-size: 0.8rem;
-            margin: 0;
-            opacity: 0.9;
-        }
-        
-        .floating-card-2 .floating-card-content h4 {
-            color: var(--dark);
-        }
-        
-        .floating-card-2 .floating-card-content p {
-            color: var(--gray-600);
-        }
-        
-        /* ==================== SECTIONS ==================== */
-        .section {
-            padding: 6rem 2rem;
-        }
-        
-        .section-white {
-            background: white;
-        }
-        
-        .section-light {
-            background: var(--light);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-        
-        .section-tag {
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            background: var(--gradient-card);
-            color: var(--lab-purple);
-            border-radius: var(--radius-full);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            background: var(--gradient-card);
-            color: var(--lab-purple);
-            border-radius: var(--radius-full);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-        
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .section-description {
-            font-size: 1.2rem;
-            color: var(--gray-600);
-            line-height: 1.8;
-        }
-        
-        /* ==================== ANALYSES GRID ==================== */
-        .analyses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .analysis-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius-2xl);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition-base);
-            border: 2px solid transparent;
-        }
-        
-        .analysis-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--lab-purple);
-        }
-        
-        .analysis-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: var(--radius-xl);
-            background: var(--gradient-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--lab-purple);
-            margin-bottom: 1.5rem;
-        }
-        
-        .analysis-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .analysis-card p {
-            color: var(--gray-600);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        
-        .analysis-list {
-            list-style: none;
-        }
-        
-        .analysis-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--gray-600);
-        }
-        
-        .analysis-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 700;
-        }
-
-        /* ==================== TESTIMONIALS SECTION ==================== */
-        .testimonials {
-            background: var(--light);
-            padding: 6rem 2rem;
-        }
-        
-        .testimonials-slider {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial-card {
-            background: white;
-            padding: 3rem;
-            border-radius: var(--radius-2xl);
-            box-shadow: var(--shadow-lg);
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .testimonial-card.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .testimonial-content {
-            margin-bottom: 2rem;
-        }
-        
-        .quote-icon {
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.15;
-            line-height: 1;
-            margin-bottom: 1rem;
-            font-family: Georgia, serif;
-        }
-        
-        .testimonial-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--gray-600);
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--light);
-        }
-        
-        .author-avatar {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: var(--gradient-hero);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.6rem;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        
-        .author-info h4 {
-            color: var(--dark);
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            font-weight: 700;
-        }
-        
-        .author-info p {
-            color: var(--gray-600);
-            font-size: 0.95rem;
-            margin: 0;
-        }
-        
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 3rem;
-        }
-        
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--gray-300);
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-dot:hover {
-            background: var(--gray-400);
-            transform: scale(1.2);
-        }
-        
-        .testimonial-dot.active {
-            background: var(--primary);
-            width: 40px;
-            border-radius: var(--radius-full);
-        }
-        
-        /* ==================== CTA SECTION ==================== */
-        .cta-section {
-            background: var(--gradient-hero);
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
+            background: linear-gradient(135deg, rgba(0,0,0,0.70) 0%, rgba(20,20,20,0.55) 100%);
         }
         
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-                transform: scale(1);
-            }
-            50% {
-                box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
-                transform: scale(1.05);
-            }
-        }
-        
-        .whatsapp-button:hover {
-            transform: scale(1.1) !important;
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6) !important;
-        }
-        
-        .cta-content {
+        .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+        
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content {
+            animation: heroFadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-size: 0.85rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* ==================== MESSAGE DIRECTEUR ==================== */
+        .message-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .container {
+            max-width: 1400px;
             margin: 0 auto;
         }
         
-        .cta-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
+        .message-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .message-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .message-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .message-img:first-child {
+            grid-column: 1 / -1;
+            height: 350px;
+        }
+        
+        .message-content h2 {
+            font-family: 'Montserrat', sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 900;
-            color: white;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        .message-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--gray-600);
             margin-bottom: 1.5rem;
         }
         
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
+        /* ==================== COMPETENCES SECTION ==================== */
+        .competences-section {
+            padding: 6rem 2rem;
+            background: white;
         }
         
-        .cta-buttons {
+        .competences-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .competences-title {
+            position: sticky;
+            top: 120px;
+        }
+        
+        .competences-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--dark-blue);
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        
+        .competences-list {
+            list-style: none;
+        }
+        
+        .competence-item {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--gray-300);
         }
         
-        .btn-cta {
-            padding: 1.2rem 2.5rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
+        .competence-item:last-child {
+            border-bottom: none;
+        }
+        
+        .competence-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.3rem;
+        }
+        
+        .competence-icon i {
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+        }
+        
+        .competence-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* ==================== ENGAGEMENT SECTION ==================== */
+        .engagement-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .engagement-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .engagement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .engagement-card.primary {
+            background: var(--accent-cyan);
+            color: white;
+        }
+        
+        .engagement-card.secondary {
+            background: var(--dark-blue);
+            color: white;
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .engagement-card:not(.primary):not(.secondary) .card-icon {
+            background: rgba(0,71,171,0.1);
+            color: var(--primary-blue);
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .card-list {
+            list-style: none;
+        }
+        
+        .card-list li {
+            padding: 0.7rem 0;
+            display: flex;
             align-items: center;
             gap: 0.8rem;
-            font-size: 1.1rem;
-            transition: var(--transition-base);
         }
         
-        .btn-cta-white {
+        .card-list li::before {
+            content: '✓';
+            font-weight: 700;
+            color: inherit;
+        }
+        
+        /* ==================== HORAIRES SECTION ==================== */
+        .horaires-section {
+            padding: 6rem 2rem;
             background: white;
-            color: var(--lab-purple);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
         
-        .btn-cta-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-cta-outline {
-            background: transparent;
+        .horaires-card {
+            background: var(--dark-blue);
             color: white;
-            border: 2px solid white;
+            padding: 3rem;
+            border-radius: 16px;
+            max-width: 600px;
+            margin: 3rem auto 0;
+            box-shadow: var(--shadow-lg);
         }
         
-        .btn-cta-outline:hover {
-            background: white;
-            color: var(--lab-purple);
+        .horaires-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         
-        /* ==================== FOOTER PROFESSIONNEL ==================== */
+        .horaires-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        
+        .horaires-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        
+        .horaires-subtitle {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .horaires-list {
+            list-style: none;
+        }
+        
+        .horaires-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+        
+        .horaires-item i {
+            color: var(--accent-cyan);
+        }
+        
+        /* ==================== FOOTER ==================== */
         footer {
             background: var(--dark);
             color: white;
@@ -937,11 +567,10 @@
         }
         
         .footer-section h3 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.3rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
-            color: white;
         }
         
         .footer-brand h3 {
@@ -949,114 +578,86 @@
         }
         
         .footer-description {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255,255,255,0.7);
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition-base);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .contact-info {
-            list-style: none;
-        }
-
-        .contact-info li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .contact-info i {
-            color: var(--lab-purple);
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
-            flex-shrink: 0;
-        }
-
-        .contact-info a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition-base);
-        }
-
-        .contact-info a:hover {
-            color: white;
-        }
-
+        
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
         }
-
+        
         .social-link {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 1.2rem;
-            transition: var(--transition-base);
-            border: 2px solid transparent;
+            transition: var(--transition);
         }
-
+        
         .social-link:hover {
-            background: var(--lab-purple);
-            border-color: white;
+            background: var(--primary-blue);
             transform: translateY(-3px);
         }
-
-        .social-link.facebook:hover {
-            background: #1877F2;
+        
+        .footer-links {
+            list-style: none;
         }
-
-        .social-link.linkedin:hover {
-            background: #0A66C2;
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
         }
-
-        .social-link.tiktok:hover {
-            background: #000000;
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
         }
-
-        .social-link.instagram:hover {
-            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
         }
-
-        .social-link.twitter:hover {
-            background: #1DA1F2;
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .contact-info i {
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-info a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            color: white;
         }
         
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1065,17 +666,44 @@
         }
         
         .footer-bottom p {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255,255,255,0.6);
             font-size: 0.9rem;
-            margin: 0;
         }
-
-        .footer-bottom-left {
-            flex: 1;
+        
+        /* ==================== WHATSAPP BUTTON ==================== */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            text-decoration: none;
+            z-index: 998;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
         }
-
-        .footer-bottom-right {
-            text-align: right;
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(37,211,102,0.7);
+                transform: scale(1.05);
+            }
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
         }
         
         /* ==================== SCROLL TO TOP ==================== */
@@ -1085,7 +713,7 @@
             right: 2rem;
             width: 50px;
             height: 50px;
-            background: var(--gradient-hero);
+            background: var(--primary-blue);
             color: white;
             border: none;
             border-radius: 50%;
@@ -1095,7 +723,7 @@
             justify-content: center;
             font-size: 1.5rem;
             box-shadow: var(--shadow-lg);
-            transition: var(--transition-base);
+            transition: var(--transition);
             z-index: 999;
         }
         
@@ -1105,532 +733,435 @@
         
         .scroll-top:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        /* ==================== ANIMATIONS ==================== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+            background: var(--dark-blue);
         }
         
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1024px) {
-            .hero-container {
+            .message-grid,
+            .competences-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
             }
             
-            .hero-right {
-                min-height: 400px;
-            }
-            
-            .floating-card-1,
-            .floating-card-2 {
-                display: none;
+            .competences-title {
+                position: static;
             }
         }
         
         @media (max-width: 768px) {
-            .header-container {
-                padding: 1rem;
-            }
-            
             .hamburger {
                 display: block;
             }
             
-            .nav-menu {
+            nav {
                 position: fixed;
                 top: 70px;
                 left: 0;
                 right: 0;
-                flex-direction: column;
                 background: white;
                 padding: 2rem;
                 box-shadow: var(--shadow-lg);
                 transform: translateY(-100%);
                 opacity: 0;
-                transition: var(--transition-base);
+                transition: var(--transition);
                 pointer-events: none;
-                gap: 1rem;
             }
             
-            .nav-menu.open {
+            nav.open {
                 transform: translateY(0);
                 opacity: 1;
                 pointer-events: all;
             }
             
-            .service-hero {
-                min-height: auto;
-                padding-top: 100px;
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
             }
             
-            .hero-container {
-                min-height: auto;
-            }
-            
-            .hero-left h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .hero-cta-buttons {
-                flex-direction: column;
-            }
-            
-            .btn-hero-primary,
-            .btn-hero-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .hero-features {
+            .message-images {
                 grid-template-columns: 1fr;
             }
             
-            .hero-right {
-                min-height: 350px;
-            }
-            
-            .section {
-                padding: 4rem 1rem;
-            }
-            
-            .analyses-grid {
+            .engagement-grid {
                 grid-template-columns: 1fr;
             }
             
-            .cta-buttons {
-                flex-direction: column;
-            }
-            
-            .btn-cta {
-                width: 100%;
-                justify-content: center;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
-
+            
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
-
-            .footer-bottom-left,
-            .footer-bottom-right {
-                text-align: center;
-            }
-            
-            /* WhatsApp button responsive */
-            .whatsapp-button {
-                width: 50px !important;
-                height: 50px !important;
-                font-size: 1.5rem !important;
-                left: 1rem !important;
-                bottom: 6rem !important;
-            }
-            
-            .scroll-top {
-                right: 1rem !important;
-            }
         }
         
-        @media (max-width: 480px) {
-            .logo-text {
-                display: none;
-            }
-            
-            .hero-left h1 {
-                font-size: 2rem;
-            }
-            
-            .analysis-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .testimonial-card {
-                padding: 2rem;
-            }
+        /* ==================== UTILITIES ==================== */
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
         }
         
-        /* ==================== ACCESSIBILITY ==================== */
-        *:focus-visible {
-            outline: 2px solid var(--lab-purple);
-            outline-offset: 2px;
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+        /* ==================== PAGE LOADER ==================== */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            background: var(--dark-blue);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        #page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 4px;
+            animation: loaderLogoPulse 1.5s ease-in-out infinite;
+        }
+
+        .loader-logo span {
+            color: var(--accent-cyan);
+        }
+
+        @keyframes loaderLogoPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.7; transform: scale(1.05); }
+        }
+
+        .loader-bar-wrap {
+            width: 220px;
+            height: 4px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .loader-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+            border-radius: 99px;
+            animation: loaderFill 1.8s cubic-bezier(0.4,0,0.2,1) forwards;
+        }
+
+        @keyframes loaderFill {
+            0%   { width: 0%; }
+            60%  { width: 75%; }
+            100% { width: 100%; }
+        }
+
+        .loader-text {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: loaderBlink 1.2s ease-in-out infinite;
+        }
+
+        @keyframes loaderBlink {
+            0%, 100% { opacity: 0.4; }
+            50%       { opacity: 1; }
         }
     </style>
 </head>
 <body>
+    <!-- ==================== PAGE LOADER ==================== -->
+    <div id="page-loader">
+        <div class="loader-logo">L<span>P</span>A</div>
+        <div class="loader-bar-wrap">
+            <div class="loader-bar"></div>
+        </div>
+        <p class="loader-text">Chargement en cours…</p>
+    </div>
+
     <!-- ==================== HEADER ==================== -->
-    <header id="header">
+    <header>
         <div class="header-container">
-            <a href="index.html" class="logo-container" aria-label="LPA - Retour à l'accueil">
-                <div class="logo-icon" aria-hidden="true">LPA</div>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">LPA</div>
                 <span class="logo-text">LPA</span>
             </a>
             
-            <nav role="navigation" aria-label="Navigation principale">
-                <ul class="nav-menu" id="nav-menu">
+            <nav id="nav-menu">
+                <ul>
                     <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="about.html">Qui Sommes-Nous ?</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             
             <div class="header-cta">
-                <a href="contact.html" class="btn-header btn-header-primary">
-                    <i class="fas fa-envelope" aria-hidden="true"></i> Devis Gratuit
+                <a href="https://facebook.com/lpa" class="btn-fb" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
                 </a>
-                <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
+                <a href="contact.html" class="btn-contact">Contact</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- ==================== HERO MODERNE ==================== -->
-    <section class="service-hero" role="banner">
-        <div class="hero-container">
-            <!-- Partie Gauche - Texte -->
-            <div class="hero-left">
-                <div class="service-badge">
-                    <i class="fas fa-certificate" aria-hidden="true"></i>
-                    <span>Laboratoire Agréé N° 012-MCI/CAB</span>
-                </div>
-                
-                <h1>
-                    AVEC LA <span class="hero-highlight-yellow">SCIENCE</span><br>
-                    VOS ANALYSES SONT<br>
-                    <span class="hero-highlight">GARANTIES</span>
-                </h1>
-                
-                <p>
-                    Plus qu'un laboratoire, c'est une équipe d'experts qui pense à 
-                    vous et à la qualité de vos produits. Analyses certifiées et résultats fiables.
-                </p>
-                
-                <div class="hero-cta-buttons">
-                    <a href="contact.html" class="btn-hero-primary">
-                        <i class="fas fa-flask" aria-hidden="true"></i>
-                        <span>Demander une Analyse</span>
-                    </a>
-                    <a href="services.html" class="btn-hero-secondary">
-                        <i class="fas fa-info-circle" aria-hidden="true"></i>
-                        <span>Nos Services</span>
-                    </a>
-                </div>
-                
-                <div class="hero-features">
-                    <div class="hero-feature">
-                        <div class="hero-feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="hero-feature-text">
-                            <h4>Tranquillité d'esprit</h4>
-                            <p>Analyses certifiées</p>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-feature">
-                        <div class="hero-feature-icon">
-                            <i class="fas fa-microscope"></i>
-                        </div>
-                        <div class="hero-feature-text">
-                            <h4>Expertise scientifique</h4>
-                            <p>Équipe qualifiée</p>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-feature">
-                        <div class="hero-feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="hero-feature-text">
-                            <h4>Résultats rapides</h4>
-                            <p>24-48h chrono</p>
-                        </div>
-                    </div>
-                    
-                    <div class="hero-feature">
-                        <div class="hero-feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="hero-feature-text">
-                            <h4>Communauté solidaire</h4>
-                            <p>500+ clients satisfaits</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-certificate"></i>
+                <span>Laboratoire Agréé N° 012-MCI/CAB</span>
             </div>
             
-            <!-- Partie Droite - Image -->
-            <div class="hero-right">
-                <div class="hero-image-container">
-                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=1000&fit=crop&q=80" 
-                         alt="Laboratoire d'analyse - Scientifique effectuant des analyses" 
-                         class="hero-image">
-                    
-                    <!-- Carte flottante 1 - Succès -->
-                    <div class="hero-floating-card floating-card-1">
-                        <div class="floating-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="floating-card-content">
-                            <h4>Analyse réussie</h4>
-                            <p>Conformité validée ✓</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Carte flottante 2 - Stats -->
-                    <div class="hero-floating-card floating-card-2">
-                        <div class="floating-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="floating-card-content">
-                            <h4>98% de satisfaction</h4>
-                            <p>Nos clients nous font confiance</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SERVICES SECTION ==================== -->
-    <section class="section section-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Nos Services</span>
-                <h2 class="section-title">Analyses Professionnelles Multi-Secteurs</h2>
-                <p class="section-description">
-                    Une gamme complète de services d'analyse adaptés à tous les secteurs d'activité, 
-                    avec des équipements de pointe et une équipe d'experts qualifiés.
-                </p>
-            </div>
-            
-            <div class="analyses-grid">
-                <!-- Laboratoire d'Analyse -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Laboratoire d'Analyse</h3>
-                    <p>
-                        Contrôle de la qualité et de la conformité des produits (aliments, eau, sols) 
-                        par analyses physicochimiques et microbiologiques selon les normes internationales.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Analyses physicochimiques</li>
-                        <li>Analyses microbiologiques</li>
-                        <li>Détection métaux lourds</li>
-                        <li>Contrôle conformité</li>
-                        <li>Certification produits</li>
-                        <li>Résultats sous 24-48h</li>
-                    </ul>
-                    <a href="laboratoire.html" class="service-link" style="color: var(--lab-purple); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-                        <span>En savoir plus</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </article>
-
-                <!-- Traitement des Eaux -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-water"></i>
-                    </div>
-                    <h3>Traitement des Eaux</h3>
-                    <p>
-                        Solutions complètes de potabilisation, désinfection et traitement d'eaux usées 
-                        pour les industriels et les collectivités. De l'étude à la mise en œuvre.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Potabilisation d'eau</li>
-                        <li>Traitement eaux usées</li>
-                        <li>Désinfection complète</li>
-                        <li>Installation & maintenance</li>
-                        <li>Études personnalisées</li>
-                        <li>Suivi régulier</li>
-                    </ul>
-                    <a href="analyse-eau.html" class="service-link" style="color: var(--lab-purple); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-                        <span>En savoir plus</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </article>
-
-                <!-- Prélèvement et Échantillonnage -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-vial"></i>
-                    </div>
-                    <h3>Prélèvement et Échantillonnage</h3>
-                    <p>
-                        Service sur site de prélèvement d'échantillons (air, eau, sol, produits) 
-                        par nos techniciens certifiés pour une fiabilité maximale des analyses.
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Prélèvement sur site</li>
-                        <li>Techniciens certifiés</li>
-                        <li>Échantillonnage conforme</li>
-                        <li>Transport sécurisé</li>
-                        <li>Protocoles stricts</li>
-                        <li>Intervention rapide</li>
-                    </ul>
-                    <a href="prelevement.html" class="service-link" style="color: var(--lab-purple); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-                        <span>En savoir plus</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </article>
-
-                <!-- Expertise et Conseil -->
-                <article class="analysis-card reveal">
-                    <div class="analysis-icon" aria-hidden="true">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3>Expertise et Conseil</h3>
-                    <p>
-                        Consultance technique, développement de méthodes analytiques spécifiques 
-                        et assistance pour la mise en place de démarches qualité (ISO/CEI 17025).
-                    </p>
-                    <ul class="analysis-list">
-                        <li>Consultance technique</li>
-                        <li>Développement méthodes</li>
-                        <li>Assistance ISO 17025</li>
-                        <li>Formation personnel</li>
-                        <li>Audit qualité</li>
-                        <li>Accompagnement certifications</li>
-                    </ul>
-                    <a href="chimie.html" class="service-link" style="color: var(--lab-purple); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-                        <span>En savoir plus</span>
-                        <span aria-hidden="true">→</span>
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== TESTIMONIALS SECTION ==================== -->
-    <section class="testimonials section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Témoignages</span>
-                <h2 class="section-title">Ce que Disent Nos Clients</h2>
-                <p class="section-description">
-                    La satisfaction de nos clients est notre priorité. Découvrez leurs retours d'expérience 
-                    sur nos services d'analyses et de contrôle qualité.
-                </p>
-            </div>
-            
-            <div class="testimonials-slider">
-                <article class="testimonial-card active">
-                    <div class="testimonial-content">
-                        <div class="quote-icon" aria-hidden="true">"</div>
-                        <p class="testimonial-text">
-                            Excellent service ! Les analyses ont été réalisées rapidement et les résultats 
-                            étaient très détaillés. L'équipe est professionnelle et à l'écoute. Je recommande 
-                            vivement LPA pour tous vos besoins en contrôle qualité.
-                        </p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">AK</div>
-                        <div class="author-info">
-                            <h4>Amadou Koné</h4>
-                            <p>Directeur Qualité, Industrie Alimentaire</p>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon" aria-hidden="true">"</div>
-                        <p class="testimonial-text">
-                            Nous travaillons avec LPA depuis 2 ans et nous sommes très satisfaits de leurs 
-                            services. Leurs analyses d'eau sont précises et les délais sont toujours respectés. 
-                            Un partenaire de confiance pour notre entreprise.
-                        </p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">MT</div>
-                        <div class="author-info">
-                            <h4>Marie Touré</h4>
-                            <p>Responsable HSE, Groupe Industriel</p>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon" aria-hidden="true">"</div>
-                        <p class="testimonial-text">
-                            Service impeccable ! L'équipe de LPA a fait preuve d'un grand professionnalisme 
-                            lors de nos analyses environnementales. Les rapports sont clairs et les recommandations 
-                            très utiles. Merci pour votre expertise !
-                        </p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" aria-hidden="true">YD</div>
-                        <div class="author-info">
-                            <h4>Yao Diomandé</h4>
-                            <p>Chef de Projet, Bureau d'Études</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="testimonial-nav" role="group" aria-label="Navigation des témoignages">
-                <button class="testimonial-dot active" aria-label="Témoignage 1" data-index="0"></button>
-                <button class="testimonial-dot" aria-label="Témoignage 2" data-index="1"></button>
-                <button class="testimonial-dot" aria-label="Témoignage 3" data-index="2"></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== CTA SECTION ==================== -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Besoin d'Analyses Certifiées ?</h2>
-            <p>
-                Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques 
-                et obtenir un devis personnalisé gratuit.
+            <h1>LPA<br>LABORATOIRE</h1>
+            <p class="hero-subtitle">
+                est une entreprise spécialisée dans les analyses physicochimiques, microbiologiques 
+                et le traitement des eaux pour garantir la conformité et la qualité de vos produits.
             </p>
-            <div class="cta-buttons">
-                <a href="contact.html" class="btn-cta btn-cta-white">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <span>Demander un Devis</span>
-                </a>
-                <a href="tel:+22507072016" class="btn-cta btn-cta-outline">
-                    <i class="fas fa-phone" aria-hidden="true"></i>
-                    <span>07 07 20 16 96</span>
-                </a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Découvrir</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ==================== MESSAGE DIRECTEUR ==================== -->
+    <section class="message-section">
+        <div class="container">
+            <div class="message-grid">
+                <div class="message-images">
+                    <img src="Equipe LPA.jpeg" alt="Équipe LPA" class="message-img">
+                    <img src="Technicien sur terrain.jpeg" alt="Techniciens sur le terrain" class="message-img">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=280&fit=crop" alt="Laboratoire d'analyse" class="message-img">
+                </div>
+                
+                <div class="message-content">
+                    <h2>Message du<br>Directeur Général</h2>
+                    <p>
+                        Créé en 2021, LPA - Laboratoire Privé d'Analyse est une entreprise basée en Côte d'Ivoire, 
+                        agréée par le Ministère du Commerce et de l'Industrie.
+                    </p>
+                    <p>
+                        Nous réalisons des analyses de contrôle qualité dans plusieurs domaines, notamment 
+                        l'agroalimentaire, l'environnement et les eaux. Notre laboratoire est engagé dans 
+                        plusieurs projets, dont des programmes de contrôle sanitaire, des analyses de conformité 
+                        pour les industriels et les collectivités.
+                    </p>
+                    <p>
+                        Nous mettons à la disposition de nos clients du matériel de pointe et une équipe 
+                        d'experts qualifiés pour des résultats fiables et rapides, garantissant ainsi votre 
+                        tranquillité d'esprit et la conformité de vos produits.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== FOOTER PROFESSIONNEL ==================== -->
+    <!-- ==================== DOMAINES DE COMPÉTENCES ==================== -->
+    <section class="competences-section">
+        <div class="container">
+            <div class="competences-grid">
+                <div class="competences-title">
+                    <h2>Domaines de<br>Compétences</h2>
+                </div>
+                
+                <ul class="competences-list">
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Analyses Physicochimiques et Microbiologiques</span>
+                    </li>
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Analyse de la Qualité de l'Eau (Potable, Industrielle, Usée)</span>
+                    </li>
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Analyse des Denrées Alimentaires</span>
+                    </li>
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Traitement et Potabilisation des Eaux</span>
+                    </li>
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Désinfection et Décontamination</span>
+                    </li>
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Prélèvement et Échantillonnage sur Site</span>
+                    </li>
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Contrôle des Eaux de Forages et Puits</span>
+                    </li>
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Consultance et Expertise Technique</span>
+                    </li>
+                    <li class="competence-item">
+                        <div class="competence-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="competence-text">Formation et Assistance Qualité (ISO/CEI 17025)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NOTRE ENGAGEMENT ==================== -->
+    <section class="engagement-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Engagement</h2>
+                <p class="section-description">
+                    Mettre à la disposition de nos clients du matériel innovant et des services 
+                    d'excellence pour satisfaire leurs besoins en matière de contrôle qualité.
+                </p>
+            </div>
+            
+            <div class="engagement-grid">
+                <div class="engagement-card primary">
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="card-title">Notre engagement</h3>
+                    <p>Mettre à la disposition de nos clients du matériel innovant pour satisfaire leurs besoins</p>
+                    <ul class="card-list">
+                        <li>Personnel de qualité</li>
+                        <li>Matériels innovants</li>
+                        <li>Résultat garanti</li>
+                    </ul>
+                </div>
+                
+                <div class="engagement-card">
+                    <div class="card-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="card-title">Équipements de Pointe</h3>
+                    <ul class="card-list">
+                        <li>Spectrophotomètres UV-Vis</li>
+                        <li>pH-mètres de précision</li>
+                        <li>Incubateurs microbiologiques</li>
+                        <li>Autoclaves dernière génération</li>
+                        <li>Matériel de prélèvement certifié</li>
+                    </ul>
+                </div>
+                
+                <div class="engagement-card">
+                    <div class="card-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="card-title">Certifications</h3>
+                    <ul class="card-list">
+                        <li>Agrément N° 012-MCI/CAB</li>
+                        <li>Conformité ISO/CEI 17025</li>
+                        <li>Normes internationales</li>
+                        <li>Accréditation COFRAC (en cours)</li>
+                        <li>Personnel qualifié et formé</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HORAIRES ==================== -->
+    <section class="horaires-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Horaires</h2>
+            </div>
+            
+            <div class="horaires-card">
+                <div class="horaires-header">
+                    <div class="horaires-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Nos horaires d'ouverture</h3>
+                </div>
+                
+                <p class="horaires-subtitle">
+                    Nous sommes à votre disposition tous les jours sauf le dimanche aux heures suivantes:
+                </p>
+                
+                <ul class="horaires-list">
+                    <li class="horaires-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Lundi 08H00 — 17H30</span>
+                    </li>
+                    <li class="horaires-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Mardi 08H00 — 17H30</span>
+                    </li>
+                    <li class="horaires-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Mercredi 08H00 — 17H30</span>
+                    </li>
+                    <li class="horaires-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Jeudi 08H00 — 17H30</span>
+                    </li>
+                    <li class="horaires-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Vendredi 08H00 — 17H30</span>
+                    </li>
+                    <li class="horaires-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Samedi 08H00 — 12H00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
     <footer>
         <div class="footer-content">
-            <!-- À propos / Brand -->
             <div class="footer-section footer-brand">
                 <h3>LPA</h3>
                 <p class="footer-description">
@@ -1638,48 +1169,42 @@
                     Votre partenaire de confiance pour la conformité et l'excellence.
                 </p>
                 <div class="social-links">
-                    <a href="https://facebook.com/lpa" class="social-link facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <a href="https://facebook.com/lpa" class="social-link" target="_blank">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://linkedin.com/company/lpa" class="social-link linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/company/lpa" class="social-link" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://tiktok.com/@lpa" class="social-link tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://instagram.com/lpa" class="social-link instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <a href="https://instagram.com/lpa" class="social-link" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://twitter.com/lpa" class="social-link twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <a href="https://twitter.com/lpa" class="social-link" target="_blank">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Liens Rapides -->
             <div class="footer-section">
                 <h3>Liens Rapides</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-                    <li><a href="about.html"><i class="fas fa-info-circle"></i> À Propos</a></li>
-                    <li><a href="services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                    <li><a href="certifications.html"><i class="fas fa-certificate"></i> Certifications</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
                 </ul>
             </div>
 
-            <!-- Services -->
             <div class="footer-section">
                 <h3>Nos Services</h3>
                 <ul class="footer-links">
-                    <li><a href="laboratoire.html"><i class="fas fa-flask"></i> Analyses de Laboratoire</a></li>
-                    <li><a href="analyse-eau.html"><i class="fas fa-water"></i> Traitement des Eaux</a></li>
-                    <li><a href="prelevement.html"><i class="fas fa-vial"></i> Prélèvements</a></li>
-                    <li><a href="chimie.html"><i class="fas fa-atom"></i> Expertise & Conseil</a></li>
+                    <li><a href="laboratoire.html">Analyses de Laboratoire</a></li>
+                    <li><a href="analyse-eau.html">Traitement des Eaux</a></li>
+                    <li><a href="prelevement.html">Prélèvements</a></li>
+                    <li><a href="expertise.html">Expertise & Conseil</a></li>
                 </ul>
             </div>
 
-            <!-- Contact -->
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul class="contact-info">
@@ -1689,55 +1214,70 @@
                     </li>
                     <li>
                         <i class="fas fa-phone"></i>
-                        <a href="tel:+22507072016">+225 07 07 20 16 96</a>
+                        <a href="tel:+22507876523 68">+225 07 87 65 23 68</a>
                     </li>
                     <li>
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:contact@lpa-ci.com">contact@lpa-ci.com</a>
+                        <a href="/cdn-cgi/l/email-protection#01626e6c6c64736268606d6d71603241666c60686d2f626e6c"><span class="__cf_email__" data-cfemail="482b2725252d3a2b2129242438297b082f25292124662b2725"><span class="__cf_email__" data-cfemail="3655595b5b5344555f575a5a46570576515b575f5a1855595b">commerciallpa3@gmail.com></span></a>
                     </li>
                     <li>
                         <i class="fas fa-clock"></i>
-                        <span>Lun - Ven: 8h00 - 17h00<br>Sam: 8h00 - 12h00</span>
+                        <span>Lun - Ven: 8h00 - 17h30<br>Sam: 8h00 - 12h00</span>
                     </li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <div class="footer-bottom-left">
+            <div>
                 <p>&copy; 2025 LPA - Laboratoire Privé d'Analyse. Tous droits réservés.</p>
                 <p>Agrément N° 012-MCI/CAB du 27-01-2021</p>
             </div>
-            <div class="footer-bottom-right">
-                <p>Site développé par <strong>Jonathan N'GUETTIA</strong></p>
+            <div>
+                <p><strong></strong></p>
             </div>
         </div>
     </footer>
 
-    <!-- ==================== BOUTON WHATSAPP ==================== -->
-    <a href="https://wa.me/22507072016" 
+    <!-- ==================== WHATSAPP BUTTON ==================== -->
+    <a href="https://wa.me/22507876523 68" 
        class="whatsapp-button" 
        target="_blank" 
        rel="noopener noreferrer"
-       aria-label="Contactez-nous sur WhatsApp"
-       style="position: fixed; bottom: 2rem; left: 2rem; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); text-decoration: none; z-index: 998; transition: all 0.4s ease; animation: pulse 2s infinite;">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+       aria-label="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- ==================== SCROLL TO TOP ==================== -->
     <button class="scroll-top" id="scroll-top" aria-label="Retour en haut">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- ==================== JAVASCRIPT ==================== -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         'use strict';
         
+        // Configuration
         const CONFIG = {
             scrollThreshold: 100,
-            debounceDelay: 250
+            debounceDelay: 200
         };
         
+        // Hero parallax fade on scroll
+        const heroContent = document.querySelector('.hero-content');
+        const heroSection = document.querySelector('.hero');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroH = heroSection.offsetHeight;
+            if (scrollY < heroH) {
+                const opacity = 1 - (scrollY / heroH) * 1.5;
+                const translateY = scrollY * 0.25;
+                heroContent.style.opacity = Math.max(opacity, 0);
+                heroContent.style.transform = `translateY(${translateY}px)`;
+            }
+        });
+
+        // Debounce function
         const debounce = (func, delay) => {
             let timeoutId;
             return function (...args) {
@@ -1746,22 +1286,12 @@
             };
         };
         
-        const header = document.getElementById('header');
-        const scrollTop = document.getElementById('scroll-top');
-        
-        window.addEventListener('scroll', debounce(() => {
-            if (window.scrollY > CONFIG.scrollThreshold) {
-                header.classList.add('scrolled');
-                scrollTop.classList.add('visible');
-            } else {
-                header.classList.remove('scrolled');
-                scrollTop.classList.remove('visible');
-            }
-        }, CONFIG.debounceDelay));
-        
+        // Elements
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
+        const scrollTop = document.getElementById('scroll-top');
         
+        // Toggle mobile menu
         hamburger.addEventListener('click', function() {
             const icon = this.querySelector('i');
             const isOpen = navMenu.classList.contains('open');
@@ -1771,7 +1301,8 @@
             icon.classList.toggle('fa-times');
         });
         
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        // Close menu on link click
+        document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navMenu.classList.contains('open')) {
                     navMenu.classList.remove('open');
@@ -1783,116 +1314,128 @@
             });
         });
         
+        // Scroll to top
         scrollTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', debounce(() => {
+            if (window.scrollY > CONFIG.scrollThreshold) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        }, CONFIG.debounceDelay));
+
+        // ==================== PAGE LOADER ====================
+        const loader = document.getElementById('page-loader');
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1900);
+        });
+
+        // ==================== SCROLL REVEAL ANIMATIONS ====================
+        const animStyle = document.createElement('style');
+        animStyle.textContent = `
+            .sr-hidden {
+                opacity: 0;
+                transform: translateY(35px);
+                transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1),
+                            transform 0.65s cubic-bezier(0.4,0,0.2,1);
+            }
+            .sr-hidden.sr-visible {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+            .sr-left {
+                opacity: 0;
+                transform: translateX(-50px);
+                transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1),
+                            transform 0.65s cubic-bezier(0.4,0,0.2,1);
+            }
+            .sr-left.sr-visible {
+                opacity: 1 !important;
+                transform: translateX(0) !important;
+            }
+            .sr-right {
+                opacity: 0;
+                transform: translateX(50px);
+                transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1),
+                            transform 0.65s cubic-bezier(0.4,0,0.2,1);
+            }
+            .sr-right.sr-visible {
+                opacity: 1 !important;
+                transform: translateX(0) !important;
+            }
+            @keyframes srBounceIn {
+                0%   { opacity:0; transform:scale(0) rotate(-10deg); }
+                60%  { transform:scale(1.2) rotate(4deg); }
+                80%  { transform:scale(0.95) rotate(-2deg); }
+                100% { opacity:1; transform:scale(1) rotate(0deg); }
+            }
+            .sr-bounce {
+                opacity: 0;
+            }
+            .sr-bounce.sr-visible {
+                animation: srBounceIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+            }
+        `;
+        document.head.appendChild(animStyle);
+
+        // Éléments à EXCLURE (header, hero, boutons fixes)
+        function isExcluded(el) {
+            return el.closest('header') || el.closest('.hero') ||
+                   el.closest('.whatsapp-button') || el.closest('.scroll-top');
+        }
+
+        // Appliquer les classes selon type d'élément
+        document.querySelectorAll(
+            'h2, h3, h4, p, img, li, ' +
+            '.engagement-card, .horaires-card, .message-content, ' +
+            '.competences-title, .section-description, .footer-section'
+        ).forEach((el, i) => {
+            if (isExcluded(el)) return;
+
+            // Images : depuis la gauche
+            if (el.tagName === 'IMG' || el.classList.contains('message-images')) {
+                el.classList.add('sr-left');
+            }
+            // Icônes de carte : bounce
+            else if (el.classList.contains('card-icon')) {
+                el.classList.add('sr-bounce');
+            }
+            // Tout le reste : fade up
+            else {
+                el.classList.add('sr-hidden');
+                // Délai en cascade pour les éléments frères
+                const siblings = el.parentElement
+                    ? Array.from(el.parentElement.children).filter(c => c.classList.contains('sr-hidden'))
+                    : [];
+                const idx = siblings.indexOf(el);
+                if (idx > 0) el.style.transitionDelay = `${idx * 0.08}s`;
+            }
+        });
+
+        // Appliquer aussi sur .message-images
+        document.querySelectorAll('.message-images').forEach(el => {
+            if (!isExcluded(el)) el.classList.add('sr-left');
+        });
+
+        // Intersection Observer
+        const srObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('sr-visible');
+                    srObserver.unobserve(entry.target);
                 }
             });
-        }
-        
-        window.addEventListener('scroll', debounce(revealOnScroll, CONFIG.debounceDelay));
-        window.addEventListener('load', revealOnScroll);
-        
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-            
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
-        
-        // ==================== TESTIMONIALS SLIDER ====================
-        class TestimonialsSlider {
-            constructor() {
-                this.cards = document.querySelectorAll('.testimonial-card');
-                this.dots = document.querySelectorAll('.testimonial-dot');
-                this.currentIndex = 0;
-                this.autoplayInterval = null;
-                
-                if (this.cards.length > 0 && this.dots.length > 0) {
-                    this.init();
-                }
-            }
-            
-            init() {
-                // Navigation par dots
-                this.dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        this.goToSlide(index);
-                        this.resetAutoplay();
-                    });
-                });
-                
-                // Démarrer l'autoplay
-                this.startAutoplay();
-                
-                // Pause au survol
-                const slider = document.querySelector('.testimonials-slider');
-                if (slider) {
-                    slider.addEventListener('mouseenter', () => this.stopAutoplay());
-                    slider.addEventListener('mouseleave', () => this.startAutoplay());
-                }
-            }
-            
-            goToSlide(index) {
-                // Retirer active de la carte et du dot actuels
-                this.cards[this.currentIndex].classList.remove('active');
-                this.dots[this.currentIndex].classList.remove('active');
-                
-                // Mettre à jour l'index
-                this.currentIndex = index;
-                
-                // Ajouter active à la nouvelle carte et au nouveau dot
-                this.cards[this.currentIndex].classList.add('active');
-                this.dots[this.currentIndex].classList.add('active');
-            }
-            
-            nextSlide() {
-                const nextIndex = (this.currentIndex + 1) % this.cards.length;
-                this.goToSlide(nextIndex);
-            }
-            
-            startAutoplay() {
-                this.autoplayInterval = setInterval(() => {
-                    this.nextSlide();
-                }, 5000); // Change toutes les 5 secondes
-            }
-            
-            stopAutoplay() {
-                if (this.autoplayInterval) {
-                    clearInterval(this.autoplayInterval);
-                }
-            }
-            
-            resetAutoplay() {
-                this.stopAutoplay();
-                this.startAutoplay();
-            }
-        }
-        
-        // Initialiser le slider de témoignages au chargement de la page
-        if (document.querySelectorAll('.testimonial-card').length > 0) {
-            new TestimonialsSlider();
-        }
-        
-        window.addEventListener('error', (e) => {
-            console.error('Erreur JavaScript:', e.error);
-        });
-        
-        console.log('✅ Page Laboratoire LPA chargée avec succès');
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.sr-hidden, .sr-left, .sr-right, .sr-bounce')
+            .forEach(el => srObserver.observe(el));
+
     </script>
 </body>
 </html>
