@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire | LPA</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+            background-color: #F2F2F2; /* Nouveau: Blanc cassé */
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #0378A6; /* Nouveau: Bleu Teal */
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            /* Modification pour supprimer les contacts de l'en-tête */
+            justify-content: flex-start;
+            gap: 50px;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* La classe .contact-info n'est plus nécessaire ici */
+        
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        section {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #0378A6; /* Nouveau: Bleu Teal */
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #9B44F2; /* Nouveau: Violet */
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="LOGO LPA.jpg" alt="Logo de LPA" style="height: 50px;">
+            </a>
+        </div>
+       <nav>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+        <li><a href="services.html">Nos services</a></li>
+        <li><a href="laboratoire.html">Laboratoire</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+        <div class="contact-info">
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section id="laboratoire">
+                <h2>Le Laboratoire LPA</h2>
+                <p>Notre laboratoire est équipé d'instruments à la pointe de la technologie pour assurer la précision et la fiabilité de toutes nos analyses. Nous nous concentrons sur le contrôle de la qualité et de la conformité des produits et denrées alimentaires, ainsi que sur la mesure, l'examen, l'essai et l'étalonnage des caractéristiques des matériaux et produits.</p>
+                <p><strong>Notre objectif :</strong> Accompagner nos clients pour la conformité de leurs produits en fournissant des services de contrôle qualité conformes aux normes et standards internationaux et nationaux, tout en maintenant une totale transparence et intégrité.</p>
+    
+                <h3>Nos Analyses</h3>
+                <div style="display: flex; gap: 20px;">
+                    <div style="flex: 1;">
+                        <h4>Analyses Physico-chimiques</h4>
+                        <ul>
+                            <li>Température</li>
+                            <li>pH (potentiel hydrogène)</li>
+                            <li>Turbidité (clarté de l'eau)</li>
+                            <li>Conductivité (pureté de l'eau)</li>
+                            <li>Dureté totale (teneur en calcium et magnésium)</li>
+                            <li>Teneur en chlore libre et total</li>
+                            <li>Teneur en Fluorures</li>
+                            <li>Ammonium et Nitrates</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4>Analyses Microbiologiques</h4>
+                        <ul>
+                            <li>Coliformes totaux et Fécaux</li>
+                            <li>Escherichia coli (E. coli)</li>
+                            <li>Entérocoques intestinaux</li>
+                            <li>Clostridium perfringens</li>
+                            <li>Germes aérobies à 22 °C et 36 °C</li>
+                            <li>Salmonella et Listeria</li>
+                            <li>Staphylocoques pathogènes</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+    </footer>
+    
+</body>
+</html>

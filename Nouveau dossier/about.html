@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | LPA - Laboratoire d'Analyses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+/* ======================================================= */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE                   */
+/* ======================================================= */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 90px; 
+    background-color: #EBEBEB; /* Gris très léger */
+    color: #333;
+    line-height: 1.7; 
+    scroll-behavior: smooth;
+}
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+section {
+    background-color: #fff;
+    padding: 50px 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #4F9BCC; /* Bleu clair (Sky Blue) */
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.0rem;
+    color: #0378A6; /* Bleu Teal */
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-left: 5px solid #4F9BCC;
+    padding-left: 15px;
+    text-align: left;
+}
+h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #4F9BCC; /* Bleu clair */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+p {
+    font-size: 1.15rem; 
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+}
+p strong {
+    color: #0378A6; /* Met en évidence les mots clés */
+}
+ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+li {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.8;
+}
+li strong {
+    color: #0378A6; /* Met en évidence les mots clés dans les listes */
+}
+
+/* ======================================================= */
+/* EN-TÊTE (HEADER) (Styles mis à jour)                   */
+/* ======================================================= */
+header {
+    background-color: #4F9BCC; /* Bleu clair */
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-height: 70px;
+}
+header .logo img { height: 50px; vertical-align: middle; }
+nav { flex-grow: 1; text-align: center; }
+nav ul { list-style: none; margin: 0; padding: 0; display: inline-block; }
+nav ul li { display: inline-block; margin-left: 30px; }
+nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.1rem; padding: 5px 0; position: relative; transition: color 0.3s ease; }
+nav a::after { 
+    content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 3px;
+    background-color: #0378A6; transition: width 0.3s ease-in-out; 
+}
+nav a:hover::after, nav a.active::after { width: 100%; }
+nav a:hover { color: #0378A6; }
+.contact-info { display: flex; gap: 20px; align-items: center; margin-left: 40px; }
+.contact-info .contact-link { color: #fff; text-decoration: none; font-size: 1rem; padding: 5px 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; transition: background-color 0.3s ease; }
+.contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
+
+/* ======================================================= */
+/* SECTION HISTORIQUE ET GRILLE GÉNÉRALE                  */
+/* ======================================================= */
+.history-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 pour le texte, 1/3 pour l'image */
+    gap: 40px;
+    align-items: center;
+}
+.history-image-container {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.history-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+.history-image-container p {
+    font-size: 0.95rem;
+    color: #777;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Grille de Mission et Valeurs */
+.mission-grid {
+    padding-top: 20px;
+}
+.mission-grid h3 {
+    text-align: center;
+    border-left: none;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+.value-block {
+    margin-top: 30px;
+    padding: 20px 30px;
+    background-color: #fcfcfc;
+    border-left: 5px solid #0378A6;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.value-block:nth-child(even) {
+    border-left: 5px solid #4F9BCC; /* Alternance de couleur */
+}
+.value-block ul {
+    list-style: disc;
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* Section Leadership (PDG) */
+#leadership {
+    background-color: #EBEBEB; /* Pour casser le blanc */
+    box-shadow: none;
+}
+.pdg-bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Photo 1/3, Texte 2/3 */
+    gap: 40px;
+    align-items: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.pdg-image-container {
+    text-align: center;
+}
+.pdg-image-container img {
+    width: 100%;
+    max-width: 250px; 
+    height: auto;
+    border-radius: 50%; /* Image ronde pour le portrait */
+    border: 5px solid #0378A6;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.pdg-bio-text h4 {
+    color: #777;
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+
+/* ======================================================= */
+/* FOOTER DÉTAILLÉ                                       */
+/* ======================================================= */
+footer {
+    background-color: #0378A6; /* Bleu Teal pour le footer */
+    color: #fff;
+    padding-top: 50px;
+    font-size: 1rem;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+.footer-col h3 {
+    color: #4F9BCC; /* Bleu clair pour les titres */
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: left;
+    border-left: none; /* Retirer la barre de gauche */
+    padding-left: 0;
+}
+.footer-col p,
+.footer-col ul {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #ccc;
+    line-height: 2.0; 
+}
+.footer-col a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-col a:hover {
+    color: #4F9BCC;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 20px 0;
+}
+.developer-credit {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* ======================================================= */
+/* MEDIA QUERY POUR MOBILE                               */
+/* ======================================================= */
+@media (max-width: 992px) {
+    .history-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+    .history-image-container {
+        order: -1; /* Place l'image au-dessus du texte */
+    }
+}
+@media (max-width: 768px) {
+    body { padding-top: 20px; }
+    header { flex-direction: column; position: static; padding-top: 20px; padding-bottom: 15px; min-height: auto; }
+    nav { width: 100%; margin-top: 10px; margin-bottom: 10px; }
+    nav ul { display: block; text-align: center; }
+    nav ul li { display: block; margin: 5px 0; padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    nav ul li:last-child { border-bottom: none; }
+    nav a::after { display: none; }
+    .contact-info { width: 100%; margin-left: 0; flex-direction: column; gap: 8px; }
+    .contact-info .contact-link { width: 90%; text-align: center; margin: 0 auto; }
+    .footer-col h3, .footer-col p, .footer-col ul { text-align: center; }
+    h3 { text-align: center; border-left: none; padding-left: 0; border-bottom: 2px solid #4F9BCC; padding-bottom: 10px; }
+    
+    /* Adaptation PDG et Valeurs */
+    .pdg-bio-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 20px;
+    }
+    .pdg-image-container {
+        order: -1;
+    }
+    .pdg-image-container img {
+        max-width: 180px;
+    }
+    .pdg-bio-text h3, .pdg-bio-text h4 {
+        text-align: center;
+    }
+    .value-block {
+        border-left: none;
+        border-bottom: 5px solid #0378A6;
+        border-radius: 0 0 5px 5px;
+        margin-top: 20px;
+    }
+    .value-block:nth-child(even) {
+        border-bottom: 5px solid #4F9BCC;
+    }
+    .value-block ul {
+        text-align: left;
+        margin-top: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="LOGO LPA.jpg" alt="Logo de LPA">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html" class="active">À Propos</a></li>
+                <li><a href="services.html">Nos services</a></li>
+                <li><a href="contact.html">Demande de devis</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
+            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+
+            <section id="about-us">
+                <h2>L'Excellence et la Rigueur au service de la Qualité</h2>
+
+                <div class="history-grid">
+                    
+                    <div class="history-text">
+                        
+                        <h3>Notre Vision</h3>
+                        <p>Devenir le laboratoire d'analyse de référence en Afrique de l'Ouest, reconnu pour la **fiabilité de ses résultats**, son **innovation technologique** et son engagement à garantir la sécurité sanitaire et environnementale pour tous nos partenaires.</p>
+                        <p>Nous aspirons à être un moteur de la conformité réglementaire et de l'amélioration continue de la qualité dans les secteurs de l'agroalimentaire, de la chimie, et de l'environnement.</p>
+
+                        <h3>Notre Historique : Une Croissance Axée sur la Rigueur</h3>
+                        <p>Fondé en **2015** par une équipe de chimistes et biologistes expérimentés, LPA est né de la volonté de combler un déficit critique en matière d'analyses de laboratoire indépendantes et certifiées dans la région.</p>
+                        <p>Depuis nos modestes débuts, nous avons investi massivement dans l'équipement de pointe et dans la formation de notre personnel pour répondre aux **normes internationales (ISO 17025)**. Notre croissance rapide témoigne de la confiance que nos clients accordent à notre expertise et à notre impartialité.</p>
+                        
+                    </div>
+                    
+                    <div class="history-image-container">
+                        <img src="lab1.jpg" alt="Photo historique du Laboratoire LPA">
+                        <p>Le siège du laboratoire LPA lors de son inauguration en 2015.</p>
+                    </div>
+                    
+                </div>
+                
+            </section>
+
+            <section id="mission-values">
+                <div class="mission-grid">
+                    
+                    <h3>Mission et Valeurs Fondamentales</h3>
+
+                    <div class="value-block">
+                        <h4>Notre Mission</h4>
+                        <p>Fournir des services d'analyse précis, rapides et conformes aux exigences réglementaires et industrielles. Nous aidons nos clients à sécuriser leurs produits, à protéger l'environnement et à prendre des décisions éclairées.</p>
+                    </div>
+
+                    <div class="value-block">
+                        <h4>Nos Valeurs Clés</h4>
+                        <ul>
+                            <li>**Rigueur Scientifique :** L'exactitude et la précision sont au cœur de chacun de nos tests.</li>
+                            <li>**Indépendance :** Nous garantissons une impartialité totale dans l'interprétation de nos résultats.</li>
+                            <li>**Innovation :** Investissement constant dans les nouvelles technologies d'analyse.</li>
+                            <li>**Engagement Client :** Un partenariat basé sur la transparence et l'écoute de vos besoins.</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section id="leadership">
+                <div class="container">
+                    <h2>Notre Équipe Dirigeante</h2>
+                    
+                    <div class="pdg-bio-grid">
+                        
+                        <div class="pdg-image-container">
+                            <img src="PH-1.jpg" alt="Photo du PDG de LPA">
+                        </div>
+                        
+                        <div class="pdg-bio-text">
+                            <h3>Mot du Président Directeur Général</h3>
+                            <h4>M. Johnatan Guettia (Chimiste & Fondateur)</h4>
+                            <p>« La qualité n'est pas un acte, c'est une habitude. Chez LPA, cette conviction guide chaque membre de notre équipe. Notre mission va au-delà des chiffres : il s'agit de bâtir la confiance et d'assurer un environnement et des aliments plus sûrs pour nos communautés. Je suis fier de l'équipe d'experts que nous avons réunie pour atteindre cette excellence. »</p>
+                            <p>Fort de **20 ans d'expérience** dans l'industrie chimique et l'assurance qualité, M. Guettia est le moteur de l'orientation stratégique et de la culture de l'excellence de LPA.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            
+            <div class="footer-col">
+                <h3>LPA - Qui sommes-nous ?</h3>
+                <p>Laboratoire d'Analyses de référence en Afrique de l'Ouest. Nous garantissons la sécurité sanitaire et la conformité de vos produits grâce à une expertise scientifique et une rigueur inégalée.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Nos Services</h3>
+                <ul>
+                    <li><a href="laboratoire.html">Analyses de Laboratoire</a></li>
+                    <li><a href="agro-alimentaire.html">Agroalimentaire</a></li>
+                    <li><a href="chimie.html">Chimie</a></li>
+                    <li><a href="analyse-eau.html">Analyse d'Eau</a></li>
+                    <li><a href="prelevement.html">Prélèvement</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Rapide</h3>
+                <p>(+225) 07 87 65 23 68</p>
+                <p>✉️ commerciallpa3@gmail.com</p>
+                <p>(Adresse Physique ici, ex: Abidjan, Cocody Riviera)</p>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LPA. Tous droits réservés.</p>
+            <p class="developer-credit">Design & Développement par Jonathan Guettia.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+# =====================================================
+# robots.txt — LPA Laboratoire Privé d'Analyse
+# https://www.lpa-ci.com
+# =====================================================
+
+User-agent: *
+Allow: /
+
+# Bloquer les fichiers sensibles
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /cgi-bin/
+
+# Permettre les ressources statiques aux robots
+Allow: /assets/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+
+# Sitemap
+Sitemap: https://www.lpa-ci.com/sitemap.xml
+
+# Délai de crawl recommandé
+Crawl-delay: 1

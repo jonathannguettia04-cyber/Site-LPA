@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qui sommes-nous ? | LPA</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 80px;
+            background-color: #F2F2F2; /* Nouveau: Blanc cassé */
+            color: #333;
+            line-height: 1.6;
+            background-image: url('');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        header {
+            background-color: #1DA1F2; /* Nouveau: Bleu Ciel pour l'en-tête */
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Styles pour les liens rapides sous la navigation */
+        .quick-links {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .quick-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            margin: 0 5px;
+            display: inline-block;
+        }
+        .quick-links a:hover {
+            background-color: #fff;
+            color: #0378A6; /* Nouveau: Bleu Teal */
+        }
+        .contact-info {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        section {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #0378A6; /* Nouveau: Bleu Teal */
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #9B44F2; /* Nouveau: Violet */
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 20px;
+        }
+        #myBtn {
+            display: none; /* Cache le bouton par défaut */
+            position: fixed; /* Positionne le bouton de manière fixe */
+            bottom: 20px; /* À 20 pixels du bas de la page */
+            right: 30px; /* À 30 pixels de la droite de la page */
+            z-index: 99; /* Place le bouton au-dessus des autres éléments */
+            border: none;
+            outline: none;
+            background-color: #0378A6; /* Nouveau: Bleu Teal */
+            color: white; /* Couleur du texte */
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        #myBtn:hover {
+            background-color: #F22EBE; /* Nouveau: Fuchsia (Couleur au survol) */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="LOGO LPA.jpg" alt="Logo de LPA" style="height: 50px;">
+            </a>
+        </div>
+       <nav>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">A propos de nous</a></li>
+        <li><a href="services.html">Nos services</a></li>
+        <li><a href="laboratoire.html">Laboratoire</a></li>
+        <li><a href="contact.html">Demande de devis</a></li>
+    </ul>
+</nav>
+        </nav>
+        <div class="contact-info">
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section id="qui-sommes-nous">
+                <h2>Qui sommes-nous ?</h2>
+                <p>Chez **LPA (Laboratoire Privé d'Analyse)**, nous nous engageons à fournir des solutions et des services d'excellente qualité conformes aux attentes de nos clients. Depuis notre création, notre mission est d'accompagner les entreprises en Côte d'Ivoire et dans la sous-région à atteindre l'excellence opérationnelle grâce à des analyses précises et fiables. Nous sommes fiers d'être un partenaire de confiance, offrant des services essentiels à des prix imbattables pour aider nos clients à se conformer aux normes et à exceller dans leurs domaines d'activité respectifs.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <script>
+    // Récupère le bouton
+    let mybutton = document.getElementById("myBtn");
+
+    // Quand l'utilisateur défile vers le bas de 20px, on montre le bouton
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // Quand l'utilisateur clique sur le bouton, on remonte en haut de la page
+    function topFunction() {
+        document.body.scrollTop = 0; // Pour Safari
+        document.documentElement.scrollTop = 0; // Pour Chrome, Firefox, IE et Opera
+    }
+</script>
+</body>
+</html>

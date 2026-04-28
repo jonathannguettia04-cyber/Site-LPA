@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Devis | LPA - Laboratoire Privé d'Analyse Abidjan</title>
+    <meta name="description" content="Contactez LPA pour un devis d'analyse personnalisé. Laboratoire agréé à Abidjan. Analyses agroalimentaires, eau, microbiologie. Réponse sous 48h.">
+    <meta name="keywords" content="contact laboratoire Abidjan, devis analyse eau Côte d'Ivoire, demande devis LPA, laboratoire analyse contact">
+    <meta name="author" content="LPA - Laboratoire Privé d'Analyse">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lpa-laboratoire.ci/contact">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lpa-laboratoire.ci/contact">
+    <meta property="og:title" content="Contact & Devis | LPA Laboratoire Abidjan">
+    <meta property="og:description" content="Contactez LPA pour un devis d'analyse. Réponse sous 48h. Laboratoire agréé à Abidjan.">
+    <meta property="og:image" content="https://lpa-laboratoire.ci/Equipe%20LPA.jpeg">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:site_name" content="LPA Laboratoire Privé d'Analyse">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact | LPA Laboratoire Côte d'Ivoire">
+    <meta name="twitter:description" content="Demandez votre devis d'analyse. LPA laboratoire agréé à Abidjan. Réponse sous 48h.">
+    <meta name="twitter:image" content="https://lpa-laboratoire.ci/Equipe%20LPA.jpeg">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --blue:      #0047AB;
+            --blue-dark: #003A75;
+            --blue-mid:  #0078D4;
+            --cyan:      #00D9FF;
+            --green:     #22c55e;
+            --dark:      #1A1A2E;
+            --gray:      #4B5563;
+            --light:     #F4F7FB;
+            --white:     #FFFFFF;
+            --shadow-sm: 0 2px 12px rgba(0,71,171,.08);
+            --shadow-md: 0 8px 32px rgba(0,71,171,.13);
+            --shadow-lg: 0 20px 60px rgba(0,71,171,.15);
+            --t:         all .4s cubic-bezier(.4,0,.2,1);
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:80px; }
+        body { font-family:'Inter',sans-serif; background:var(--white); color:var(--dark); line-height:1.7; overflow-x:hidden; }
+        img  { display:block; max-width:100%; }
+        a    { text-decoration:none; }
+
+        /* ---- PAGE LOADER ---- */
+        #page-loader { position:fixed; inset:0; z-index:99999; display:flex; align-items:center; justify-content:center; background:var(--blue-dark); transition:opacity .5s ease,visibility .5s ease; }
+        #page-loader.hide { opacity:0; visibility:hidden; }
+        .loader-inner { display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
+        .loader-logo  { font-family:'Montserrat',sans-serif; font-size:3.5rem; font-weight:900; color:white; letter-spacing:-2px; }
+        .loader-logo span { color:var(--cyan); }
+        .loader-bar   { width:200px; height:3px; background:rgba(255,255,255,.15); border-radius:3px; overflow:hidden; }
+        .loader-bar::after { content:''; display:block; width:0; height:100%; background:linear-gradient(90deg,var(--cyan),var(--blue-mid)); border-radius:3px; animation:loadBar .7s ease forwards; }
+        @keyframes loadBar { to { width:100%; } }
+        .loader-text  { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,.5); }
+
+        /* ---- HEADER ---- */
+        header { position:fixed; top:0; left:0; width:100%; z-index:9999; background:rgba(255,255,255,.96); backdrop-filter:blur(20px); border-bottom:1px solid rgba(0,71,171,.1); box-shadow:var(--shadow-sm); }
+        .header-container { max-width:1400px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+        .logo { display:flex; align-items:center; gap:.8rem; }
+        .logo-icon { width:50px; height:50px; background:linear-gradient(135deg,var(--blue),var(--blue-mid)); border-radius:12px; display:flex; align-items:center; justify-content:center; color:white; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; }
+        .logo-text  { font-family:'Montserrat',sans-serif; font-size:1.5rem; font-weight:900; color:var(--blue); }
+        nav ul { display:flex; list-style:none; gap:2.5rem; align-items:center; }
+        nav a  { color:var(--dark); font-weight:600; font-size:.95rem; text-transform:uppercase; letter-spacing:.5px; transition:var(--t); }
+        nav a:hover, nav a.active { color:var(--blue); }
+        .header-cta { display:flex; gap:1rem; align-items:center; }
+        .btn-contact { background:var(--green); color:white; padding:.8rem 1.8rem; border-radius:8px; font-weight:700; text-transform:uppercase; font-size:.9rem; letter-spacing:.5px; transition:var(--t); }
+        .btn-contact:hover { background:#0ac022; transform:translateY(-2px); box-shadow:var(--shadow-md); }
+        .btn-fb { width:40px; height:40px; background:#E8EAF6; border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--blue); font-size:1.2rem; transition:var(--t); }
+        .btn-fb:hover { background:var(--blue); color:white; }
+        .hamburger { display:none; background:none; border:none; font-size:1.5rem; color:var(--dark); cursor:pointer; }
+
+        /* ---- HERO CONTACT ---- */
+        .hero-contact { padding-top:80px; background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%); min-height:38vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; }
+        .hero-contact::before { content:''; position:absolute; width:700px; height:700px; border:2px solid rgba(255,255,255,.06); border-radius:50%; top:-200px; right:-200px; }
+        .hero-contact::after  { content:''; position:absolute; width:400px; height:400px; border:2px solid rgba(255,255,255,.06); border-radius:50%; bottom:-150px; left:-100px; }
+        .hero-contact-inner { position:relative; z-index:2; padding:4rem 2rem; }
+        .breadcrumb-pill { display:inline-flex; align-items:center; gap:.8rem; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); padding:.7rem 1.5rem; border-radius:6px; margin-bottom:2rem; }
+        .breadcrumb-pill a    { font-weight:700; color:rgba(255,255,255,.8); text-transform:uppercase; letter-spacing:.5px; font-size:.85rem; transition:var(--t); }
+        .breadcrumb-pill a:hover { color:white; }
+        .breadcrumb-pill .sep { color:rgba(255,255,255,.4); }
+        .breadcrumb-pill span { color:var(--cyan); font-weight:700; text-transform:uppercase; letter-spacing:.5px; font-size:.85rem; }
+        .hero-contact h1 { font-family:'Montserrat',sans-serif; font-size:clamp(2.2rem,5vw,4.5rem); font-weight:900; color:white; text-transform:uppercase; line-height:1; letter-spacing:-2px; margin-bottom:1.5rem; }
+        .hero-contact p  { color:rgba(255,255,255,.75); font-size:1.1rem; max-width:600px; margin:0 auto; }
+
+        /* ---- BARRE CONTACT RAPIDE ---- */
+        .contact-bar { background:white; border-bottom:1px solid rgba(0,71,171,.1); box-shadow:0 4px 20px rgba(0,71,171,.08); }
+        .contact-bar-inner { max-width:1200px; margin:0 auto; padding:0 2rem; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; }
+        .cb-item { display:flex; align-items:center; gap:1rem; padding:1.5rem; border-right:1px solid rgba(0,71,171,.08); transition:var(--t); }
+        .cb-item:last-child { border-right:none; }
+        .cb-item:hover { background:var(--light); }
+        .cb-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.1rem; flex-shrink:0; background:linear-gradient(135deg,var(--blue),var(--blue-mid)); }
+        .cb-item:nth-child(2) .cb-icon { background:linear-gradient(135deg,#0078D4,#00D9FF); }
+        .cb-item:nth-child(3) .cb-icon { background:linear-gradient(135deg,#8BC34A,#558B2F); }
+        .cb-item:nth-child(4) .cb-icon { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); }
+        .cb-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--gray); margin-bottom:.1rem; }
+        .cb-value { font-size:.9rem; font-weight:600; color:var(--blue-dark); }
+        .cb-value a { color:var(--blue-dark); transition:var(--t); }
+        .cb-value a:hover { color:var(--blue); }
+
+        /* ---- SECTION FORM + INFOS ---- */
+        .main-section { padding:6rem 0; background:var(--light); }
+        .main-container { max-width:1200px; margin:0 auto; padding:0 2rem; display:grid; grid-template-columns:1.1fr .9fr; gap:3rem; align-items:start; }
+
+        /* Formulaire */
+        .form-card { background:white; border-radius:20px; padding:3rem; box-shadow:var(--shadow-md); }
+        .form-title { font-family:'Montserrat',sans-serif; font-size:1.5rem; font-weight:900; color:var(--blue-dark); text-transform:uppercase; margin-bottom:.5rem; }
+        .form-subtitle { font-size:.95rem; color:var(--gray); margin-bottom:2.5rem; }
+        .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+        .full-width { grid-column:1/3; }
+        .form-group { display:flex; flex-direction:column; gap:.4rem; }
+        .form-group label { font-size:.82rem; font-weight:700; color:var(--blue-dark); text-transform:uppercase; letter-spacing:.3px; }
+        .form-group input,
+        .form-group select,
+        .form-group textarea { width:100%; padding:.9rem 1rem; border:2px solid #E5EAF0; border-radius:10px; font-family:'Inter',sans-serif; font-size:.95rem; color:var(--dark); background:var(--light); transition:var(--t); outline:none; }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color:var(--blue-mid); background:white; box-shadow:0 0 0 4px rgba(0,120,212,.08); }
+        .form-group textarea { resize:vertical; min-height:130px; }
+        .radio-wrap { display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:.3rem; }
+        .radio-label { display:flex; align-items:center; gap:.5rem; font-size:.95rem; color:var(--gray); cursor:pointer; }
+        .radio-label input { accent-color:var(--blue); width:16px; height:16px; }
+        .submit-btn { width:100%; padding:1.1rem; background:linear-gradient(135deg,var(--blue),var(--blue-mid)); color:white; border:none; border-radius:10px; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1rem; text-transform:uppercase; letter-spacing:.5px; cursor:pointer; transition:var(--t); box-shadow:0 6px 20px rgba(0,71,171,.25); margin-top:.5rem; }
+        .submit-btn:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,71,171,.35); }
+        .form-note { font-size:.8rem; color:var(--gray); text-align:center; margin-top:1rem; }
+        .form-success { display:none; background:#E8F5E9; border:1px solid #A5D6A7; border-radius:12px; padding:1.5rem; text-align:center; color:#2E7D32; margin-top:1.2rem; }
+        .form-success i { font-size:2rem; margin-bottom:.5rem; display:block; }
+
+        /* Panel droite */
+        .info-panel { display:flex; flex-direction:column; gap:1.5rem; }
+        .delay-badge { display:flex; align-items:center; gap:1rem; background:linear-gradient(135deg,var(--blue),var(--blue-mid)); border-radius:14px; padding:1.8rem; }
+        .delay-num { font-family:'Montserrat',sans-serif; font-size:3rem; font-weight:900; color:white; line-height:1; flex-shrink:0; }
+        .delay-txt strong { display:block; color:white; font-size:1rem; margin-bottom:.3rem; }
+        .delay-txt p { color:rgba(255,255,255,.8); font-size:.88rem; line-height:1.5; }
+        .info-card { background:white; border-radius:16px; padding:2rem; box-shadow:var(--shadow-sm); }
+        .info-card-title { font-family:'Montserrat',sans-serif; font-size:.9rem; font-weight:900; color:var(--blue-dark); text-transform:uppercase; letter-spacing:.3px; margin-bottom:1.5rem; padding-bottom:.8rem; border-bottom:2px solid var(--cyan); display:inline-block; }
+        .info-list { list-style:none; display:flex; flex-direction:column; gap:.9rem; }
+        .info-list li { display:flex; align-items:flex-start; gap:.9rem; font-size:.92rem; color:var(--gray); line-height:1.65; }
+        .info-list li i { color:var(--blue); font-size:.95rem; margin-top:.18rem; flex-shrink:0; }
+        .info-list a { color:var(--blue-dark); font-weight:600; transition:var(--t); }
+        .info-list a:hover { color:var(--blue); }
+        .hours-grid { display:grid; gap:.7rem; }
+        .hours-row { display:flex; justify-content:space-between; font-size:.9rem; padding-bottom:.7rem; border-bottom:1px solid rgba(0,71,171,.07); }
+        .hours-row:last-child { border-bottom:none; padding-bottom:0; }
+        .hours-day  { color:var(--gray); }
+        .hours-time { color:var(--blue-dark); font-weight:700; }
+        .hours-closed { color:#E53935; font-weight:700; }
+
+        /* ---- FOOTER ---- */
+        footer { background:var(--dark); padding:4rem 0 0; }
+        .footer-content { max-width:1400px; margin:0 auto; padding:0 2rem 3rem; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:3rem; }
+        .footer-section h3 { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:800; color:white; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem; padding-bottom:.8rem; border-bottom:2px solid var(--blue); display:inline-block; }
+        .footer-description { color:rgba(255,255,255,.6); font-size:.95rem; line-height:1.8; margin-bottom:1.5rem; }
+        .social-links { display:flex; gap:.8rem; }
+        .social-link { width:38px; height:38px; background:rgba(255,255,255,.1); border-radius:8px; display:flex; align-items:center; justify-content:center; color:white; font-size:.95rem; transition:var(--t); }
+        .social-link:hover { background:var(--blue); transform:translateY(-3px); }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:.8rem; }
+        .footer-links a { color:rgba(255,255,255,.7); font-size:.95rem; transition:var(--t); }
+        .footer-links a:hover { color:white; padding-left:5px; }
+        .foot-contact { list-style:none; }
+        .foot-contact li { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1rem; color:rgba(255,255,255,.7); font-size:.95rem; }
+        .foot-contact i { color:var(--cyan); font-size:1rem; margin-top:.2rem; }
+        .foot-contact a { color:rgba(255,255,255,.7); transition:var(--t); }
+        .foot-contact a:hover { color:white; }
+        .footer-bottom { max-width:1400px; margin:0 auto; padding:1.5rem 2rem; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+        .footer-bottom p { color:rgba(255,255,255,.6); font-size:.9rem; }
+
+        /* ---- WHATSAPP + SCROLL ---- */
+        .whatsapp-btn { position:fixed; bottom:2rem; left:2rem; width:60px; height:60px; background:#25D366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; box-shadow:0 4px 20px rgba(37,211,102,.4); z-index:998; transition:var(--t); animation:pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4);transform:scale(1);}50%{box-shadow:0 4px 30px rgba(37,211,102,.7);transform:scale(1.05);} }
+        .whatsapp-btn:hover { transform:scale(1.1); }
+        .scroll-top { position:fixed; bottom:2rem; right:2rem; width:50px; height:50px; background:var(--blue); color:white; border:none; border-radius:50%; cursor:pointer; display:none; align-items:center; justify-content:center; font-size:1.5rem; box-shadow:var(--shadow-md); transition:var(--t); z-index:999; }
+        .scroll-top.visible { display:flex; }
+        .scroll-top:hover { transform:translateY(-5px); background:var(--blue-dark); }
+
+        /* ---- REVEAL ---- */
+        .reveal   { opacity:0; transform:translateY(35px);  transition:opacity .7s ease,transform .7s ease; }
+        .reveal-l { opacity:0; transform:translateX(-40px); transition:opacity .7s ease,transform .7s ease; }
+        .reveal-r { opacity:0; transform:translateX(40px);  transition:opacity .7s ease,transform .7s ease; }
+        .reveal.visible,.reveal-l.visible,.reveal-r.visible { opacity:1; transform:translate(0,0); }
+
+         /* ---- SECTION CARTE ---- */
+        .map-section { padding:5rem 0; background:var(--light); }
+        .map-container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        .map-header { margin-bottom:2.5rem; }
+        .map-wrapper {
+            position:relative; border-radius:20px; overflow:hidden;
+            box-shadow:var(--shadow-lg); border:1px solid rgba(0,71,171,.1);
+        }
+        .map-wrapper iframe { display:block; width:100%; }
+        .map-overlay-card {
+            position:absolute; top:1.5rem; left:1.5rem; z-index:10;
+            background:white; border-radius:14px; padding:1.2rem 1.5rem;
+            box-shadow:0 8px 30px rgba(0,0,0,.18);
+            display:flex; align-items:flex-start; gap:1rem;
+            max-width:310px;
+            border-left:4px solid var(--blue);
+        }
+        .moc-icon {
+            width:40px; height:40px; flex-shrink:0;
+            background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+            border-radius:10px; display:flex; align-items:center; justify-content:center;
+            color:white; font-size:1rem;
+        }
+        .moc-title { font-family:'Montserrat',sans-serif; font-size:.85rem; font-weight:900; color:var(--blue-dark); text-transform:uppercase; letter-spacing:.2px; margin-bottom:.2rem; }
+        .moc-addr  { font-size:.82rem; color:var(--gray); margin-bottom:.6rem; }
+        .moc-link  {
+            display:inline-flex; align-items:center; gap:.4rem;
+            font-size:.8rem; font-weight:700; color:var(--blue);
+            text-decoration:none; text-transform:uppercase; letter-spacing:.3px;
+            transition:var(--t);
+        }
+        .moc-link:hover { color:var(--blue-mid); gap:.7rem; }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width:1024px) {
+            .contact-bar-inner { grid-template-columns:1fr 1fr; }
+            .cb-item:nth-child(2) { border-right:none; }
+            .main-container { grid-template-columns:1fr; }
+            .footer-content { grid-template-columns:1fr 1fr; }
+        }
+        @media (max-width:768px) {
+            .hamburger { display:block; }
+            nav { position:fixed; top:70px; left:0; right:0; background:white; padding:2rem; box-shadow:var(--shadow-lg); transform:translateY(-100%); opacity:0; transition:var(--t); pointer-events:none; }
+            nav.open { transform:translateY(0); opacity:1; pointer-events:all; }
+            nav ul { flex-direction:column; gap:1rem; }
+            .contact-bar-inner { grid-template-columns:1fr; }
+            .cb-item { border-right:none; border-bottom:1px solid rgba(0,71,171,.08); }
+            .cb-item:last-child { border-bottom:none; }
+            .form-grid { grid-template-columns:1fr; }
+            .full-width { grid-column:1/2; }
+            .form-card { padding:2rem 1.5rem; }
+            .footer-content { grid-template-columns:1fr; }
+            .footer-bottom { flex-direction:column; text-align:center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+    <div class="loader-inner">
+        <div class="loader-logo">L<span>P</span>A</div>
+        <div class="loader-bar"></div>
+        <div class="loader-text">Laboratoire Privé d'Analyse</div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <a href="/" class="logo page-link">
+            <div class="logo-icon">LPA</div>
+            <span class="logo-text">LPA</span>
+        </a>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="/" class="page-link">Accueil</a></li>
+                <li><a href="about.html" class="page-link">Qui Sommes-Nous ?</a></li>
+                <li><a href="services.html" class="page-link">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-cta">
+            <a href="https://facebook.com/lpa" class="btn-fb" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="tel:+2250787652368" class="btn-contact"><i class="fas fa-phone"></i>&nbsp; Appeler</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-contact">
+    <div class="hero-contact-inner">
+        <div class="breadcrumb-pill">
+            <a href="/" class="page-link">Accueil</a>
+            <span class="sep">&nbsp;|&nbsp;</span>
+            <span>Contact & Devis</span>
+        </div>
+        <h1>Contactez-<br>Nous</h1>
+        <p>Remplissez le formulaire pour obtenir un devis personnalisé. Nous vous répondrons dans les plus brefs délais.</p>
+    </div>
+</section>
+
+<!-- BARRE CONTACT RAPIDE -->
+<div class="contact-bar">
+    <div class="contact-bar-inner">
+        <div class="cb-item">
+            <div class="cb-icon"><i class="fas fa-phone"></i></div>
+            <div>
+                <div class="cb-label">Téléphone</div>
+                <div class="cb-value"><a href="tel:+2250787652368">+225 07 87 65 23 68</a></div>
+            </div>
+        </div>
+        <div class="cb-item">
+            <div class="cb-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+                <div class="cb-label">Email</div>
+                <div class="cb-value"><a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></div>
+            </div>
+        </div>
+        <div class="cb-item">
+            <div class="cb-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+                <div class="cb-label">Localisation</div>
+                <div class="cb-value">Abidjan, Côte d'Ivoire</div>
+            </div>
+        </div>
+        <div class="cb-item">
+            <div class="cb-icon"><i class="fas fa-clock"></i></div>
+            <div>
+                <div class="cb-label">Horaires</div>
+                <div class="cb-value">Lun–Ven : 8h–17h30</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION PRINCIPALE -->
+<section class="main-section">
+    <div class="main-container">
+
+        <!-- FORMULAIRE -->
+        <div class="form-card reveal-l">
+            <h2 class="form-title">Demande de Devis</h2>
+            <p class="form-subtitle">Tous les champs marqués sont obligatoires. Votre demande sera traitée sous 24 à 48 heures ouvrées.</p>
+
+            <form id="contact-form" action="https://formspree.io/f/mdkwozgg" method="POST">
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="company">Entreprise / Organisation *</label>
+                        <input type="text" id="company" name="company" placeholder="Nom de votre entreprise" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Nom & Prénom *</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Téléphone *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+225 xx xx xx xx xx" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="service">Domaine d'Analyse *</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>— Sélectionnez un domaine —</option>
+                            <option value="agroalimentaire">Agro-alimentaire</option>
+                            <option value="chimie">Chimie Industrielle (peinture, plastique, etc.)</option>
+                            <option value="eau">Analyse d'Eau (potabilité, rejets)</option>
+                            <option value="prelevement">Prélèvement seul</option>
+                            <option value="microbiologie">Microbiologie générale</option>
+                            <option value="autre">Autre (précisez dans le message)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Avez-vous déjà un échantillon prêt ?</label>
+                        <div class="radio-wrap">
+                            <label class="radio-label">
+                                <input type="radio" name="sample_status" value="oui">
+                                Oui, l'échantillon est prêt
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="sample_status" value="non">
+                                Non, le prélèvement est à prévoir
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="details">Détails de votre demande *</label>
+                        <textarea id="details" name="details" placeholder="Décrivez le type d'analyse souhaité, la quantité d'échantillons, le degré d'urgence..." required></textarea>
+                    </div>
+
+                    <div class="full-width">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>&nbsp; Envoyer la Demande de Devis
+                        </button>
+                        <p class="form-note"><i class="fas fa-lock"></i>&nbsp; Vos données sont traitées de manière confidentielle et ne sont jamais revendues.</p>
+                        <input type="text" name="_gotcha" style="display:none">
+                    </div>
+
+                </div>
+                <div class="form-success" id="form-success">
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Demande envoyée avec succès !</strong>
+                    <p style="margin-top:.5rem; font-size:.9rem;">Notre équipe vous contactera dans les 24 à 48 heures ouvrées. Merci de votre confiance.</p>
+                </div>
+            </form>
+        </div>
+
+        <!-- PANEL INFOS -->
+        <div class="info-panel reveal-r">
+
+            <div class="delay-badge">
+                <div class="delay-num">48H</div>
+                <div class="delay-txt">
+                    <strong>Délai de réponse garanti</strong>
+                    <p>Nous traitons toutes les demandes de devis dans les 24 à 48 heures ouvrées.</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <span class="info-card-title">Nos Coordonnées</span>
+                <ul class="info-list">
+                    <li><i class="fas fa-map-marker-alt"></i><span>Abidjan, Côte d'Ivoire</span></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+2250787652368">+225 07 87 65 23 68</a></li>
+                    <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/2250787652368" target="_blank">WhatsApp disponible</a></li>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></li>
+                    <li><i class="fas fa-certificate"></i><span>Agrément N° 012-MCI/CAB du 27-01-2021</span></li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <span class="info-card-title">Horaires d'Ouverture</span>
+                <div class="hours-grid">
+                    <div class="hours-row">
+                        <span class="hours-day">Lundi – Vendredi</span>
+                        <span class="hours-time">8h00 – 17h30</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Samedi</span>
+                        <span class="hours-time">8h00 – 12h00</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="hours-day">Dimanche</span>
+                        <span class="hours-closed">Fermé</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <span class="info-card-title">Nos Services</span>
+                <ul class="info-list">
+                    <li><i class="fas fa-seedling"></i><a href="agro-alimentaire.html" class="page-link">Agro-alimentaire</a></li>
+                    <li><i class="fas fa-tint"></i><a href="analyse-eau.html" class="page-link">Analyse de l'Eau</a></li>
+                    <li><i class="fas fa-atom"></i><a href="chimie.html" class="page-link">Chimie Industrielle</a></li>
+                    <li><i class="fas fa-vial"></i><a href="prelevement.html" class="page-link">Prélèvement & Échantillonnage</a></li>
+                    <li><i class="fas fa-microscope"></i><a href="laboratoire.html" class="page-link">Laboratoire Général</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SECTION CARTE -->
+<section class="map-section">
+    <div class="map-container">
+        <div class="map-header reveal">
+            <div class="section-label" style="justify-content:center"><i class="fas fa-map-marker-alt"></i> Localisation</div>
+            <h2 class="section-title" style="text-align:center">Nous Trouver</h2>
+            <p style="text-align:center;color:var(--gray);font-size:.95rem;max-width:500px;margin:0 auto;">Retrouvez-nous à Abidjan, Côte d'Ivoire. Notre laboratoire est accessible du lundi au samedi.</p>
+        </div>
+        <div class="map-wrapper reveal" style="transition-delay:.1s">
+            <div class="map-overlay-card">
+                <div class="moc-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <div class="moc-title">LPA — Laboratoire Privé d'Analyse</div>
+                    <div class="moc-addr">Abidjan, Côte d'Ivoire</div>
+                    <a href="https://maps.google.com/?q=5.441140794538284,-3.986323825876327" target="_blank" class="moc-link">
+                        <i class="fas fa-external-link-alt"></i> Ouvrir dans Google Maps
+                    </a>
+                </div>
+            </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.8407344605175!2d-3.986323825876327!3d5.441140794538284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc193577cf3be4b%3A0xc326e096f18cee96!2sPharmacie%20Biabou%20Mosquee!5e0!3m2!1sfr!2sci!4v1772446454714!5m2!1sfr!2sci"
+                width="100%" height="420"
+                style="border:0;display:block;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Localisation LPA — Abidjan, Côte d'Ivoire">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>LPA</h3>
+            <p class="footer-description">Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. Votre partenaire de confiance pour la conformité et l'excellence.</p>
+            <div class="social-links">
+                <a href="https://facebook.com/lpa" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/lpa" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/lpa" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/lpa" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Liens Rapides</h3>
+            <ul class="footer-links">
+                <li><a href="/" class="page-link">Accueil</a></li>
+                <li><a href="about.html" class="page-link">À Propos</a></li>
+                <li><a href="services.html" class="page-link">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Nos Services</h3>
+            <ul class="footer-links">
+                <li><a href="agro-alimentaire.html" class="page-link">Agroalimentaire</a></li>
+                <li><a href="analyse-eau.html" class="page-link">Analyse de l'Eau</a></li>
+                <li><a href="prelevement.html" class="page-link">Prélèvements</a></li>
+                <li><a href="chimie.html" class="page-link">Chimie Industrielle</a></li>
+                <li><a href="laboratoire.html" class="page-link">Laboratoire Général</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <ul class="foot-contact">
+                <li><i class="fas fa-map-marker-alt"></i><span>Abidjan, Côte d'Ivoire</span></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+2250787652368">+225 07 87 65 23 68</a></li>
+                <li><i class="fas fa-envelope"></i><a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></li>
+                <li><i class="fas fa-clock"></i><span>Lun–Ven : 8h–17h30<br>Sam : 8h–12h</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div>
+            <p>&copy; 2025 LPA — Laboratoire Privé d'Analyse. Tous droits réservés.</p>
+            <p>Agrément N° 012-MCI/CAB du 27-01-2021</p>
+        </div>
+        <div><p>Site développé par <strong>Jonathan N'GUETTIA</strong></p></div>
+    </div>
+</footer>
+
+<a href="https://wa.me/2250787652368" class="whatsapp-btn" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<button class="scroll-top" id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+'use strict';
+const loader = document.getElementById('page-loader');
+window.addEventListener('load', () => { setTimeout(() => loader.classList.add('hide'), 500); });
+document.querySelectorAll('.page-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+        e.preventDefault();
+        loader.classList.remove('hide');
+        const bar = loader.querySelector('.loader-bar');
+        bar.style.animation = 'none'; bar.offsetHeight; bar.style.animation = '';
+        setTimeout(() => { window.location.href = href; }, 650);
+    });
+});
+const hamburger = document.getElementById('hamburger');
+const navMenu   = document.getElementById('nav-menu');
+hamburger.addEventListener('click', function() {
+    navMenu.classList.toggle('open');
+    const icon = this.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+document.querySelectorAll('nav a').forEach(l => {
+    l.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    });
+});
+const scrollTop = document.getElementById('scroll-top');
+scrollTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+window.addEventListener('scroll', () => scrollTop.classList.toggle('visible', window.scrollY > 100));
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+
+// Formspree AJAX submit
+const form = document.getElementById('contact-form');
+const successBox = document.getElementById('form-success');
+form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp; Envoi en cours...';
+    try {
+        const res = await fetch(form.action, {
+            method:'POST', body:new FormData(form), headers:{ Accept:'application/json' }
+        });
+        if (res.ok) {
+            form.reset();
+            successBox.style.display = 'block';
+            btn.innerHTML = '<i class="fas fa-check"></i>&nbsp; Envoyé !';
+            btn.style.background = 'linear-gradient(135deg,#8BC34A,#558B2F)';
+        } else {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i>&nbsp; Envoyer la Demande de Devis';
+            alert('Une erreur est survenue. Veuillez réessayer ou nous appeler directement.');
+        }
+    } catch {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i>&nbsp; Envoyer la Demande de Devis';
+    }
+});
+</script>
+</body>
+</html>

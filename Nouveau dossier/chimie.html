@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chimie Industrielle | LPA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+/* ======================================================= */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Styles Harmonisé)*/
+/* ======================================================= */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0; /* Suppression du padding-top car il n'y a pas de header fixé */
+    background-color: #EBEBEB; /* Fond clair cohérent */
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    background-image: url('');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.container {
+    max-width: 1000px;
+    margin: 50px auto; /* Marge supérieure pour commencer après le haut de la page */
+    padding: 0 25px;
+}
+section {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanc semi-transparent */
+    padding: 50px 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #0378A6; /* Bleu Teal */
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #F22EBE; /* Fuchsia pour les sous-titres de section */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Style pour les blocs d'analyse (grille 2 colonnes) */
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+.service-block {
+    background: #f7f7f7;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 4px solid #F22EBE; /* Bordure Fuchsia */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.service-block h4 {
+    color: #0378A6; /* Bleu Teal */
+    font-size: 1.4rem;
+    margin-top: 0;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+}
+.service-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+.service-block ul li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+    font-size: 1rem;
+}
+.service-block ul li::before {
+    content: "🧪"; /* Puce visuelle pour la chimie */
+    color: #0378A6; 
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* ======================================================= */
+/* LIEN DE RETOUR À L'ACCUEIL (Remplacement du Header)    */
+/* ======================================================= */
+.return-home {
+    display: block;
+    margin: 30px auto 50px auto;
+    width: fit-content;
+    padding: 12px 25px;
+    background-color: #0378A6;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.return-home:hover {
+    background-color: #F22EBE;
+    transform: translateY(-2px);
+}
+/* ======================================================= */
+/* BOUTON D'ACTION (CALL TO ACTION)                       */
+/* ======================================================= */
+.cta-button {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 10px auto;
+    padding: 15px 30px;
+    background-color: #F22EBE; /* Fuchsia */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cta-button:hover {
+    background-color: #9B44F2; /* Violet */
+    transform: translateY(-3px);
+}
+/* ======================================================= */
+/* FOOTER ET BOUTON RETOUR EN HAUT                       */
+/* ======================================================= */
+footer {
+    background-color: #9B44F2; /* Violet */
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 30px;
+}
+#myBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none;
+    background-color: #0378A6; 
+    color: white; 
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+#myBtn:hover {
+    background-color: #F22EBE; 
+}
+
+/* Media Query pour mobile */
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <a href="index.html" class="return-home">← Retour à l'Accueil</a>
+
+            <section id="chimie">
+                <h2>Maîtrise et Performance : L'Expertise Chimique au Cœur de Votre Innovation</h2>
+                <p style="text-align: center; font-size: 1.1rem; color: #555;">
+                    Dans un secteur où la **précision est primordiale**, la qualité de vos produits chimiques ne doit pas être laissée au hasard. **LPA** propose des services d'analyse de pointe pour vous aider à maîtriser la qualité et la performance de vos produits chimiques, manufacturés ou non.
+                </p>
+                
+                <hr>
+
+                <h3>Des Analyses Critiques pour la Chimie Industrielle</h3>
+                
+                <div class="service-grid">
+                    
+                    <div class="service-block">
+                        <h4>Caractérisation de Produits</h4>
+                        <p>Nous déterminons les propriétés physiques et chimiques pour garantir la conformité :</p>
+                        <ul>
+                            <li>Détermination du **pH**, de la Viscosité et de la Densité</li>
+                            <li>Mesure du Point d'Éclair et de la Température de Fusion</li>
+                            <li>Analyse de la Composition Élémentaire</li>
+                            <li>Essais de performance et de stabilité des produits</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-block">
+                        <h4>Contrôle de Conformité et Qualité</h4>
+                        <p>Nos analyses garantissent que vos produits respectent les normes et spécifications techniques :</p>
+                        <ul>
+                            <li>Vérification de la pureté des matières premières</li>
+                            <li>Contrôle de la qualité des **peintures, vernis, et revêtements**</li>
+                            <li>Validation des formules pour l'industrie du **plastique et du caoutchouc**</li>
+                            <li>Application des normes ISO et réglementations en vigueur</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-block">
+                        <h4>Détection et Quantification de Contaminants</h4>
+                        <p>Identification des impuretés qui peuvent compromettre la qualité ou la sécurité :</p>
+                        <ul>
+                            <li>Recherche de **métaux lourds** et autres résidus toxiques</li>
+                            <li>Quantification des COV (Composés Organiques Volatils)</li>
+                            <li>Analyse des solvants et des résidus de production</li>
+                            <li>Utilisation de l'équipement de pointe comme le **Spectrophotomètre DR 1900**</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-block">
+                        <h4>Diagnostic et Optimisation</h4>
+                        <p>Nous vous aidons à améliorer vos processus et à résoudre les problèmes de production :</p>
+                        <ul>
+                            <li>Analyse des défaillances et identification des causes profondes</li>
+                            <li>Optimisation des formulations chimiques</li>
+                            <li>Étude de la durabilité et de la résistance des matériaux</li>
+                            <li>Conseils d'experts pour la certification et le contrôle qualité</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p style="margin-top: 30px; text-align: center; font-style: italic;">
+                    Nous vous aidons à valider vos processus, à optimiser la qualité de vos produits et à respecter les standards les plus exigeants de l'industrie chimique.
+                </p>
+
+                <a href="contact.html" class="cta-button">Je souhaite un Partenariat d'Analyse Chimique</a>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <script>
+    // Récupère le bouton
+    let mybutton = document.getElementById("myBtn");
+
+    // Quand l'utilisateur défile vers le bas de 200px, on montre le bouton
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        // J'ai mis 200px pour une meilleure expérience
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // Quand l'utilisateur clique sur le bouton, on remonte en haut de la page
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+</body>
+</html>

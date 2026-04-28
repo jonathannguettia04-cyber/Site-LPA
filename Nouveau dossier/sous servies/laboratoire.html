@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Laboratoire Général | LPA - Laboratoire Privé d'Analyse</title>
+    <meta name="description" content="Analyses physico-chimiques et microbiologiques complètes. Équipements de pointe. LPA, laboratoire agréé ISO/CEI 17025 en Côte d'Ivoire.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --blue:      #0047AB;
+            --blue-dark: #003A75;
+            --blue-mid:  #0078D4;
+            --cyan:      #00D9FF;
+            --green:     #8BC34A;
+            --dark:      #1A1A2E;
+            --gray:      #4B5563;
+            --light:     #F4F7FB;
+            --white:     #FFFFFF;
+            --shadow-sm: 0 2px 12px rgba(0,71,171,.08);
+            --shadow-md: 0 8px 32px rgba(0,71,171,.13);
+            --shadow-lg: 0 20px 60px rgba(0,71,171,.15);
+            --t:         all .4s cubic-bezier(.4,0,.2,1);
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:80px; }
+        body { font-family:'Inter',sans-serif; background:var(--white); color:var(--dark); line-height:1.7; overflow-x:hidden; }
+        img  { display:block; max-width:100%; }
+        a    { text-decoration:none; }
+
+        /* ---- PAGE LOADER ---- */
+        #page-loader { position:fixed; inset:0; z-index:99999; display:flex; align-items:center; justify-content:center; background:var(--blue-dark); transition:opacity .5s ease,visibility .5s ease; }
+        #page-loader.hide { opacity:0; visibility:hidden; }
+        .loader-inner { display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
+        .loader-logo  { font-family:'Montserrat',sans-serif; font-size:3.5rem; font-weight:900; color:white; letter-spacing:-2px; }
+        .loader-logo span { color:var(--cyan); }
+        .loader-bar   { width:200px; height:3px; background:rgba(255,255,255,.15); border-radius:3px; overflow:hidden; }
+        .loader-bar::after { content:''; display:block; width:0; height:100%; background:linear-gradient(90deg,var(--cyan),var(--blue-mid)); border-radius:3px; animation:loadBar .7s ease forwards; }
+        @keyframes loadBar { to { width:100%; } }
+        .loader-text  { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,.5); }
+
+        /* ---- HEADER ---- */
+        header { position:fixed; top:0; left:0; width:100%; z-index:9999; background:rgba(255,255,255,.96); backdrop-filter:blur(20px); border-bottom:1px solid rgba(0,71,171,.1); box-shadow:var(--shadow-sm); }
+        .header-container { max-width:1400px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+        .logo { display:flex; align-items:center; gap:.8rem; }
+        .logo-icon { width:50px; height:50px; background:linear-gradient(135deg,var(--blue),var(--blue-mid)); border-radius:12px; display:flex; align-items:center; justify-content:center; color:white; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem; }
+        .logo-text  { font-family:'Montserrat',sans-serif; font-size:1.5rem; font-weight:900; color:var(--blue); }
+        nav ul { display:flex; list-style:none; gap:2.5rem; align-items:center; }
+        nav a  { color:var(--dark); font-weight:600; font-size:.95rem; text-transform:uppercase; letter-spacing:.5px; transition:var(--t); }
+        nav a:hover, nav a.active { color:var(--blue); }
+        .header-cta { display:flex; gap:1rem; align-items:center; }
+        .btn-contact { background:var(--green); color:white; padding:.8rem 1.8rem; border-radius:8px; font-weight:700; text-transform:uppercase; font-size:.9rem; letter-spacing:.5px; transition:var(--t); }
+        .btn-contact:hover { background:#7CB342; transform:translateY(-2px); box-shadow:var(--shadow-md); }
+        .btn-fb { width:40px; height:40px; background:#E8EAF6; border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--blue); font-size:1.2rem; transition:var(--t); }
+        .btn-fb:hover { background:var(--blue); color:white; }
+        .hamburger { display:none; background:none; border:none; font-size:1.5rem; color:var(--dark); cursor:pointer; }
+
+        /* ---- HERO ---- */
+        .hero-page { padding-top:80px; min-height:52vh; display:grid; grid-template-columns:1fr 1fr; }
+        .hero-left  { background:var(--white); display:flex; flex-direction:column; justify-content:center; padding:5rem 4rem 5rem 5rem; }
+        .hero-left h1 { font-family:'Montserrat',sans-serif; font-size:clamp(2.5rem,4.8vw,5rem); font-weight:900; color:var(--blue-dark); text-transform:uppercase; line-height:1; letter-spacing:-3px; margin-bottom:2.5rem; }
+        .breadcrumb-pill { display:inline-flex; align-items:center; gap:.8rem; background:white; border:1px solid rgba(0,71,171,.15); box-shadow:var(--shadow-sm); padding:.9rem 1.8rem; border-radius:6px; }
+        .breadcrumb-pill a    { font-weight:800; color:var(--blue); text-transform:uppercase; letter-spacing:.5px; font-size:.9rem; }
+        .breadcrumb-pill .sep { color:var(--blue); font-weight:700; }
+        .breadcrumb-pill span { color:var(--blue); font-weight:700; text-transform:uppercase; letter-spacing:.5px; font-size:.9rem; }
+        .hero-right { position:relative; background:linear-gradient(135deg,#dceeff 0%,#c5e0f8 100%); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+        .hero-right::before { content:''; position:absolute; width:600px; height:600px; background:linear-gradient(135deg,rgba(0,120,212,.15),rgba(0,217,255,.07)); transform:rotate(45deg); top:-180px; left:-100px; }
+        .hero-right::after  { content:''; position:absolute; width:350px; height:350px; background:rgba(0,71,171,.07); transform:rotate(45deg); bottom:-80px; right:-60px; }
+        .diamond-grid { position:relative; z-index:2; width:500px; height:500px; }
+        .diamond-wrap { position:absolute; transform:rotate(45deg); overflow:hidden; border:5px solid white; box-shadow:0 10px 40px rgba(0,0,0,.2); transition:var(--t); }
+        .diamond-wrap:hover { box-shadow:0 16px 50px rgba(0,71,171,.3); }
+        .diamond-wrap img { width:142%; height:142%; object-fit:cover; transform:rotate(-45deg) translate(-21%,-21%); transition:transform .6s ease; }
+        .diamond-wrap:hover img { transform:rotate(-45deg) translate(-21%,-21%) scale(1.08); }
+        .diamond-wrap:nth-child(1) { width:210px; height:210px; top:30px;  left:255px; border-color:var(--blue); }
+        .diamond-wrap:nth-child(2) { width:230px; height:230px; top:145px; left:135px; border-color:var(--cyan); }
+        .diamond-wrap:nth-child(3) { width:170px; height:170px; top:40px;  left:15px;  border-color:white; }
+        .diamond-wrap:nth-child(4) { width:180px; height:180px; top:285px; left:265px; border-color:white; }
+        .hero-dots { position:absolute; bottom:2.5rem; left:2.5rem; z-index:5; display:flex; flex-direction:column; gap:.4rem; }
+        .dots-row  { display:flex; gap:.4rem; }
+        .dot       { width:6px; height:6px; background:rgba(0,71,171,.25); border-radius:50%; }
+        .dot.active{ background:var(--blue); transform:scale(1.4); }
+
+        /* ---- INTRO BANNER ---- */
+        .intro-banner { background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%); padding:4rem 0; }
+        .intro-banner-inner { max-width:1200px; margin:0 auto; padding:0 2rem; display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; }
+        .ib-card { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:2rem 1.8rem; display:flex; align-items:flex-start; gap:1.2rem; transition:var(--t); }
+        .ib-card:hover { background:rgba(255,255,255,.15); transform:translateY(-5px); }
+        .ib-icon { width:52px; height:52px; flex-shrink:0; background:rgba(0,217,255,.18); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--cyan); font-size:1.3rem; }
+        .ib-card h3 { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:800; color:white; text-transform:uppercase; letter-spacing:.3px; margin-bottom:.5rem; }
+        .ib-card p  { font-size:.9rem; color:rgba(255,255,255,.7); line-height:1.75; }
+
+        /* ---- HELPERS ---- */
+        .section-label { display:inline-flex; align-items:center; gap:.5rem; font-size:.85rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--blue-mid); margin-bottom:1rem; }
+        .section-label::before { content:''; display:block; width:30px; height:2px; background:var(--cyan); }
+        .section-title { font-family:'Montserrat',sans-serif; font-size:clamp(1.8rem,3vw,2.6rem); font-weight:900; color:var(--blue-dark); text-transform:uppercase; line-height:1.15; margin-bottom:1.5rem; }
+        .section-text  { font-size:1rem; color:var(--gray); line-height:1.9; margin-bottom:1.2rem; }
+        .section-text strong { color:var(--blue); }
+
+        /* ---- INTRO TEXTE + PHOTO ---- */
+        .intro-section { padding:6rem 0; background:var(--white); }
+        .intro-container { max-width:1200px; margin:0 auto; padding:0 2rem; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+        .photo-bracket { position:relative; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:200px 280px; gap:8px; padding:20px 0 0 30px; }
+        .photo-bracket::before { content:''; position:absolute; top:0; left:0; width:5px; height:130px; background:var(--blue); border-radius:5px; }
+        .photo-bracket::after  { content:''; position:absolute; top:0; left:0; width:130px; height:5px; background:var(--blue); border-radius:5px; }
+        .pb-item { overflow:hidden; border-radius:6px; }
+        .pb-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+        .pb-item:hover img { transform:scale(1.07); }
+        .pb-item.wide { grid-column:1/3; grid-row:2; }
+
+        /* ---- 2 COLONNES D'ANALYSES (physico-chimiques + microbiologiques) ---- */
+        .analyses-section { padding:6rem 0; background:var(--light); }
+        .analyses-container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        .analyses-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem; }
+
+        .analyse-card { background:white; border-radius:16px; padding:2.5rem 2rem; box-shadow:var(--shadow-sm); position:relative; overflow:hidden; transition:var(--t); }
+        .analyse-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--blue),var(--cyan)); transform:scaleX(0); transform-origin:left; transition:transform .4s ease; }
+        .analyse-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-md); }
+        .analyse-card:hover::before { transform:scaleX(1); }
+        .analyse-card:nth-child(2)::before { background:linear-gradient(90deg,#0078D4,#00D9FF); }
+
+        .card-head { display:flex; align-items:center; gap:1rem; margin-bottom:1.8rem; }
+        .card-icon-sq { width:54px; height:54px; background:linear-gradient(135deg,var(--blue),var(--blue-mid)); border-radius:14px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.4rem; flex-shrink:0; }
+        .analyse-card:nth-child(2) .card-icon-sq { background:linear-gradient(135deg,#0078D4,#00D9FF); }
+        .card-head h3 { font-family:'Montserrat',sans-serif; font-size:1.05rem; font-weight:900; color:var(--blue-dark); text-transform:uppercase; letter-spacing:.3px; }
+        .analyse-card > .intro-p { font-size:.95rem; color:var(--gray); line-height:1.8; margin-bottom:1.4rem; font-style:italic; }
+
+        .check-list { list-style:none; }
+        .check-list li { display:flex; align-items:flex-start; gap:.8rem; font-size:.92rem; color:var(--gray); line-height:1.65; padding:.45rem 0; border-bottom:1px solid rgba(0,71,171,.06); }
+        .check-list li:last-child { border-bottom:none; }
+        .check-list li i { color:var(--blue); font-size:.85rem; margin-top:.22rem; flex-shrink:0; }
+        .analyse-card:nth-child(2) .check-list li i { color:#0078D4; }
+
+        /* ---- ÉQUIPEMENTS ---- */
+        .equip-section { padding:6rem 0; background:var(--white); }
+        .equip-container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        .equip-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem; }
+
+        .equip-card { background:var(--light); border-radius:16px; padding:2.5rem 2rem; border:1px solid rgba(0,71,171,.08); transition:var(--t); position:relative; overflow:hidden; }
+        .equip-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--cyan)); }
+        .equip-card:nth-child(2)::after { background:linear-gradient(90deg,#0078D4,#00D9FF); }
+        .equip-card:hover { background:white; box-shadow:var(--shadow-md); transform:translateY(-5px); }
+        .equip-head { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; }
+        .equip-icon { width:52px; height:52px; background:linear-gradient(135deg,var(--blue),var(--blue-mid)); border-radius:13px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.3rem; flex-shrink:0; }
+        .equip-card:nth-child(2) .equip-icon { background:linear-gradient(135deg,#0078D4,#00D9FF); }
+        .equip-head h3 { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:900; color:var(--blue-dark); text-transform:uppercase; letter-spacing:.3px; }
+        .equip-card > p { font-size:.95rem; color:var(--gray); line-height:1.85; }
+
+        /* ---- ACCRÉDITATIONS ---- */
+        .accred-section { padding:5rem 0; background:var(--light); }
+        .accred-container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        .accred-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem; }
+        .accred-card { background:white; border-radius:14px; padding:2rem 1.5rem; text-align:center; box-shadow:var(--shadow-sm); transition:var(--t); }
+        .accred-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); }
+        .accred-icon { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.4rem; margin:0 auto 1rem; }
+        .accred-card:nth-child(1) .accred-icon { background:linear-gradient(135deg,var(--blue),var(--blue-mid)); }
+        .accred-card:nth-child(2) .accred-icon { background:linear-gradient(135deg,#0078D4,#00D9FF); }
+        .accred-card:nth-child(3) .accred-icon { background:linear-gradient(135deg,#8BC34A,#558B2F); }
+        .accred-card:nth-child(4) .accred-icon { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); }
+        .accred-card h4 { font-family:'Montserrat',sans-serif; font-size:.9rem; font-weight:900; color:var(--blue-dark); text-transform:uppercase; letter-spacing:.3px; margin-bottom:.5rem; }
+        .accred-card p  { font-size:.85rem; color:var(--gray); line-height:1.7; }
+
+        /* ---- CTA ---- */
+        .cta-section { background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%); padding:5rem 0; text-align:center; position:relative; overflow:hidden; }
+        .cta-section::before { content:''; position:absolute; width:500px; height:500px; background:rgba(255,255,255,.04); border-radius:50%; top:-200px; right:-100px; }
+        .cta-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; padding:0 2rem; }
+        .cta-inner h2 { font-family:'Montserrat',sans-serif; font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900; color:white; text-transform:uppercase; margin-bottom:1rem; }
+        .cta-inner p  { color:rgba(255,255,255,.75); font-size:1.05rem; margin-bottom:2.5rem; }
+        .cta-btns { display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; }
+        .cta-btn-primary   { background:white; color:var(--blue); padding:1rem 2.5rem; border-radius:8px; font-weight:800; font-size:1rem; text-transform:uppercase; letter-spacing:.5px; transition:var(--t); }
+        .cta-btn-primary:hover { background:var(--light); transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,.2); }
+        .cta-btn-secondary { background:transparent; color:white; padding:1rem 2.5rem; border-radius:8px; font-weight:700; font-size:1rem; text-transform:uppercase; letter-spacing:.5px; border:2px solid rgba(255,255,255,.4); transition:var(--t); }
+        .cta-btn-secondary:hover { background:rgba(255,255,255,.1); border-color:white; transform:translateY(-3px); }
+
+        /* ---- FOOTER ---- */
+        footer { background:var(--dark); padding:4rem 0 0; }
+        .footer-content { max-width:1400px; margin:0 auto; padding:0 2rem 3rem; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:3rem; }
+        .footer-section h3 { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:800; color:white; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem; padding-bottom:.8rem; border-bottom:2px solid var(--blue); display:inline-block; }
+        .footer-description { color:rgba(255,255,255,.6); font-size:.95rem; line-height:1.8; margin-bottom:1.5rem; }
+        .social-links { display:flex; gap:.8rem; }
+        .social-link { width:38px; height:38px; background:rgba(255,255,255,.1); border-radius:8px; display:flex; align-items:center; justify-content:center; color:white; font-size:.95rem; transition:var(--t); }
+        .social-link:hover { background:var(--blue); transform:translateY(-3px); }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:.8rem; }
+        .footer-links a { color:rgba(255,255,255,.7); font-size:.95rem; transition:var(--t); }
+        .footer-links a:hover { color:white; padding-left:5px; }
+        .foot-contact { list-style:none; }
+        .foot-contact li { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1rem; color:rgba(255,255,255,.7); font-size:.95rem; }
+        .foot-contact i { color:var(--cyan); font-size:1rem; margin-top:.2rem; }
+        .foot-contact a { color:rgba(255,255,255,.7); transition:var(--t); }
+        .foot-contact a:hover { color:white; }
+        .footer-bottom { max-width:1400px; margin:0 auto; padding:1.5rem 2rem; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+        .footer-bottom p { color:rgba(255,255,255,.6); font-size:.9rem; }
+
+        /* ---- WHATSAPP + SCROLL ---- */
+        .whatsapp-btn { position:fixed; bottom:2rem; left:2rem; width:60px; height:60px; background:#25D366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; box-shadow:0 4px 20px rgba(37,211,102,.4); z-index:998; transition:var(--t); animation:pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4);transform:scale(1);}50%{box-shadow:0 4px 30px rgba(37,211,102,.7);transform:scale(1.05);} }
+        .whatsapp-btn:hover { transform:scale(1.1); }
+        .scroll-top { position:fixed; bottom:2rem; right:2rem; width:50px; height:50px; background:var(--blue); color:white; border:none; border-radius:50%; cursor:pointer; display:none; align-items:center; justify-content:center; font-size:1.5rem; box-shadow:var(--shadow-md); transition:var(--t); z-index:999; }
+        .scroll-top.visible { display:flex; }
+        .scroll-top:hover { transform:translateY(-5px); background:var(--blue-dark); }
+
+        /* ---- REVEAL ---- */
+        .reveal   { opacity:0; transform:translateY(35px);  transition:opacity .7s ease,transform .7s ease; }
+        .reveal-l { opacity:0; transform:translateX(-40px); transition:opacity .7s ease,transform .7s ease; }
+        .reveal-r { opacity:0; transform:translateX(40px);  transition:opacity .7s ease,transform .7s ease; }
+        .reveal.visible,.reveal-l.visible,.reveal-r.visible { opacity:1; transform:translate(0,0); }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width:1024px) {
+            .hero-page { grid-template-columns:1fr; min-height:auto; }
+            .hero-right { min-height:420px; }
+            .intro-container { grid-template-columns:1fr; gap:3rem; }
+            .analyses-grid-2 { grid-template-columns:1fr; }
+            .equip-grid-2 { grid-template-columns:1fr; }
+            .accred-grid { grid-template-columns:1fr 1fr; }
+            .intro-banner-inner { grid-template-columns:1fr; }
+            .footer-content { grid-template-columns:1fr 1fr; }
+        }
+        @media (max-width:768px) {
+            .hamburger { display:block; }
+            nav { position:fixed; top:70px; left:0; right:0; background:white; padding:2rem; box-shadow:var(--shadow-lg); transform:translateY(-100%); opacity:0; transition:var(--t); pointer-events:none; }
+            nav.open { transform:translateY(0); opacity:1; pointer-events:all; }
+            nav ul { flex-direction:column; gap:1rem; }
+            .hero-left { padding:3rem 2rem; }
+            .diamond-grid { width:310px; height:310px; }
+            .diamond-wrap { border-width:3px; }
+            .diamond-wrap:nth-child(1){width:135px;height:135px;top:20px;left:158px;}
+            .diamond-wrap:nth-child(2){width:148px;height:148px;top:92px;left:82px;}
+            .diamond-wrap:nth-child(3){width:108px;height:108px;top:25px;left:8px;}
+            .diamond-wrap:nth-child(4){width:114px;height:114px;top:180px;left:165px;}
+            .accred-grid { grid-template-columns:1fr 1fr; }
+            .footer-content { grid-template-columns:1fr; }
+            .footer-bottom { flex-direction:column; text-align:center; }
+            .cta-btns { flex-direction:column; align-items:center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+    <div class="loader-inner">
+        <div class="loader-logo">L<span>P</span>A</div>
+        <div class="loader-bar"></div>
+        <div class="loader-text">Laboratoire Privé d'Analyse</div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo page-link">
+            <div class="logo-icon">LPA</div>
+            <span class="logo-text">LPA</span>
+        </a>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="page-link">Accueil</a></li>
+                <li><a href="about.html" class="page-link">Qui Sommes-Nous ?</a></li>
+                <li><a href="services.html" class="page-link active">Services</a></li>
+                <li><a href="contact.html" class="page-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-cta">
+            <a href="https://facebook.com/lpa" class="btn-fb" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="contact.html" class="btn-contact page-link">Contact</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-page">
+    <div class="hero-left">
+        <h1>LABORA-<br>TOIRE<br>GÉNÉRAL</h1>
+        <div class="breadcrumb-pill">
+            <a href="services.html" class="page-link">Services</a>
+            <span class="sep">&nbsp;|&nbsp;</span>
+            <span>Laboratoire</span>
+        </div>
+    </div>
+    <div class="hero-right">
+        <div class="diamond-grid">
+            <div class="diamond-wrap"><img src="lab.webp" alt="Laboratoire LPA"></div>
+            <div class="diamond-wrap"><img src="chimie.webp" alt="Chimie LPA"></div>
+            <div class="diamond-wrap"><img src="Equipe LPA.jpeg" alt="Équipe LPA"></div>
+            <div class="diamond-wrap"><img src="Technicien sur terrain.jpeg" alt="Technicien LPA"></div>
+        </div>
+        <div class="hero-dots">
+            <div class="dots-row"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="dots-row"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="dots-row"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- INTRO BANNER -->
+<section class="intro-banner">
+    <div class="intro-banner-inner">
+        <div class="ib-card reveal">
+            <div class="ib-icon"><i class="fas fa-microscope"></i></div>
+            <div>
+                <h3>Technologie de Pointe</h3>
+                <p>Instruments étalonnés de marques reconnues internationalement pour des résultats précis et reproductibles.</p>
+            </div>
+        </div>
+        <div class="ib-card reveal" style="transition-delay:.08s">
+            <div class="ib-icon"><i class="fas fa-certificate"></i></div>
+            <div>
+                <h3>Méthodes Normalisées</h3>
+                <p>Toutes nos analyses sont réalisées selon les normes ISO, NF et les directives OMS en vigueur.</p>
+            </div>
+        </div>
+        <div class="ib-card reveal" style="transition-delay:.16s">
+            <div class="ib-icon"><i class="fas fa-user-tie"></i></div>
+            <div>
+                <h3>Personnel Certifié</h3>
+                <p>Une équipe de biologistes, chimistes et techniciens spécialisés dédiés à la fiabilité de chaque résultat.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTRO TEXTE -->
+<section class="intro-section">
+    <div class="intro-container">
+
+        <div class="photo-bracket reveal-l">
+            <div class="pb-item"><img src="lab.webp" alt="Laboratoire LPA"></div>
+            <div class="pb-item"><img src="chimie.webp" alt="Analyse chimique"></div>
+            <div class="pb-item wide"><img src="Equipe LPA.jpeg" alt="Équipe LPA au travail"></div>
+        </div>
+
+        <div class="reveal-r">
+            <div class="section-label"><i class="fas fa-flask"></i> Notre laboratoire</div>
+            <h2 class="section-title">L'Excellence au Cœur<br>de Notre Laboratoire</h2>
+            <p class="section-text">
+                Chez LPA, notre laboratoire est le pilier de notre engagement envers la qualité. Il est équipé d'instruments à la <strong>pointe de la technologie</strong> pour garantir la précision et la fiabilité de toutes nos analyses.
+            </p>
+            <p class="section-text">
+                Nous sommes spécialisés dans le <strong>contrôle de la qualité et de la conformité</strong> des produits, des denrées alimentaires et des échantillons environnementaux. Chaque analyse est réalisée dans le strict respect des protocoles ISO.
+            </p>
+            <p class="section-text">
+                Notre mission est d'accompagner nos clients vers la <strong>conformité totale</strong> en fournissant des services certifiés, conformes aux normes nationales et internationales, avec une totale <strong>transparence et intégrité</strong>.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- 2 COLONNES D'ANALYSES -->
+<section class="analyses-section">
+    <div class="analyses-container">
+        <div style="text-align:center" class="reveal">
+            <div class="section-label" style="justify-content:center"><i class="fas fa-flask"></i> Nos prestations détaillées</div>
+            <h2 class="section-title" style="text-align:center">Nos Domaines d'Analyse Détaillés</h2>
+        </div>
+
+        <div class="analyses-grid-2">
+
+            <!-- Physico-chimique -->
+            <div class="analyse-card reveal-l">
+                <div class="card-head">
+                    <div class="card-icon-sq"><i class="fas fa-atom"></i></div>
+                    <h3>Analyses Physico-Chimiques</h3>
+                </div>
+                <p class="intro-p">Mesure des caractéristiques fondamentales des échantillons — eaux, produits, matières premières :</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check-circle"></i>Température, pH (potentiel hydrogène)</li>
+                    <li><i class="fas fa-check-circle"></i>Turbidité (clarté), conductivité (pureté ionique)</li>
+                    <li><i class="fas fa-check-circle"></i>Dureté totale (teneur en calcium et magnésium)</li>
+                    <li><i class="fas fa-check-circle"></i>Métaux lourds (plomb, cadmium, arsenic, etc.)</li>
+                    <li><i class="fas fa-check-circle"></i>Teneur en chlore libre et total, fluorures</li>
+                    <li><i class="fas fa-check-circle"></i>Ammonium, nitrites et nitrates</li>
+                    <li><i class="fas fa-check-circle"></i>Taux d'humidité, matières grasses, protéines, cendres</li>
+                </ul>
+            </div>
+
+            <!-- Microbiologie -->
+            <div class="analyse-card reveal-r">
+                <div class="card-head">
+                    <div class="card-icon-sq"><i class="fas fa-bacteria"></i></div>
+                    <h3>Analyses Microbiologiques</h3>
+                </div>
+                <p class="intro-p">Identification et quantification des micro-organismes pathogènes ou indicateurs de contamination :</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check-circle"></i>Coliformes totaux et fécaux</li>
+                    <li><i class="fas fa-check-circle"></i>Escherichia coli (E. coli)</li>
+                    <li><i class="fas fa-check-circle"></i>Entérocoques intestinaux</li>
+                    <li><i class="fas fa-check-circle"></i>Clostridium perfringens et Bacillus cereus</li>
+                    <li><i class="fas fa-check-circle"></i>Germes aérobies à 22 °C et 36 °C (flore totale)</li>
+                    <li><i class="fas fa-check-circle"></i>Recherche de Salmonella et Listeria</li>
+                    <li><i class="fas fa-check-circle"></i>Staphylocoques pathogènes, levures et moisissures</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ÉQUIPEMENTS -->
+<section class="equip-section">
+    <div class="equip-container">
+        <div style="text-align:center" class="reveal">
+            <div class="section-label" style="justify-content:center"><i class="fas fa-tools"></i> Notre matériel</div>
+            <h2 class="section-title" style="text-align:center">Nos Équipements Clés</h2>
+            <p style="text-align:center; color:var(--gray); font-size:1rem; margin-top:.5rem; font-style:italic;">La fiabilité de nos résultats repose sur des équipements étalonnés de marques reconnues internationalement.</p>
+        </div>
+        <div class="equip-grid-2" style="margin-top:3rem">
+
+            <div class="equip-card reveal-l">
+                <div class="equip-head">
+                    <div class="equip-icon"><i class="fas fa-vial"></i></div>
+                    <h3>Équipements Chimiques</h3>
+                </div>
+                <p>Spectrophotomètre d'absorption atomique (pour les métaux lourds), spectromètre UV-Visible, chromatographes Liquide et Gazeux (HPLC/GC) pour les contaminants organiques, pH-mètres de haute précision, conductimètres et turbidimètres certifiés.</p>
+            </div>
+
+            <div class="equip-card reveal-r">
+                <div class="equip-head">
+                    <div class="equip-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Équipements Microbiologiques</h3>
+                </div>
+                <p>Autoclaves et étuves de culture, hottes à flux laminaire (sécurité et stérilité), compteur de colonies automatique, systèmes de filtration sous vide pour les analyses d'eau, incubateurs à température contrôlée, milieux de culture certifiés.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ACCRÉDITATIONS -->
+<section class="accred-section">
+    <div class="accred-container">
+        <div style="text-align:center" class="reveal">
+            <div class="section-label" style="justify-content:center"><i class="fas fa-award"></i> Gage de qualité</div>
+            <h2 class="section-title" style="text-align:center">Accréditations & Engagements</h2>
+        </div>
+        <div class="accred-grid">
+            <div class="accred-card reveal" style="transition-delay:.05s">
+                <div class="accred-icon"><i class="fas fa-certificate"></i></div>
+                <h4>Agrément 012-MCI/CAB</h4>
+                <p>Agrément officiel délivré par le Ministère du Commerce et de l'Industrie de Côte d'Ivoire depuis 2021.</p>
+            </div>
+            <div class="accred-card reveal" style="transition-delay:.1s">
+                <div class="accred-icon"><i class="fas fa-microscope"></i></div>
+                <h4>ISO / CEI 17025</h4>
+                <p>Conformité aux exigences générales de compétences pour les laboratoires d'étalonnage et d'essais.</p>
+            </div>
+            <div class="accred-card reveal" style="transition-delay:.15s">
+                <div class="accred-icon"><i class="fas fa-globe"></i></div>
+                <h4>Directives OMS 2017</h4>
+                <p>Application des directives de l'Organisation Mondiale de la Santé pour la qualité de l'eau de boisson.</p>
+            </div>
+            <div class="accred-card reveal" style="transition-delay:.2s">
+                <div class="accred-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4>Confidentialité & Éthique</h4>
+                <p>Charte d'impartialité et de confidentialité des résultats. Vos données restent strictement protégées.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-inner reveal">
+        <h2>Besoin d'Analyses Spécialisées ?</h2>
+        <p>Tests personnalisés, développement de méthodes analytiques spécifiques et assistance technique en laboratoire. Contactez-nous pour un plan d'analyses adapté.</p>
+        <div class="cta-btns">
+            <a href="contact.html" class="cta-btn-primary page-link">Demander un Devis</a>
+            <a href="tel:+22507876523 68" class="cta-btn-secondary"><i class="fas fa-phone"></i>&nbsp; +225 07 87 65 23 68</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>LPA</h3>
+            <p class="footer-description">Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. Votre partenaire de confiance pour la conformité et l'excellence.</p>
+            <div class="social-links">
+                <a href="https://facebook.com/lpa" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/lpa" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/lpa" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/lpa" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Liens Rapides</h3>
+            <ul class="footer-links">
+                <li><a href="index.html" class="page-link">Accueil</a></li>
+                <li><a href="about.html" class="page-link">À Propos</a></li>
+                <li><a href="services.html" class="page-link">Services</a></li>
+                <li><a href="contact.html" class="page-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Nos Services</h3>
+            <ul class="footer-links">
+                <li><a href="agro-alimentaire.html" class="page-link">Agroalimentaire</a></li>
+                <li><a href="analyse-eau.html" class="page-link">Analyse de l'Eau</a></li>
+                <li><a href="prelevement.html" class="page-link">Prélèvements</a></li>
+                <li><a href="chimie.html" class="page-link">Chimie Industrielle</a></li>
+                <li><a href="laboratoire.html">Laboratoire Général</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <ul class="foot-contact">
+                <li><i class="fas fa-map-marker-alt"></i><span>Abidjan, Côte d'Ivoire</span></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+22507876523 68">+225 07 87 65 23 68</a></li>
+                <li><i class="fas fa-envelope"></i><a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></li>
+                <li><i class="fas fa-clock"></i><span>Lun–Ven : 8h–17h30<br>Sam : 8h–12h</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div>
+            <p>&copy; 2025 LPA — Laboratoire Privé d'Analyse. Tous droits réservés.</p>
+            <p>Agrément N° 012-MCI/CAB du 27-01-2021</p>
+        </div>
+        <div><p>Site développé par <strong>Jonathan N'GUETTIA</strong></p></div>
+    </div>
+</footer>
+
+<a href="https://wa.me/22507876523 68" class="whatsapp-btn" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<button class="scroll-top" id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+'use strict';
+const loader = document.getElementById('page-loader');
+window.addEventListener('load', () => { setTimeout(() => loader.classList.add('hide'), 500); });
+document.querySelectorAll('.page-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+        e.preventDefault();
+        loader.classList.remove('hide');
+        const bar = loader.querySelector('.loader-bar');
+        bar.style.animation = 'none'; bar.offsetHeight; bar.style.animation = '';
+        setTimeout(() => { window.location.href = href; }, 650);
+    });
+});
+const hamburger = document.getElementById('hamburger');
+const navMenu   = document.getElementById('nav-menu');
+hamburger.addEventListener('click', function() {
+    navMenu.classList.toggle('open');
+    const icon = this.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+document.querySelectorAll('nav a').forEach(l => {
+    l.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    });
+});
+const scrollTop = document.getElementById('scroll-top');
+scrollTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+window.addEventListener('scroll', () => scrollTop.classList.toggle('visible', window.scrollY > 100));
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

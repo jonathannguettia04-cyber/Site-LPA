@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qui Sommes-Nous ? | LPA - Laboratoire Privé d'Analyse Abidjan</title>
+    <meta name="description" content="Découvrez LPA, laboratoire agréé N°012-MCI/CAB en Côte d'Ivoire depuis 2021. Notre mission, notre équipe et nos valeurs.">
+    <meta name="keywords" content="LPA laboratoire Abidjan, équipe LPA, laboratoire agréé Côte d'Ivoire, mission laboratoire analyse">
+    <meta name="author" content="LPA - Laboratoire Privé d'Analyse">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lpa-laboratoire.ci/about">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lpa-laboratoire.ci/about">
+    <meta property="og:title" content="Qui Sommes-Nous ? | LPA Laboratoire Côte d'Ivoire">
+    <meta property="og:description" content="LPA, laboratoire agréé à Abidjan depuis 2021. Notre équipe et notre engagement.">
+    <meta property="og:image" content="https://lpa-laboratoire.ci/Equipe%20LPA.jpeg">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:site_name" content="LPA Laboratoire Privé d'Analyse">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Qui Sommes-Nous ? | LPA Côte d'Ivoire">
+    <meta name="twitter:description" content="LPA, laboratoire agréé à Abidjan. Notre mission : analyses fiables pour votre conformité.">
+    <meta name="twitter:image" content="https://lpa-laboratoire.ci/Equipe%20LPA.jpeg">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+        /* ============================================================
+           VARIABLES & RESET
+        ============================================================ */
+        :root {
+            --blue:       #0047AB;
+            --blue-dark:  #003A75;
+            --blue-mid:   #0078D4;
+            --cyan:       #00D9FF;
+            --green:      #e03fcb;
+            --dark:       #1A1A2E;
+            --gray:       #4B5563;
+            --light:      #F4F7FB;
+            --white:      #FFFFFF;
+            --shadow-sm:  0 2px 12px rgba(0,71,171,.08);
+            --shadow-md:  0 8px 32px rgba(0,71,171,.13);
+            --t:          all .4s cubic-bezier(.4,0,.2,1);
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:80px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        img { display:block; max-width:100%; }
+        a  { text-decoration:none; }
+
+        /* ============================================================
+           PAGE TRANSITION OVERLAY
+        ============================================================ */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue-dark);
+            transition: opacity .5s ease, visibility .5s ease;
+        }
+        #page-loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .loader-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -2px;
+        }
+        .loader-logo span { color: var(--cyan); }
+        .loader-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,.15);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .loader-bar::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyan), var(--blue-mid));
+            border-radius: 3px;
+            animation: loadBar .7s ease forwards;
+        }
+        @keyframes loadBar { to { width: 100%; } }
+        .loader-text {
+            font-size: .8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,.5);
+        }
+
+        /* ============================================================
+           HEADER
+        ============================================================ */
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,71,171,.1);
+            box-shadow: var(--shadow-sm);
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display:flex; align-items:center; gap:.8rem; }
+        .logo-icon {
+            width:50px; height:50px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+            border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            color:white;
+            font-family:'Montserrat',sans-serif;
+            font-weight:900; font-size:1.3rem;
+        }
+        .logo-text {
+            font-family:'Montserrat',sans-serif;
+            font-size:1.5rem; font-weight:900;
+            color:var(--blue);
+        }
+        nav ul { display:flex; list-style:none; gap:2.5rem; align-items:center; }
+        nav a {
+            color:var(--dark); font-weight:600; font-size:.95rem;
+            text-transform:uppercase; letter-spacing:.5px;
+            transition:var(--t);
+        }
+        nav a:hover, nav a.active { color:var(--blue); }
+        .header-cta { display:flex; gap:1rem; align-items:center; }
+        .btn-contact {
+            background:var(--green); color:white;
+            padding:.8rem 1.8rem; border-radius:8px;
+            font-weight:700; text-transform:uppercase;
+            font-size:.9rem; letter-spacing:.5px;
+            transition:var(--t);
+        }
+        .btn-contact:hover { background:#0ac022; transform:translateY(-2px); box-shadow:var(--shadow-md); }
+        .btn-fb {
+            width:40px; height:40px;
+            background:#E8EAF6; border-radius:8px;
+            display:flex; align-items:center; justify-content:center;
+            color:var(--blue); font-size:1.2rem;
+            transition:var(--t);
+        }
+        .btn-fb:hover { background:var(--blue); color:white; }
+        .hamburger { display:none; background:none; border:none; font-size:1.5rem; color:var(--dark); cursor:pointer; }
+
+        /* ============================================================
+           HERO — gauche blanc / droite losanges (Blue Ingénierie style)
+        ============================================================ */
+        .hero-about {
+            padding-top: 80px;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-left {
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem 4rem 5rem 5rem;
+        }
+        .hero-left h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 5.5vw, 5.8rem);
+            font-weight: 900;
+            color: var(--blue-dark);
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 2.5rem;
+        }
+        .breadcrumb-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            background: white;
+            border: 1px solid rgba(0,71,171,.15);
+            box-shadow: var(--shadow-sm);
+            padding: .9rem 1.8rem;
+            border-radius: 6px;
+        }
+        .breadcrumb-pill a {
+            font-weight: 800;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            font-size: .9rem;
+        }
+        .breadcrumb-pill .sep { color: var(--blue); font-weight:700; }
+        .breadcrumb-pill span {
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            font-size: .9rem;
+        }
+
+        /* Droite : losanges */
+        .hero-right {
+            position: relative;
+            background: linear-gradient(135deg, #dceeff 0%, #c5e0f8 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            background: linear-gradient(135deg, rgba(0,120,212,.15), rgba(0,217,255,.07));
+            transform: rotate(45deg);
+            top: -180px; left: -100px;
+        }
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            width: 350px; height: 350px;
+            background: rgba(0,71,171,.07);
+            transform: rotate(45deg);
+            bottom: -80px; right: -60px;
+        }
+
+        .diamond-grid {
+            position: relative;
+            z-index: 2;
+            width: 500px;
+            height: 500px;
+        }
+        .diamond-wrap {
+            position: absolute;
+            transform: rotate(45deg);
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 40px rgba(0,0,0,.2);
+            transition: var(--t);
+        }
+        .diamond-wrap:hover { box-shadow:0 16px 50px rgba(0,71,171,.3); }
+        .diamond-wrap img {
+            width: 142%; height: 142%;
+            object-fit: cover;
+            transform: rotate(-45deg) translate(-21%, -21%);
+            transition: transform .6s ease;
+        }
+        .diamond-wrap:hover img { transform:rotate(-45deg) translate(-21%,-21%) scale(1.08); }
+
+        .diamond-wrap:nth-child(1) { width:210px; height:210px; top:30px;  left:255px; border-color:var(--blue); }
+        .diamond-wrap:nth-child(2) { width:230px; height:230px; top:145px; left:135px; border-color:var(--cyan); }
+        .diamond-wrap:nth-child(3) { width:170px; height:170px; top:40px;  left:15px;  border-color:white; }
+        .diamond-wrap:nth-child(4) { width:180px; height:180px; top:285px; left:265px; border-color:white; }
+
+        .hero-dots {
+            position: absolute;
+            bottom: 2.5rem; left: 2.5rem;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+        .dots-row { display:flex; gap:.4rem; }
+        .dot { width:6px; height:6px; background:rgba(0,71,171,.25); border-radius:50%; }
+        .dot.active { background:var(--blue); transform:scale(1.4); }
+
+        /* ============================================================
+           SECTION "Qui sommes-nous ?"
+           gauche: grille photos + barre verticale bleue
+           droite: titre italique + texte
+        ============================================================ */
+        .qui-section {
+            padding: 7rem 0;
+            background: var(--white);
+        }
+        .qui-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .photo-grid-left {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 185px 280px;
+            gap: 8px;
+            position: relative;
+        }
+        .photo-grid-left::before {
+            content: '';
+            position: absolute;
+            left: -22px; top: 0; bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--blue) 0%, var(--cyan) 100%);
+            border-radius: 5px;
+        }
+        .pg-item { overflow:hidden; border-radius:6px; }
+        .pg-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+        .pg-item:hover img { transform:scale(1.07); }
+        .pg-item.large { grid-column:2/4; grid-row:2; }
+
+        .qui-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.7rem);
+            font-weight: 900;
+            color: var(--blue-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .qui-text h2 em { font-style:italic; color:var(--blue); }
+        .qui-text p { font-size:1rem; color:var(--gray); line-height:1.9; margin-bottom:1.2rem; }
+        .qui-text p strong { color:var(--blue); }
+
+        /* ============================================================
+           SECTION PRÉSENTATION
+           gauche: photos avec bracket L bleu
+           droite: "PRÉSENTATION" + texte + signature DG + logo
+        ============================================================ */
+        .presentation-section {
+            padding: 7rem 0;
+            background: var(--light);
+        }
+        .pres-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 5rem;
+            align-items: flex-start;
+        }
+        .photo-bracket {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 200px 290px;
+            gap: 8px;
+            padding: 20px 0 0 30px;
+        }
+        .photo-bracket::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 5px; height: 130px;
+            background: var(--blue);
+            border-radius: 5px;
+        }
+        .photo-bracket::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 130px; height: 5px;
+            background: var(--blue);
+            border-radius: 5px;
+        }
+        .pb-item { overflow:hidden; border-radius:6px; }
+        .pb-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+        .pb-item:hover img { transform:scale(1.07); }
+        .pb-item.wide { grid-column:1/3; grid-row:2; }
+
+        .pres-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 4.8rem);
+            font-weight: 900;
+            color: var(--blue-dark);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+        .pres-text p { font-size:1rem; color:var(--gray); line-height:1.9; margin-bottom:1.2rem; }
+        .pres-text p strong { color:var(--blue); }
+
+        .dg-signature {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0,71,171,.12);
+        }
+        .dg-avatar {
+            width:56px; height:56px;
+            border-radius:50%;
+            background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+            display:flex; align-items:center; justify-content:center;
+            color:white;
+            font-family:'Montserrat',sans-serif;
+            font-weight:900; font-size:1.1rem;
+            flex-shrink:0;
+        }
+        .dg-info strong { display:block; font-size:1rem; font-weight:800; color:var(--blue-dark); }
+        .dg-sep { width:35px; height:3px; background:var(--blue); margin:4px 0; border-radius:2px; }
+        .dg-info span { font-size:.85rem; color:var(--gray); }
+
+        .pres-logo {
+            display:flex; align-items:center; gap:.8rem;
+            margin-top: 2rem;
+        }
+        .pres-logo-icon {
+            width:44px; height:44px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+            border-radius:10px;
+            display:flex; align-items:center; justify-content:center;
+            color:white;
+            font-family:'Montserrat',sans-serif;
+            font-weight:900; font-size:1.1rem;
+        }
+        .pres-logo-text { font-family:'Montserrat',sans-serif; font-size:1.3rem; font-weight:900; color:var(--blue); }
+        .pres-logo-sub { font-size:.75rem; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:.5px; }
+
+        /* ============================================================
+           SECTION VALEURS
+        ============================================================ */
+        .valeurs-section {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            padding: 6rem 0;
+        }
+        .valeurs-inner { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        .valeurs-header { text-align:center; margin-bottom:4rem; }
+        .valeurs-header h2 {
+            font-family:'Montserrat',sans-serif;
+            font-size:clamp(2rem,4vw,3rem);
+            font-weight:900; color:white;
+            text-transform:uppercase;
+        }
+        .valeurs-header p { color:rgba(255,255,255,.7); font-size:1.05rem; margin-top:.8rem; }
+        .valeurs-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+        .valeur-card {
+            background:rgba(255,255,255,.08);
+            border:1px solid rgba(255,255,255,.12);
+            border-radius:14px; padding:2rem 1.5rem;
+            text-align:center; transition:var(--t);
+        }
+        .valeur-card:hover { background:rgba(255,255,255,.15); transform:translateY(-6px); }
+        .valeur-icon {
+            width:54px; height:54px;
+            background:rgba(0,217,255,.15);
+            border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            color:var(--cyan); font-size:1.4rem;
+            margin:0 auto 1.2rem;
+        }
+        .valeur-card h3 {
+            font-family:'Montserrat',sans-serif;
+            font-size:.95rem; font-weight:800;
+            color:white; text-transform:uppercase;
+            letter-spacing:.5px; margin-bottom:.7rem;
+        }
+        .valeur-card p { font-size:.9rem; color:rgba(255,255,255,.65); line-height:1.75; }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        footer { background:var(--dark); padding:4rem 0 0; }
+        .footer-content {
+            max-width:1400px; margin:0 auto;
+            padding:0 2rem 3rem;
+            display:grid;
+            grid-template-columns:2fr 1fr 1fr 1.5fr;
+            gap:3rem;
+        }
+        .footer-section h3 {
+            font-family:'Montserrat',sans-serif;
+            font-size:1rem; font-weight:800; color:white;
+            text-transform:uppercase; letter-spacing:1px;
+            margin-bottom:1.5rem; padding-bottom:.8rem;
+            border-bottom:2px solid var(--blue);
+            display:inline-block;
+        }
+        .footer-description { color:rgba(255,255,255,.6); font-size:.95rem; line-height:1.8; margin-bottom:1.5rem; }
+        .social-links { display:flex; gap:.8rem; }
+        .social-link {
+            width:38px; height:38px;
+            background:rgba(255,255,255,.1); border-radius:8px;
+            display:flex; align-items:center; justify-content:center;
+            color:white; font-size:.95rem; transition:var(--t);
+        }
+        .social-link:hover { background:var(--blue); transform:translateY(-3px); }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:.8rem; }
+        .footer-links a { color:rgba(255,255,255,.7); font-size:.95rem; transition:var(--t); }
+        .footer-links a:hover { color:white; padding-left:5px; }
+        .foot-contact { list-style:none; }
+        .foot-contact li { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1rem; color:rgba(255,255,255,.7); font-size:.95rem; }
+        .foot-contact i { color:var(--cyan); font-size:1rem; margin-top:.2rem; }
+        .foot-contact a { color:rgba(255,255,255,.7); transition:var(--t); }
+        .foot-contact a:hover { color:white; }
+        .footer-bottom {
+            max-width:1400px; margin:0 auto;
+            padding:1.5rem 2rem;
+            border-top:1px solid rgba(255,255,255,.1);
+            display:flex; justify-content:space-between; align-items:center;
+            flex-wrap:wrap; gap:1rem;
+        }
+        .footer-bottom p { color:rgba(255,255,255,.6); font-size:.9rem; }
+
+        /* ============================================================
+           WHATSAPP + SCROLL TOP
+        ============================================================ */
+        .whatsapp-btn {
+            position:fixed; bottom:2rem; left:2rem;
+            width:60px; height:60px;
+            background:#25D366; color:white;
+            border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-size:2rem;
+            box-shadow:0 4px 20px rgba(37,211,102,.4);
+            z-index:998; transition:var(--t);
+            animation:pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,100% { box-shadow:0 4px 20px rgba(37,211,102,.4); transform:scale(1); }
+            50%      { box-shadow:0 4px 30px rgba(37,211,102,.7); transform:scale(1.05); }
+        }
+        .whatsapp-btn:hover { transform:scale(1.1); }
+        .scroll-top {
+            position:fixed; bottom:2rem; right:2rem;
+            width:50px; height:50px;
+            background:var(--blue); color:white;
+            border:none; border-radius:50%;
+            cursor:pointer;
+            display:none; align-items:center; justify-content:center;
+            font-size:1.5rem;
+            box-shadow:0 8px 30px rgba(0,71,171,.25);
+            transition:var(--t); z-index:999;
+        }
+        .scroll-top.visible { display:flex; }
+        .scroll-top:hover { transform:translateY(-5px); background:var(--blue-dark); }
+
+        /* ============================================================
+           REVEAL ANIMATIONS
+        ============================================================ */
+        .reveal   { opacity:0; transform:translateY(35px);  transition:opacity .7s ease, transform .7s ease; }
+        .reveal-l { opacity:0; transform:translateX(-40px); transition:opacity .7s ease, transform .7s ease; }
+        .reveal-r { opacity:0; transform:translateX(40px);  transition:opacity .7s ease, transform .7s ease; }
+        .reveal.visible, .reveal-l.visible, .reveal-r.visible { opacity:1; transform:translate(0,0); }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width:1024px) {
+            .hero-about { grid-template-columns:1fr; min-height:auto; }
+            .hero-right { min-height:450px; }
+            .qui-container, .pres-container { grid-template-columns:1fr; gap:3rem; }
+            .valeurs-grid { grid-template-columns:1fr 1fr; }
+            .footer-content { grid-template-columns:1fr 1fr; }
+        }
+        @media (max-width:768px) {
+            .hamburger { display:block; }
+            nav {
+                position:fixed; top:70px; left:0; right:0;
+                background:white; padding:2rem;
+                box-shadow:0 20px 60px rgba(0,71,171,.15);
+                transform:translateY(-100%); opacity:0;
+                transition:var(--t); pointer-events:none;
+            }
+            nav.open { transform:translateY(0); opacity:1; pointer-events:all; }
+            nav ul { flex-direction:column; gap:1rem; }
+            .hero-left { padding:3rem 2rem; }
+            .diamond-grid { width:310px; height:310px; }
+            .diamond-wrap { border-width:3px; }
+            .diamond-wrap:nth-child(1) { width:135px; height:135px; top:20px; left:158px; }
+            .diamond-wrap:nth-child(2) { width:148px; height:148px; top:92px; left:82px; }
+            .diamond-wrap:nth-child(3) { width:108px; height:108px; top:25px; left:8px; }
+            .diamond-wrap:nth-child(4) { width:114px; height:114px; top:180px; left:165px; }
+            .valeurs-grid { grid-template-columns:1fr; }
+            .footer-content { grid-template-columns:1fr; }
+            .footer-bottom { flex-direction:column; text-align:center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================================================================
+     PAGE TRANSITION LOADER
+================================================================ -->
+<div id="page-loader">
+    <div class="loader-inner">
+        <div class="loader-logo">L<span>P</span>A</div>
+        <div class="loader-bar"></div>
+        <div class="loader-text">Laboratoire Privé d'Analyse</div>
+    </div>
+</div>
+
+<!-- ================================================================
+     HEADER
+================================================================ -->
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo page-link">
+            <div class="logo-icon">LPA</div>
+            <span class="logo-text">LPA</span>
+        </a>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="page-link">Accueil</a></li>
+                <li><a href="about.html" class="active">Qui Sommes-Nous ?</a></li>
+                <li><a href="services.html" class="page-link">Services</a></li>
+                <li><a href="contact.html" class="page-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-cta">
+            <a href="https://facebook.com/lpa" class="btn-fb" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="contact.html" class="btn-contact page-link">Contact</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- ================================================================
+     HERO SECTION  (gauche : titre  |  droite : losanges de photos)
+================================================================ -->
+<section class="hero-about">
+
+    <div class="hero-left">
+        <h1>QUI<br>SOMMES-<br>NOUS</h1>
+        <div class="breadcrumb-pill">
+            <a href="index.html" class="page-link">LPA</a>
+            <span class="sep">&nbsp;|&nbsp;</span>
+            <span>QUI SOMMES-NOUS</span>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <div class="diamond-grid">
+            <div class="diamond-wrap">
+                <img src="Equipe LPA.jpeg" alt="Équipe LPA">
+            </div>
+            <div class="diamond-wrap">
+                <img src="Technicien sur terrain.jpeg" alt="Techniciens LPA terrain">
+            </div>
+            <div class="diamond-wrap">
+                <img src="Equipe LPA.jpeg" alt="LPA laboratoire">
+            </div>
+        </div>
+        <div class="hero-dots">
+            <div class="dots-row"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="dots-row"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="dots-row"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================================================================
+     SECTION QUI SOMMES-NOUS ?
+================================================================ -->
+<section class="qui-section">
+    <div class="qui-container">
+
+        <div class="photo-grid-left reveal-l">
+            <div class="pg-item"><img src="Technicien sur terrain.jpeg" alt="LPA terrain"></div>
+            <div class="pg-item"><img src="Equipe LPA.jpeg" alt="Équipe LPA"></div>
+            <div class="pg-item" style="grid-column:1; grid-row:2;"><img src="Equipe LPA.jpeg" alt="LPA équipe"></div>
+            <div class="pg-item large"><img src="Technicien sur terrain.jpeg" alt="Techniciens LPA"></div>
+        </div>
+
+        <div class="qui-text reveal-r">
+            <h2><em>Qui sommes-nous ?</em></h2>
+            <p>
+                Créé en <strong>2021</strong>, LPA — Laboratoire Privé d'Analyse — est une entreprise 
+                basée en Côte d'Ivoire, agréée par le Ministère du Commerce et de l'Industrie sous le 
+                <strong>N° 012-MCI/CAB</strong>.
+            </p>
+            <p>
+                Nous réalisons des analyses de contrôle qualité dans plusieurs domaines, notamment 
+                <strong>l'agroalimentaire</strong>, <strong>l'environnement</strong> et les <strong>eaux</strong>. 
+                Notre laboratoire est engagé dans des programmes de contrôle sanitaire et des analyses 
+                de conformité pour les industriels et les collectivités.
+            </p>
+            <p>
+                LPA dispose d'un matériel innovant pour satisfaire les besoins de nos clients.
+                Elle bénéficie d'une expérience reconnue dans les analyses physicochimiques et microbiologiques 
+                et met en œuvre une large gamme de techniques certifiées selon les normes 
+                <strong>ISO/CEI 17025</strong>...
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================================================================
+     SECTION PRÉSENTATION
+================================================================ -->
+<section class="presentation-section">
+    <div class="pres-container">
+
+        <div class="photo-bracket reveal-l">
+            <div class="pb-item"><img src="Technicien sur terrain.jpeg" alt="Technicien LPA"></div>
+            <div class="pb-item"><img src="Equipe LPA.jpeg" alt="Équipe LPA"></div>
+        </div>
+
+        <div class="pres-text reveal-r">
+            <h2>PRÉSENTATION</h2>
+            <p>
+                LPA est spécialisé dans les <strong>analyses physicochimiques et microbiologiques</strong>, 
+                le traitement et la potabilisation des eaux, la désinfection et décontamination, 
+                les prélèvements et l'échantillonnage sur site.
+            </p>
+            <p>
+                Notre laboratoire compte un personnel polyvalent issu de formations scientifiques spécialisées, 
+                qui possède une expertise dans le domaine de l'analyse en eau, de l'agroalimentaire et de 
+                l'environnement. LPA dispose d'un matériel innovant pour satisfaire les besoins de nos 
+                clients partout en Côte d'Ivoire.
+            </p>
+
+            <div class="dg-signature">
+                <div class="dg-avatar">JG</div>
+                <div class="dg-info">
+                    <strong>M. Konan</strong>
+                    <div class="dg-sep"></div>
+                    <span>Directeur Général, LPA</span>
+                </div>
+            </div>
+
+            <div class="pres-logo">
+                <div class="pres-logo-icon">LPA</div>
+                <div>
+                    <div class="pres-logo-text">LPA</div>
+                    <div class="pres-logo-sub">Laboratoire Privé d'Analyse</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================================================================
+     SECTION VALEURS
+================================================================ -->
+<section class="valeurs-section">
+    <div class="valeurs-inner">
+        <div class="valeurs-header reveal">
+            <h2>Nos Valeurs Fondamentales</h2>
+            <p>Les principes qui guident chacune de nos analyses et chacun de nos engagements</p>
+        </div>
+        <div class="valeurs-grid">
+            <div class="valeur-card reveal" style="transition-delay:.05s">
+                <div class="valeur-icon"><i class="fas fa-search"></i></div>
+                <h3>Rigueur</h3>
+                <p>L'exactitude et la précision au cœur de chaque analyse, selon les normes les plus exigeantes.</p>
+            </div>
+            <div class="valeur-card reveal" style="transition-delay:.1s">
+                <div class="valeur-icon"><i class="fas fa-balance-scale"></i></div>
+                <h3>Indépendance</h3>
+                <p>Une impartialité totale dans l'interprétation de nos résultats, garantissant leur fiabilité.</p>
+            </div>
+            <div class="valeur-card reveal" style="transition-delay:.15s">
+                <div class="valeur-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Innovation</h3>
+                <p>Investissement constant dans les nouvelles technologies pour des prestations toujours plus performantes.</p>
+            </div>
+            <div class="valeur-card reveal" style="transition-delay:.2s">
+                <div class="valeur-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Engagement</h3>
+                <p>Un partenariat basé sur la transparence, l'écoute et la réactivité à vos besoins.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>LPA</h3>
+            <p class="footer-description">Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. Votre partenaire de confiance pour la conformité et l'excellence.</p>
+            <div class="social-links">
+                <a href="https://facebook.com/lpa" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/lpa" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/lpa" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/lpa" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Liens Rapides</h3>
+            <ul class="footer-links">
+                <li><a href="index.html" class="page-link">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="services.html" class="page-link">Services</a></li>
+                <li><a href="contact.html" class="page-link">Contact</a></li>
+                <li><a href="certifications.html" class="page-link">Certifications</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Nos Services</h3>
+            <ul class="footer-links">
+                <li><a href="laboratoire.html" class="page-link">Analyses de Laboratoire</a></li>
+                <li><a href="analyse-eau.html" class="page-link">Traitement des Eaux</a></li>
+                <li><a href="prelevement.html" class="page-link">Prélèvements</a></li>
+                <li><a href="expertise.html" class="page-link">Expertise & Conseil</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <ul class="foot-contact">
+                <li><i class="fas fa-map-marker-alt"></i><span>Abidjan, Côte d'Ivoire</span></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+22507876523 68">+225 07 87 65 23 68</a></li>
+                <li><i class="fas fa-envelope"></i><a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></li>
+                <li><i class="fas fa-clock"></i><span>Lun–Ven : 8h–17h30<br>Sam : 8h–12h</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div>
+            <p>&copy; 2025 LPA — Laboratoire Privé d'Analyse. Tous droits réservés.</p>
+            <p>Agrément N° 012-MCI/CAB du 27-01-2021</p>
+        </div>
+        <div>
+            <p><strong></strong></p>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/22507876523 68" class="whatsapp-btn" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<button class="scroll-top" id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- ================================================================
+     JAVASCRIPT
+================================================================ -->
+<script>
+'use strict';
+
+/* ---- PAGE LOADER ---- */
+const loader = document.getElementById('page-loader');
+
+window.addEventListener('load', () => {
+    setTimeout(() => loader.classList.add('hide'), 500);
+});
+
+document.querySelectorAll('.page-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+        e.preventDefault();
+        loader.classList.remove('hide');
+        // Relance l'animation de la barre
+        const bar = loader.querySelector('.loader-bar');
+        bar.style.animation = 'none';
+        bar.offsetHeight; // reflow
+        bar.style.animation = '';
+        setTimeout(() => { window.location.href = href; }, 650);
+    });
+});
+
+/* ---- HAMBURGER ---- */
+const hamburger = document.getElementById('hamburger');
+const navMenu   = document.getElementById('nav-menu');
+hamburger.addEventListener('click', function() {
+    navMenu.classList.toggle('open');
+    const icon = this.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+document.querySelectorAll('nav a').forEach(l => {
+    l.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    });
+});
+
+/* ---- SCROLL TOP ---- */
+const scrollTop = document.getElementById('scroll-top');
+scrollTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+window.addEventListener('scroll', () => scrollTop.classList.toggle('visible', window.scrollY > 100));
+
+/* ---- SCROLL REVEAL ---- */
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services | LPA - Analyses Eau, Agroalimentaire, Microbiologie Abidjan</title>
+    <meta name="description" content="Services LPA : analyses agroalimentaires, chimie industrielle, analyse de l'eau, prélèvements sur site. Laboratoire agréé à Abidjan, Côte d'Ivoire.">
+    <meta name="keywords" content="analyse agroalimentaire Abidjan, analyse eau Côte d'Ivoire, prélèvement eau, chimie industrielle, microbiologie, contrôle qualité laboratoire">
+    <meta name="author" content="LPA - Laboratoire Privé d'Analyse">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lpa-laboratoire.ci/services">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lpa-laboratoire.ci/services">
+    <meta property="og:title" content="Services | LPA Laboratoire Abidjan">
+    <meta property="og:description" content="Analyses agroalimentaires, eau, chimie industrielle, prélèvements. Laboratoire agréé à Abidjan.">
+    <meta property="og:image" content="https://lpa-laboratoire.ci/Equipe%20LPA.jpeg">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:site_name" content="LPA Laboratoire Privé d'Analyse">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nos Services | LPA Laboratoire Côte d'Ivoire">
+    <meta name="twitter:description" content="Analyses eau, agroalimentaire, microbiologie. LPA, votre laboratoire agréé à Abidjan.">
+    <meta name="twitter:image" content="https://lpa-laboratoire.ci/Equipe%20LPA.jpeg">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* ============================================================
+           VARIABLES & RESET
+        ============================================================ */
+        :root {
+            --blue:       #0047AB;
+            --blue-dark:  #003A75;
+            --blue-mid:   #0078D4;
+            --cyan:       #00D9FF;
+            --green:      #22c55e;
+            --dark:       #1A1A2E;
+            --gray:       #4B5563;
+            --light:      #F4F7FB;
+            --white:      #FFFFFF;
+            --shadow-sm:  0 2px 12px rgba(0,71,171,.08);
+            --shadow-md:  0 8px 32px rgba(0,71,171,.13);
+            --shadow-lg:  0 20px 60px rgba(0,71,171,.15);
+            --t:          all .4s cubic-bezier(.4,0,.2,1);
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:80px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        img { display:block; max-width:100%; }
+        a  { text-decoration:none; }
+
+        /* ============================================================
+           PAGE LOADER
+        ============================================================ */
+        #page-loader {
+            position: fixed; inset: 0; z-index: 99999;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--blue-dark);
+            transition: opacity .5s ease, visibility .5s ease;
+        }
+        #page-loader.hide { opacity:0; visibility:hidden; }
+        .loader-inner { display:flex; flex-direction:column; align-items:center; gap:1.5rem; }
+        .loader-logo { font-family:'Montserrat',sans-serif; font-size:3.5rem; font-weight:900; color:white; letter-spacing:-2px; }
+        .loader-logo span { color:var(--cyan); }
+        .loader-bar { width:200px; height:3px; background:rgba(255,255,255,.15); border-radius:3px; overflow:hidden; }
+        .loader-bar::after { content:''; display:block; width:0; height:100%; background:linear-gradient(90deg,var(--cyan),var(--blue-mid)); border-radius:3px; animation:loadBar .7s ease forwards; }
+        @keyframes loadBar { to { width:100%; } }
+        .loader-text { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,.5); }
+
+        /* ============================================================
+           HEADER
+        ============================================================ */
+        header {
+            position: fixed; top:0; left:0; width:100%;
+            z-index: 9999;
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,71,171,.1);
+            box-shadow: var(--shadow-sm);
+        }
+        .header-container {
+            max-width: 1400px; margin:0 auto;
+            padding: 1rem 2rem;
+            display: flex; justify-content:space-between; align-items:center;
+        }
+        .logo { display:flex; align-items:center; gap:.8rem; }
+        .logo-icon {
+            width:50px; height:50px;
+            background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+            border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            color:white; font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.3rem;
+        }
+        .logo-text { font-family:'Montserrat',sans-serif; font-size:1.5rem; font-weight:900; color:var(--blue); }
+        nav ul { display:flex; list-style:none; gap:2.5rem; align-items:center; }
+        nav a { color:var(--dark); font-weight:600; font-size:.95rem; text-transform:uppercase; letter-spacing:.5px; transition:var(--t); }
+        nav a:hover, nav a.active { color:var(--blue); }
+        .header-cta { display:flex; gap:1rem; align-items:center; }
+        .btn-contact {
+            background:var(--green); color:white;
+            padding:.8rem 1.8rem; border-radius:8px;
+            font-weight:700; text-transform:uppercase; font-size:.9rem; letter-spacing:.5px;
+            transition:var(--t);
+        }
+        .btn-contact:hover { background:#0ac022; transform:translateY(-2px); box-shadow:var(--shadow-md); }
+        .btn-fb {
+            width:40px; height:40px; background:#E8EAF6; border-radius:8px;
+            display:flex; align-items:center; justify-content:center;
+            color:var(--blue); font-size:1.2rem; transition:var(--t);
+        }
+        .btn-fb:hover { background:var(--blue); color:white; }
+        .hamburger { display:none; background:none; border:none; font-size:1.5rem; color:var(--dark); cursor:pointer; }
+
+        /* ============================================================
+           HERO — même style que about.html
+        ============================================================ */
+        .hero-page {
+            padding-top: 80px;
+            min-height: 52vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .hero-left {
+            background: var(--white);
+            display: flex; flex-direction:column; justify-content:center;
+            padding: 5rem 4rem 5rem 5rem;
+        }
+        .hero-left h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+            font-weight: 900; color:var(--blue-dark);
+            text-transform: uppercase; line-height:1; letter-spacing:-3px;
+            margin-bottom: 2.5rem;
+        }
+        .breadcrumb-pill {
+            display:inline-flex; align-items:center; gap:.8rem;
+            background:white; border:1px solid rgba(0,71,171,.15);
+            box-shadow:var(--shadow-sm);
+            padding:.9rem 1.8rem; border-radius:6px;
+        }
+        .breadcrumb-pill a { font-weight:800; color:var(--blue); text-transform:uppercase; letter-spacing:.5px; font-size:.9rem; }
+        .breadcrumb-pill .sep { color:var(--blue); font-weight:700; }
+        .breadcrumb-pill span { color:var(--blue); font-weight:700; text-transform:uppercase; letter-spacing:.5px; font-size:.9rem; }
+
+        /* Droite hero — mosaïque de photos */
+        .hero-right {
+            position:relative;
+            background:linear-gradient(135deg,#dceeff 0%,#c5e0f8 100%);
+            overflow:hidden;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .hero-right::before {
+            content:''; position:absolute;
+            width:600px; height:600px;
+            background:linear-gradient(135deg,rgba(0,120,212,.15),rgba(0,217,255,.07));
+            transform:rotate(45deg); top:-180px; left:-100px;
+        }
+        .hero-right::after {
+            content:''; position:absolute;
+            width:350px; height:350px;
+            background:rgba(0,71,171,.07);
+            transform:rotate(45deg); bottom:-80px; right:-60px;
+        }
+        .diamond-grid { position:relative; z-index:2; width:500px; height:500px; }
+        .diamond-wrap {
+            position:absolute; transform:rotate(45deg);
+            overflow:hidden; border:5px solid white;
+            box-shadow:0 10px 40px rgba(0,0,0,.2);
+            transition:var(--t);
+        }
+        .diamond-wrap:hover { box-shadow:0 16px 50px rgba(0,71,171,.3); }
+        .diamond-wrap img { width:142%; height:142%; object-fit:cover; transform:rotate(-45deg) translate(-21%,-21%); transition:transform .6s ease; }
+        .diamond-wrap:hover img { transform:rotate(-45deg) translate(-21%,-21%) scale(1.08); }
+        .diamond-wrap:nth-child(1) { width:210px; height:210px; top:30px;  left:255px; border-color:var(--blue); }
+        .diamond-wrap:nth-child(2) { width:230px; height:230px; top:145px; left:135px; border-color:var(--cyan); }
+        .diamond-wrap:nth-child(3) { width:170px; height:170px; top:40px;  left:15px;  border-color:white; }
+        .diamond-wrap:nth-child(4) { width:180px; height:180px; top:285px; left:265px; border-color:white; }
+        .hero-dots { position:absolute; bottom:2.5rem; left:2.5rem; z-index:5; display:flex; flex-direction:column; gap:.4rem; }
+        .dots-row { display:flex; gap:.4rem; }
+        .dot { width:6px; height:6px; background:rgba(0,71,171,.25); border-radius:50%; }
+        .dot.active { background:var(--blue); transform:scale(1.4); }
+
+        /* ============================================================
+           INTRO — chiffres clés
+        ============================================================ */
+        .intro-section {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+        .intro-container {
+            max-width:1200px; margin:0 auto; padding:0 2rem;
+            display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;
+        }
+        .intro-text .section-label {
+            display:inline-flex; align-items:center; gap:.5rem;
+            font-size:.85rem; font-weight:700; text-transform:uppercase; letter-spacing:2px;
+            color:var(--blue-mid); margin-bottom:1rem;
+        }
+        .intro-text .section-label::before { content:''; display:block; width:30px; height:2px; background:var(--cyan); }
+        .intro-text h2 {
+            font-family:'Montserrat',sans-serif;
+            font-size:clamp(1.8rem,3vw,2.6rem); font-weight:900;
+            color:var(--blue-dark); text-transform:uppercase;
+            line-height:1.15; margin-bottom:1.5rem;
+        }
+        .intro-text p { font-size:1rem; color:var(--gray); line-height:1.9; }
+        .stats-grid {
+            display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;
+        }
+        .stat-card {
+            background:white; border-radius:14px; padding:2rem 1.5rem;
+            box-shadow:var(--shadow-sm);
+            border-top:3px solid var(--blue);
+            text-align:center;
+            transition:var(--t);
+        }
+        .stat-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); }
+        .stat-card:nth-child(2) { border-top-color:var(--cyan); }
+        .stat-card:nth-child(3) { border-top-color:var(--green); }
+        .stat-card:nth-child(4) { border-top-color:var(--blue-mid); }
+        .stat-number {
+            font-family:'Montserrat',sans-serif;
+            font-size:2.4rem; font-weight:900;
+            color:var(--blue); line-height:1;
+        }
+        .stat-card:nth-child(2) .stat-number { color:var(--blue-mid); }
+        .stat-card:nth-child(3) .stat-number { color:var(--green); }
+        .stat-card:nth-child(4) .stat-number { color:var(--blue-dark); }
+        .stat-label { font-size:.8rem; font-weight:700; color:var(--gray); text-transform:uppercase; letter-spacing:.5px; margin-top:.5rem; }
+
+        /* ============================================================
+           GRILLE DE SERVICES
+        ============================================================ */
+        .services-section { padding:6rem 0; background:var(--white); }
+        .services-container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        .section-header { text-align:center; margin-bottom:4rem; }
+        .section-header h2 {
+            font-family:'Montserrat',sans-serif;
+            font-size:clamp(2rem,4vw,3rem); font-weight:900;
+            color:var(--blue-dark); text-transform:uppercase; margin-bottom:.8rem;
+        }
+        .section-header p { font-size:1.05rem; color:var(--gray); max-width:650px; margin:0 auto; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Dernière ligne : 2 cartes centrées */
+        .services-grid .service-card:nth-child(4),
+        .services-grid .service-card:nth-child(5) {
+            grid-column: auto;
+        }
+        /* Centrage de la 2e ligne à 2 cartes */
+        .services-grid-row2 {
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:2rem;
+            max-width:780px;
+            margin:2rem auto 0;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--t);
+            display:flex; flex-direction:column;
+            border: 2px solid transparent;
+            position: relative;
+        }
+        .service-card::before {
+            content:'';
+            position:absolute; top:0; left:0; right:0;
+            height:3px;
+            background:linear-gradient(90deg,var(--blue),var(--cyan));
+            transform:scaleX(0); transform-origin:left;
+            transition:transform .4s ease;
+        }
+        .service-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-md); border-color:rgba(0,71,171,.1); }
+        .service-card:hover::before { transform:scaleX(1); }
+
+        .card-img-wrap {
+            position:relative; overflow:hidden;
+            height:220px;
+        }
+        .card-img-wrap img {
+            width:100%; height:100%; object-fit:cover;
+            transition:transform .6s ease;
+        }
+        .service-card:hover .card-img-wrap img { transform:scale(1.07); }
+
+        /* Badge de numéro */
+        .card-badge {
+            position:absolute; top:1rem; left:1rem;
+            width:38px; height:38px;
+            background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+            border-radius:10px;
+            display:flex; align-items:center; justify-content:center;
+            color:white; font-family:'Montserrat',sans-serif; font-weight:900; font-size:.95rem;
+            box-shadow:0 4px 12px rgba(0,71,171,.3);
+        }
+
+        /* Icône overlay au survol */
+        .card-overlay {
+            position:absolute; inset:0;
+            background:linear-gradient(180deg,transparent 40%,rgba(0,55,130,.7) 100%);
+            display:flex; align-items:flex-end; justify-content:center;
+            padding-bottom:1rem;
+            opacity:0; transition:opacity .4s ease;
+        }
+        .service-card:hover .card-overlay { opacity:1; }
+        .card-overlay span {
+            color:white; font-weight:700; font-size:.9rem;
+            text-transform:uppercase; letter-spacing:1px;
+            display:flex; align-items:center; gap:.5rem;
+        }
+
+        .card-body { padding:1.8rem; flex:1; display:flex; flex-direction:column; }
+        .card-icon-row {
+            display:flex; align-items:center; gap:1rem;
+            margin-bottom:1rem;
+        }
+        .card-icon {
+            width:46px; height:46px;
+            background:linear-gradient(135deg,var(--blue),var(--blue-mid));
+            border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            color:white; font-size:1.2rem; flex-shrink:0;
+        }
+        .card-body h3 {
+            font-family:'Montserrat',sans-serif;
+            font-size:1.1rem; font-weight:900;
+            color:var(--blue-dark); text-transform:uppercase;
+            letter-spacing:.3px;
+        }
+        .card-body p {
+            font-size:.95rem; color:var(--gray);
+            line-height:1.75; flex:1; margin-top:.5rem;
+        }
+        .card-link {
+            display:inline-flex; align-items:center; gap:.5rem;
+            margin-top:1.5rem;
+            color:var(--blue); font-weight:700; font-size:.9rem;
+            text-transform:uppercase; letter-spacing:.5px;
+            transition:var(--t);
+        }
+        .card-link:hover { gap:.9rem; color:var(--blue-dark); }
+        .card-link i { font-size:.8rem; }
+
+        /* couleurs alternées des icônes */
+        .service-card:nth-child(2) .card-icon { background:linear-gradient(135deg,#0078D4,#00D9FF); }
+        .service-card:nth-child(3) .card-icon { background:linear-gradient(135deg,#8BC34A,#558B2F); }
+        .service-card:nth-child(4) .card-icon { background:linear-gradient(135deg,#FF6B35,#E53935); }
+        .service-card:nth-child(5) .card-icon { background:linear-gradient(135deg,#7B1FA2,#AB47BC); }
+        .service-card:nth-child(2) .card-badge { background:linear-gradient(135deg,#0078D4,#00D9FF); }
+        .service-card:nth-child(3) .card-badge { background:linear-gradient(135deg,#8BC34A,#558B2F); }
+        .service-card:nth-child(4) .card-badge { background:linear-gradient(135deg,#FF6B35,#E53935); }
+        .service-card:nth-child(5) .card-badge { background:linear-gradient(135deg,#7B1FA2,#AB47BC); }
+        .service-card:nth-child(2) .card-link { color:#0078D4; }
+        .service-card:nth-child(3) .card-link { color:#558B2F; }
+        .service-card:nth-child(4) .card-link { color:#E53935; }
+        .service-card:nth-child(5) .card-link { color:#7B1FA2; }
+
+        /* ============================================================
+           BANNIÈRE CTA
+        ============================================================ */
+        .cta-section {
+            background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);
+            padding:5rem 0;
+            text-align:center;
+            position:relative; overflow:hidden;
+        }
+        .cta-section::before {
+            content:''; position:absolute;
+            width:500px; height:500px;
+            background:rgba(255,255,255,.04);
+            border-radius:50%; top:-200px; right:-100px;
+        }
+        .cta-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; padding:0 2rem; }
+        .cta-inner h2 {
+            font-family:'Montserrat',sans-serif;
+            font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:900;
+            color:white; text-transform:uppercase; margin-bottom:1rem;
+        }
+        .cta-inner p { color:rgba(255,255,255,.75); font-size:1.05rem; margin-bottom:2.5rem; }
+        .cta-btns { display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; }
+        .cta-btn-primary {
+            background:white; color:var(--blue);
+            padding:1rem 2.5rem; border-radius:8px;
+            font-weight:800; font-size:1rem; text-transform:uppercase; letter-spacing:.5px;
+            transition:var(--t);
+        }
+        .cta-btn-primary:hover { background:var(--light); transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,.2); }
+        .cta-btn-secondary {
+            background:transparent; color:white;
+            padding:1rem 2.5rem; border-radius:8px;
+            font-weight:700; font-size:1rem; text-transform:uppercase; letter-spacing:.5px;
+            border:2px solid rgba(255,255,255,.4);
+            transition:var(--t);
+        }
+        .cta-btn-secondary:hover { background:rgba(255,255,255,.1); border-color:white; transform:translateY(-3px); }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        footer { background:var(--dark); padding:4rem 0 0; }
+        .footer-content {
+            max-width:1400px; margin:0 auto; padding:0 2rem 3rem;
+            display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:3rem;
+        }
+        .footer-section h3 {
+            font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:800;
+            color:white; text-transform:uppercase; letter-spacing:1px;
+            margin-bottom:1.5rem; padding-bottom:.8rem;
+            border-bottom:2px solid var(--blue); display:inline-block;
+        }
+        .footer-description { color:rgba(255,255,255,.6); font-size:.95rem; line-height:1.8; margin-bottom:1.5rem; }
+        .social-links { display:flex; gap:.8rem; }
+        .social-link {
+            width:38px; height:38px; background:rgba(255,255,255,.1);
+            border-radius:8px; display:flex; align-items:center; justify-content:center;
+            color:white; font-size:.95rem; transition:var(--t);
+        }
+        .social-link:hover { background:var(--blue); transform:translateY(-3px); }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:.8rem; }
+        .footer-links a { color:rgba(255,255,255,.7); font-size:.95rem; transition:var(--t); }
+        .footer-links a:hover { color:white; padding-left:5px; }
+        .foot-contact { list-style:none; }
+        .foot-contact li { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1rem; color:rgba(255,255,255,.7); font-size:.95rem; }
+        .foot-contact i { color:var(--cyan); font-size:1rem; margin-top:.2rem; }
+        .foot-contact a { color:rgba(255,255,255,.7); transition:var(--t); }
+        .foot-contact a:hover { color:white; }
+        .footer-bottom {
+            max-width:1400px; margin:0 auto; padding:1.5rem 2rem;
+            border-top:1px solid rgba(255,255,255,.1);
+            display:flex; justify-content:space-between; align-items:center;
+            flex-wrap:wrap; gap:1rem;
+        }
+        .footer-bottom p { color:rgba(255,255,255,.6); font-size:.9rem; }
+
+        /* ============================================================
+           WHATSAPP + SCROLL TOP
+        ============================================================ */
+        .whatsapp-btn {
+            position:fixed; bottom:2rem; left:2rem;
+            width:60px; height:60px; background:#25D366; color:white;
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            font-size:2rem; box-shadow:0 4px 20px rgba(37,211,102,.4);
+            z-index:998; transition:var(--t); animation:pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,100% { box-shadow:0 4px 20px rgba(37,211,102,.4); transform:scale(1); }
+            50%      { box-shadow:0 4px 30px rgba(37,211,102,.7); transform:scale(1.05); }
+        }
+        .whatsapp-btn:hover { transform:scale(1.1); }
+        .scroll-top {
+            position:fixed; bottom:2rem; right:2rem;
+            width:50px; height:50px; background:var(--blue); color:white;
+            border:none; border-radius:50%; cursor:pointer;
+            display:none; align-items:center; justify-content:center;
+            font-size:1.5rem; box-shadow:var(--shadow-md);
+            transition:var(--t); z-index:999;
+        }
+        .scroll-top.visible { display:flex; }
+        .scroll-top:hover { transform:translateY(-5px); background:var(--blue-dark); }
+
+        /* ============================================================
+           REVEAL ANIMATIONS
+        ============================================================ */
+        .reveal   { opacity:0; transform:translateY(35px);  transition:opacity .7s ease,transform .7s ease; }
+        .reveal-l { opacity:0; transform:translateX(-40px); transition:opacity .7s ease,transform .7s ease; }
+        .reveal-r { opacity:0; transform:translateX(40px);  transition:opacity .7s ease,transform .7s ease; }
+        .reveal.visible,.reveal-l.visible,.reveal-r.visible { opacity:1; transform:translate(0,0); }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width:1024px) {
+            .hero-page { grid-template-columns:1fr; min-height:auto; }
+            .hero-right { min-height:420px; }
+            .intro-container { grid-template-columns:1fr; gap:3rem; }
+            .services-grid { grid-template-columns:1fr 1fr; }
+            .footer-content { grid-template-columns:1fr 1fr; }
+        }
+        @media (max-width:768px) {
+            .hamburger { display:block; }
+            nav {
+                position:fixed; top:70px; left:0; right:0;
+                background:white; padding:2rem;
+                box-shadow:var(--shadow-lg);
+                transform:translateY(-100%); opacity:0;
+                transition:var(--t); pointer-events:none;
+            }
+            nav.open { transform:translateY(0); opacity:1; pointer-events:all; }
+            nav ul { flex-direction:column; gap:1rem; }
+            .hero-left { padding:3rem 2rem; }
+            .diamond-grid { width:310px; height:310px; }
+            .diamond-wrap { border-width:3px; }
+            .diamond-wrap:nth-child(1) { width:135px; height:135px; top:20px; left:158px; }
+            .diamond-wrap:nth-child(2) { width:148px; height:148px; top:92px; left:82px; }
+            .diamond-wrap:nth-child(3) { width:108px; height:108px; top:25px; left:8px; }
+            .diamond-wrap:nth-child(4) { width:114px; height:114px; top:180px; left:165px; }
+            .services-grid { grid-template-columns:1fr; }
+            .services-grid-row2 { grid-template-columns:1fr; max-width:100%; }
+            .footer-content { grid-template-columns:1fr; }
+            .footer-bottom { flex-direction:column; text-align:center; }
+            .cta-btns { flex-direction:column; align-items:center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================================================================
+     PAGE LOADER
+================================================================ -->
+<div id="page-loader">
+    <div class="loader-inner">
+        <div class="loader-logo">L<span>P</span>A</div>
+        <div class="loader-bar"></div>
+        <div class="loader-text">Laboratoire Privé d'Analyse</div>
+    </div>
+</div>
+
+<!-- ================================================================
+     HEADER
+================================================================ -->
+<header>
+    <div class="header-container">
+        <a href="/" class="logo page-link">
+            <div class="logo-icon">LPA</div>
+            <span class="logo-text">LPA</span>
+        </a>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="/" class="page-link">Accueil</a></li>
+                <li><a href="about.html" class="page-link">Qui Sommes-Nous ?</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html" class="page-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-cta">
+            <a href="https://facebook.com/lpa" class="btn-fb" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="contact.html" class="btn-contact page-link">Contact</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section class="hero-page">
+    <div class="hero-left">
+        <h1>NOS<br>SERVICES</h1>
+        <div class="breadcrumb-pill">
+            <a href="/" class="page-link">LPA</a>
+            <span class="sep">&nbsp;|&nbsp;</span>
+            <span>NOS SERVICES</span>
+        </div>
+    </div>
+    <div class="hero-right">
+        <div class="diamond-grid">
+            <div class="diamond-wrap"><img src="agroalimentaire.webp" alt="Agroalimentaire"></div>
+            <div class="diamond-wrap"><img src="télécharger.webp" alt="Analyse eau"></div>
+            <div class="diamond-wrap"><img src="chimie.webp" alt="Chimie"></div>
+            <div class="diamond-wrap"><img src="lab.webp" alt="Laboratoire"></div>
+        </div>
+        <div class="hero-dots">
+            <div class="dots-row"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="dots-row"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="dots-row"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     INTRO + CHIFFRES CLÉS
+================================================================ -->
+<section class="intro-section">
+    <div class="intro-container">
+        <div class="intro-text reveal-l">
+            <div class="section-label"><i class="fas fa-flask"></i> Excellence Analytique</div>
+            <h2>Des Services Spécialisés pour Chaque Besoin</h2>
+            <p>Découvrez notre gamme complète d'analyses et de solutions. Chaque service est conçu pour garantir la conformité, la sécurité et la performance dans votre domaine d'activité, selon les normes <strong style="color:var(--blue)">ISO/CEI 17025</strong>.</p>
+        </div>
+        <div class="stats-grid reveal-r">
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Domaines d'expertise</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Clients satisfaits</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">ISO</div>
+                <div class="stat-label">17025 Conforme</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">48H</div>
+                <div class="stat-label">Délai de résultat</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     GRILLE DES SERVICES
+================================================================ -->
+<section class="services-section">
+    <div class="services-container">
+        <div class="section-header reveal">
+            <h2>Notre Gamme de Services</h2>
+            <p>Chaque prestation est réalisée par nos experts certifiés avec un matériel de pointe pour des résultats fiables et rapides.</p>
+        </div>
+
+        <!-- Ligne 1 : 3 cartes -->
+        <div class="services-grid">
+            <a href="agro-alimentaire.html" class="service-card page-link reveal" style="transition-delay:.05s">
+                <div class="card-img-wrap">
+                    <img src="agroalimentaire.webp" alt="Services Agro-alimentaire">
+                    <div class="card-badge">01</div>
+                    <div class="card-overlay"><span><i class="fas fa-arrow-right"></i> Découvrir</span></div>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon-row">
+                        <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                        <h3>Agro-alimentaire</h3>
+                    </div>
+                    <p>Sécurité alimentaire, contrôle des contaminants, vérification des informations nutritionnelles et tests de stabilité.</p>
+                    <span class="card-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <a href="chimie.html" class="service-card page-link reveal" style="transition-delay:.1s">
+                <div class="card-img-wrap">
+                    <img src="chimie.webp" alt="Services Chimie">
+                    <div class="card-badge">02</div>
+                    <div class="card-overlay"><span><i class="fas fa-arrow-right"></i> Découvrir</span></div>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon-row">
+                        <div class="card-icon"><i class="fas fa-atom"></i></div>
+                        <h3>Chimie Industrielle</h3>
+                    </div>
+                    <p>Analyses de pureté, caractérisation de matières premières, contrôle de conformité des produits finis (peintures, plastiques, etc.).</p>
+                    <span class="card-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <a href="analyse-eau.html" class="service-card page-link reveal" style="transition-delay:.15s">
+                <div class="card-img-wrap">
+                    <img src="télécharger.webp" alt="Services Analyse de l'eau">
+                    <div class="card-badge">03</div>
+                    <div class="card-overlay"><span><i class="fas fa-arrow-right"></i> Découvrir</span></div>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon-row">
+                        <div class="card-icon"><i class="fas fa-tint"></i></div>
+                        <h3>Analyse de l'Eau</h3>
+                    </div>
+                    <p>Tests de potabilité, surveillance des rejets industriels, qualité des eaux souterraines et de surface.</p>
+                    <span class="card-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Ligne 2 : 2 cartes centrées -->
+        <div class="services-grid-row2">
+            <a href="prelevement.html" class="service-card page-link reveal" style="transition-delay:.2s">
+                <div class="card-img-wrap">
+                    <img src="prelement.webp" alt="Services Prélèvement">
+                    <div class="card-badge">04</div>
+                    <div class="card-overlay"><span><i class="fas fa-arrow-right"></i> Découvrir</span></div>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon-row">
+                        <div class="card-icon"><i class="fas fa-vial"></i></div>
+                        <h3>Prélèvement & Échantillonnage</h3>
+                    </div>
+                    <p>Service sur site par nos techniciens certifiés : air, eau, sol, produits — pour une fiabilité maximale des analyses.</p>
+                    <span class="card-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <a href="laboratoire.html" class="service-card page-link reveal" style="transition-delay:.25s">
+                <div class="card-img-wrap">
+                    <img src="lab.webp" alt="Services Laboratoire Général">
+                    <div class="card-badge">05</div>
+                    <div class="card-overlay"><span><i class="fas fa-arrow-right"></i> Découvrir</span></div>
+                </div>
+                <div class="card-body">
+                    <div class="card-icon-row">
+                        <div class="card-icon"><i class="fas fa-microscope"></i></div>
+                        <h3>Laboratoire Général</h3>
+                    </div>
+                    <p>Tests personnalisés, développement de méthodes analytiques spécifiques et assistance technique en laboratoire.</p>
+                    <span class="card-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     CTA BANNIÈRE
+================================================================ -->
+<section class="cta-section">
+    <div class="cta-inner reveal">
+        <h2>Besoin d'une Analyse ?</h2>
+        <p>Nos experts sont disponibles pour répondre à toutes vos questions et vous accompagner dans vos démarches de conformité et contrôle qualité.</p>
+        <div class="cta-btns">
+            <a href="contact.html" class="cta-btn-primary page-link">Demander un Devis</a>
+            <a href="tel:+22507876523 68" class="cta-btn-secondary"><i class="fas fa-phone"></i>&nbsp; +225 07 87 65 23 68</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>LPA</h3>
+            <p class="footer-description">Laboratoire agréé, spécialisé en analyses d'eau, agroalimentaires et environnementales. Votre partenaire de confiance pour la conformité et l'excellence.</p>
+            <div class="social-links">
+                <a href="https://facebook.com/lpa" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://linkedin.com/company/lpa" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/lpa" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/lpa" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Liens Rapides</h3>
+            <ul class="footer-links">
+                <li><a href="/" class="page-link">Accueil</a></li>
+                <li><a href="about.html" class="page-link">À Propos</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="page-link">Contact</a></li>
+                <li><a href="certifications.html" class="page-link">Certifications</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Nos Services</h3>
+            <ul class="footer-links">
+                <li><a href="laboratoire.html" class="page-link">Analyses de Laboratoire</a></li>
+                <li><a href="analyse-eau.html" class="page-link">Traitement des Eaux</a></li>
+                <li><a href="prelevement.html" class="page-link">Prélèvements</a></li>
+                <li><a href="expertise.html" class="page-link">Expertise & Conseil</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <ul class="foot-contact">
+                <li><i class="fas fa-map-marker-alt"></i><span>Abidjan, Côte d'Ivoire</span></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+22507876523 68">+225 07 87 65 23 68</a></li>
+                <li><i class="fas fa-envelope"></i><a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></li>
+                <li><i class="fas fa-clock"></i><span>Lun–Ven : 8h–17h30<br>Sam : 8h–12h</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div>
+            <p>&copy; 2025 LPA — Laboratoire Privé d'Analyse. Tous droits réservés.</p>
+            <p>Agrément N° 012-MCI/CAB du 27-01-2021</p>
+        </div>
+        <div>
+            <p> <strong></strong></p>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/22507876523 68" class="whatsapp-btn" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<button class="scroll-top" id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- ================================================================
+     JAVASCRIPT
+================================================================ -->
+<script>
+'use strict';
+
+/* ---- PAGE LOADER ---- */
+const loader = document.getElementById('page-loader');
+window.addEventListener('load', () => { setTimeout(() => loader.classList.add('hide'), 500); });
+document.querySelectorAll('.page-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+        e.preventDefault();
+        loader.classList.remove('hide');
+        const bar = loader.querySelector('.loader-bar');
+        bar.style.animation = 'none'; bar.offsetHeight; bar.style.animation = '';
+        setTimeout(() => { window.location.href = href; }, 650);
+    });
+});
+
+/* ---- HAMBURGER ---- */
+const hamburger = document.getElementById('hamburger');
+const navMenu   = document.getElementById('nav-menu');
+hamburger.addEventListener('click', function() {
+    navMenu.classList.toggle('open');
+    const icon = this.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+document.querySelectorAll('nav a').forEach(l => {
+    l.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    });
+});
+
+/* ---- SCROLL TOP ---- */
+const scrollTop = document.getElementById('scroll-top');
+scrollTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+window.addEventListener('scroll', () => scrollTop.classList.toggle('visible', window.scrollY > 100));
+
+/* ---- SCROLL REVEAL ---- */
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

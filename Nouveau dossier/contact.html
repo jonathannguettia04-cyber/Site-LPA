@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Devis | LPA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+/* ======================================================= */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Thème Bleu Clair)*/
+/* ======================================================= */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 90px; 
+    background-color: #EBEBEB;
+    color: #333;
+    line-height: 1.7; 
+    scroll-behavior: smooth;
+}
+.container {
+    max-width: 1000px; 
+    margin: 30px auto;
+    padding: 0 25px;
+}
+section {
+    background-color: #fff;
+    padding: 50px 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #4F9BCC; /* Nouveau bleu clair */
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+p {
+    font-size: 1.15rem; 
+    line-height: 1.8;
+}
+
+/* ======================================================= */
+/* BANNIÈRE DE CONTACT AVEC ANIMATION (MISE À JOUR)       */
+/* ======================================================= */
+.contact-banner {
+    height: 300px;
+    /* UTILISATION DE L'IMAGE TÉLÉVERSÉE */
+    background-image: url('LPA4.png'); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden; /* Important pour l'effet de zoom */
+    position: relative;
+}
+
+/* Effet de léger zoom/mouvement sur l'image */
+.contact-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit; /* Utilise l'image de la bannière comme fond */
+    background-size: 110%; /* Pour commencer légèrement zoomé */
+    transition: all 0.5s ease-out; /* Transition pour un effet subtil */
+    animation: zoomEffect 30s infinite alternate; /* Animation lente */
+}
+
+/* Overlay pour améliorer la lisibilité si on ajoute du texte (non utilisé ici, mais bonne pratique) */
+.contact-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Léger filtre sombre */
+    border-radius: 10px;
+}
+
+/* Définition de l'animation */
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1);
+        background-position: center 30%;
+    }
+    100% {
+        transform: scale(1.1);
+        background-position: center 70%;
+    }
+}
+
+
+/* ======================================================= */
+/* EN-TÊTE (HEADER) (Styles conservés)                    */
+/* ======================================================= */
+header {
+    background-color: #4F9BCC;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-height: 70px;
+}
+header .logo img { height: 50px; vertical-align: middle; }
+nav { flex-grow: 1; text-align: center; }
+nav ul { list-style: none; margin: 0; padding: 0; display: inline-block; }
+nav ul li { display: inline-block; margin-left: 30px; }
+nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.1rem; padding: 5px 0; position: relative; transition: color 0.3s ease; }
+nav a::after {
+    content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 3px;
+    background-color: #0378A6; transition: width 0.3s ease-in-out; 
+}
+nav a:hover::after, nav a.active::after { width: 100%; }
+nav a:hover { color: #0378A6; }
+.contact-info { display: flex; gap: 20px; align-items: center; margin-left: 40px; }
+.contact-info .contact-link { color: #fff; text-decoration: none; font-size: 1rem; padding: 5px 10px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 5px; transition: background-color 0.3s ease; }
+.contact-info .contact-link:hover { background-color: rgba(255, 255, 255, 0.2); color: #fff; }
+
+/* ======================================================= */
+/* STYLE DU FORMULAIRE DE DEVIS (Styles conservés)        */
+/* ======================================================= */
+.contact-form button { background-color: #0378A6; }
+.contact-form button:hover { background-color: #4F9BCC; transform: translateY(-2px); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px; margin-bottom: 15px; }
+.full-width { grid-column: 1 / 3; }
+.contact-form input:not([type="radio"]), .contact-form textarea, .contact-form select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; transition: border-color 0.3s; }
+.contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: #4F9BCC; outline: none; box-shadow: 0 0 5px rgba(79, 155, 204, 0.5); }
+.contact-form button { color: white; padding: 15px; border: none; border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: bold; transition: background-color 0.3s ease, transform 0.3s ease; width: 100%; }
+.radio-group label { font-weight: normal; color: #555; display: inline-flex; align-items: center; cursor: pointer; }
+.radio-group input[type="radio"] { margin-right: 8px; width: auto; padding: 0; }
+
+/* ======================================================= */
+/* FOOTER DÉTAILLÉ (Styles conservés)                     */
+/* ======================================================= */
+footer { background-color: #0378A6; color: #fff; padding-top: 50px; font-size: 1rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding-bottom: 40px; }
+.footer-col h3 { color: #4F9BCC; font-size: 1.4rem; margin-bottom: 15px; text-align: left; }
+.footer-col p, .footer-col ul { text-align: left; margin: 0; padding: 0; list-style: none; color: #ccc; line-height: 2.0; }
+.footer-col a { color: #fff; text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: #4F9BCC; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; padding: 20px 0; }
+.developer-credit { font-size: 0.9rem; color: #aaa; margin-top: 5px; }
+
+/* ======================================================= */
+/* MEDIA QUERY POUR MOBILE (Styles conservés)             */
+/* ======================================================= */
+@media (max-width: 768px) {
+    body { padding-top: 20px; }
+    header { flex-direction: column; position: static; padding-top: 20px; padding-bottom: 15px; min-height: auto; }
+    nav { width: 100%; margin-top: 10px; margin-bottom: 10px; }
+    nav ul { display: block; text-align: center; }
+    nav ul li { display: block; margin: 5px 0; padding: 5px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    nav ul li:last-child { border-bottom: none; }
+    nav a::after { display: none; }
+    .contact-info { width: 100%; margin-left: 0; flex-direction: column; gap: 8px; }
+    .contact-info .contact-link { width: 90%; text-align: center; margin: 0 auto; }
+    .form-grid { grid-template-columns: 1fr; gap: 15px; }
+    .full-width { grid-column: 1 / 2; }
+    .radio-group { flex-direction: column; gap: 10px !important; }
+    .contact-form button { padding: 15px 10px; }
+    .footer-col h3, .footer-col p, .footer-col ul { text-align: center; }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="LOGO LPA.jpg" alt="Logo de LPA" style="height: 50px;">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="services.html">Nos services</a></li>
+                <li><a href="contact.html" class="active">Demande de devis</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            <a href="tel:+2250787652368" class="contact-link">📞 +225 07 87 65 23 68</a>
+            <a href="mailto:commerciallpa3@gmail.com" class="contact-link">✉️ commerciallpa3@gmail.com</a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            
+            <div class="contact-banner">
+                </div>
+
+            <section id="contact">
+                <h2>Demande de Devis & Contact</h2>
+                <p style="text-align: center; margin-bottom: 40px;">Remplissez le formulaire ci-dessous pour obtenir un devis personnalisé. Nous vous répondrons dans les plus brefs délais.</p>
+
+                <form class="contact-form" action="https://formspree.io/f/mdkwozgg" method="POST">
+                    
+                    <div class="form-grid">
+                        
+                        <div>
+                            <label for="company">Nom de l'Entreprise / Organisation</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div>
+                            <label for="name">Votre Nom et Prénom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email">Email de contact</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+225 xxxx xxxx" required>
+                        </div>
+
+                        <div class="full-width">
+                            <label for="service">Domaine d'Analyse ou Service Requis</label>
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>-- Sélectionnez un domaine --</option>
+                                <option value="agroalimentaire">Agro-alimentaire</option>
+                                <option value="chimie">Chimie Industrielle (peinture, plastique, etc.)</option>
+                                <option value="eau">Analyse d'Eau (Potabilité, Rejets)</option>
+                                <option value="prelevement">Prélèvement seul</option>
+                                <option value="microbiologie">Microbiologie</option>
+                                <option value="autre">Autre (précisez dans le message)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="full-width" style="margin-bottom: 15px;">
+                        <label>Avez-vous déjà un échantillon prêt ?</label>
+                        <div class="radio-group" style="display: flex; gap: 20px;">
+                            <label><input type="radio" name="sample_status" value="oui"> Oui, l'échantillon est prêt.</label>
+                            <label><input type="radio" name="sample_status" value="non"> Non, le prélèvement est à prévoir.</label>
+                        </div>
+                    </div>
+                    
+                    <div class="full-width">
+                        <label for="details">Détails de votre demande (Type d'analyse, quantité, urgence, etc.)</label>
+                        <textarea id="details" name="details" rows="7" required></textarea>
+                    </div>
+                    
+                    <div class="full-width">
+                        <button type="submit">Envoyer la Demande de Devis</button>
+                        <input type="text" name="_gotcha" style="display:none" />
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            
+            <div class="footer-col contact-info-footer">
+                <h3>Contact LPA</h3>
+                <p><strong>Adresse:</strong> Abidjan, Côte d'Ivoire</p>
+                <p><strong>Téléphone:</strong> <a href="tel:+2250787652368">+225 07 87 65 23 68</a></p>
+                <p><strong>Email:</strong> <a href="mailto:commerciallpa3@gmail.com">commerciallpa3@gmail.com</a></p>
+            </div>
+            
+            <div class="footer-col quick-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                    <li><a href="services.html">Nos services</a></li>
+                    <li><a href="contact.html">Demande de devis</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col social-media">
+                <h3>Suivez-nous</h3>
+                <p>
+                    <a href="#" style="margin-right: 15px;">Facebook</a> 
+                    <a href="#">LinkedIn</a>
+                </p>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2025 LPA. Tous droits réservés.</p>
+            <p class="developer-credit">Site développé par Jonathan N'GUETTIA</p>
+        </div>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <script>
+        // Script du bouton de retour en haut (inchangé)
+        let mybutton = document.getElementById("myBtn");
+        window.onscroll = function() { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>

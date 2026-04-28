@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prélèvement | LPA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+/* ======================================================= */
+/* CONFIGURATION GÉNÉRALE & TYPOGRAPHIE (Styles Harmonisé)*/
+/* ======================================================= */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0; /* Suppression du padding-top */
+    background-color: #EBEBEB; /* Fond clair cohérent */
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    /* J'utilise l'image que vous avez fournie */
+    background-image: url('');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.container {
+    max-width: 900px; /* Légèrement plus étroit pour plus d'impact */
+    margin: 50px auto; /* Marge supérieure pour commencer après le haut de la page */
+    padding: 0 25px;
+}
+section {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanc semi-transparent */
+    padding: 50px 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #0378A6; /* Bleu Teal */
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #F22EBE; /* Fuchsia */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Bloc d'informations clés (mise en avant de l'équipement) */
+.key-points {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin: 30px 0;
+    text-align: center;
+}
+.key-point {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #0378A6;
+    border-radius: 8px;
+    background-color: #e6f3f8; /* Très léger fond bleu */
+}
+.key-point strong {
+    display: block;
+    font-size: 1.2rem;
+    color: #0378A6;
+    margin-bottom: 5px;
+}
+/* ======================================================= */
+/* LIEN DE RETOUR À L'ACCUEIL */
+/* ======================================================= */
+.return-home {
+    display: block;
+    margin: 30px auto 50px auto;
+    width: fit-content;
+    padding: 12px 25px;
+    background-color: #0378A6;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.return-home:hover {
+    background-color: #F22EBE;
+    transform: translateY(-2px);
+}
+/* ======================================================= */
+/* BOUTON D'ACTION (CALL TO ACTION) */
+/* ======================================================= */
+.cta-button {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 10px auto;
+    padding: 15px 30px;
+    background-color: #F22EBE; /* Fuchsia */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cta-button:hover {
+    background-color: #9B44F2; /* Violet */
+    transform: translateY(-3px);
+}
+/* ======================================================= */
+/* FOOTER ET BOUTON RETOUR EN HAUT */
+/* ======================================================= */
+footer {
+    background-color: #9B44F2; /* Violet */
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 30px;
+}
+#myBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    z-index: 99; 
+    border: none;
+    outline: none;
+    background-color: #0378A6; 
+    color: white; 
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+#myBtn:hover {
+    background-color: #F22EBE; 
+}
+
+/* Media Query pour mobile */
+@media (max-width: 768px) {
+    .key-points {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <a href="index.html" class="return-home">← Retour à l'Accueil</a>
+
+            <section id="prelevement">
+                <h2>Un Prélèvement Méticuleux pour des Résultats Fiables</h2>
+                <p style="text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                    La qualité d'une analyse commence par la **rigueur du prélèvement**. Chez LPA, nous savons qu'un échantillonnage correct est indispensable pour obtenir des résultats fiables. C'est pourquoi une équipe dédiée se rend directement sur votre site.
+                </p>
+                
+                <hr>
+
+                <h3>Notre Approche : Expertise, Équipement et Planification</h3>
+
+                <p>Notre équipe spécialisée procède aux échantillonnages **selon un planning préalablement établi avec vous**, assurant une intervention qui respecte vos contraintes opérationnelles. Chaque étape, de la collecte au transport, est régie par des **protocoles stricts** pour préserver l'intégrité de l'échantillon.</p>
+
+                <div class="key-points">
+                    <div class="key-point">
+                        <strong>Échantillonnage Sur Site</strong>
+                        <p>Notre équipe se déplace directement dans vos locaux ou sur le terrain pour un prélèvement conforme aux normes.</p>
+                    </div>
+                    <div class="key-point">
+                        <strong>Appareils de Terrain Spécialisés</strong>
+                        <p>Nous utilisons des équipements de pointe comme le **multiparamètre** et le **turbidimètre** pour des mesures immédiates et précises.</p>
+                    </div>
+                    <div class="key-point">
+                        <strong>Transport et Traitement Optimal</strong>
+                        <p>Nos véhicules adaptés garantissent des conditions de transport optimales (chaîne du froid, sécurité) jusqu'à l'arrivée au laboratoire.</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; text-align: center; font-style: italic;">
+                    Nous nous engageons à ce que chaque échantillon soit collecté, transporté et traité avec le plus grand soin pour garantir la **validité de l'ensemble de l'analyse**.
+                </p>
+
+                <a href="contact.html" class="cta-button">Planifier un Prélèvement sur Site</a>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright @2025 LPA. Tous droits réservés.</p>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Retour en haut">↑</button>
+    <script>
+    // Récupère le bouton
+    let mybutton = document.getElementById("myBtn");
+
+    // Quand l'utilisateur défile vers le bas de 200px, on montre le bouton
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        // J'ai mis 200px pour une meilleure expérience
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // Quand l'utilisateur clique sur le bouton, on remonte en haut de la page
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+</body>
+</html>
